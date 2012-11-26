@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  descrip: MyString
+  icon: MyString
+  topic_num: 1
+  member_num: 1
+  orderby: 1
+
+two:
+  name: MyString
+  descrip: MyString
+  icon: MyString
+  topic_num: 1
+  member_num: 1
+  orderby: 1

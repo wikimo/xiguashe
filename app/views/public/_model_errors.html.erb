@@ -1,0 +1,10 @@
+<% if model_errors.errors.any? %>
+  <div class="errors-box">
+    <h4>错误提示：</h4>
+    <ul>
+    <% model_errors.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
