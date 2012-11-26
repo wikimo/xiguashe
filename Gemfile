@@ -21,3 +21,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+#for photos upload
+gem 'paperclip'

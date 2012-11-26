@@ -1,18 +1,20 @@
-<%= form_for @group,:html => {:class => 'form-vertical'} do |f| %>
+<div id="main">
+	<%= form_for @group,:html => {:class => 'form-vertical'} do |f| %>
 
-      <%= render :partial => 'public/model_errors',:locals  => {:model_errors  => @group} %> 
+		<%= render :partial => 'public/model_errors',:locals  => {:model_errors  => @group} %> 
 
-      <div class="control-group">
-        <%= f.label :小组名称%> 
-        <%= f.text_field :name%>
-      </div>
+		<div class="control-group">
+			<%= f.label :小组名称,:class => 'control-label'%> 
+			<div class="controls"><%= f.text_field :name%></div>
+		</div>
 
-      <div class="control-group">
-        <%= f.label :小组描述 %> 
-        <%= f.text_area :descrip ,:cols  =>40,:rows  => 5%>
-      </div>  
+		<div class="control-group">
+			<%= f.label :小组描述,:class => 'control-label' %> 
+			<div class="controls"><%= f.text_area :descrip ,:cols  =>40,:rows  => 5%></div>
+		</div>  
 
-      <div class="btn-group">
-          <%= button_tag "提交",:class=>'btn btn-blue' %>
-      </div> 
-    <% end  %> 
+		<div class="form-actions">
+		  <%= button_tag "提交",:class=>'btn btn-primary' %>
+		</div> 
+	<% end  %>
+</div>
