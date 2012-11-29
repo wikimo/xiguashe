@@ -1,1 +1,18 @@
+*{margin:0;padding:0}
+ul{list-style:none}
+body{}
+
 #main{width:960px;margin: auto}
+
+.groups-box{
+	li{
+		width:200px;
+		padding:10px;
+		border:1px dotted #ccc;
+		float:left;
+		margin:10px;
+		h4{
+			text-align:center;
+		}
+	}
+}

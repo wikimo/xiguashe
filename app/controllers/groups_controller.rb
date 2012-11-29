@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   def index
+    @groups =  Group.find(:all,:conditions =>['state=?',true])
   end
 
   def new

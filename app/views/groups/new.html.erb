@@ -11,7 +11,12 @@
 		<div class="control-group">
 			<%= f.label :小组描述,:class => 'control-label' %> 
 			<div class="controls"><%= f.text_area :descrip ,:cols  =>40,:rows  => 5%></div>
-		</div>  
+		</div>
+
+		<div class="control-group">
+	        <%= f.label :小组图标,:class => 'control-label'  %>  
+	        <div class="controls"><%= f.file_field :icon %></div>
+	     </div> 
 
 		<div class="form-actions">
 		  <%= button_tag "提交",:class=>'btn btn-primary' %>

@@ -11,17 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126091519) do
+ActiveRecord::Schema.define(:version => 20121128082806) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.string   "descrip"
-    t.integer  "topic_num",      :default => 0
-    t.integer  "member_num",     :default => 0
-    t.integer  "orderby",        :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.integer  "topic_num",       :default => 0
+    t.integer  "member_num",      :default => 0
+    t.integer  "orderby",         :default => 0
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "icon_file_name"
+    t.datetime "icon_updated_at"
+    t.boolean  "state",           :default => false
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id",    :default => 0
+    t.string   "username"
+    t.integer  "hit_num",    :default => 0
+    t.integer  "reply_num",  :default => 0
+    t.integer  "state",      :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.string   "email"
+    t.string   "created_ip"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

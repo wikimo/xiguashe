@@ -1,0 +1,17 @@
+<div id="main">
+	<div class="groups-box">
+		<ul>
+		<%@groups.each do |group|%>
+			<li>
+				<%if group.icon.exists? %>
+					<%= image_tag group.icon.url(:original) %>
+				<%else%>
+					<%= image_tag 'no_pic.png' %>
+				<%end%>
+				<h4><%=group.name%></h4>
+
+			</li>
+		<%end%>
+		</ul>
+	</div>
+</div>
