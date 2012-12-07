@@ -9,9 +9,10 @@ class SessionsController < ApplicationController
 
     if @user
       session[:uid] =  @user.id
-      puts 'ok'
+    
+      redirect_to user_path(@user), :notice => t(:login_success)
     else
-      puts 'user info error'
+      redirect_to new_session_path,:notice => t(:login_fail)
     end
   end
 end

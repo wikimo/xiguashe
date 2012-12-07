@@ -8,7 +8,7 @@
 				<%else%>
 					<%= image_tag 'no_pic.png' %>
 				<%end%>
-				<h4><%=group.name%></h4>
+				<h4><%=link_to group.name,"/groups/#{group.id}/topics"%></h4>
 
 			</li>
 		<%end%>

@@ -1,0 +1,30 @@
+<div class="topic-form">
+  <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true,:class => 'form-vertical' })  do |f| %>
+          <% if !@topic.nil? && @topic.errors.any? %>
+            <div class="errors-box">
+              <h4>错误提示：</h4>
+
+              <ul>
+              <% @topic.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          
+          <div class="control-group">
+            <%= f.label :title ,'标题',:class=>'control-label' %>
+            <div class="controls"><%= f.text_field :title,:class => 'txt' %></div>
+          </div>
+          <div class="control-group">
+            <%= f.label :content,'内容',:class=>'control-label' %>
+            <div class="controls"><%= f.text_area :content ,:cols  =>40,:rows  => 10%></div>
+          </div>
+         
+
+          <div class="form-actions">
+            <%= f.submit  '提交',:class=>'btn btn-primary'%>
+          </div>
+  <% end  %>
+  <div class="c"></div>
+</div>

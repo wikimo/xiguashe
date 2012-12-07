@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128082806) do
+ActiveRecord::Schema.define(:version => 20121207071215) do
+
+  create_table "group_users", :force => true do |t|
+    t.integer  "group_id",   :default => 0
+    t.integer  "user_id",    :default => 0
+    t.integer  "level",      :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -34,8 +42,10 @@ ActiveRecord::Schema.define(:version => 20121128082806) do
     t.integer  "hit_num",    :default => 0
     t.integer  "reply_num",  :default => 0
     t.integer  "state",      :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "group_id",   :default => 0
+    t.string   "ip",         :default => ""
   end
 
   create_table "users", :force => true do |t|
