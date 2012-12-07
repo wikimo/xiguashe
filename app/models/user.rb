@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	
+	validates_confirmation_of :password
+	
 	def password
 	    @password
 	  end

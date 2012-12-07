@@ -1,6 +1,8 @@
 Xiguashe::Application.routes.draw do
 
   get "topics/new"
+  
+  get "reg"  => "users#new",            :as => "reg"
 
   resources :sessions
 

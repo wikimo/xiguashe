@@ -16,7 +16,12 @@
 		<div class="control-group">
 	        <%= f.label :小组图标,:class => 'control-label'  %>  
 	        <div class="controls"><%= f.file_field :icon %></div>
-	     </div> 
+	    </div>
+
+	    <div class="control-group">
+			<%= f.label :小组创建者,:class => 'control-label' %>
+			<div class="controls"><%= text_field_tag :creater,current_user.username %></div>
+		</div> 
 
 		<div class="form-actions">
 		  <%= button_tag "提交",:class=>'btn btn-primary' %>
