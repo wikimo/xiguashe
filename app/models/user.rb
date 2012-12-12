@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+	
+	has_many :group_users, :dependent => :destroy
+	has_many :groups,      :through => :group_users
+	has_many :topics,      :dependent => :destroy
+	has_many :comments,    :dependent => :destroy
+
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	
 	validates_confirmation_of :password

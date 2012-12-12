@@ -1,3 +1,27 @@
-<%=@topic.title%>
 
-<%=@topic.content%>
+<p class="lead">
+	<%=@topic.title%>
+</p>
+
+<p>
+	<%=@topic.content%>
+</p>
+
+<hr>
+
+<p class="lead">共收到<%= @topic.comments.size %>评论</p>
+
+<hr>
+
+<% if @comments.size > 0 %>
+	<% @comments.each do |comment| %>
+		<%= render 'comments/comments', :c => comment %>
+	<% end -%>
+<% end -%>
+
+
+<%= render 'comments/new_comment', :item => @topic %>
+
+
+
+

@@ -40,5 +40,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic =  Topic.find params[:id]
+
+		@comments = @topic.comments
 	end
 end
