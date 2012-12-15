@@ -1,6 +1,5 @@
 <%= link_to '发表新话题' ,new_group_topic_path,:class  => 'btn'%>
 
-
 <table class="table">
 	<tr>
 	  <th >标题</th>
@@ -11,7 +10,7 @@
 	<% @topics.each do |topic| %>
 	<tr>
 	  <td><%= link_to topic.title ,topic_path(topic)%></td>
-	  <td></td>
+	  <td><%= topic.username %></td>
 	  <td><%= topic.reply_num %></td>
 	  <td class="tar"><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
 	</tr>

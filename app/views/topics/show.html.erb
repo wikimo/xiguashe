@@ -13,6 +13,10 @@
 
 <hr>
 
+<div class="alert alert-success">
+    <%=flash[:notice]%>
+</div>
+
 <% if @comments.size > 0 %>
 	<% @comments.each do |comment| %>
 		<%= render 'comments/comments', :c => comment %>

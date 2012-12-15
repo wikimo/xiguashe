@@ -22,19 +22,19 @@ class TopicsController < ApplicationController
 
 		params[:topic][:content] = params[:topic][:content].gsub(/\r\n/,"<br/>")
 		@topic = @group.topics.create(params[:topic])
-	@topic.ip =  request.ip
+		@topic.ip =  request.ip
 
-	if @topic.save
-	  #update_photos(params[:photo_id],@topic)
-	  
-	  #@topic.user.timeline(@topic)
+		if @topic.save
+		  #update_photos(params[:photo_id],@topic)
+		  
+		  #@topic.user.timeline(@topic)
 
-	  @group.update_attributes({:topic_num  => @group.topic_num + 1})
-	  #current_user.update_attributes({:today_topic_num => current_user.today_topic_num + 1})
-	  redirect_to topic_path(@topic), :notice  => 'create_topic_success'
-	else
-	  render  'new'
-	end
+		  @group.update_attributes({:topic_num  => @group.topic_num + 1})
+		  #current_user.update_attributes({:today_topic_num => current_user.today_topic_num + 1})
+		  redirect_to topic_path(@topic), :notice  => 'create_topic_success'
+		else
+		  render  'new'
+		end
 
 	end
 
@@ -43,4 +43,5 @@ class TopicsController < ApplicationController
 
 		@comments = @topic.comments
 	end
+
 end

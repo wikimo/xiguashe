@@ -18,9 +18,11 @@
           </div>
           <div class="control-group">
             <%= f.label :content,'内容',:class=>'control-label' %>
-            <div class="controls"><%= f.text_area :content ,:cols  =>40,:rows  => 10%></div>
+            <div class="controls"><%= f.text_area :content, :class => 'span10', :rows  => 10 %></div>
           </div>
          
+          <%= f.hidden_field :user_id,  :value => current_user.id %>
+          <%= f.hidden_field :username, :value => current_user.username %>
 
           <div class="form-actions">
             <%= f.submit  '提交',:class=>'btn btn-primary'%>

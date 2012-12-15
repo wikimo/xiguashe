@@ -12,7 +12,9 @@
 				<p>
 			<% end -%>
 
+			<% if current_user %>
 			<a href="javascript:void(0)" id="<%= c.id %>" onclick="display(this)">回应</a>
+			<% end -%>
 
 			<div style="display:none" class="new-reply" id="<%= c.id %>_cell_new_reply">
 				<%= render 'comments/new_reply', :item => c %>

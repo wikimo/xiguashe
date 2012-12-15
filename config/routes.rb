@@ -1,5 +1,7 @@
 Xiguashe::Application.routes.draw do
 
+  match "/search" => "search#index",           :as => :search
+
   get "topics/new"
   
   get "reg"  => "users#new",            :as => "reg"
@@ -13,6 +15,7 @@ Xiguashe::Application.routes.draw do
   end  
 
   resources :topics do
+    
     resources :comments
   end
 
