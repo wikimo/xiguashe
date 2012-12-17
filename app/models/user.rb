@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
 		end
 	end	
 
+	def groups
+		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
+    	
+    	Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
+  	end
+
 	private
 	    def generate_password(pass)
 	      salt = Array.new(10){rand(1024).to_s(36)}.join

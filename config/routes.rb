@@ -1,16 +1,20 @@
 Xiguashe::Application.routes.draw do
 
-  match "/search" => "search#index",           :as => :search
-
   get "topics/new"
   
-  get "reg"  => "users#new",            :as => "reg"
+  get "reg"  => "users#new",                   :as => "reg"
+  get "quit" => "sessions#destroy",            :as => "quit"
+  get "login" => "sessions#new",               :as => 'login'
+  match "/search" => "search#index",           :as => :search
 
   resources :sessions
 
   resources :users
 
   resources :groups do
+    member do
+      get :join, :leave 
+    end
     resources :topics
   end  
 

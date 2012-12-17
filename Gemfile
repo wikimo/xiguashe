@@ -25,6 +25,12 @@ gem 'jquery-rails'
 #for photos upload
 gem 'paperclip'
 
+gem 'sunspot_rails', '~> 1.3.3'
+gem 'sunspot_solr', '1.3.2'
+gem 'sunspot'
+gem 'progress_bar'
+
+
 #for page
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'

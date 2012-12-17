@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   	@user.created_ip =  request.ip
   	if @user.save
   		session[:uid] = @user.id
-  		redirect_to @user, :notic => t(:sign_up_success)
+  		redirect_to groups_path, :notic => t(:sign_up_success)
   	else
   		render 'new'
   	end

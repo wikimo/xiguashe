@@ -24,5 +24,25 @@ class GroupsController < ApplicationController
   end
 
 
+  def join
+    @group = Group.find(params[:id])
+
+    GroupUser.create(:group_id => @group.id, :user_id => current_user.id, :level => 0)
+
+    @group.update_attributes({:member_num => @group.member_num + 1})
+
+    redirect_to group_topics_path(@group)
+  end
+
+  def leave
+    @group = Group.find(params[:id])
+
+    GroupUser.find_by_group_id_and_user_id(params[:id], current_user.id).destroy
+
+    @group.update_attributes({:member_num => @group.member_num - 1}) if @group.member_num > 0
+    
+    redirect_to group_topics_path(@group)
+  end
+
 
 end

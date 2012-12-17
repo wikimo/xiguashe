@@ -1,19 +1,46 @@
-<%= link_to '发表新话题' ,new_group_topic_path,:class  => 'btn'%>
 
-<table class="table">
-	<tr>
-	  <th >标题</th>
-	  <th width="80">作者</th>
-	  <th width="50">回复</th>
-	  <th width="150" class="tar">发布时间</th>
-	</tr>
-	<% @topics.each do |topic| %>
-	<tr>
-	  <td><%= link_to topic.title ,topic_path(topic)%></td>
-	  <td><%= topic.username %></td>
-	  <td><%= topic.reply_num %></td>
-	  <td class="tar"><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
-	</tr>
-	<% end %>
-</table>
-<%= will_paginate @topics, :previous_label =>'上一页', :next_label => '下一页' %>
+<div class="row">
+	
+  	<div class="span7">
+  		<%= link_to '发表新话题' ,new_group_topic_path,:class  => 'btn'%>
+
+		<table class="table">
+			<tr>
+			  <th >标题</th>
+			  <th width="80">作者</th>
+			  <th width="50">回复</th>
+			  <th width="150" class="tar">发布时间</th>
+			</tr>
+			<% @topics.each do |topic| %>
+			<tr>
+			  <td><%= link_to topic.title ,topic_path(topic)%></td>
+			  <td><%= topic.username %></td>
+			  <td><%= topic.reply_num %></td>
+			  <td class="tar"><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
+			</tr>
+			<% end %>
+		</table>
+		<%= will_paginate @topics, :previous_label =>'上一页', :next_label => '下一页' %>
+
+  	</div>
+
+  	<div class="span3 offset2">
+  		<% if current_user %>
+			<% if @gu %>
+				<% if @gu.level != 2%>
+					<%= link_to '退出小组', leave_group_path(@group), :class => 'btn' %>
+				<% end -%>
+			<% else %>
+				<%= link_to '+加入小组', join_group_path(@group), :class => 'btn' %>
+			<% end -%>
+		<% end -%>
+		<p>成员列表</p>
+
+		<% @members.each do |member| %>
+			<p><%= member.username %></p>
+		<% end -%>
+
+  	</div>
+
+</div>
+

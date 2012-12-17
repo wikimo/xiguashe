@@ -3,18 +3,24 @@ class TopicsController < ApplicationController
 		@group = Group.find_by_id(params[:group_id])
 
 		@topics = Topic.where(:group_id => params[:group_id]).paginate(:page => params[:page]).order('created_at DESC')
+		
+		if current_user
+			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+		end
+
+		@members = @group.members
+		
 	end
 
 
 	def new
-
 		@group = Group.find_by_id(params[:group_id])
 
-	# if current_user.groups.include? @group
-	#   @page_title = t(:new_topic)
-	# else
-	#   redirect_to  group_topics_path,  :notice  => t(:user_not_belong_to_group)
-	# end
+		if current_user.groups.include? @group
+		   @page_title = t(:new_topic)
+		else
+		   redirect_to  group_topics_path,  :notice  => t(:user_not_belong_to_group)
+		end
 	end
 
 	def create

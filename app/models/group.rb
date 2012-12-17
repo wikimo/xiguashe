@@ -12,4 +12,11 @@ class Group < ActiveRecord::Base
 								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
+
+
+    def members
+    	gu = GroupUser.find(:all, :conditions => ['group_id = ?', self.id], :order => 'created_at ASC')
+    	
+    	users =  User.find_all_by_id(gu.map(&:user_id))
+    end
 end
