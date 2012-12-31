@@ -36,7 +36,7 @@
   			
 			<ul class="nav nav-list">
 				<li class="nav-header">
-					<%= link_to '发表新话题' ,new_group_topic_path,:class  => 'btn'%>
+					<%= link_to '发表新话题' ,new_group_topic_path(@group),:class  => 'btn'%>
 				</li>
 				<li class="nav-header">
 					<% if current_user %>
@@ -57,9 +57,6 @@
 				
 			</ul>
 		</div>
-
-		
-
   	</div>
 
 </div>

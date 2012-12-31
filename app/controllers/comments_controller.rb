@@ -21,10 +21,11 @@ class CommentsController < ApplicationController
                                    :commentable => model_instance)
 
         if @comment.save
+
           model_instance.update_attributes({:reply_num => model_instance.reply_num + 1})
+          
           eval("@#{model_info.last} = model_instance")
 
-          redirect_to model_instance, notice: 'Comment was successfully created.'
         else
           #create comment error
         end
@@ -42,7 +43,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @reply.save
-      redirect_to @comment.commentable
+      
     end
 
   end

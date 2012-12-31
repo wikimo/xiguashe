@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
 		if current_user.groups.include? @group
 		   @page_title = t(:new_topic)
 		else
-		   redirect_to  group_topics_path,  :notice  => t(:user_not_belong_to_group)
+		   redirect_to  group_topics_path(@group),  :notice  => t(:user_not_belong_to_group)
 		end
 	end
 
