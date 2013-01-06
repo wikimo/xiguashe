@@ -9,10 +9,12 @@
 					<h3>
 						<%= link_to topic.title ,topic_path(topic)%>
 					</h3>
+
 					<p>
-						作者:<%= topic.username %>
-						评论:<%= topic.reply_num %>
-						创建日期:<%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %>
+						<i class="icon-user"></i> <%= topic.username %>
+
+						<i class=" icon-comment"></i> <%= topic.reply_num %>
+						<i class="icon-time"></i> <time class="timeago" datetime="<%=topic.created_at%>">
 					</p>
 					<p>
 						<%= raw truncate(topic.content,:length => 100) %>
@@ -61,3 +63,12 @@
 
 </div>
 
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		$('.timeago').timeago();
+	});
+	 
+</script>
