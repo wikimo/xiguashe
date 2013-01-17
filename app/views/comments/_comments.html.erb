@@ -2,7 +2,15 @@
 <div class="comment-item">
 	<div class="row">
 		<div class="span9">
-			<p><%= c.user.username %><p>
+			<p>
+				<% if c.user.icon.exists? %>
+					<%= image_tag c.user.icon.url(:thumb), :class => 'img-circle' %>
+				<% else %>
+					<%= image_tag 'no_pic.png', :class => 'img-circle' %>
+				<% end %>
+				
+				<%= c.user.username %>
+			<p>
 			<p><%= raw c.content %><p>
 
 			<div class="span3">

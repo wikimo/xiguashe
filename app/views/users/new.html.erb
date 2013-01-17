@@ -33,6 +33,13 @@
         <%= f.text_field :email,:class => 'txt' %>
       </div>
     </div>
+
+    <div class="control-group">
+        <label for="" class="control-label">用户头像</label>
+        <div class="controls">
+          <%= f.file_field :icon, :class => 'txt' %>
+        </div>
+    </div>
     
     <div class="form-actions">
       <%= button_tag "注册",:class=>'btn btn-primary' %>

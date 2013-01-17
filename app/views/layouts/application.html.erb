@@ -35,9 +35,10 @@
 					</li>	
 					<li class="divider-vertical"></li>
 					<% if current_logined? %>
+						<%= image_tag current_user.icon.url(:thumb), :class => 'img-rounded' %>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<%= current_user.username %>
+								<%= current_user.username %>
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">

@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	
 	validates_confirmation_of :password
+
+	has_attached_file :icon, 
+					:styles => {
+						            :thumb  => "50X50>",
+									:original => "200x150>", 
+							    }, 
+								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
+								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
+                :whiny => false
 	
 	def password
 	    @password
