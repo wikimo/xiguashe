@@ -1,9 +1,12 @@
 
 <% if current_user %>
-	<%= form_for :reply, :url => reply_create_comment_path(item), :method => 'get' do |f| %>
-		<%= f.hidden_field :user_id, :id => 'user_id', :value => current_user.id %>
-		<label for="" class="">您的回应</label>
-		<%= f.text_area :content, :id => 'comment-textarea', :rows => 5 %>
-		<%= f.submit '回应', :class => 'btn btn-primary' %>
-	<% end -%>
+	<div class="reply-form">
+		<%= form_for :reply, :url => reply_create_comment_path(item), :method => 'get', :remote => true do |f| %>
+			<%= f.hidden_field :user_id, :id => 'user_id', :value => current_user.id %>
+			<label for="" class="">您的回应</label>
+			<%= f.text_area :content, :id => 'comment-textarea', :rows => 5 %>
+			<%= f.submit '回应', :class => 'btn btn-primary' %>
+		<% end -%>
+	</div>
+	
 <% end -%>

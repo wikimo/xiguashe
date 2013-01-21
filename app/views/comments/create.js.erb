@@ -1,0 +1,15 @@
+
+var c = $(".comment-item").last();
+
+if (c.length > 0)
+{
+	c.after("<%= escape_javascript(render('comments/comments', :c => @comment)) %>");
+}
+else
+{
+	$(".comments").html("<%= escape_javascript(render('comments/comments', :c => @comment)) %>");
+}
+
+
+$(".comment-form > form > fieldset > textarea").val('');
+

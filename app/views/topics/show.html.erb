@@ -4,24 +4,29 @@
 </p>
 
 <p>
-	<%=@topic.content%>
+	<%=raw @topic.content%>
 </p>
 
 <hr>
 
-<p class="lead">共收到<%= @topic.comments.size %>评论</p>
+<p class="lead">共收到<span id="comments-size"><%= @topic.reply_num %></span>评论</p>
 
 <hr>
 
-<div class="alert alert-success">
-    <%=flash[:notice]%>
+<% if notice %>
+	<div class="alert alert-success">
+	    <%=flash[:notice]%>
+	</div>
+<% end -%>
+
+<div class="comments">
+	<% if @comments.size > 0 %>
+		<% @comments.each do |comment| %>
+			<%= render 'comments/comments', :c => comment %>
+		<% end -%>
+	<% end -%>
 </div>
 
-<% if @comments.size > 0 %>
-	<% @comments.each do |comment| %>
-		<%= render 'comments/comments', :c => comment %>
-	<% end -%>
-<% end -%>
 
 
 <%= render 'comments/new_comment', :item => @topic %>
