@@ -34,3 +34,5 @@ gem 'progress_bar'
 #for page
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
+
+gem 'thin'
