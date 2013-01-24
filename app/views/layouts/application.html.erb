@@ -35,13 +35,18 @@
 					</li>	
 					<li class="divider-vertical"></li>
 					<% if current_logined? %>
-						<%= image_tag current_user.icon.url(:thumb), :class => 'img-rounded' %>
+						<% if current_user.icon.exists? %>
+							<%= image_tag current_user.icon.url(:thumb), :class => 'img-rounded' %>
+						<% else %>
+							<%= image_tag 'no_pic.png', :class => 'img-circle' %>
+						<% end -%>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 								<%= current_user.username %>
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
+								<li><%= link_to '个人资料修改', edit_user_path(current_user) %></li>
 								<li><%= link_to '退出', quit_path %></li>
 							</ul>
 						</li>

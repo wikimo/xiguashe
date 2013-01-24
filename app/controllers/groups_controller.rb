@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+
+  before_filter :logined?, :except => [:index]
+
+
   def index
     @groups =  Group.find(:all,:conditions =>['state=?',true])
   end

@@ -15,8 +15,8 @@ class CommentsController < ApplicationController
         model_info = value.split('|')
         model_name = model_info.first
         model_instance = Object.const_get(model_name).find(model_id)
-
-        @comment = Comment.create(:content => params[:comment][:content],
+        
+        @comment = Comment.create(:content => params[:comment][:content].gsub(/\r\n/,"<br/>"),
                                    :user_id => params[:comment][:user_id],
                                    :commentable => model_instance)
 
