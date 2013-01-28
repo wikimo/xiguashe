@@ -1,3 +1,10 @@
 <p class="reply-item" id="reply-item-<%= c.id %>">
+	
+	<% if r.user.icon.exists? %>
+		<%= image_tag r.user.icon.url(:thumb), :class => 'img-circle' %>
+	<% else %>
+		<%= image_tag 'no_pic.png', :class => 'img-circle' %>
+	<% end %>
+
 	<%= r.user.username %> : <%= raw r.content %>
 <p>

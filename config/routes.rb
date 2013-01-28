@@ -1,5 +1,7 @@
 Xiguashe::Application.routes.draw do
 
+  resources :notifications
+
   get "topics/new"
   
   get "reg"  => "users#new",                   :as => "reg"
