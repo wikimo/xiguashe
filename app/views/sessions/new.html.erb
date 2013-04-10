@@ -1,25 +1,42 @@
+<%= stylesheet('bootstrap','style','reg-login')%>
 <div id="main">
-<%= form_tag  sessions_path ,:class => 'form-vertical' do %>
-  <%if flash[:notice]%>
-  <div class="errors-box">
-    <h4>消息提示：</h4>
-    <ul>
-      <li><%= flash[:notice]%></li>
-    </ul>
-  </div>
-  <% end %>
-  <div class="control-group">
-    <label for="" class="control-label">用户名</label>
-    <div class="controls"><%= text_field_tag :username,nil%></div>
+  <div  class="container">
+      <div class="comm-form">
+        <h2 class="title">用户登陆</h2>
+        <%= form_tag  sessions_path ,:class => 'form-horizontal' do %>
+          <div class="control-group">
+            <label class="control-label" >Email</label>
+            <div class="controls">
+              <input type="text" class="input-large " name="email">
+            </div>
+          </div>
+    
+          <div class="control-group">
+            <label class="control-label" >确认密码</label>
+            <div class="controls">
+              <input type="password" class="input-large " name="password">
+            </div>
+          </div>
+
+          
+          <div class="controls">
+            <label class="checkbox">
+                        <input type="checkbox"  name="agreement" checked>
+                下次自动登录
+                <a href="">忘记密码</a>
+                 </label>
+          </div>
+          
+          
+
+                <div class="controls">
+                  <button class="btn btn-success" type="submit">提交</button>
+                </div>
+        <% end %>
+      </div>
     </div>
-  <div class="control-group">
-    <label for="" class="control-label">密码</label>
-    <div class="controls"><%= password_field_tag :password,nil%></div>
-  </div>
-  
-  <div class="form-actions">
-    <%= button_tag "登录",:class=>'btn btn-primary' %>
-    <%= link_to '注册',reg_path,:class => 'btn'%>
-  </div>
-<% end %>
+
+
+
+
 </div>

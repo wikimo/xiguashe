@@ -1,0 +1,15 @@
+.avatar{float: left;width: 120px;}
+.avatar img{width: 100px;height: 100px;}
+.topic-box{padding: 10px 15px 35px 15px;background: #FFF;width: 480px;float: right;}
+.topic-box h1{font: 18px/1.5em 'Microsoft Yahei';margin: 3px}
+.tr-item{margin-bottom: 10px}
+.tr-item .topic-box:hover{background: #ddd}
+
+.other-topics{padding: 15px;background: #FFF;}
+.other-topics ul li{border-bottom: 1px dashed #ccc;padding:5px}
+.other-topics ul li:hover{background: #ddd}
+.other-topics ul li a{color: #444}
+.other-topics ul li p,.other-topics ul li p a{color: #aaa;}
+.return-group a{background: #5bb75b;padding: 10px 15px;border-radius: 3px;display: block;color: #fff;margin-bottom: 10px}
+
+.reply-box{padding: 15px 25px;background: #FFF;margin:0 0 0 120px;}

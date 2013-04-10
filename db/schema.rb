@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117121805) do
+ActiveRecord::Schema.define(:version => 20130410053453) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20130117121805) do
     t.datetime "updated_at",      :null => false
     t.string   "icon_file_name"
     t.datetime "icon_updated_at"
+    t.string   "nickname"
   end
 
 end

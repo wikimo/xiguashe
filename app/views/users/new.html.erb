@@ -1,49 +1,50 @@
+<%= stylesheet('bootstrap','style','reg-login')%>
 <div id="main">
-  <%= form_for @user, :html => { :class => "form-vertical"} do |f| %>
-    <%if flash[:notice]%>
-      <div class="errors-box">
-        <h4>消息提示：</h4>
-        <ul>
-          <li><%= flash[:notice]%></li>
-        </ul>
-      </div>
-    <% end %>
-    <div class="control-group">
-      <label for="" class="control-label">用户名</label>
-      <div class="controls">
-        <%= f.text_field :username,:class => 'txt' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <label for="" class="control-label">密码</label>
-      <div class="controls">
-        <%= f.password_field :password,:class => 'txt' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <label for="" class="control-label">确认密码</label>
-      <div class="controls">
-        <%= f.password_field :password_confirmation,:class => 'txt' %>
-      </div>
-    </div>
 
-    <div class="control-group">
-      <label for="" class="control-label">邮箱</label>
-      <div class="controls">
-        <%= f.text_field :email,:class => 'txt' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-        <label for="" class="control-label">用户头像</label>
-        <div class="controls">
-          <%= f.file_field :icon, :class => 'txt' %>
+  <div  class="container">
+    <div class="comm-form">
+      <h2 class="title">用户注册</h2>
+      <%= form_for @user, :html => { :class => "form-horizontal"} do |f| %>
+        <div class="control-group">
+          <label class="control-label" >Email</label>
+          <div class="controls">
+            <%= f.text_field :email,:class => 'input-large' %>
+            <p class="help-block">填写你常用的Email邮箱地址作为登录帐号</p>
+          </div>
         </div>
+        <div class="control-group">
+          <label class="control-label" >您的昵称</label>
+          <div class="controls">
+            <%= f.text_field :nickname,:class => 'input-large' %>
+            <p class="help-block">该怎么称呼你？不超过7个汉字或14个字符</p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" >设置密码</label>
+          <div class="controls">
+            <%= f.password_field :password,:class => 'input-large' %>
+            <p class="help-block">密码长度为6-14位</p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" >确认密码</label>
+          <div class="controls">
+            <%= f.password_field :comfirm_password,:class => 'input-large' %>
+          </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                    <label class="checkbox">
+                      <input type="checkbox"  name="agreement" checked>
+              我已阅读并接受《<a target="_blank" href="/info/agreement">使用协议</a>》
+                    </label>
+                </div>
+              </div>
+
+              <div class="controls">
+                <button class="btn btn-success" type="submit">提交</button>
+              </div>
+      <% end %>
     </div>
-    
-    <div class="form-actions">
-      <%= button_tag "注册",:class=>'btn btn-primary' %>
-      <%= link_to '登陆','',:class => 'btn'%>
-    </div>
-  <% end %>
+  </div>
 </div>
