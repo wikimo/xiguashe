@@ -1,32 +1,22 @@
-<div class="topic-form">
-  <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true,:class => 'form-vertical' })  do |f| %>
-          <% if !@topic.nil? && @topic.errors.any? %>
-            <div class="errors-box">
-              <h4>错误提示：</h4>
+<%= stylesheet('bootstrap','style','post')%>
 
-              <ul>
-              <% @topic.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-          
-          <div class="control-group">
-            <%= f.label :title ,'标题',:class=>'control-label' %>
-            <div class="controls"><%= f.text_field :title,:class => 'txt' %></div>
-          </div>
-          <div class="control-group">
-            <%= f.label :content,'内容',:class=>'control-label' %>
-            <div class="controls"><%= f.text_area :content, :class => 'span10', :rows  => 10 %></div>
-          </div>
-         
-          <%= f.hidden_field :user_id,  :value => current_user.id %>
-          <%= f.hidden_field :username, :value => current_user.username %>
-
-          <div class="form-actions">
-            <%= f.submit  '提交',:class=>'btn btn-primary'%>
-          </div>
-  <% end  %>
-  <div class="c"></div>
+<div class="post-form">
+  <h3>发表话题</h3>
+    <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
+    <div class="control-group">
+      <label for="" class="control-label">标题：</label>
+      <div class="controls">
+      <%= f.text_field :title,:class => 'span3' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" >内容：</label>
+      <div class="controls">
+      <%= f.text_area :content, :class => 'span5', :rows  => 10,:cols=>20,:placeholder => '限5000字以内...' %>
+      </div>
+    </div>
+    <%= f.hidden_field :user_id,  :value => current_user.id %>
+      <%= f.hidden_field :username, :value => current_user.username %>
+    <button type="submit" class="btn btn-success">提交</button>
+    <%end%>
 </div>
