@@ -1,45 +1,33 @@
+<div class="tr-item cc">
+	<div class="avatar">
+		<a href=""><img src="img/avatar.jpg" alt="wikimo" title="wikimo"></a>
+	</div>
+	<div class="topic-box">
+		<div class="topic-info">
+			<p><a href="">wikimo</a> 发表于：2013-1-13</p>
+		</div>
+		<div class="content">
 
-<div class="comment-item">
-	<div class="row">
-		<div class="span9">
-			<p>
-				<% if c.user.icon.exists? %>
-					<%= image_tag c.user.icon.url(:thumb), :class => 'img-circle' %>
-				<% else %>
-					<%= image_tag 'no_pic.png', :class => 'img-circle' %>
-				<% end %>
-				
-				<%= c.user.username %>
-			<p>
-			<p><%= raw c.content %><p>
+			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
 
-			<div class="span3">
-				<div class="replies" id="comment-replies-<%= c.id %>">
-					<% c.replies.each do |r| %>
-						<%= render 'comments/replies', :r => r, :c => c %>
-					<% end -%>
-				</div>
-
-				<% if current_user %>
-					<a href="javascript:void(0)" id="<%= c.id %>" onclick="display(this)">回应</a>
-				<% end -%>
-
-				<div style="display:none" class="new-reply" id="<%= c.id %>_cell_new_reply">
-					<%= render 'comments/new_reply', :item => c %>
-				</div>
-
-			</div>
-			
 		</div>
 	</div>
-	<hr>
 </div>
 
-<script>
-	function display(el)
-	{
-		var id = $(el).attr("id");
 
-		$("#" + id + "_cell_new_reply").toggle();
-	}
-</script>
+<div class="tr-item cc">
+	<div class="avatar">
+		<a href=""><img src="img/avatar.jpg" alt="wikimo" title="wikimo"></a>
+	</div>
+	<div class="topic-box">
+		<div class="topic-info">
+			<p><a href="">wikimo</a> 发表于：2013-1-13</p>
+		</div>
+		<div class="content">
+			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
+
+			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
+
+			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
+	</div>
+</div>

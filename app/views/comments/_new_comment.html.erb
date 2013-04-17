@@ -1,13 +1,14 @@
-
-<% if current_user %>
-	<div class="comment-form">
-		<%= form_for [item, Comment.new], :html => {:class => 'form-vertical'}, :remote => true do |f| %>
-			<fieldset>
-				<%= f.hidden_field :user_id, :id => 'user_id', :value => current_user.id %>
-				<label for="" class="">您的评论</label>
-				<%= f.text_area :content, :id => 'comment-textarea', :rows => 5 %>
-				<%= f.submit '评论', :class => 'btn btn-primary' %>
-			</fieldset>
-		<% end -%>
-	</div>
-<% end -%>
+<div class="reply-box">
+	<!--if !login?-->
+	<p>登录后可进行评论，请先 <a href="">登录</a> 或 <a href="">注册</a> </p>
+	<!--if login?-->
+	<form action="" >
+		<div class="control-group">
+			<label class="control-label" >评论内容：</label>
+			<div class="controls">
+			<textarea name="content" cols="20" rows="5" class="span4" placeholder="限500字以内..."></textarea>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-success">提交</button>
+	</form>
+</div>

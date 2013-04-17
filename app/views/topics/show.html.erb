@@ -1,36 +1,57 @@
+<%= stylesheet('bootstrap','style','topic')%>
+<div id="main">
+	<div  class="container">
+		<div class="comm-left">
+				<div class="tr-item cc">
+					<div class="avatar">
+						<a href="">
+						<%= image_tag 'avatar.jpg',:alt=>'wikimo',:title => 'wikimo'%>
+						</a>
+					</div>
+					<div class="topic-box">
+						<h1><%=@topic.title%></h1>
+						<div class="topic-info">
+							<p><a href="">wikimo</a> 发表于：2013-1-13</p>
+						</div>
+						<div class="content">
+							<%=raw @topic.content%>
+						</div>
+					</div>
+				</div>
 
-<p class="lead">
-	<%=@topic.title%>
-</p>
+				<%= render 'comments/comments' %>
+			</div>
 
-<p>
-	<%=raw @topic.content%>
-</p>
+			<%= render 'comments/new_comment', :item => @topic %>
 
-<hr>
+		</div>
+		<div class="comm-right">
+			<div class="return-group"><a href="">返回小组</a></div>
+			<div class="other-topics">
+				<ul>
+					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
+						<p>来自 <a href="">wikimo</a></p>
 
-<p class="lead">共收到<span id="comments-size"><%= @topic.reply_num %></span>评论</p>
+					</li>
+					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
+						<p>来自 <a href="">wikimo</a></p>
 
-<hr>
+					</li>
 
-<% if notice %>
-	<div class="alert alert-success">
-	    <%=flash[:notice]%>
+					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
+						<p>来自 <a href="">wikimo</a></p>
+
+					</li>
+					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
+						<p>来自 <a href="">wikimo</a></p>
+
+					</li>
+					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
+						<p>来自 <a href="">wikimo</a></p>
+
+					</li>
+				</ul>
+			</div>
+		</div>	
 	</div>
-<% end -%>
-
-<div class="comments">
-	<% if @comments.size > 0 %>
-		<% @comments.each do |comment| %>
-			<%= render 'comments/comments', :c => comment %>
-		<% end -%>
-	<% end -%>
 </div>
-
-
-
-<%= render 'comments/new_comment', :item => @topic %>
-
-
-
-
