@@ -4,4 +4,4 @@
 /public/attachment/*
 .rvmrc
 .DS_Store
-/solr/*
+/solr/data/*
