@@ -1,4 +1,6 @@
 <%= stylesheet('bootstrap','style','topic')%>
+
+
 <div id="main">
 	<div  class="container">
 		<div class="comm-left">
@@ -11,7 +13,7 @@
 					<div class="topic-box">
 						<h1><%=@topic.title%></h1>
 						<div class="topic-info">
-							<p><a href="">wikimo</a> 发表于：2013-1-13</p>
+							<p><a href=""><%= @topic.username %></a> 发表于：<%= timeago_tag @topic.created_at, :nojs => true, :limit => 10.days.ago %></p>
 						</div>
 						<div class="content">
 							<%=raw @topic.content%>

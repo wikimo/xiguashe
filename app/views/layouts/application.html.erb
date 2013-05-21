@@ -4,6 +4,7 @@
   <title><%= t(:web_title)%></title>
   <%= yield :head %>
   <%= javascript_include_tag "application" %>
+  <%= timeago_script_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>

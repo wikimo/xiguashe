@@ -12,7 +12,7 @@
 				<p>话题：100</p>
 				<p>简介：<%= @group.descrip%></p>
 			</div>
-			<a href="" class="btn btn-success group-join">加入小组</a>
+			<%= link_to '加入小组', join_group_path(@group), class: 'btn btn-success group-join'%>
 		</div>
 
 		<div class="topic-list">

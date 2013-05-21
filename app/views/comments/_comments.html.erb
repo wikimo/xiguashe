@@ -1,33 +1,20 @@
-<div class="tr-item cc">
-	<div class="avatar">
-		<a href=""><img src="img/avatar.jpg" alt="wikimo" title="wikimo"></a>
-	</div>
-	<div class="topic-box">
-		<div class="topic-info">
-			<p><a href="">wikimo</a> 发表于：2013-1-13</p>
+
+<% @comments.each do |comment| %>
+	<div class="tr-item cc">
+		<div class="avatar">
+			<a href=""><img src="img/avatar.jpg" alt="wikimo" title="wikimo"></a>
 		</div>
-		<div class="content">
+		<div class="topic-box">
+			<div class="topic-info">
+				<p><a href=""><%= comment.user.username %></a> 发表于：<%= timeago_tag comment.created_at, :nojs => true, :limit => 10.days.ago %></p>
+			</div>
+			<div class="content">
 
-			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
+				<p><%= raw comment.content %></p>
 
+			</div>
 		</div>
 	</div>
-</div>
+<% end -%>
 
 
-<div class="tr-item cc">
-	<div class="avatar">
-		<a href=""><img src="img/avatar.jpg" alt="wikimo" title="wikimo"></a>
-	</div>
-	<div class="topic-box">
-		<div class="topic-info">
-			<p><a href="">wikimo</a> 发表于：2013-1-13</p>
-		</div>
-		<div class="content">
-			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
-
-			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
-
-			<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容</p>
-	</div>
-</div>

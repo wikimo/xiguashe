@@ -34,12 +34,8 @@ class TopicsController < ApplicationController
 		@topic.ip =  request.ip
 
 		if @topic.save
-		  #update_photos(params[:photo_id],@topic)
-		  
-		  #@topic.user.timeline(@topic)
 
 		  @group.update_attributes({:topic_num  => @group.topic_num + 1})
-		  #current_user.update_attributes({:today_topic_num => current_user.today_topic_num + 1})
 		  redirect_to topic_path(@topic), :notice  => 'create_topic_success'
 		else
 		  render  'new'
@@ -49,7 +45,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic =  Topic.find params[:id]
-
+    
 		@comments = @topic.comments
 	end
 
