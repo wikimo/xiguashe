@@ -22,11 +22,12 @@
 				</div>
 
 				<%= render 'comments/comments' %>
+
+				<%= render 'comments/new_comment', :item => @topic %>
 			</div>
 
-			<%= render 'comments/new_comment', :item => @topic %>
+			
 
-		</div>
 		<div class="comm-right">
 			<div class="return-group"><a href="">返回小组</a></div>
 			<div class="other-topics">
