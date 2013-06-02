@@ -6,7 +6,7 @@
 		</div>
 		<div class="topic-box">
 			<div class="topic-info">
-				<p><a href=""><%= comment.user.username %></a> 发表于：<%= timeago_tag comment.created_at, :nojs => true, :limit => 10.days.ago %></p>
+				<p><a href=""><%= comment.user.nickname %></a> 发表于：<%= timeago_tag comment.created_at, :nojs => true, :limit => 10.days.ago %></p>
 			</div>
 			<div class="content">
 

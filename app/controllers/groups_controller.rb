@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  #before_filter :logined?, :except => [:index]
+  before_filter :logined?, :except => [:index]
 
 
   def index
@@ -39,6 +39,7 @@ class GroupsController < ApplicationController
   end
 
   def leave
+    
     @group = Group.find(params[:id])
 
     GroupUser.find_by_group_id_and_user_id(params[:id], current_user.id).destroy

@@ -1,14 +1,19 @@
 <div class="reply-box">
-	<!--if !login?-->
-	<p>登录后可进行评论，请先 <a href="">登录</a> 或 <a href="">注册</a> </p>
-	<!--if login?-->
-	<form action="" >
-		<div class="control-group">
-			<label class="control-label" >评论内容：</label>
-			<div class="controls">
-			<textarea name="content" cols="20" rows="5" class="span4" placeholder="限500字以内..."></textarea>
+	<% if !current_user %>
+		<p>登录后可进行评论，请先 <%= link_to '登录', login_path %> 或 <%= link_to '注册', reg_path %></p>
+	
+	<% else %>
+		<%= form_for [item, Comment.new] do |f| %>
+			<div class="control-group">
+				<label class="control-label" >评论内容：</label>
+				<div class="controls">
+					<%=f.hidden_field :user_id, :id=> 'user_id', :value => current_user.id %>
+					<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span4", :placeholder => "限500字以内..."%>
+				</div>
 			</div>
-		</div>
-		<button type="submit" class="btn btn-success">提交</button>
-	</form>
+			<%= f.submit '评论', :class => 'btn btn-success'%>
+		<% end %>
+	<% end %>
+	
+	
 </div>

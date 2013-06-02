@@ -12,7 +12,12 @@
 				<p>话题：100</p>
 				<p>简介：<%= @group.descrip%></p>
 			</div>
-			<%= link_to '加入小组', join_group_path(@group), class: 'btn btn-success group-join'%>
+			<% if @gu %>
+					<%= link_to '退出小组', leave_group_path(@group), class: 'btn btn-success group-join'%>
+			<% else %>
+				<%= link_to '加入小组', join_group_path(@group), class: 'btn btn-success group-join'%>
+			<% end %>
+			
 		</div>
 
 		<div class="topic-list">
@@ -28,7 +33,7 @@
 							<div class="topic-footer">
 								<div class="user">
 									<a href=""><img src="img/avatar.jpg" alt=""></a>
-									<a href=""><%= topic.username%></a>
+									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								<div class="counter">
 									<span title="浏览数" class="viewer-num">
@@ -61,7 +66,7 @@
 							<div class="topic-footer">
 								<div class="user">
 									<a href=""><img src="img/avatar.jpg" alt=""></a>
-									<a href=""><%= topic.username %></a>
+									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								
 
@@ -116,10 +121,13 @@
 			<h4>最新加入</h4>
 			<div class="content cc">
 				<ul>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
+					<% @members.each_with_index do |member, i| %>
+						<% if i > 4 %>
+							<% break %>
+						<% else %>
+							<li><a href=""><img src="img/avatar.jpg" alt="<%= member.nickname %>" title="<%= member.nickname %>"/></a><p><%= member.nickname %></p></li>
+						<% end %>
+					<% end %>
 				</ul>
 			</div>
 		</div>

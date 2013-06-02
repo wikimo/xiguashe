@@ -15,7 +15,7 @@ class Group < ActiveRecord::Base
 
 
     def members
-    	gu = GroupUser.find(:all, :conditions => ['group_id = ?', self.id], :order => 'created_at ASC')
+    	gu = GroupUser.find(:all, :conditions => ['group_id = ?', self.id], :order => 'created_at DESC')
     	
     	users =  User.find_all_by_id(gu.map(&:user_id))
     end

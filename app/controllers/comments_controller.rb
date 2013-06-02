@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   
-
+  before_filter :logined?
+  
   def new
     @comment = Comment.new
   end
@@ -25,6 +26,9 @@ class CommentsController < ApplicationController
           model_instance.update_attributes({:reply_num => model_instance.reply_num + 1})
           
           eval("@#{model_info.last} = model_instance")
+          
+          #just temporary, will use ajax
+          redirect_to  topic_path(model_instance)
 
         else
           #create comment error

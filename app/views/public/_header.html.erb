@@ -19,7 +19,8 @@
 
           <p class="navbar-text pull-right">
           	<% if current_logined? %>
-          		<%= current_user.nickname%>
+          		<%= current_user.nickname %>
+				<%= link_to '退出', quit_path %>
           	<% else %>
           	  <a href="#">登录</a>
           	  <a href="#" class="active">注册</a>
