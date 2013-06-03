@@ -27,6 +27,9 @@ gem 'rails-timeago', '~> 2.0'
 #for photos upload
 gem 'paperclip'
 
+# YAML 配置信息
+gem "settingslogic", "~> 2.0.6"
+
 gem 'sunspot_rails', '~> 1.3.3'
 gem 'sunspot_solr', '1.3.2'
 gem 'sunspot'
