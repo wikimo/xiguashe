@@ -21,6 +21,9 @@
           	<% if current_logined? %>
           		<%= current_user.nickname %>
 				<%= link_to '退出', quit_path %>
+				<% if current_user.is_admin? %>
+					<%= link_to '进入后台', cpanel_groups_path %>
+				<% end -%>
           	<% else %>
           	  <a href="#">登录</a>
           	  <a href="#" class="active">注册</a>

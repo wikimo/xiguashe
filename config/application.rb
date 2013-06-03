@@ -60,3 +60,6 @@ module Xiguashe
 
   end
 end
+
+require 'yaml'
+YAML::ENGINE.yamler= 'syck'

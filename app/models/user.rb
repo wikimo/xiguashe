@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
 		generate_password pass
 	end
 
+
+	def is_admin?
+		Settings.admin_emails.include?(self.email)
+	end
+
 	class << self
 		def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)

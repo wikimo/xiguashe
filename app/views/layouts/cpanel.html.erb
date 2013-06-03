@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XIGUASHE admin</title>
+  <%= stylesheet_link_tag    "cpanel/bootstrap" %>
+  <%= javascript_include_tag "cpanel/bootstrap" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="container">
+
+	<!-- navgation -->
+	<div class="navbar">
+	    <div class="navbar-inner">
+		    <div class="container">
+
+		    	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">西瓜社后台</a>
+				<div class="nav-collapse">
+			    	<ul class="nav">
+					    <li class="active">
+					    	<a href="#">小组</a>
+					    </li>
+					    <li><a href="#">话题</a></li>
+					    <li><a href="#">用户</a></li>
+				    </ul>
+				</div>
+		    </div>
+	    </div>
+    </div>
+
+	<%= yield %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+
+<div class="row">
+  	<div class="span9">
+    	<table class="table table-striped">
+    		<thead>
+				<tr>
+					<th>组ID</th>
+					<th>组名</th>
+					<th>描述</th>
+					<th>话题数</th>
+					<th>成员数量</th>
+					<th>创建时间</th>
+					<th>最后更新时间</th>
+					<th>状态</th>
+				</tr>
+			</thead>
+    		<% @groups.each do |group| %>
+    		<tbody>
+				<tr>
+					<td><%= group.id %></td>
+					<td><%= group.name %></td>
+					<td><%= group.descrip %></td>
+					<td><%= group.topic_num %></td>
+					<td><%= group.member_num %></td>
+					<td><%= group.created_at %></td>
+					<td><%= group.updated_at %></td>
+					<td><%= group.state %></td>
+				</tr>
+			</tbody>
+    		<% end -%>
+		</table>
+  	</div>
+</div>
