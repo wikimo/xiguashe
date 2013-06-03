@@ -28,6 +28,8 @@ class ApplicationController < ActionController::Base
     def logined?
       if !current_logined?
         redirect_to login_path,:notice  =>  t(:user_not_login)
+      else
+        redirect_to user_path(current_user)
       end 
     end
 

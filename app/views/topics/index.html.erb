@@ -4,7 +4,9 @@
 	<div class="comm-left">
 		<div class="group-info cc">
 			<div class="group-logo">
-				<a href=""><img src="img/g.jpg" alt=""></a>
+				<a href="">
+					<%= image_tag 'g.jpg',:alt => @group.name %>
+				</a>
 			</div>
 			<div class="group-detail">
 				<h4><%= @group.name%></h4>
@@ -32,7 +34,7 @@
 							</div>
 							<div class="topic-footer">
 								<div class="user">
-									<a href=""><img src="img/avatar.jpg" alt=""></a>
+									<a href=""><%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								<div class="counter">
@@ -65,7 +67,7 @@
 							</div>
 							<div class="topic-footer">
 								<div class="user">
-									<a href=""><img src="img/avatar.jpg" alt=""></a>
+									<a href=""><%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%></a>
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								
@@ -97,10 +99,18 @@
 			<h4>小组管理员</h4>
 			<div class="content cc">
 				<ul>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>		
 				</ul>
 			</div>
 		</div>
@@ -109,10 +119,18 @@
 			<h4>活跃成员</h4>
 			<div class="content cc">
 				<ul>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
-					<li><a href=""><img src="img/avatar.jpg" alt="wiki" title="wiki"/></a><p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>
+					<li><a href="">
+						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
+						<p>wiki</p></li>	
 				</ul>
 			</div>
 		</div>
@@ -132,7 +150,7 @@
 			</div>
 		</div>
 
-		<div class="side-ad mt10"><a href=""><img src="img/ad.jpg" alt=""></a></div>
+		<div class="side-ad mt10"><a href=""><%= image_tag 'ad.jpg' ,:alt => 'ad..'%></a></div>
 
 		</div>
 	</div>

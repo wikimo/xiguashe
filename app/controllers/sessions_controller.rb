@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_filter :logined?, :except => :create  
   def new
   end
 
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user
       session[:uid] =  @user.id
     
-      redirect_to groups_path, :notice => t(:login_success)
+      redirect_to user_path(@user), :notice => t(:login_success)
     else
       
       redirect_to new_session_path,:notice => t(:login_fail)
