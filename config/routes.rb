@@ -6,7 +6,7 @@ Xiguashe::Application.routes.draw do
   
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
-  get "login" => "sessions#new",               :as => 'login'
+  get "login" => "sessions#new",               :as => "login"
   match "/search" => "search#index",           :as => :search
 
   resources :sessions
@@ -21,7 +21,6 @@ Xiguashe::Application.routes.draw do
   end  
 
   resources :topics do
-    
     resources :comments
   end
 
@@ -33,6 +32,9 @@ Xiguashe::Application.routes.draw do
 
   namespace :cpanel do 
     resources :groups do
+      member do
+        get :change_status
+      end
     end
   end
  
