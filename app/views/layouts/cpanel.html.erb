@@ -3,7 +3,7 @@
 <head>
   <title>XIGUASHE admin</title>
   <%= stylesheet_link_tag    "cpanel/bootstrap" %>
-  <%= javascript_include_tag "cpanel/bootstrap" %>
+  <%= javascript_include_tag "application", "bootstrap" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -38,9 +38,7 @@
 						    	<b class="caret"></b>
 					    	</a>
 					    	<ul class="dropdown-menu">
-					    		<li><a tabindex="-1" href="#">Action</a></li>
-								<li><a tabindex="-1" href="#">Another action</a></li>
-								<li><a tabindex="-1" href="#">Something else here</a></li>
+					    		<li><%= link_to '返回前台', groups_path %></li>
 					    	</ul>
 					    </li>
 				    </ul>
@@ -51,10 +49,6 @@
 
 	<%= yield %>
 </div>
-<script type="text/javascript">
-$(function(){
-	$('.dropdown-toggle').dropdown();
-})
-</script>
+
 </body>
 </html>
