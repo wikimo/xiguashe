@@ -30,6 +30,20 @@
 					    <li><a href="#">话题</a></li>
 					    <li><a href="#">用户</a></li>
 				    </ul>
+
+				    <ul class="nav pull-right" >
+					    <li class="dropdown">
+					    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						    	<%= current_user.nickname %>
+						    	<b class="caret"></b>
+					    	</a>
+					    	<ul class="dropdown-menu">
+					    		<li><a tabindex="-1" href="#">Action</a></li>
+								<li><a tabindex="-1" href="#">Another action</a></li>
+								<li><a tabindex="-1" href="#">Something else here</a></li>
+					    	</ul>
+					    </li>
+				    </ul>
 				</div>
 		    </div>
 	    </div>
@@ -37,6 +51,10 @@
 
 	<%= yield %>
 </div>
-
+<script type="text/javascript">
+$(function(){
+	$('.dropdown-toggle').dropdown();
+})
+</script>
 </body>
 </html>

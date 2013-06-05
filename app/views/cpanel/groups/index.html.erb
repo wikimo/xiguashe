@@ -36,9 +36,9 @@
 						<%= link_to '修改'%>
 						<%= link_to '删除'%>
 						<% if group.state %>
-							<%= link_to '置为不可用', change_status_cpanel_group_path(@group) %>
+							<%= link_to '置为不可用', change_status_cpanel_group_path(group) %>
 						<% else %>
-							<%= link_to '置为可用', change_status_cpanel_group_path(@group) %>
+							<%= link_to '置为可用', change_status_cpanel_group_path(group) %>
 						<% end %>
 					</td>
 				</tr>

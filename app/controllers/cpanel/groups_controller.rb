@@ -5,12 +5,12 @@ class Cpanel::GroupsController < Cpanel::ApplicationController
 	end
 
 	def change_status
-		@group = Group.find(param[:id])
+		@group = Group.find(params[:id])
 
-		if @group.status 
-			@group.update_attributes({ :status => false })
+		if @group.state
+			@group.update_attributes({ :state => false })
 		else
-			@group.update_attributes({ :status => true })
+			@group.update_attributes({ :state => true })
 		end
 
 		redirect_to cpanel_groups_path

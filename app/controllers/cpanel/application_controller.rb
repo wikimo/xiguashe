@@ -2,7 +2,7 @@ class Cpanel::ApplicationController < ApplicationController
   
   layout "cpanel"
 
-
+  before_filter :logined?
   before_filter :require_admin
   
   def require_admin
