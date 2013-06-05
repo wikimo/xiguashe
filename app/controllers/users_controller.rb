@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
   	@user =  User.find params[:id]
+
+    @topics =  Topic.find(:all, :conditions =>["user_id = ?",@user.id])
   end
 
   def new

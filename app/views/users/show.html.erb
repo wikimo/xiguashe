@@ -25,11 +25,19 @@
 
 		<div class="topic-list topics">
 				<ul>
-					<li>
-						<h2><a href="">《1942》摄影指导吕乐分享创作心得</a></h2>
+					<% @topics.each_with_index do |topic, i| %>
+					<% if i%2 == 0 %>
+					<li>	
+					<% else %>
+
+					<li  class="nm">
+					<% end -%>	
+						<h2><a href=""><%= topic.title%></a></h2>
 						<div class="content">
 						
-						<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内.....</p>
+						<p>
+						<%= truncate(topic.content, :length => 30, :omission => "...")%>
+						</p>
 						</div>
 						<div class="topic-footer">
 							
@@ -39,20 +47,7 @@
 							<div class="c"></div>
 						</div>
 					</li>
-					<li class="nm">
-						<h2><a href="">《1942》摄影指导吕乐分享创作心得</a></h2>
-						<div class="content">
-						
-						<p>话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内容话题内.....</p>
-						</div>
-						<div class="topic-footer">
-							
-
-							<div class="counter"><span title="浏览数" class="viewer-num"><i class="ico"></i><span>67</span></span><span title="喜欢数" class="liked-num"><i class="ico"></i><span>1</span></span><span title="评论数" class="comments-num"><i class="ico"></i><span>0</span></span></div>
-							<div class="c"></div>
-						</div>
-					</li>
-
+				<%end%>	
 					
 				</ul>
 			</div>
