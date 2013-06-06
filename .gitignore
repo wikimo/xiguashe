@@ -1,4 +1,5 @@
 /log/*.log
+.gitignore
 /tmp
 /config/database.yml
 /public/attachment/*
