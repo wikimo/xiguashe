@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_filter :logined?, :except => [:create, :new]
   
   def new
-
+    redirect_to user_path(current_user) if current_logined?
   end
 
   def create
