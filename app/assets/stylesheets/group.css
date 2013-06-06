@@ -6,7 +6,7 @@
 .topic-list ul li{background:#fff;line-height: 2em;padding:10px;width: 290px;float: left;margin: 0 10px 10px 0 }
 .topic-list ul li h2{font: 14px/1.5em 'Microsoft Yahei'}
 .topic-list ul li:hover{background: #ddd}
-.topic-list ul li .content{height: 85px;overflow: hidden;}
+.topic-list ul li .content{height: 55px;overflow: hidden;}
 .topic-footer{padding:8px 0 0 0;border-top: 1px dashed #ccc;margin:5px 0 0 0}
 .topic-footer .user{float: left;}
 .topic-footer .counter{float: right;margin:20px 0 0 0}

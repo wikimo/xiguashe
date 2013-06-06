@@ -32,18 +32,22 @@
 
 					<li  class="nm">
 					<% end -%>	
-						<h2><a href=""><%= topic.title%></a></h2>
+						<h2><%= link_to topic.title,topic_path(topic)%></h2>
 						<div class="content">
 						
 						<p>
-						<%= truncate(topic.content, :length => 30, :omission => "...")%>
+						<%= truncate(topic.content, :length => 150, :omission => "...")%>
 						</p>
 						</div>
 						<div class="topic-footer">
 							
 							
 
-							<div class="counter"><span title="浏览数" class="viewer-num"><i class="ico"></i><span>67</span></span><span title="喜欢数" class="liked-num"><i class="ico"></i><span>1</span></span><span title="评论数" class="comments-num"><i class="ico"></i><span>0</span></span></div>
+							<div class="counter">
+								<span title="浏览数" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num%></span></span>
+								<span title="评论数" class="comments-num"><i class="ico"></i><span><%= topic.reply_num%></span></span>
+								<span title="收藏数" class="liked-num"><i class="ico"></i><span>10</span></span>
+								</div>
 							<div class="c"></div>
 						</div>
 					</li>
