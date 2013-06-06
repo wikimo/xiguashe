@@ -1,9 +1,0 @@
-/log/*.log
-.gitignore
-/tmp
-/config/database.yml
-/public/attachment/*
-.rvmrc
-.DS_Store
-/solr/
-Gemfile.lock
