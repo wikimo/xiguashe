@@ -4,3 +4,4 @@
 3.用户后无法继续登陆或注册；
 
 rake sunspot:solr:start
+rake sunspot:reindex
