@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def groups
+    @user = User.find params[:id]
+
+    @groups = @user.groups  
+  end
 
   def show
   	@user =  User.find params[:id]

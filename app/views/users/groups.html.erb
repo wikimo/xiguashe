@@ -1,0 +1,36 @@
+<%= stylesheet('bootstrap','style','group','user')%>
+
+<div class="user-container">
+	<div class="user-box">
+		<div class="avatar">
+			<%= image_tag 'avatar.jpg' ,:alt => @user.nickname%>
+		</div>
+		<div class="user-info">
+			<h4><%= @user.nickname%></h4>
+			<div class="user-nav">
+				<a href="" class="active">话题</a>
+				<a href="">小组</a>
+				<a href="">关注</a>
+				<a href="">粉丝</a>
+				<a href="">收藏</a>
+			</div>
+		</div>
+		<div class="c"></div>
+	</div>
+</div>
+
+<div id="main">
+	<div  class="container">
+		
+
+		<div class="topic-list topics">
+				<ul>
+					<% @groups.each do |group|%>
+					<li><%= group.name%></li>
+					<% end %>
+					
+				</ul>
+			</div>
+		
+	</div>
+</div>

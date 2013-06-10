@@ -11,7 +11,11 @@ Xiguashe::Application.routes.draw do
 
   resources :sessions
 
-  resources :users
+  resources :users do
+    member do
+      get :groups
+    end  
+  end  
 
   resources :groups do
     member do
