@@ -44,7 +44,48 @@ a:hover{text-decoration: none;}
 .comm-box-footer .user{float: left;}
 .comm-box-footer .counter{float: right;margin:5px 0 0 0}
 
+.comm-form{padding: 20px;background: #FFF;}
+.title{margin-left: 100px}
+.comm-form .help-block,.comm-form .checkbox a,.comm-form .checkbox{font-size: 12px}
 
+
+/*file upload*/
+.btn-add-pic{
+    display: block;
+    position: relative;
+    width: 140px;
+	height: 39px;
+	overflow: hidden;
+	border: 1px solid #EBEBEB;
+	background: #FFF;
+	color: #999999;
+    cursor: pointer;
+	text-align: center;
+	cursor: pointer;
+}
+.btn-add-pic span{display: block;line-height: 39px;}
+.btn-add-pic em {
+	background:url(/assets/add-pic.png) 0 0;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	margin: 10px 5px 10px 0;
+	line-height: 20em;
+	vertical-align: middle;
+}
+.btn-add-pic:hover em{background-position:-19px 0;}
+.file-prew {
+    display: block;
+	position: absolute;
+    top: 0;
+	left: 0;
+    width: 140px;
+	height: 39px;
+	font-size: 100px; /* 增大不同浏览器的可点击区域 */
+    opacity: 0; /* 实现的关键点 */
+	filter:alpha(opacity=0);/* 兼容IE */
+}
 
 /*清除浮动 代码*/
 .cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}

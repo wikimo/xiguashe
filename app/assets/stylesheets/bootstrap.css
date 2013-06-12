@@ -1654,11 +1654,11 @@ select:focus:invalid:focus {
   box-shadow: 0 0 6px #f8b9b7;
 }
 .form-actions {
-  padding: 19px 20px 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #e5e5e5;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+/*  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;*/
   *zoom: 1;
 }
 .form-actions:before,
@@ -2126,12 +2126,12 @@ input[type="button"].btn-block {
 .btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #ee2000;
-  background-image: -moz-linear-gradient(top, #ee0000, #ee4f00);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee0000), to(#ee4f00));
-  background-image: -webkit-linear-gradient(top, #ee0000, #ee4f00);
-  background-image: -o-linear-gradient(top, #ee0000, #ee4f00);
-  background-image: linear-gradient(to bottom, #ee0000, #ee4f00);
+  background-color: #F24564;
+  background-image: -moz-linear-gradient(top, #F24564, #f26983);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F24564), to(#f26983));
+  background-image: -webkit-linear-gradient(top, #F24564, #f26983);
+  background-image: -o-linear-gradient(top, #F24564, #f26983);
+  background-image: linear-gradient(to bottom, #F24564, #f26983);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee0000', endColorstr='#ffee4f00', GradientType=0);
   border-color: #ee4f00 #ee4f00 #a23600;
@@ -2147,7 +2147,7 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #ee4f00;
+  background-color: #f26983;
   *background-color: #d54700;
 }
 .btn-primary:active,
