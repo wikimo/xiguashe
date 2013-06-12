@@ -1,7 +1,10 @@
+/*F24564
+f26983*/
 *{padding: 0;margin: 0}
 body{background: #F2F2F2}
 a:hover{text-decoration: none;}
-.navbar-text a{color: #fff;}
+.navbar-text a{color: #666;}
+#header .mar-35{margin-right:35px;}
 
 #header{height: 49px;}
 #footer{margin:auto;color: #777;line-height: 1.5em; padding: 15px;font-size: 12px;padding-bottom: 50px}
@@ -36,6 +39,10 @@ a:hover{text-decoration: none;}
 
 .comm-left{width: 630px;float: left;}
 .comm-right{width: 300px;float: right;}
+
+.comm-box-footer{padding:8px 0 0 0;border-top: 1px dashed #ccc;margin:5px 0 0 0}
+.comm-box-footer .user{float: left;}
+.comm-box-footer .counter{float: right;margin:5px 0 0 0}
 
 
 

@@ -19,3 +19,6 @@
 .nm{margin:0}
 
 .u-ad a img{width: 300px;}
+
+.user-groups li{background: #fff;padding:10px;width: 200px;margin:10px;float: left;}
+.user-groups h4{text-align: center;}

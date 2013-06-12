@@ -27,7 +27,7 @@
 }
 
 .topic-list .counter .viewer-num .ico, .topic-list .counter .liked-num .ico, .topic-list .counter .comments-num .ico {
-    background: url("../img/icos-topic-counter.png") no-repeat scroll 0 0 transparent;
+    background: url("/assets/icos-topic-counter.png") no-repeat scroll 0 0 transparent;
 }
 .topic-list .counter .liked-num .ico {
     background-position: -24px 0;
