@@ -1,0 +1,14 @@
+
+
+<table>
+	<tr>
+		<td>申请人用户名</td>
+		<td>操作</td>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.nickname %></td>
+		<td><%= link_to '审核通过', "/groups/audit/#{@group.id}/#{user.id}/1" %> | <%= link_to '审核不通过'%> </td>
+	</tr>
+	<% end -%>
+</table>

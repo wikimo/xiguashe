@@ -10,9 +10,10 @@ class TopicsController < ApplicationController
 		if current_user
 			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
 		end
-
+		
 		@members = @group.members
 		
+		@creater = @group.creater
 	end
 
 

@@ -49,5 +49,38 @@ class GroupsController < ApplicationController
     redirect_to group_topics_path(@group)
   end
 
+  def apply
+
+    @group = Group.find(params[:id])
+
+    @gu = GroupUser.find_by_group_id_and_user_id(params[:id], current_user.id)
+
+    @gu.update_attributes({:status => 1})
+
+    redirect_to group_topics_path(@group)
+  end
+
+  def applyers
+    
+    @group = Group.find(params[:id])
+
+    @users = @group.applyers
+
+    
+  end
+
+  def audit
+    
+
+    @group = Group.find(params[:id])
+
+    @gu = GroupUser.find_by_group_id_and_user_id(params[:id], params[:user_id])
+
+    @gu.update_attributes({:level => 1, :status => 2})
+
+    redirect_to applyers_group_path(@group)
+
+  end
+
 
 end

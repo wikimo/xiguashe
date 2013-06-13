@@ -1,5 +1,7 @@
 Xiguashe::Application.routes.draw do
 
+  get "group_users/index"
+
   resources :notifications
 
   get "topics/new"
@@ -8,6 +10,8 @@ Xiguashe::Application.routes.draw do
   get "quit" => "sessions#destroy",            :as => "quit"
   get "login" => "sessions#new",               :as => "login"
   match "/search" => "search#index",           :as => :search
+
+  match ':controller/:action/:id/:user_id/:tag'
 
   resources :sessions
 
@@ -19,7 +23,7 @@ Xiguashe::Application.routes.draw do
 
   resources :groups do
     member do
-      get :join, :leave 
+      get :join, :leave, :apply, :applyers
     end
     resources :topics
   end  
