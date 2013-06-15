@@ -8,7 +8,11 @@
 	<% @users.each do |user| %>
 	<tr>
 		<td><%= user.nickname %></td>
-		<td><%= link_to '审核通过', "/groups/audit/#{@group.id}/#{user.id}/1" %> | <%= link_to '审核不通过'%> </td>
+		<td>
+			<%= link_to '审核通过', "/groups/audit/#{@group.id}/#{user.id}/2" %> | 
+			<%= link_to '审核不通过', "/groups/audit/#{@group.id}/#{user.id}/3" %> 
+			                        
+		</td>
 	</tr>
 	<% end -%>
 </table>

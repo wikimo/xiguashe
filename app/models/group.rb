@@ -31,4 +31,10 @@ class Group < ActiveRecord::Base
 
     	users = User.find_all_by_id(gu.map(&:user_id))
     end
+
+    def managers
+        gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 1], :order => 'updated_at asc')
+
+        users = User.find_all_by_id(gu.map(&:user_id))
+    end
 end

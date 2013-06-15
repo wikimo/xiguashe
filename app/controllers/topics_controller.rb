@@ -14,6 +14,8 @@ class TopicsController < ApplicationController
 		@members = @group.members
 		
 		@creater = @group.creater
+
+		@managers = @group.managers
 	end
 
 

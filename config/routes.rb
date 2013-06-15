@@ -11,7 +11,7 @@ Xiguashe::Application.routes.draw do
   get "login" => "sessions#new",               :as => "login"
   match "/search" => "search#index",           :as => :search
 
-  match ':controller/:action/:id/:user_id/:tag'
+  match "groups/audit/:id/:user_id/:status" => "groups#audit", :via => :get
 
   resources :sessions
 

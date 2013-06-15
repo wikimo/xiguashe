@@ -16,8 +16,8 @@
 			</div>
 			<% if @gu %>
 					<%= link_to '退出小组', leave_group_path(@group), class: 'btn btn-success group-join' %>
-					<% if @gu.level == 0 && @gu.status == 0%>
-						<%= link_to '申请管理员',apply_group_path(@group), class: 'btn btn-success group-join' %>
+					<% if @gu.level == 0 && (@gu.status == 0 || @gu.status == 3) %>
+						<%= link_to '申请管理员',apply_group_path(@group) %>
 					<% end -%>
 					<% if @gu.level == 2 %>
 						<%= link_to '查看申请管理员列表', applyers_group_path(@group) %>
@@ -118,18 +118,13 @@
 			<h4>小组管理员</h4>
 			<div class="content cc">
 				<ul>
+					<% @managers.each do |manager| %>
 					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>		
+						<%= image_tag 'avatar.jpg',:alt => manager.nickname, :title => manager.nickname %>
+						<p><%= manager.nickname %></p>
+					</li>
+					<% end -%>
+						
 				</ul>
 			</div>
 		</div>

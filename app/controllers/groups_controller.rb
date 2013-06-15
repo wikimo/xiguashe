@@ -76,7 +76,11 @@ class GroupsController < ApplicationController
 
     @gu = GroupUser.find_by_group_id_and_user_id(params[:id], params[:user_id])
 
-    @gu.update_attributes({:level => 1, :status => 2})
+    if "2" == params[:status]
+      @gu.update_attributes({:level => 1, :status => params[:status]})
+    else
+      @gu.update_attributes({:status => params[:status]})
+    end
 
     redirect_to applyers_group_path(@group)
 
