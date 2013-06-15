@@ -1,6 +1,5 @@
 Xiguashe::Application.routes.draw do
 
-  get "group_users/index"
 
   resources :notifications
 
@@ -21,6 +20,10 @@ Xiguashe::Application.routes.draw do
     end  
   end  
 
+  resources :categories do
+    resources :groups
+  end
+
   resources :groups do
     member do
       get :join, :leave, :apply, :applyers
@@ -39,6 +42,7 @@ Xiguashe::Application.routes.draw do
   end
 
   namespace :cpanel do 
+    resources :categories
     resources :groups do
       member do
         get :change_status
@@ -48,6 +52,6 @@ Xiguashe::Application.routes.draw do
  
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'categories#index'
 
 end

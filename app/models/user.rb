@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password
 
 	has_attached_file :icon, 
-					:styles => {
+					  :styles => {
 						            :thumb  => "50X50>",
 									:original => "200x150>", 
 							    }, 
-								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
+					  :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
+					  :path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
 	
 	def password

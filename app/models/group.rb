@@ -1,5 +1,8 @@
 class Group < ActiveRecord::Base
-	has_many :topics
+	
+    belongs_to :category
+
+    has_many :topics
 
 	has_many :group_users, :dependent => :destroy
 	
@@ -12,6 +15,10 @@ class Group < ActiveRecord::Base
 								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
+
+    def group_can_use
+        groups = Group.find(:all,:conditions =>['state=?',true])
+    end
 
     def creater
         gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 2], :order => 'created_at DESC')

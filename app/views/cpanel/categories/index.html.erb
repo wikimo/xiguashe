@@ -1,0 +1,48 @@
+<div class="row">
+  	<div class="span9">
+    	<table class="table table-striped">
+    		<thead>
+				<tr>
+					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
+					<th>分类ID</th>
+					<th>分类名</th>
+					<th>描述</th>
+					<th>是否可用</th>
+					<th>创建时间</th>
+					<th>结束时间</th>
+					<td>操作</td>
+				</tr>
+			</thead>
+    		<% @categories.each do |category| %>
+    		<tbody>
+				<tr>
+					<td><%= check_box_tag 'checkbox_name', category.id %></td>
+					<td><%= category.id %></td>
+					<td><%= category.name %></td>
+					<td><%= truncate category.description, :length => 10 %></td>
+					<td>
+						<% if category.is_use %>
+							<td>可用</td>
+						<% else %>
+							<td>不可用</td>
+						<% end -%>
+					</td>
+					<td><%= format_datetime category.created_at,'%Y-%m-%d %H:%M' %></td>
+					<td><%= format_datetime category.updated_at,'%Y-%m-%d %H:%M' %></td>
+					
+					<td>
+						<%= link_to '查看'%>
+						<%= link_to '修改'%>
+						<%= link_to '删除'%>
+						<% if category.is_use %>
+							<%= link_to '置为不可用' %>
+						<% else %>
+							<%= link_to '置为可用' %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+    		<% end -%>
+		</table>
+  	</div>
+</div>

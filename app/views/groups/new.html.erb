@@ -5,7 +5,14 @@
 
 		<div class="control-group">
 			<%= f.label :小组名称,:class => 'control-label'%> 
-			<div class="controls"><%= f.text_field :name%></div>
+			<div class="controls"><%= f.text_field :name %></div>
+		</div>
+
+		<div class="control-group">
+			<%= f.label :小组所属分类,:class => 'control-label'%> 
+			<div class="controls">
+				<%= f.select :category_id, @categories_array %>
+			</div>
 		</div>
 
 		<div class="control-group">
@@ -17,8 +24,6 @@
 	        <%= f.label :小组图标,:class => 'control-label'  %>  
 	        <div class="controls"><%= f.file_field :icon %></div>
 	    </div>
-
-	
 
 		<div class="form-actions">
 		  <%= button_tag "提交",:class=>'btn btn-primary' %>
