@@ -40,7 +40,13 @@
 							</div>
 							<div class="topic-footer">
 								<div class="user">
-									<a href=""><%= image_tag topic.user.icon.url(:thumb),:alt => topic.user.nickname ,:title => topic.user.nickname %>
+									<a href="">
+									<%if topic.user.icon.exists? %>
+							        <%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname%>
+							      <%else%>
+							        <%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname%>
+							      <%end%></a>
+
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								<div class="counter">
@@ -106,7 +112,11 @@
 			<div class="content cc">
 				<ul>
 					<li><a href="">
-						<%= image_tag @creater.icon.url(:thumb),:alt => @creater.nickname ,:title => @creater.nickname %>
+						<%if @creater.icon.exists? %>
+					        <%= image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname%>
+					      <%else%>
+					        <%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+					      <%end%>
 						<p><%= @creater.nickname %></p>
 					</li>
 				</ul>
