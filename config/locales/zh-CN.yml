@@ -198,6 +198,7 @@ zh-CN:
         username: '用户名'
         email: '邮箱'
         password: '密码'
+        old_password: '旧密码'
       topic:
         title: '话题标题'
         content: '话题内容'
@@ -226,3 +227,5 @@ zh-CN:
 
   wait_for_check: '等待管理员审核！'
   has_applied: '当前已申请，请耐心等待！'
+
+  update_success: '更新成功！'

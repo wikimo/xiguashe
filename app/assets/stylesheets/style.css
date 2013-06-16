@@ -49,6 +49,8 @@ a:hover{text-decoration: none;}
 .comm-form .help-block,.comm-form .checkbox a,.comm-form .checkbox{font-size: 12px}
 
 
+.msgs-box{margin-left: 180px}
+.msgs-box ul li{line-height: 2em}
 /*file upload*/
 .btn-add-pic{
     display: block;

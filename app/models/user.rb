@@ -1,12 +1,14 @@
+# encoding: utf-8
 class User < ActiveRecord::Base
-	
+	attr_accessor :old_password 
+
 	has_many :group_users, :dependent => :destroy
 	has_many :groups,      :through => :group_users
 	has_many :topics,      :dependent => :destroy
 	has_many :comments,    :dependent => :destroy
 
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
-	
+	validate :old_password_ok #更新密码是严重原始密码
 	validates_confirmation_of :password
 
 	has_attached_file :icon, 
@@ -27,6 +29,7 @@ class User < ActiveRecord::Base
 		@password =  pass
 		generate_password pass
 	end
+
 
 
 	def is_admin?
@@ -51,6 +54,8 @@ class User < ActiveRecord::Base
         Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
     end
 
+  	
+
 	private
 	    def generate_password(pass)
 	      salt = Array.new(10){rand(1024).to_s(36)}.join
@@ -60,4 +65,10 @@ class User < ActiveRecord::Base
 	    def password_present?
 	      !password.nil?
 	    end
+
+	    def old_password_ok
+	    	errors.add(:old_password, "不正确！") if !User.authenticate(email,old_password)
+	    end
+
+	  
 end
