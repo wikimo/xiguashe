@@ -1,0 +1,20 @@
+<div class="user-box">
+	<div class="avatar">
+	  <%if @user.icon.exists? %>
+        <%= image_tag @user.icon.url(:thumb) ,:alt => @user.nickname%>
+      <%else%>
+        <%= image_tag 'avatar.jpg' ,:alt => @user.nickname%>
+      <%end%>
+
+	</div>
+	<div class="user-info">
+		<h4><%= @user.nickname%></h4>
+		<div class="user-nav">
+			<%= link_to '话题' ,user_path(@user),:class => 'active'%>
+			<%= link_to '小组' ,groups_user_path(@user)%>
+			<a href="">关注</a>
+			<a href="">收藏</a>
+		</div>
+	</div>
+	<div class="c"></div>
+</div>

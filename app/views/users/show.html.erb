@@ -1,21 +1,7 @@
 <%= stylesheet('bootstrap','style','group','user')%>
 
 <div class="user-container">
-	<div class="user-box">
-		<div class="avatar">
-		  <%if @user.icon.exists? %>
-	        <%= image_tag @user.icon.url(:thumb) ,:alt => @user.nickname%>
-	      <%else%>
-	        <%= image_tag 'avatar.jpg' ,:alt => @user.nickname%>
-	      <%end%>
-
-		</div>
-		<div class="user-info">
-			<h4><%= @user.nickname%></h4>
-			<%= render 'user_nav'%>
-		</div>
-		<div class="c"></div>
-	</div>
+	<%= render 'user_info'%>
 </div>
 
 <div id="main">
