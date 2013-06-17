@@ -4,7 +4,7 @@
 
   		<button type="button" data-toggle="modal" class="btn btn-primary" data-target="#add_category">新增</button>
 
-  		<%= form_for [:cpanel, @category],:html => {:class => 'form-vertical'} do |f|%>
+  		<%= form_for [:cpanel, @category], :html => {:class => 'form-vertical'} do |f|%>
   		<div id="add_category" class="modal hide">
   			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
