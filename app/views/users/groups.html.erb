@@ -1,16 +1,7 @@
 <%= stylesheet('bootstrap','style','group','user')%>
 
 <div class="user-container">
-	<div class="user-box">
-		<div class="avatar">
-			<%= image_tag 'avatar.jpg' ,:alt => @user.nickname%>
-		</div>
-		<div class="user-info">
-			<h4><%= @user.nickname%></h4>
-			<%= render 'user_nav'%>
-		</div>
-		<div class="c"></div>
-	</div>
+	<%= render 'user_info'%>
 </div>
 
 <div id="main">

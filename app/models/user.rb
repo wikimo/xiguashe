@@ -1,12 +1,25 @@
+# encoding: utf-8
 class User < ActiveRecord::Base
-	
+	attr_accessor :old_password 
+
 	has_many :group_users, :dependent => :destroy
 	has_many :groups,      :through => :group_users
 	has_many :topics,      :dependent => :destroy
 	has_many :comments,    :dependent => :destroy
 
+	#follower followed
+	has_many :user_relations, :foreign_key => "follower_id",
+	                       :dependent => :destroy
+
+	has_many :following, :through => :user_relations, :source => :followed
+
+	has_many :reverse_user_relations, :foreign_key => "followed_id",
+	                               :class_name => "UserRelation",
+	                               :dependent => :destroy
+	has_many :followers, :through => :reverse_user_relations, :source => :follower
+
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
-	
+	validate :old_password_ok ,:on => :update#更新密码是严重原始密码
 	validates_confirmation_of :password
 
 	has_attached_file :icon, 
@@ -28,12 +41,31 @@ class User < ActiveRecord::Base
 		generate_password pass
 	end
 
+	def following?(followed)
+		user_relations.find_by_followed_id(followed)
+	end
+
+	def follow!(followed)
+		user_relations.create!(:followed_id => followed.id) if followed.id != self.id
+	end
+
+	def unfollow!(followed)
+		user_relations.find_by_followed_id(followed).destroy
+	end
 
 	def is_admin?
 		Settings.admin_emails.include?(self.email)
 	end
 
-	class << self
+	
+
+	def groups
+		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
+    	
+        Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
+    end
+
+    class << self
 		def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)
 
@@ -44,12 +76,7 @@ class User < ActiveRecord::Base
 			false
 		end
 	end	
-
-	def groups
-		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
-    	
-        Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
-    end
+  	
 
 	private
 	    def generate_password(pass)
@@ -60,4 +87,10 @@ class User < ActiveRecord::Base
 	    def password_present?
 	      !password.nil?
 	    end
+
+	    def old_password_ok
+	    	errors.add(:old_password, "不正确！") if !User.authenticate(email,old_password)
+	    end
+
+	  
 end

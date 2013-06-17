@@ -3,25 +3,19 @@
 
 <div id="main">
   <div class="comm-form">
-    <%= form_for @user, :html => { :class => "form-vertical"} do |f| %>
-      <%if flash[:notice]%>
-        <div class="errors-box">
-          <h4>消息提示：</h4>
-          <ul>
-            <li><%= flash[:notice]%></li>
-          </ul>
-        </div>
-      <% end %>
+    <h2 class="title">更新资料</h2>
+    <%= form_for @user, :html => { :class => "form-horizontal"} do |f| %>
+      
       <div class="control-group">
         <label for="" class="control-label">旧密码</label>
         <div class="controls">
-          <%= f.password_field :password,:class => 'txt' %>
+          <%= f.password_field :old_password,:class => 'txt' %>
         </div>
       </div>
        <div class="control-group">
         <label for="" class="control-label">新密码</label>
         <div class="controls">
-          <%= f.password_field :new_password,:class => 'txt' %>
+          <%= f.password_field :password,:class => 'txt' %>
         </div>
       </div>
       <div class="control-group">
@@ -39,10 +33,31 @@
               </a>
           </div>
       </div>
-      
+      <%if @user.errors.any?%>
+          <div class="msgs-box">
+            <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+            <li>* <%= msg%></li>
+            <% end %>
+
+            
+            
+          </ul>
+        </div>
+      <% end %>
+      <%if flash[:notice] %>
+      <div class="msgs-box">
+        <ul>
+          <li>* <%= flash[:notice]%></li>
+        </ul>
+      </div>
+      <%end %>
+
+
       <div class="form-actions">
         <%= button_tag "更新",:class=>'btn btn-primary' %>
       </div>
     <% end %>
+
   </div>
 </div>
