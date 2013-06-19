@@ -42,10 +42,10 @@
 								<div class="user">
 									<a href="">
 									<%if topic.user.icon.exists? %>
-							        <%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname%>
-							      <%else%>
-							        <%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname%>
-							      <%end%></a>
+							        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname%>
+							      	<%else%>
+							        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
+							      	<%end%></a>
 
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
@@ -111,12 +111,12 @@
 			<h4>小组创始人</h4>
 			<div class="content cc">
 				<ul>
-					<li><a href="">
+					<li>
 						<%if @creater.icon.exists? %>
 					        <%= image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname%>
-					      <%else%>
+					    <%else%>
 					        <%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
-					      <%end%>
+					    <%end%>
 						<p><%= @creater.nickname %></p>
 					</li>
 				</ul>
@@ -129,8 +129,13 @@
 			<div class="content cc">
 				<ul>
 					<% @managers.each do |manager| %>
-					<li><a href="">
-						<%= image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname %>
+					<li>
+						<% if manager.icon.exists? %>
+							<%= image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname %>
+						<% else %>
+							<%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+						<% end -%>
+						
 						<p><%= manager.nickname %></p>
 					</li>
 					<% end -%>
@@ -168,8 +173,14 @@
 							<% break %>
 						<% else %>
 							<li>
-								<%= image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname %>
-								</a>
+								<% if member.icon.exists? %>
+
+									<%= image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname %>
+								<% else %>
+									<%= image_tag 'avatar.jpg' ,:alt => member.nickname%>
+
+								<% end -%>
+
 								<p><%= member.nickname %></p>
 							</li>
 						<% end %>

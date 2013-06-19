@@ -42,7 +42,11 @@ Xiguashe::Application.routes.draw do
   end
 
   namespace :cpanel do 
-    resources :categories
+    resources :categories do 
+      member do
+        get :change_use 
+      end
+    end
     resources :groups do
       member do
         get :change_status

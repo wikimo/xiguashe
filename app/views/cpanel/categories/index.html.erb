@@ -2,33 +2,9 @@
   	<div class="span9">
 
 
-  		<button type="button" data-toggle="modal" class="btn btn-primary" data-target="#add_category">新增</button>
+  		<button type="button" data-toggle="modal" class="btn btn-primary" data-target="#category_form">新增</button>
 
-
-  		<%= form_for [:cpanel,@category], :html => {:class => 'form-vertical'} do |f|%>
-
-
-  		<div id="add_category" class="modal hide">
-  			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="add_category_label">新增分类</h3>
-			</div>
-			<div class="modal-body">
-				<p>
-					<%= f.hidden_field :id %>
-					<%= f.label :分类名称,:class => 'control-label'%> 
-					<div class="controls"><%= f.text_field :name %></div>
-
-					<%= f.label :分类描述,:class => 'control-label' %> 
-					<div class="controls"><%= f.text_area :description ,:cols  =>40,:rows  => 5%></div>
-				</p>
-			</div>
-  			<div class="modal-footer">
-				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-				<%= button_tag "保存", class: "btn btn-primary" %>
-			</div>
-  		</div>
-  		<% end -%>
+  		<%= render 'form', category: @category %>
 
     	<table class="table table-striped">
     		<thead>
@@ -62,12 +38,13 @@
 					
 					<td>
 						<%= link_to '查看'%>
-						<%= link_to '修改',edit_cpanel_category_path(category),:remote => true%>
-						<%= link_to '删除'%>
+						
+						<a href="#" id="edit_category" data-id="<%= category.id %>" >修改</a>
+						<%= link_to '删除', [:cpanel, category], confirm: '确认删除吗？', method: :delete %>
 						<% if category.is_use %>
-							<%= link_to '置为不可用' %>
+							<%= link_to '置为不可用', change_use_cpanel_category_path(category) %>
 						<% else %>
-							<%= link_to '置为可用' %>
+							<%= link_to '置为可用', change_use_cpanel_category_path(category) %>
 						<% end %>
 					</td>
 				</tr>
@@ -76,3 +53,24 @@
 		</table>
   	</div>
 </div>
+<script type="text/javascript">
+
+$(function(){
+	$("#edit_category").click(function(){
+
+		var id = $(this).attr('data-id');
+		console.log(id);
+		var url = "/cpanel/categories/" + id + "/edit";
+		console.log(url);
+		$.ajax({
+			type : "get",
+			url : url,
+			success : function(data){
+				var category = eval(data);
+				
+			}
+		});
+		    
+	});
+});
+</script>

@@ -10,7 +10,8 @@ class GroupsController < ApplicationController
   def new
   	@group = Group.new
 
-    @categories_array = Category.all.collect {|c| [c.name, c.id]}
+    #used in select
+    @categories_array = Category.find(:all, :conditions => ['is_use = ?', true ]).collect {|c| [c.name, c.id]}
   end
 
   def create
