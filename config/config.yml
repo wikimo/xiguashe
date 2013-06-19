@@ -1,6 +1,6 @@
 defaults: &defaults
   admin_emails: 
-    - "wiki@gmail.com"
+    - "gwikimo@gmail.com"
 
 development:
   <<: *defaults
