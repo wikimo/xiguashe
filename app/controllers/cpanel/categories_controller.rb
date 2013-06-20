@@ -3,9 +3,13 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
   def index
   	
   	@categories = Category.all
-  	@category = Category.new
+  	
   end
 
+
+  def new
+    @category = Category.new
+  end
 
   def create
   	@category = Category.create(:name => params[:category][:name], :description => params[:category][:description])
@@ -21,12 +25,17 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
 
     @category = Category.find(params[:id])
     
-    render :json => @category
   end
 
 
   def update
-    
+    @category = Category.find(params[:category][:id])
+
+    if @category.update_attributes(params[:category])
+      redirect_to cpanel_categories_path
+    else
+      render 'edit'  #error
+    end
   end
 
 
@@ -50,6 +59,8 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
     else
       @category.update_attributes({ :is_use => true })
     end
+
+    redirect_to cpanel_categories_path
   end
 
 

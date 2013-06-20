@@ -1,1 +1,5 @@
-console.log('debug -- ' + <%= @category.name%>)
+
+
+$("#module_win").html("<%= escape_javascript(render 'form', category: @category, tag: 'update' ) %>");
+
+$('#category_form').modal('show');
