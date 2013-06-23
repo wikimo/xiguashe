@@ -41,11 +41,12 @@
 							<div class="topic-footer">
 								<div class="user">
 									<a href="">
-									<%if topic.user.icon.exists? %>
-							        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname%>
-							      	<%else%>
-							        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
-							      	<%end%></a>
+										<% if topic.user.icon.exists? %>
+								        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname %>
+								      	<% else %>
+								        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
+								      	<% end %>
+							        </a>
 
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
@@ -56,7 +57,7 @@
 									</span>
 									<span title="喜欢数" class="liked-num">
 										<i class="ico"></i>
-										<span>1</span>
+										<span><%= topic.like_num %></span>
 									</span>
 									<span title="评论数" class="comments-num">
 										<i class="ico"></i>
@@ -73,7 +74,7 @@
 							<div class="content">
 							
 								<p>
-									<%= raw topic.content%>
+									<%= raw topic.content %>
 								</p>
 
 							</div>
@@ -91,7 +92,7 @@
 									</span>
 									<span title="喜欢数" class="liked-num">
 										<i class="ico"></i>
-										<span>1</span>
+										<span><%= topic.like_num %></span>
 									</span>
 									<span title="评论数" class="comments-num">
 										<i class="ico"></i><span><%= topic.comments.count %></span>

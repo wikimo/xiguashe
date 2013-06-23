@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	has_many :groups,      :through => :group_users
 	has_many :topics,      :dependent => :destroy
 	has_many :comments,    :dependent => :destroy
+	has_many :likes,       :dependent => :destroy
 
 	#follower followed
 	has_many :user_relations, :foreign_key => "follower_id",
@@ -57,7 +58,14 @@ class User < ActiveRecord::Base
 		Settings.admin_emails.include?(self.email)
 	end
 
-	
+	def like(likeable)
+		Like.where(:likeable_id => likeable.id, :likeable_type => likeable.class, :user_id => self.id).first_or_create
+	end
+
+	def unlike(likeable)
+		like = Like.where(:likeable_id => likeable.id, :likeable_type => likeable.class, :user_id => self.id).first
+		like.destroy
+	end
 
 	def groups
 		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])

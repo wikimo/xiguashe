@@ -35,6 +35,8 @@ Xiguashe::Application.routes.draw do
     resources :comments
   end
 
+  resources :likes
+
   resources :comments do 
     member do
       get :reply_create

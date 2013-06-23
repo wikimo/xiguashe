@@ -18,7 +18,9 @@
 						<div class="content">
 							<%=raw @topic.content%>
 						</div>
+						<%= likeable_tag(@topic) %>
 					</div>
+					
 				</div>
 
 				<%= render 'comments/comments' %>
