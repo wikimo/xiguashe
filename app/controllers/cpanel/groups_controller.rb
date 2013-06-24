@@ -4,6 +4,21 @@ class Cpanel::GroupsController < Cpanel::ApplicationController
 		@groups = Group.all
 	end
 
+
+	def show
+		
+	end
+
+	def update
+		
+	end
+
+	def destroy
+		@group = Group.find(params[:id])
+		@group.destroy
+		redirect_to cpanel_groups_path
+	end
+
 	def change_status
 		@group = Group.find(params[:id])
 

@@ -18,7 +18,12 @@ class GroupsController < ApplicationController
   	@group =  Group.new params[:group]
     
   	if @group.save
-  		redirect_to groups_path,:notice  => 'create_group_success'
+
+      @gu = GroupUser.create(:group_id => @group.id, :user_id => current_user.id, :level => 2)
+
+      if @gu.save
+  		  redirect_to groups_path,:notice  => 'create_group_success'
+      end
   	else
   		render 'new'
   	end
