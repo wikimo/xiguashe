@@ -115,9 +115,9 @@
 					<li>
 						<% if @creater != nil %> 
 							<%if @creater.icon.exists? %>
-						        <%= image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname%>
+						        <%= link_to (image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname), @creater %>
 						    <%else%>
-						        <%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+						        <%= link_to (image_tag 'avatar.jpg' ,:alt => @creater.nickname), @creater %>
 						    <%end%>
 							<p><%= @creater.nickname %></p>
 						<% end -%>
@@ -135,9 +135,9 @@
 						<% @managers.each do |manager| %>
 						<li>
 							<% if manager.icon.exists? %>
-								<%= image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname %>
+								<%= link_to (image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname), manager %>
 							<% else %>
-								<%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+								<%= link_to (image_tag 'avatar.jpg' ,:alt => @creater.nickname), manager %>
 							<% end -%>
 							
 							<p><%= manager.nickname %></p>
@@ -173,22 +173,18 @@
 			<div class="content cc">
 				<ul>
 					<% if @members != nil %>
-						<% @members.each_with_index do |member, i| %>
-							<% if i > 4 %>
-								<% break %>
-							<% else %>
-								<li>
-									<% if member.icon.exists? %>
+						<% @members.each do |member| %>
+							<li>
+								<% if member.icon.exists? %>
 
-										<%= image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname %>
-									<% else %>
-										<%= image_tag 'avatar.jpg' ,:alt => member.nickname%>
+									<%= link_to (image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname), member %>
+								<% else %>
+									<%= link_to (image_tag 'avatar.jpg' ,:alt => member.nickname), member %>
 
-									<% end -%>
+								<% end -%>
 
-									<p><%= member.nickname %></p>
-								</li>
-							<% end %>
+								<p><%= member.nickname %></p>
+							</li>
 						<% end %>
 					<% end -%>
 				</ul>
