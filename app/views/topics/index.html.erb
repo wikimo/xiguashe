@@ -113,12 +113,14 @@
 			<div class="content cc">
 				<ul>
 					<li>
-						<%if @creater.icon.exists? %>
-					        <%= image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname%>
-					    <%else%>
-					        <%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
-					    <%end%>
-						<p><%= @creater.nickname %></p>
+						<% if @creater != nil %> 
+							<%if @creater.icon.exists? %>
+						        <%= image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname%>
+						    <%else%>
+						        <%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+						    <%end%>
+							<p><%= @creater.nickname %></p>
+						<% end -%>
 					</li>
 				</ul>
 			</div>
@@ -129,18 +131,19 @@
 			<h4>小组管理员</h4>
 			<div class="content cc">
 				<ul>
-					<% @managers.each do |manager| %>
-					<li>
-						<% if manager.icon.exists? %>
-							<%= image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname %>
-						<% else %>
-							<%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+					<% if @manager != nil %>
+						<% @managers.each do |manager| %>
+						<li>
+							<% if manager.icon.exists? %>
+								<%= image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname %>
+							<% else %>
+								<%= image_tag 'avatar.jpg' ,:alt => @creater.nickname%>
+							<% end -%>
+							
+							<p><%= manager.nickname %></p>
+						</li>
 						<% end -%>
-						
-						<p><%= manager.nickname %></p>
-					</li>
 					<% end -%>
-						
 				</ul>
 			</div>
 		</div>
@@ -169,23 +172,25 @@
 			<h4>最新加入</h4>
 			<div class="content cc">
 				<ul>
-					<% @members.each_with_index do |member, i| %>
-						<% if i > 4 %>
-							<% break %>
-						<% else %>
-							<li>
-								<% if member.icon.exists? %>
+					<% if @members != nil %>
+						<% @members.each_with_index do |member, i| %>
+							<% if i > 4 %>
+								<% break %>
+							<% else %>
+								<li>
+									<% if member.icon.exists? %>
 
-									<%= image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname %>
-								<% else %>
-									<%= image_tag 'avatar.jpg' ,:alt => member.nickname%>
+										<%= image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname %>
+									<% else %>
+										<%= image_tag 'avatar.jpg' ,:alt => member.nickname%>
 
-								<% end -%>
+									<% end -%>
 
-								<p><%= member.nickname %></p>
-							</li>
+									<p><%= member.nickname %></p>
+								</li>
+							<% end %>
 						<% end %>
-					<% end %>
+					<% end -%>
 				</ul>
 			</div>
 		</div>

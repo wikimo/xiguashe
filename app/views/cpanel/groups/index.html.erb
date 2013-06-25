@@ -34,7 +34,7 @@
 					<td>
 						<%= link_to '查看'%>
 						<%= link_to '修改'%>
-						<%= link_to '删除'%>
+						<%= link_to '删除', [:cpanel, group], confirm: '确认删除吗？', method: :delete %>
 						<% if group.state %>
 							<%= link_to '置为不可用', change_status_cpanel_group_path(group) %>
 						<% else %>
