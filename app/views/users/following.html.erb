@@ -1,0 +1,28 @@
+<%= stylesheet('bootstrap','style','group','user','follow')%>
+
+<div class="user-container">
+	<%= render 'user_info'%>
+</div>
+
+<div id="main">
+	<div  class="container">
+		
+
+		<div class="following">
+			<ul>
+				<%@following.each do |user|%>
+				<li>
+					<%= image_tag 'avatar.jpg',:class => 'user-photo'%>
+					<%= link_to user.nickname,user_path(user),:class => 'nickname'%>
+					<p></p>
+					<div class="follow-action">
+						<%= render :partial => 'follow_unfollow',:locals  => {:user  => user} %> </div>
+				</li>
+				<%end%>
+				
+			</ul>
+			
+		</div>
+		
+	</div>
+</div>

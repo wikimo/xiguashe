@@ -1,0 +1,7 @@
+<%if current_user && current_user != user %>
+	<%if current_user.following?(user)%>
+	<%= link_to '取消关注',"/users/unfollow/#{user.id}",:class  => 'follow-btn',:id => "user-#{user.id}",:remote  => true, :method  => :delete %>
+	<% else %>
+	<%= link_to '关注',"/users/follow/#{user.id}",:class  => 'follow-btn',:id => "user-#{user.id}",:remote  => true, :method  => :post %>
+	<% end %>
+<% end %>

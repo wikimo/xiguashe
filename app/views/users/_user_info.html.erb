@@ -9,12 +9,17 @@
 	</div>
 	<div class="user-info">
 		<h4><%= @user.nickname%></h4>
+		
+		
+		
 		<div class="user-nav">
-			<%= link_to '话题' ,user_path(@user),:class => 'active'%>
-			<%= link_to '小组' ,groups_user_path(@user)%>
-			<a href="">关注</a>
-			<a href="">收藏</a>
+			<%= user_nav @user, params[:action]%>
+	
+
 		</div>
+	</div>
+	<div class="follow-box">
+		<%= render :partial => 'follow_unfollow',:locals  => {:user  => @user} %> 
 	</div>
 	<div class="c"></div>
 </div>

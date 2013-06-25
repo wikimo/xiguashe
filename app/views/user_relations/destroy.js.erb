@@ -1,0 +1,1 @@
+$("#user-<%= @user.id %>").replaceWith('<%= escape_javascript(render(:partial => "users/follow_unfollow",:locals  => {:user  => @user})) %>');

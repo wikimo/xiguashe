@@ -43,7 +43,17 @@ class UsersController < ApplicationController
     else
       render action: "edit"  
     end
-    #redirect_to edit_user_path @user
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @following = @user.following
+
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers
   end
 
 

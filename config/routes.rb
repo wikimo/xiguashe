@@ -17,6 +17,7 @@ Xiguashe::Application.routes.draw do
   resources :users do
     member do
       get :groups
+      get :following
     end  
   end  
 
@@ -42,6 +43,9 @@ Xiguashe::Application.routes.draw do
       get :reply_create
     end
   end
+
+  match 'users/follow/:followed_id' => 'user_relations#create',:via  => :post
+  match 'users/unfollow/:followed_id' => 'user_relations#destroy',:via  => :delete
 
   namespace :cpanel do 
     resources :categories do 

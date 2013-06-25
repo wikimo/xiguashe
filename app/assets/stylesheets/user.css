@@ -1,5 +1,5 @@
 .user-container{background: #fff;}
-.user-box{padding: 10px;background: #FFF;margin-bottom: 10px;width: 920px;margin: auto}
+.user-box{padding: 10px;background: #FFF;margin-bottom: 10px;width: 920px;margin: auto;position: relative;}
 
 .ud-box{padding: 10px;background: #F3F3F3;margin-bottom: 10px}
 .ud-box .num{display: block;float: left;margin: 0 15px;padding:10px }
@@ -22,3 +22,5 @@
 
 .user-groups li{background: #fff;padding:10px;width: 200px;margin:10px;float: left;}
 .user-groups h4{text-align: center;}
+
+.follow-box{position: absolute;right: 25px;top:10px;}
