@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616125200) do
+ActiveRecord::Schema.define(:version => 20130622071415) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(:version => 20130616125200) do
     t.integer  "category_id"
   end
 
+  create_table "likes", :force => true do |t|
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "topics", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130616125200) do
     t.datetime "updated_at",                 :null => false
     t.integer  "group_id",   :default => 0
     t.string   "ip",         :default => ""
+    t.integer  "like_num",   :default => 0
   end
 
   create_table "user_relations", :force => true do |t|

@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
 	has_many :followers, :through => :reverse_user_relations, :source => :follower
 
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
-	validate :old_password_ok ,:on => :update#更新密码是严重原始密码
-	validates_confirmation_of :password
+	#validate :old_password_ok ,:on => :update#更新密码是严重原始密码
+	validates_confirmation_of :password,:if => :password_present?
 
 	has_attached_file :icon, 
 					  :styles => {
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 	
 	def password
 	    @password
-	  end
+	end
 
 	def password=(pass)
 		return unless pass
@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
 	    end
 
 	    def password_present?
-	      !password.nil?
+	      !password.nil? && password.size > 0
 	    end
 
 	    def old_password_ok
