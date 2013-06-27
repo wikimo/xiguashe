@@ -16,6 +16,7 @@
 			</div>
 			<% if @gu %>
 					<%= link_to '退出小组', leave_group_path(@group), class: 'btn btn-success group-join' %>
+					<%= link_to '发表话题', new_group_topic_path(@group), class: 'btn btn-successs' %>
 					<% if @gu.level == 0 && (@gu.status == 0 || @gu.status == 3) %>
 						<%= link_to '申请管理员',apply_group_path(@group) %>
 					<% end -%>
