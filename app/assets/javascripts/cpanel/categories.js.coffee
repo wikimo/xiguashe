@@ -1,0 +1,4 @@
+
+
+jQuery ->
+	$("#categories").dataTable

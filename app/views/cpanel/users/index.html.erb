@@ -1,0 +1,43 @@
+<div class="row">
+  	<div class="span9">
+
+
+  		<div id="module_win">
+  			
+  		</div>
+
+    	<table class="table table-striped">
+    		<thead>
+				<tr>
+					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
+					<th>用户email</th>
+					<th>别名</th>
+					
+					<th>创建时间</th>
+					<th>最后更新时间</th>
+					<th>状态</th>
+					<td>操作</td>
+				</tr>
+			</thead>
+    		<% @users.each do |user| %>
+    		<tbody>
+				<tr>
+					<td><%= check_box_tag 'checkbox_name', user.id %></td>
+					<td><%= user.email %></td>
+					<td><%= user.nickname %></td>
+					
+					<td><%= format_datetime user.created_at,'%Y-%m-%d %H:%M' %></td>
+					<td><%= format_datetime user.updated_at,'%Y-%m-%d %H:%M' %></td>
+					<td>
+						
+					</td>
+					<td>
+						<%= link_to '重置密码'%>
+						<%= link_to '删除', [:cpanel, user], confirm: '确认删除吗？', method: :delete %>
+					</td>
+				</tr>
+			</tbody>
+    		<% end -%>
+		</table>
+  	</div>
+</div>

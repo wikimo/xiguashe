@@ -2,6 +2,12 @@
 
 <div class="row">
   	<div class="span9">
+
+
+  		<div id="module_win">
+  			
+  		</div>
+
     	<table class="table table-striped">
     		<thead>
 				<tr>
@@ -32,8 +38,7 @@
 						<td>不可用</td>
 					<% end %>
 					<td>
-						<%= link_to '查看'%>
-						<%= link_to '修改'%>
+						<%= link_to '查看', cpanel_group_path(group), remote: true %>
 						<%= link_to '删除', [:cpanel, group], confirm: '确认删除吗？', method: :delete %>
 						<% if group.state %>
 							<%= link_to '置为不可用', change_status_cpanel_group_path(group) %>

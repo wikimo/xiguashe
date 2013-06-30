@@ -60,6 +60,8 @@ Xiguashe::Application.routes.draw do
     end
     resources :topics do 
     end
+    resources :users do
+    end
   end
  
   # You can have the root of your site routed with "root"
