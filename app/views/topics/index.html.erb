@@ -84,7 +84,13 @@
 							</div>
 							<div class="topic-footer">
 								<div class="user">
-									<a href=""><%= image_tag topic.user.icon.url(:thumb),:alt => 'wiki' ,:title => 'wiki'%></a>
+									<a href="">
+										<% if topic.user.icon.exists? %>
+								        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname %>
+								      	<% else %>
+								        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
+								      	<% end %>
+									</a>
 									<a href=""><%= topic.user.nickname %></a>
 								</div>
 								
@@ -113,7 +119,8 @@
 	<div class="comm-right">
 
 		<div class="group-members">
-			<h4>小组创始人</h4>
+
+			<h4>小组管理员</h4>
 			<div class="content cc">
 				<ul>
 					<li>
@@ -126,15 +133,6 @@
 							<p><%= @creater.nickname %></p>
 						<% end -%>
 					</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="group-members">
-
-			<h4>小组管理员</h4>
-			<div class="content cc">
-				<ul>
 					<% if @manager != nil %>
 						<% @managers.each do |manager| %>
 						<li>

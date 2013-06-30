@@ -58,6 +58,8 @@ Xiguashe::Application.routes.draw do
         get :change_status
       end
     end
+    resources :topics do 
+    end
   end
  
   # You can have the root of your site routed with "root"
