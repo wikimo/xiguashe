@@ -9,7 +9,7 @@
 		
 
 		<div class="following">
-			<ul>
+			<ul class="cc">
 				<%@following.each do |user|%>
 				<li>
 					<%= image_tag 'avatar.jpg',:class => 'user-photo'%>
@@ -23,6 +23,6 @@
 			</ul>
 			
 		</div>
-		
+		<%= will_paginate @following %>
 	</div>
 </div>
