@@ -42,7 +42,7 @@
 .topics ul li{width: 425px}
 
 
-.group-join{position: absolute;right: 15px;top: 15px;}
+.group-btns{position: absolute;right: 15px;top: 15px;}
 
 .group-members{background: #FFF;padding: 15px;}
 .group-members h4{margin:0 0  5px 0 }

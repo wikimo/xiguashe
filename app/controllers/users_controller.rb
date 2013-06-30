@@ -35,6 +35,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("old_password")
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
+
+    if params[:user][:icon].blank?
+      params[:user].delete("icon")
+    end
+
+
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
@@ -54,6 +65,11 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers
+  end
+
+  def likes
+    
+    
   end
 
 
