@@ -1,5 +1,7 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
+	self.per_page = 15
+
 	attr_accessor :old_password 
 
 	has_many :group_users, :dependent => :destroy

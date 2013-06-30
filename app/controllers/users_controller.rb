@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
   	@user =  User.find params[:id]
 
-    @topics =  Topic.find(:all, :conditions =>["user_id = ?",@user.id])
+    #@topics =  Topic.find(:all, :conditions =>["user_id = ?",@user.id])
+    @topics =  Topic.where(:user_id => @user.id).paginate(:page => params[:page]).order('id desc')
   end
 
   def new
@@ -35,6 +36,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("old_password")
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
+
+    if params[:user][:icon].blank?
+      params[:user].delete("icon")
+    end
+
+
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
@@ -47,13 +59,18 @@ class UsersController < ApplicationController
 
   def following
     @user = User.find(params[:id])
-    @following = @user.following
+    @following = @user.following.paginate(:page => params[:page]).order('id desc')
 
   end
 
-  def followers
-    @user = User.find(params[:id])
-    @followers = @user.followers
+  # def followers
+  #   @user = User.find(params[:id])
+  #   @followers = @user.followers
+  # end
+
+  def likes
+    
+    
   end
 
 

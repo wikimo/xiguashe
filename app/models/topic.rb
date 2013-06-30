@@ -1,5 +1,6 @@
 class Topic < ActiveRecord::Base
-	
+	self.per_page = 10
+
 	belongs_to :group
 	
 	belongs_to :user
