@@ -12,7 +12,8 @@
 			<ul class="cc">
 				<%@following.each do |user|%>
 				<li>
-					<%= image_tag 'avatar.jpg',:class => 'user-photo'%>
+					<%= image_tag 'avatar.png',:class => 'user-photo'%>
+					
 					<%= link_to user.nickname,user_path(user),:class => 'nickname'%>
 					<p></p>
 					<div class="follow-action">
