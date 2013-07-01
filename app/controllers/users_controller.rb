@@ -69,8 +69,11 @@ class UsersController < ApplicationController
   # end
 
   def likes
-    
-    
+    @user = User.find(params[:id]) 
+    @likes =  Like.where( :likeable_type => 'Topic', :user_id => @user.id).paginate(:page => params[:page]).order('id desc')
+  
+    @topics = Topic.find(:all ,:conditions =>['id in (?)',@likes.map(&:likeable_id)])
+
   end
 
 

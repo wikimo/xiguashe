@@ -18,6 +18,7 @@ Xiguashe::Application.routes.draw do
     member do
       get :groups
       get :following
+      get :likes
     end  
   end  
 

@@ -23,8 +23,11 @@ module UsersHelper
 				html.concat(content_tag(:a ,'关注',:href => following_user_path(user)))
 			end
 
-
-			html.concat(content_tag(:a ,'喜欢'))
+			if action == 'likes'
+				html.concat(content_tag(:a ,'喜欢',:href => likes_user_path(user),:class => 'active'))
+			else
+				html.concat(content_tag(:a ,'喜欢',:href => likes_user_path(user)))
+			end
 		end
 		
 
