@@ -5,6 +5,10 @@ class GroupsController < ApplicationController
 
   def index
     @groups =  Group.find(:all,:conditions =>['state=?',true])
+
+    # active groups
+    @active_groups = Group.active_groups
+
   end
 
   def new

@@ -41,9 +41,7 @@ class Group < ActiveRecord::Base
         groups = Group.find(:all, :order => 'created_at DESC')
     end
 
-    def active_groups
-        
-    end
+
 
     def applyers
     	gu = GroupUser.find(:all, :conditions => ['group_id = ? and status = ?', self.id, 1], :order => 'updated_at DESC')
@@ -55,5 +53,15 @@ class Group < ActiveRecord::Base
         gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 1], :order => 'updated_at ASC')
 
         users = User.find_all_by_id(gu.map(&:user_id))
+    end
+
+     class << self
+        def active_groups
+            gs = Group.find_by_sql("select  group_id, count(id) as num from (select t.*, DATE_SUB(CURRENT_DATE,INTERVAL 7 DAY) as dd, 
+                CURRENT_DATE as cc from topics t where t.created_at between DATE_SUB(CURRENT_DATE,INTERVAL 7 DAY) and CURRENT_DATE) as t group by group_id order by num desc limit 5")
+            
+            groups = Group.find_all_by_id(gs.map(&:group_id))
+
+        end
     end
 end

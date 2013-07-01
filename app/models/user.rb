@@ -85,6 +85,11 @@ class User < ActiveRecord::Base
 
 			false
 		end
+
+
+		def active_user_for_group
+			
+		end
 	end	
   	
 
