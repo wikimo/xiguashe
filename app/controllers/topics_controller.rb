@@ -1,18 +1,18 @@
 class TopicsController < ApplicationController
 
-	#before_filter :logined?, :except => [:index, :show]
+#before_filter :logined?, :except => [:index, :show]
 
 	def index
 		@group = Group.find_by_id(params[:group_id])
 
 		@topics = Topic.where(:group_id => params[:group_id]).paginate(:page => params[:page]).order('created_at DESC')
-		
+
 		if current_user
 			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
 		end
-		
+
 		@members = @group.members
-		
+
 		@creater = @group.creater
 
 		@managers = @group.managers
@@ -22,11 +22,6 @@ class TopicsController < ApplicationController
 	def new
 		@group = Group.find_by_id(params[:group_id])
 
-		# if current_user.groups.include? @group
-		#    @page_title = t(:new_topic)
-		# else
-		#    redirect_to  group_topics_path(@group),  :notice  => t(:user_not_belong_to_group)
-		# end
 	end
 
 	def create
@@ -34,25 +29,25 @@ class TopicsController < ApplicationController
 
 		params[:topic][:content] = params[:topic][:content].gsub(/\r\n/,"<br/>")
 		@topic = @group.topics.create(params[:topic])
-		@topic.ip =  request.ip
+		@topic.ip = request.ip
 
 		if @topic.save
 
-		  @group.update_attributes({:topic_num  => @group.topic_num + 1})
-		  redirect_to topic_path(@topic), :notice  => 'create_topic_success'
+			@group.update_attributes({:topic_num => @group.topic_num + 1})
+			redirect_to topic_path(@topic), :notice => 'create_topic_success'
 		else
-		  render  'new'
-		end
-
+			render 'new'
 	end
 
+end
+
 	def show
-		@topic =  Topic.find params[:id]
-		
-    	@topic.update_attributes({:hit_num => @topic.hit_num + 1})
+		@topic = Topic.find params[:id]
+
+		@topic.update_attributes({:hit_num => @topic.hit_num + 1})
 		@comments = @topic.comments
 
-		@group =  @topic.group
+		@group = @topic.group
 	end
 
 end

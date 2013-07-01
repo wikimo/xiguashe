@@ -33,19 +33,26 @@ class Group < ActiveRecord::Base
     	users =  User.find_all_by_id(gu.map(&:user_id))
     end
 
-    def actives
+    def activers
         
+    end
+
+    def last_groups
+        groups = Group.find(:all, :order => 'created_at DESC')
+    end
+
+    def active_groups
         
     end
 
     def applyers
-    	gu = GroupUser.find(:all, :conditions => ['group_id = ? and status = ?', self.id, 1], :order => 'updated_at asc')
+    	gu = GroupUser.find(:all, :conditions => ['group_id = ? and status = ?', self.id, 1], :order => 'updated_at DESC')
 
     	users = User.find_all_by_id(gu.map(&:user_id))
     end
 
     def managers
-        gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 1], :order => 'updated_at asc')
+        gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 1], :order => 'updated_at ASC')
 
         users = User.find_all_by_id(gu.map(&:user_id))
     end

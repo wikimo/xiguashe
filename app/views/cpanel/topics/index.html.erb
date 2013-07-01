@@ -1,5 +1,11 @@
 <div class="row">
   	<div class="span9">
+
+
+  		<div id="module_win">
+  			
+  		</div>
+
     	<table class="table table-striped">
     		<thead>
 				<tr>
@@ -11,6 +17,7 @@
 					<th>喜欢数</th>
 					<th>创建时间</th>
 					<th>最后更新时间</th>
+					<th>状态</th>
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -18,7 +25,7 @@
     		<tbody>
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', topic.id %></td>
-					<td><%= topic.title %></td>
+					<td><%= truncate topic.title, length: 10 %></td>
 					<td><%= topic.username %></td>
 					<td><%= topic.hit_num %></td>
 					<td><%= topic.reply_num %></td>
@@ -26,10 +33,15 @@
 					<td><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
 					<td><%= format_datetime topic.updated_at,'%Y-%m-%d %H:%M' %></td>
 					<td>
-						<%= link_to '查看'%>
-						<%= link_to '修改'%>
-						<%= link_to '删除' %>
-						
+						<% if topic.state == 0 %>
+							可用
+						<% elsif topic.state == 1 %>
+							不可用
+						<% end -%>
+					</td>
+					<td>
+						<%= link_to '查看', cpanel_topic_path(topic), remote: true %>
+						<%= link_to '删除', [:cpanel, topic], confirm: '确认删除吗？', method: :delete %>
 					</td>
 				</tr>
 			</tbody>

@@ -15,3 +15,4 @@
 //= require_tree .
 //= require rails-timeago
 //= require rails-timeago-all
+//= require dataTables/jquery.dataTables
