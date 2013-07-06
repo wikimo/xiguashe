@@ -53,6 +53,7 @@
 .group-members h4{margin:0 0  5px 0 }
 .group-members .content ul li{float: left;margin:5px 6px 5px 6px ;text-align: center;background: #fff;padding: 3px}
 .group-members .content ul li p{margin: 0}
+.group-members .content ul li img{width: 40px;height: 40px;}
 .group-members .content ul li:hover{background: #5bb75b;cursor: pointer;}
 
 .avatar{float: left;width: 80px;margin: 0 10px 0 0}
