@@ -10,11 +10,14 @@ class Group < ActiveRecord::Base
 
 	has_attached_file :icon, 
 					:styles => {
-									:original => "200x150>", 
+                                    :thumb  => "50X50>",
+									:original => "200x150>",
 							    }, 
 								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
+
+
 
     def group_can_use
         groups = Group.find(:all,:conditions =>['state=?',true])
@@ -37,10 +40,6 @@ class Group < ActiveRecord::Base
         
     end
 
-    def last_groups
-        groups = Group.find(:all, :order => 'created_at DESC')
-    end
-
 
 
     def applyers
@@ -56,12 +55,9 @@ class Group < ActiveRecord::Base
     end
 
      class << self
-        def active_groups
-            gs = Group.find_by_sql("select  group_id, count(id) as num from (select t.*, DATE_SUB(CURRENT_DATE,INTERVAL 7 DAY) as dd, 
-                CURRENT_DATE as cc from topics t where t.created_at between DATE_SUB(CURRENT_DATE,INTERVAL 7 DAY) and CURRENT_DATE) as t group by group_id order by num desc limit 5")
-            
-            groups = Group.find_all_by_id(gs.map(&:group_id))
 
+        def last_groups
+            groups = Group.find(:all, :order => 'created_at DESC')
         end
     end
 end

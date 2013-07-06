@@ -1,0 +1,44 @@
+<%= stylesheet('bootstrap','style','group')%>
+<div id="main">
+	<div class="row">
+		<div class="span3 bs-docs-sidebar">
+			<ul class="nav nav-list bs-docs-sidenav affix-top">
+				<% @categories.each do |category| %>
+					<li>
+						<i class="icon-chevron-right"></i>
+						<%= link_to category.name, category_groups_path(category) %>
+					</li>
+				<% end -%>
+			</ul>
+		</div>
+
+		<div class="span5 groups-box">
+			<ul>
+			<% @groups.each do |group| %>
+				<li>
+					<dl class="dl-horizontal">
+						<dt>
+							<% if group.icon.exists? %>
+								<%= image_tag group.icon.url(:original) %>
+							<% else %>
+								<%= image_tag 'no_pic.png' %>
+							<% end %>
+						</dt>
+						<dd>
+							
+							<%= link_to group.name,"/groups/#{group.id}/topics" %>
+							
+						</dd>
+						<dd><%= truncate group.descrip, :length => 300 %></dd>
+					</dl>
+				</li>
+			<% end %>
+			</ul>
+			
+			<%= link_to '申请创建小组', new_group_path %>
+		
+		</div>
+	</div>
+	
+	
+</div>

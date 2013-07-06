@@ -4,11 +4,25 @@ class GroupsController < ApplicationController
 
 
   def index
-    @groups =  Group.find(:all,:conditions =>['state=?',true])
 
-    # active groups
-    @active_groups = Group.active_groups
+  end
 
+
+  def discovery
+
+    if params[:category_id] == nil
+      @groups = Group.last_groups
+
+      @categories = Category.all
+    else
+      @categories = Category.all
+
+      @category = Category.find(params[:category_id])
+
+      @groups = @category.groups
+
+    end
+    
   end
 
   def new
@@ -35,7 +49,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-  	@group = Group.find params[:id]
+  	
+    @group = Group.find params[:id]
   end
 
 

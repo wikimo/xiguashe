@@ -22,18 +22,25 @@ Xiguashe::Application.routes.draw do
     end  
   end  
 
-  resources :categories do
-    resources :groups
+  resources :categories do 
+    resources :groups 
   end
+ 
 
   resources :groups do
     member do
       get :join, :leave, :apply, :applyers
     end
+    collection do
+        get :discovery
+      end
     resources :topics
   end  
 
   resources :topics do
+    collection do
+      get :discovery
+    end
     resources :comments
   end
 

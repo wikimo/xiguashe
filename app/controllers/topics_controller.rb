@@ -19,6 +19,11 @@ class TopicsController < ApplicationController
 	end
 
 
+	def discovery
+		@topics = Topic.order_by_reply_num
+	end
+
+
 	def new
 		@group = Group.find_by_id(params[:group_id])
 
@@ -37,9 +42,9 @@ class TopicsController < ApplicationController
 			redirect_to topic_path(@topic), :notice => 'create_topic_success'
 		else
 			render 'new'
-	end
+		end
 
-end
+	end
 
 	def show
 		@topic = Topic.find params[:id]
@@ -48,6 +53,14 @@ end
 		@comments = @topic.comments
 
 		@group = @topic.group
+	end
+
+	def find
+		
+
+
+
+
 	end
 
 end
