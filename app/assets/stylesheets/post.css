@@ -1,1 +1,3 @@
-.post-form{padding:20px 50px;background: #FFF;}
+.post-form-wrap{padding:20px 50px;background: #FFF;}
+.post-form{position: relative;width: 500px;}
+#upload-plug{position: absolute;bottom:0px;right: 30px;}

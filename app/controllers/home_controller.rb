@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+	before_filter :login_redirect
+
 	def index
 		#@topics =  Topic.find(:all,:limit => 10,:order => 'id desc')
 		@recent_topics =  Topic.recent_topics

@@ -14,6 +14,7 @@
 					</div>
 					<div class="topic-box">
 						<h1><%=@topic.title%></h1>
+						<%= link_to '发表话题', new_group_topic_path(@group), class: 'btn post-again' %>
 						<div class="topic-info">
 							<p><a href=""><%= @topic.user.nickname %></a> 发表于：<%= timeago_tag @topic.created_at, :nojs => true, :limit => 10.days.ago %></p>
 						</div>

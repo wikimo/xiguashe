@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
       end 
     end
 
+    def login_redirect
+      redirect_to user_path(current_user) if current_logined?
+    end
+
 end

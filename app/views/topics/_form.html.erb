@@ -1,23 +1,66 @@
 <%= stylesheet('bootstrap','style','post')%>
 
-<div class="post-form">
+<div class="post-form-wrap">
   <h3>发表话题</h3>
-    <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
-    <div class="control-group">
-      <label for="" class="control-label">标题：</label>
-      <div class="controls">
-      <%= f.text_field :title,:class => 'span3' %>
+    <div class="post-form">
+      <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
+      <div class="control-group">
+        <label for="" class="control-label">标题：</label>
+        <div class="controls">
+        <%= f.text_field :title,:class => 'span3' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" >内容：</label>
+        <div class="controls">
+        <%= f.text_area :content, :class => 'span5', :rows  => 10,:cols=>20,:placeholder => '限5000字以内...' %>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id,  :value => current_user.id %>
+        <%= f.hidden_field :username, :value => current_user.username %>
+      <button type="submit" class="btn btn-success">提交</button>
+      <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
+      <%end%>
+      <div id="upload-plug">
+        <button id="upload-btn">xxx</button>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label" >内容：</label>
-      <div class="controls">
-      <%= f.text_area :content, :class => 'span5', :rows  => 10,:cols=>20,:placeholder => '限5000字以内...' %>
-      </div>
-    </div>
-    <%= f.hidden_field :user_id,  :value => current_user.id %>
-      <%= f.hidden_field :username, :value => current_user.username %>
-    <button type="submit" class="btn btn-success">提交</button>
-    <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
-    <%end%>
 </div>
+<%= javascript('swfupload')%>
+<script type="text/javascript">
+$(function(){
+  //初始化图片上传控件
+  var swfu = new SWFUpload({
+      upload_url : "",
+      flash_url : "/assets/swfupload.swf",
+
+      button_placeholder_id : "upload-btn",
+      button_image_url : "/assets/pic-btn.png",
+      button_width: 82,
+      button_height: 30,
+
+      file_dialog_start_handler : fileDialogStart,
+      file_queued_handler : fileQueued,
+      file_queue_error_handler : fileQueueError,
+      file_dialog_complete_handler : fileDialogComplete,
+
+      upload_start_handler : uploadStart,
+      upload_progress_handler : uploadProgress,
+      upload_error_handler : uploadError,
+      upload_success_handler : uploadSuccess,
+      upload_complete_handler : uploadComplete,
+
+      file_types : "*.jpg;*.jpeg;*.gif;*.png",
+      file_size_limit : "5000",
+      file_upload_limit: 8,
+
+      custom_settings : {
+          fileList : "file-list"
+      }
+      //debug: true,
+  });
+
+
+})
+</script> 
+

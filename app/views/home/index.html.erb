@@ -3,29 +3,28 @@
 <div class="reg-login-wrap">
 	<div class="anony-reg cc">
 		<div class="index-reg">
-	        <a class="lnk-reg" href="/accounts/register">加入我们</a>
+	        <%= link_to '加入我们',reg_path,:class => 'lnk-reg'%>
 	        <b>发现童年 ...</b>
 	    </div>
 
 	    <div class="index-login">
-		    <form action="https://www.douban.com/accounts/login" method="post" name="lzform" >
-
+			<%= form_tag  sessions_path  do %>
 				<div class="control-group">
 					<div class="controls">
-					<input type="text" class="input-medium" placeholder="邮件地址/昵称">
+					<input type="text" class="input-medium" placeholder="邮件地址" name="email">
 					<p class="help-block"> <input type="checkbox"> 记住我</p>
 					</div>
 				</div>
 
 				<div class="control-group">
 					<div class="controls">
-					<input type="password" class="input-medium" placeholder="密码">
+					<input type="password" class="input-medium" placeholder="密码" name="password">
 					<p class="help-block"> <a href="">忘记密码</a></p>
 					</div>
 				</div>
  
   				<button type="submit" class="btn">登录</button>
-		    </form>
+		    <% end %>
 		</div>
 
 	</div>
