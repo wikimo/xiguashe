@@ -1,10 +1,31 @@
+<%= stylesheet('bootstrap','style','group','search')%>
+<div id="main">
+	<div  class="container">
 
-<% @topics.each do |topic| %>
-	
+		<div class="search-keyword">
+			<h4>检索关键词：<%= @keyword %></h4>
+		</div>
+		<div class="topic-list topics">
+				<ul>
+					<% @topics.each_with_index do |topic, i| %>
+					<% if i%2 == 0 %>
+					<li>	
+					<% else %>
 
-	<p class="lead"><%= topic.title %></p>
-	<p><%= topic.content %><p>
-		
-	<hr>
-
-<% end -%>
+					<li  class="nm">
+					<% end -%>	
+						<h2><%= link_to topic.title,topic_path(topic)%></h2>
+						<div class="content">
+						
+						<p>
+						<%= truncate(topic.content, :length => 150, :omission => "...")%>
+						</p>
+						</div>
+						<%= render :partial => 'users/topic_footer',:locals  => {:topic  => topic}%>
+					</li>
+				<%end%>	
+					
+				</ul>
+			</div>
+	</div>
+</div>

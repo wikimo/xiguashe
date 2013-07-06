@@ -1,0 +1,48 @@
+<%= stylesheet('bootstrap','style','group')%>
+
+<div class="reg-login-wrap">
+	<div class="anony-reg cc">
+		<div class="index-reg">
+	        <a class="lnk-reg" href="/accounts/register">加入我们</a>
+	        <b>发现童年 ...</b>
+	    </div>
+
+	    <div class="index-login">
+		    <form action="https://www.douban.com/accounts/login" method="post" name="lzform" >
+
+				<div class="control-group">
+					<div class="controls">
+					<input type="text" class="input-medium" placeholder="邮件地址/昵称">
+					<p class="help-block"> <input type="checkbox"> 记住我</p>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+					<input type="password" class="input-medium" placeholder="密码">
+					<p class="help-block"> <a href="">忘记密码</a></p>
+					</div>
+				</div>
+ 
+  				<button type="submit" class="btn">登录</button>
+		    </form>
+		</div>
+
+	</div>
+</div>
+
+<div id="main">
+	
+	<div  class="container">
+
+		<div class="title-box">
+			<h4>正在发生 ...</h4>
+		</div>
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @recent_topics}%>
+
+		<div class="title-box">
+			<h4>大家喜欢 ...</h4>
+		</div>
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @like_topics}%>
+	</div>
+</div>	

@@ -1,0 +1,38 @@
+<div class="topic-list topics">
+	<ul>
+		<% topics.each_with_index do |topic, i| %>
+			<%= li_with_style(i)%>
+			<h2><%= link_to topic.title,topic_path(topic)%></h2>
+			<div class="content">
+			
+			<p>
+			<%= truncate(topic.content, :length => 150, :omission => "...")%>
+			</p>
+			</div>
+			
+			<div class="topic-footer">
+
+				<div class="user">
+					<a href="">
+						<% if topic.user.icon.exists? %>
+				        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname %>
+				      	<% else %>
+				        	<%= image_tag 'avatar.png' ,:alt => topic.user.nickname %>
+				      	<% end %>
+			        </a>
+
+					<a href=""><%= topic.user.nickname %></a>
+				</div>
+
+				<div class="counter">
+					<span title="浏览" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num%></span></span>
+					<span title="评论" class="comments-num"><i class="ico"></i><span><%= topic.reply_num%></span></span>
+					<span title="喜欢" class="liked-num"><i class="ico"></i><span><%= topic.like_num%></span></span>
+					</div>
+				<div class="c"></div>
+			</div>
+		</li>
+	<%end%>	
+		
+	</ul>
+</div>

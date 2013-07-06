@@ -6,6 +6,7 @@ class SearchController < ApplicationController
 		keywords params[:query]
 	end.results
 
+	@keyword = params[:query]
   end
 
 

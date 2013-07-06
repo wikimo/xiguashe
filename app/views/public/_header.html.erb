@@ -12,9 +12,10 @@
 	      </div>
 
 	      <form action="/search"  method="get" class="navbar-search pull-left">
-            <%= text_field_tag :query, params[:query], :class => "span3", :placeholder => " 搜索其实很简单... " %>
+            <%= text_field_tag :query, params[:query], :class => "span2", :placeholder => " 搜索其实很简单... " %>
           </form>
-
+			
+		  <%if params[:controller] != 'home'%>	
           <div class="navbar-text pull-right nav nav-pills mar-35">
           	<% if current_logined? %>
           		<a class="dropdown-toggle" data-toggle="dropdown" href="#menu-user">
@@ -40,6 +41,9 @@
           	<%end%>
 
           </div>
+		  <%end %>
+			
+
 	    </div>
 	  </div>
 	</div>

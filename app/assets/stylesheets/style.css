@@ -19,6 +19,14 @@ a:hover{text-decoration: none;}
 #main ul{list-style: none;padding: 0;margin: 0}
 #main a{text-decoration: none;}
 
+.anony-reg{width: 940px;margin:auto;padding:20px 0 ;}
+.index-reg{float: left;margin:10px 0 0 0;}
+.index-reg b{font:16px 'Microsoft Yahei'; color: #666;margin: 0 12px;}
+.index-login{float: right;margin-right: 50px;}
+.index-login .control-group{float: left;margin: 0 3px;}
+.reg-login-wrap {background: #fff;width: 100%;margin-top: 20px;}
+.lnk-reg{background: #F24564;color: #fff;padding:7px 18px;border-radius: 2px;display: inline-block;}
+.lnk-reg:hover{color: #fff;}
 
 .side-ad a img{width: 300px;}
 
@@ -48,9 +56,11 @@ a:hover{text-decoration: none;}
 .title{margin-left: 100px}
 .comm-form .help-block,.comm-form .checkbox a,.comm-form .checkbox{font-size: 12px}
 
-
 .msgs-box{margin-left: 180px}
 .msgs-box ul li{line-height: 2em}
+
+.title-box{padding:8px;width: 884px;}
+.title-box h4{font-weight: normal;margin:0;}
 /*file upload*/
 .btn-add-pic{
     display: block;
