@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 	                               :dependent => :destroy
 	has_many :followers, :through => :reverse_user_relations, :source => :follower
 
+	has_many :notifications, :dependent => :destroy
+
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	#validate :old_password_ok ,:on => :update#更新密码是严重原始密码
 	validates_confirmation_of :password,:if => :password_present?

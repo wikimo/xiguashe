@@ -1,7 +1,6 @@
 Xiguashe::Application.routes.draw do
 
-
-  resources :notifications
+  
 
   get "topics/new"
   
@@ -10,7 +9,8 @@ Xiguashe::Application.routes.draw do
   get "login" => "sessions#new",               :as => "login"
   match "/search" => "search#index",           :as => :search
 
-  match "groups/audit/:id/:user_id/:status" => "groups#audit", :via => :get
+  match "groups/audit/:id/:user_id/:status" => "groups#audit",       :via => :get
+  match "notifications/read/:id/:type"      => "notifications#read", :via => :get
 
   resources :sessions
 
@@ -19,7 +19,9 @@ Xiguashe::Application.routes.draw do
       get :groups
       get :following
       get :likes
-    end  
+    end
+
+    resources :notifications
   end  
 
   resources :categories do 
