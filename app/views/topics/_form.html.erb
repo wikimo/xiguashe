@@ -26,10 +26,10 @@
       </div>
     </div>
 </div>
-<%= javascript('swfupload')%>
+
 <script type="text/javascript">
-$(function(){
-  //初始化图片上传控件
+
+  console.log(fileDialogStart);
   var swfu = new SWFUpload({
       upload_url : "",
       flash_url : "/assets/swfupload.swf",
@@ -60,7 +60,5 @@ $(function(){
       //debug: true,
   });
 
-
-})
 </script> 
 
