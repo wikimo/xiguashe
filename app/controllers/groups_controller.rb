@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  before_filter :logined?, :except => [:index]
+  before_filter :logined?, :except => [:index,:discovery]
 
 
   def index

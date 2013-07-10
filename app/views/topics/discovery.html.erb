@@ -3,10 +3,20 @@
 
 <div id="main">
 	<div  class="container">
-		<div class="topic-list">
+
+		<div class="title-box">
+			<h4>发现话题 ...</h4>
+		</div>
+
+		<div class="topic-list topics">
 			<ul>
-				<% @topics.each do |topic| %>
-					<li >
+				<% @topics.each_with_index do |topic, i| %>
+					<% if i%2 == 0 %>
+					<li>	
+					<% else %>
+
+					<li  class="nm">
+					<% end -%>	
 							<h2><%= link_to topic.title, topic_path(topic) %></h2>
 							<div class="content">
 							

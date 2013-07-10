@@ -1,16 +1,24 @@
 <%= stylesheet('bootstrap','style','group')%>
 <div id="main">
 	<div class="contaier">
-		<div class="grp-cats">
-			<span>小组分类 | </span>
-			<% @categories.each do |category| %>
-			<%= link_to category.name, category_groups_path(category) %>
-			<% end -%>
-			<%= link_to '创建小组', new_group_path, :class => 'btn btn-primary create-group' %>
+		<div class="title-box cc">
+			<h4 class="fl">发现小组 ... </h4>
+			<div class="grp-cats">
+				<% @categories.each do |category| %>
+				<%= link_to category.name, category_groups_path(category) %>
+				<% end -%>
+			</div>
+			<%= link_to '创建小组', new_group_path, :class => 'btn btn-primary opt-btn' %>
 		</div>
 
-		<div class="group-list comm-box cc">
-			
+		
+
+		<div class="group-list comm-box cc mt10">
+			<div class="grp-cats">
+				<!-- <span>小组分类 | </span> -->
+				
+				
+			</div>
 			<ul>
 			<% @groups.each do |group| %>
 				<li>
