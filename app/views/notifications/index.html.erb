@@ -2,34 +2,33 @@
 <div id="main">
 	<div  class="container">
 		<table class="table table-hover">
-			<thead>
-				<td>是否已读</td>
-				<td>所属话题</td>
-				<td>回复内容</td>
-				<td>操作</td>
-			</thead>
-			<tbody>
-
+			
+			<tr class="info"><td><h5>通知提醒<%= @notifications.count %>条</h5></td></tr>
 			<% @notifications.each do |notification| %>
 				
 				<% if notification.is_read == false %>
 					<tr class="success">
-			        <td>
+			       	<td>
 			        	<span style="color:red">新</span>
-			        </td>
+			       
 			    <% else %>
 			    	<tr>
-			    		<td></td>
+			    		<td>
 			    <% end %>
-						<td>
-							<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %>
-						</td>
-
-						<td>
-							<%= notification.notificationable.content %>
-						</td>
-						<td>
-							<%= link_to '已读', "/notifications/read/#{notification.id}/1" %>
+						
+							<p>
+								<% if notification.user.icon.exists? %>
+									<%= image_tag notification.user.icon.url(:thumb) ,:alt => notification.user.nickname%>
+								<% else %>
+									<%= image_tag 'avatar.png' ,:alt => notification.user.nickname%>
+								<% end -%>
+								<%= notification.user.nickname %> 评论了您的话题：
+								<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %>
+							</p>
+							<p><%= notification.notificationable.content %></p>
+							<% if notification.is_read == false %>
+								<%= link_to '已读', "/notifications/read/#{notification.id}/1" %>
+							<% end %>
 							<%= link_to '删除', [@user, notification], comfirm: '是否要删除该条数据', method: :delete %>
 						</td>
 					</tr>
