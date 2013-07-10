@@ -49,7 +49,7 @@ window.UploadApp =
 
 	uploadComplete : (file) ->
 	  try
-	    # @startUpload()  if @getStats().files_queued isnt 0
+	    @startUpload()  if @getStats().files_queued isnt 0
 	  catch ex
 	    @debug ex
 	    

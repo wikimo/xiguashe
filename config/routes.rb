@@ -1,8 +1,4 @@
 Xiguashe::Application.routes.draw do
-
-  
-
-  get "topics/new"
   
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
@@ -13,6 +9,8 @@ Xiguashe::Application.routes.draw do
   match "notifications/read/:id/:type"      => "notifications#read", :via => :get
 
   resources :sessions
+
+  resources :photos
 
   resources :users do
     member do

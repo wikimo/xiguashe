@@ -30,7 +30,7 @@
 <script type="text/javascript">
 
   var swfu = new SWFUpload({
-      upload_url : "",
+      upload_url : "/photos",
       flash_url : "/assets/swfupload.swf",
 
       button_placeholder_id : "upload-btn",
@@ -38,25 +38,25 @@
       button_width: 82,
       button_height: 30,
 
-      file_dialog_start_handler : fileDialogStart,
-      file_queued_handler : fileQueued,
-      file_queue_error_handler : fileQueueError,
-      file_dialog_complete_handler : fileDialogComplete,
+      file_dialog_start_handler : UploadApp.fileDialogStart,
+      file_queued_handler : UploadApp.fileQueued,
+      file_queue_error_handler : UploadApp.fileQueueError,
+      file_dialog_complete_handler : UploadApp.fileDialogComplete,
 
-      upload_start_handler : uploadStart,
-      upload_progress_handler : uploadProgress,
-      upload_error_handler : uploadError,
-      upload_success_handler : uploadSuccess,
-      upload_complete_handler : uploadComplete,
+      upload_start_handler : UploadApp.uploadStart,
+      upload_progress_handler : UploadApp.uploadProgress,
+      upload_error_handler : UploadApp.uploadError,
+      upload_success_handler : UploadApp.uploadSuccess,
+      upload_complete_handler : UploadApp.uploadComplete,
 
       file_types : "*.jpg;*.jpeg;*.gif;*.png",
       file_size_limit : "5000",
       file_upload_limit: 8,
 
-      custom_settings : {
-          fileList : "file-list"
-      }
-      //debug: true,
+      // custom_settings : {
+      //     fileList : "file-list"
+      // },
+      debug: true
   });
 
 </script> 
