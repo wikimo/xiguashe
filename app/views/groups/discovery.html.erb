@@ -1,44 +1,31 @@
 <%= stylesheet('bootstrap','style','group')%>
 <div id="main">
-	<div class="row">
-		<div class="span3 bs-docs-sidebar">
-			<ul class="nav nav-list bs-docs-sidenav affix-top">
-				<% @categories.each do |category| %>
-					<li>
-						<i class="icon-chevron-right"></i>
-						<%= link_to category.name, category_groups_path(category) %>
-					</li>
-				<% end -%>
-			</ul>
+	<div class="contaier">
+		<div class="grp-cats">
+			<span>小组分类 | </span>
+			<% @categories.each do |category| %>
+			<%= link_to category.name, category_groups_path(category) %>
+			<% end -%>
+			<%= link_to '创建小组', new_group_path, :class => 'btn btn-primary create-group' %>
 		</div>
 
-		<div class="span5 groups-box">
+		<div class="group-list comm-box cc">
+			
 			<ul>
 			<% @groups.each do |group| %>
 				<li>
-					<dl class="dl-horizontal">
-						<dt>
-							<% if group.icon.exists? %>
+					<a href="/groups/<%= group.id%>/topics">
+					<% if group.icon.exists? %>
 								<%= image_tag group.icon.url(:original) %>
 							<% else %>
 								<%= image_tag 'no_pic.png' %>
-							<% end %>
-						</dt>
-						<dd>
-							
-							<%= link_to group.name,"/groups/#{group.id}/topics" %>
-							
-						</dd>
-						<dd><%= truncate group.descrip, :length => 300 %></dd>
-					</dl>
+							<% end %>	
+					</a>
+					<h4><%= link_to group.name,"/groups/#{group.id}/topics" %></h4>
+					<p><%= truncate group.descrip, :length => 300 %></p>
 				</li>
 			<% end %>
 			</ul>
-			
-			<%= link_to '申请创建小组', new_group_path %>
-		
 		</div>
 	</div>
-	
-	
 </div>

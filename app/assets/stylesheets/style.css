@@ -35,14 +35,14 @@ a:hover{text-decoration: none;}
 .pics-box .vbox{margin-bottom: 10px}
 .pics-box img{width: 360px;height: 160px;}
 
-.tags{background: #FFF;margin: 0 0 10px 0;padding:10px;font:16px/2em 'Microsoft Yahei'; color: #333}
-.tags a{font:14px/2em 'Microsoft Yahei';padding:0 5px;color: #666}
-.tags a:hover{color: #ee0000;}
+.grp-cats{background: #FFF;margin: 0 0 10px 0;padding:10px;font:16px/2em 'Microsoft Yahei'; color: #333}
+.grp-cats a{font:14px/2em 'Microsoft Yahei';padding:0 5px;color: #666}
+.grp-cats a:hover{color: #ee0000;}
 
 .comm-box{background: #FFF;}
-.group-list{padding: 20px}
+.group-list{padding: 20px;position: relative;}
 .group-list li{width: 220px;float: left;padding:10px;background: #F3F3F3;margin:5px 0 25px 45px;}
-.group-list li img{width: 220px;}
+.group-list li img{width: 220px;height: 150px}
 .group-list li h4{color: #666}
 
 .comm-left{width: 630px;float: left;}
