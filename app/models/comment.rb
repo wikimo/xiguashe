@@ -8,5 +8,18 @@ class Comment < ActiveRecord::Base
 
 	has_many   :replies,  :class_name => "Comment", :foreign_key => "reply_parent_id"
 
+
+	has_many :notifications, :as => :notificationable, :dependent => :destroy
+
+
+	after_create :send_comment_notification
+
+	def send_comment_notification
+		if self.commentable_type != nil
+			if self.user != self.commentable.user
+				Notification.create(:user => self.commentable.user, :notificationable => self)
+			end
+		end
+	end
 	
 end
