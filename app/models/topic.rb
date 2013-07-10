@@ -29,5 +29,7 @@ class Topic < ActiveRecord::Base
 			Topic.find(:all, :order => 'reply_num desc')
 		end
 
+	
+
 	end
 end

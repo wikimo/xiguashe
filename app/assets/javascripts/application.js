@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require_tree .
 //= require rails-timeago
-//= require rails-timeago-all
+//= require locales/jquery.timeago.zh-CN.js

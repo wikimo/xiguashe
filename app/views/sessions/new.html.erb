@@ -26,7 +26,16 @@
                 <a href="">忘记密码</a>
                  </label>
           </div>
-          
+
+          <%if flash[:notice]%>
+                <div class="msgs-box">
+                  <ul>
+                  
+                  <li>* <%= flash[:notice]%></li>
+                  
+                </ul>
+              </div>
+            <% end %>
           
 
                 <div class="controls">

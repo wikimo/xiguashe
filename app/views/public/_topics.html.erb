@@ -21,7 +21,7 @@
 				      	<% end %>
 			        </a>
 
-					<a href=""><%= topic.user.nickname %></a>
+					<a href=""><%= topic.user.nickname %></a> 发表于 <%= link_to topic.group.name,group_topics_path(topic.group)%>
 				</div>
 
 				<div class="counter">
