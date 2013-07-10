@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-#before_filter :logined?, :except => [:index, :show]
+    before_filter :logined?, :except => [:index, :show, :discovery]
 
 	def index
 		@group = Group.find_by_id(params[:group_id])
@@ -54,13 +54,4 @@ class TopicsController < ApplicationController
 
 		@group = @topic.group
 	end
-
-	def find
-		
-
-
-
-
-	end
-
 end

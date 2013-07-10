@@ -13,16 +13,16 @@ module LayoutsHelper
   	raw html
   end
 
-  def web_nav(controller_name)
+  def web_nav(controller_name,action)
     html = ''
 
-    if controller_name == 'groups'
+    if controller_name == 'groups' && action == 'discovery'
       html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_groups_path,:class => 'active')))
     else
       html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_groups_path)))
     end
 
-    if controller_name == 'topics'
+    if controller_name == 'topics' && action == 'discovery'
       html.concat(content_tag(:li,content_tag(:a ,'发现话题',:href => discovery_topics_path,:class => 'active')))
     else
       html.concat(content_tag(:li,content_tag(:a ,'发现话题',:href => discovery_topics_path)))
