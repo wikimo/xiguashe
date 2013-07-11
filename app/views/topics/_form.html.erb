@@ -1,6 +1,6 @@
 <%= stylesheet('bootstrap','style','post')%>
 
-<div class="post-form-wrap">
+<div class="post-form-wrap cc">
   <h3>发表话题</h3>
     <div class="post-form">
       <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
@@ -24,6 +24,10 @@
       <div id="upload-plug">
         <button id="upload-btn">xxx</button>
       </div>
+    </div>
+
+    <div id="photo-list">
+      
     </div>
 </div>
 

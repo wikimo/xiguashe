@@ -1,3 +1,5 @@
 .post-form-wrap{padding:20px 50px;background: #FFF;}
-.post-form{position: relative;width: 570px;}
+.post-form{position: relative;width: 570px;float: left;}
 #upload-plug{position: absolute;bottom:0px;right: 30px;}
+#photo-list{width: 240px;float: right;max-height: 390px}
+#photo-list img{margin:5px;float: left;width: 100px}

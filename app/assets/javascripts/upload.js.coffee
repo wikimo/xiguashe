@@ -43,7 +43,12 @@ window.UploadApp =
 
 	uploadSuccess : (file, serverData) ->
 	  try
-
+	  	postList =  $ '#photo-list'
+	  	json =  '(' + serverData + ')'
+	  	json = $ eval(json)
+	  	json.each ->
+	  		img =  $ "<img src='#{@photo}' />"
+	  		postList.append img
 	  catch ex
 	    @debug ex
 
