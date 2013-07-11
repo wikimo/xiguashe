@@ -11,6 +11,7 @@ class Comment < ActiveRecord::Base
 
 	has_many :notifications, :as => :notificationable, :dependent => :destroy
 
+	scope :order_desc_by_created_at, order("created_at desc")
 
 	after_create :send_comment_notification
 
