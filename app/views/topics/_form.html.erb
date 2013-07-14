@@ -14,9 +14,7 @@
         <label class="control-label" >内容：</label>
         <div class="controls">
        
-        <div contenteditable="true" class="editable-box" id="content-box">
-          
-        </div>
+        <div contenteditable="true" class="editable-box" id="content-box"></div>
         <%= f.text_area :content,:class => "hide"%>
         </div>
       </div>
@@ -40,7 +38,8 @@
 <script type="text/javascript">
   $('#photo-list').delegate('img','click',function(){
     var ele =  $(this)
-    var img =  '<img src="' + ele.attr('src') + '"/>'.replace('/thumb/g','original');
+    var img =  '<img src="' + ele.attr('src') + '"/>';
+    img = img.replace('thumb','original');
     $('#content-box').insertAtCursor(img)
   })
 
