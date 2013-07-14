@@ -2,6 +2,7 @@
 .avatar img{width: 100px;height: 100px;}
 .topic-box{padding: 10px 15px 35px 15px;background: #FFF;width: 480px;float: right;position: relative;}
 .topic-box h1{font: 18px/1.5em 'Microsoft Yahei';margin: 3px}
+.topic-box .content{white-space:pre-wrap;word-wrap:break-word}
 .post-again{position: absolute;top:10px;right: 10px}
 .tr-item{margin-bottom: 10px}
 .tr-item .topic-box:hover{background: #ddd}

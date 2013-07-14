@@ -37,7 +37,8 @@ class TopicsController < ApplicationController
 		@topic.ip = request.ip
 
 		if @topic.save
-
+			update_photos(params[:photo_id],@topic)
+			
 			@group.update_attributes({:topic_num => @group.topic_num + 1})
 			redirect_to topic_path(@topic), :notice => 'create_topic_success'
 		else
@@ -54,4 +55,11 @@ class TopicsController < ApplicationController
 
 		@group = @topic.group
 	end
+
+	private 
+	    def update_photos (photo_id,topic)
+	      photo_id  && photo_id.each do |id|
+	        Photo.find(id).update_attributes!(:photoable  => topic)      
+	      end  
+	    end
 end

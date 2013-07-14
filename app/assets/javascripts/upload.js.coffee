@@ -1,4 +1,6 @@
 window.UploadApp = 
+	upload_limit : 8
+
 	fileDialogStart : () ->
 
 	fileQueued : (file) ->
@@ -44,11 +46,16 @@ window.UploadApp =
 	uploadSuccess : (file, serverData) ->
 	  try
 	  	postList =  $ '#photo-list'
+	  	idsList = $ '#photo-ids'
 	  	json =  '(' + serverData + ')'
 	  	json = $ eval(json)
 	  	json.each ->
-	  		img =  $ "<img src='#{@photo}' />"
+	  		img =  $ "<img src='#{@photo}' data-id='#{@id}'/>"
 	  		postList.append img
+
+	  		input = $ "<input type='hidden' name='photo_id[]' value='#{@id}' />"
+	  		idsList.append input
+
 	  catch ex
 	    @debug ex
 

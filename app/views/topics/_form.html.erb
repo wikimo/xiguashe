@@ -20,6 +20,8 @@
         <%= f.hidden_field :username, :value => current_user.username %>
       <button type="submit" class="btn btn-success">提交</button>
       <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
+
+      <div id="photo-ids"></div>
       <%end%>
       <div id="upload-plug">
         <button id="upload-btn">xxx</button>
@@ -32,10 +34,17 @@
 </div>
 
 <script type="text/javascript">
+  $('#photo-list').delegate('img','click',function(){
+    var ele =  $(this)
+
+    var img =  '<img src="' + ele.attr('src') + "'/>";
+    $('textarea').insertAtCursor(img)
+  })
 
   var swfu = new SWFUpload({
       upload_url : "/photos",
       flash_url : "/assets/swfupload.swf",
+      post_params:{"user_id":'<%=current_user.id%>'},
 
       button_placeholder_id : "upload-btn",
       button_image_url : "/assets/pic-btn.png",
@@ -55,12 +64,12 @@
 
       file_types : "*.jpg;*.jpeg;*.gif;*.png",
       file_size_limit : "5000",
-      file_upload_limit: 8,
+      file_upload_limit: UploadApp.upload_limit,
 
       // custom_settings : {
       //     fileList : "file-list"
       // },
-      debug: true
+      //debug: true
   });
 
 </script> 

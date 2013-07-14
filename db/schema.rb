@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(:version => 20130710140935) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "notifications", :force => true do |t|
+    t.integer  "notificationable_id"
+    t.string   "notificationable_type"
+    t.integer  "user_id"
+    t.boolean  "is_read",               :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "descrip"
     t.datetime "created_at",       :null => false
