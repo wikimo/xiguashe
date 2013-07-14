@@ -3,12 +3,15 @@
 	$.fn.extend({
 	  insertAtCursor : function(myValue) {
 	      var $t = $(this)[0];
+	      var ele =  $($t)
 	      if (document.selection) {
+	      		console.log()
 	          this.focus();
 	          sel = document.selection.createRange();
-	          sel.text = myValue;
+	          sel.innerHTML = myValue;
 	          this.focus();
 	      } else if ($t.selectionStart || $t.selectionStart == '0') {
+
 	         var startPos = $t.selectionStart;
 	         var endPos = $t.selectionEnd;
 	         var scrollTop = $t.scrollTop;
@@ -18,8 +21,9 @@
 	       $t.selectionEnd = startPos + myValue.length;
 	         $t.scrollTop = scrollTop;
 	     } else {
-	         this.value += myValue;
-	         this.focus();
+	     	console.log(myValue);
+	        ele.html(ele.html() + myValue)
+	        ele.focus();
 	     }
 	 }
 	});

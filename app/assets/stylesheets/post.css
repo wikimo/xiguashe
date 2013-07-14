@@ -3,3 +3,22 @@
 #upload-plug{position: absolute;bottom:0px;right: 30px;}
 #photo-list{width: 240px;float: right;max-height: 390px}
 #photo-list img{margin:5px;float: left;width: 100px}
+
+
+.editable-box {
+    width: 540px; 
+    min-height: 120px; 
+    max-height: 300px;
+    _height: 120px; 
+
+    padding: 3px; 
+    outline: 0; 
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+    font-size: 12px; 
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    _overflow-y: visible;
+
+}

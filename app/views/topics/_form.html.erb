@@ -13,12 +13,16 @@
       <div class="control-group">
         <label class="control-label" >内容：</label>
         <div class="controls">
-        <%= f.text_area :content, :class => 'span7', :rows  => 10,:cols=>20,:placeholder => '限5000字以内...' %>
+       
+        <div contenteditable="true" class="editable-box" id="content-box">
+          
+        </div>
+        <%= f.text_area :content,:class => "hide"%>
         </div>
       </div>
       <%= f.hidden_field :user_id,  :value => current_user.id %>
         <%= f.hidden_field :username, :value => current_user.username %>
-      <button type="submit" class="btn btn-success">提交</button>
+      <button type="button" class="btn btn-success" id="form-post">提交</button>
       <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
 
       <div id="photo-ids"></div>
@@ -36,9 +40,13 @@
 <script type="text/javascript">
   $('#photo-list').delegate('img','click',function(){
     var ele =  $(this)
+    var img =  '<img src="' + ele.attr('src') + '"/>'.replace('/thumb/g','original');
+    $('#content-box').insertAtCursor(img)
+  })
 
-    var img =  '<img src="' + ele.attr('src') + "'/>";
-    $('textarea').insertAtCursor(img)
+  $('#form-post').bind('click',function(){
+    $('textarea').html($('#content-box').html())
+    $('form').submit();
   })
 
   var swfu = new SWFUpload({
