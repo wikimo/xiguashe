@@ -4,10 +4,9 @@ class NotificationsController < ApplicationController
 
   def index
 
-
   	@user = User.find(params[:user_id])
   	@notifications = @user.notifications.recent_notifications
-
+    @mentions = @user.mentions.recent_notifications
   end
 
 

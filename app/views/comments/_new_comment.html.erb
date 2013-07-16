@@ -1,3 +1,4 @@
+<%= stylesheet('bootstrap','style','jquery.atwho')%>
 <div class="reply-box">
 	<% if !current_user %>
 		<p>登录后可进行评论，请先 <%= link_to '登录', login_path %> 或 <%= link_to '注册', reg_path %></p>
@@ -14,6 +15,27 @@
 			<%= f.submit '评论', :class => 'btn btn-success'%>
 		<% end %>
 	<% end %>
-	
-	
+
 </div>
+<script type="text/javascript">
+
+	function comment(user_id, user_nickname)
+	{
+		var comment_body = $("#comment-textarea");
+		var new_text = "@" + user_nickname;
+		if(comment_body.val().trim().length == 0)
+		{
+			new_text += "";
+		}
+		else
+		{
+			new_text = "\n" + new_text;
+		}
+		
+		comment_body.focus().val(comment_body.val() + new_text);
+
+		return false;
+
+	}
+
+</script>

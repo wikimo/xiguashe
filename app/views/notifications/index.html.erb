@@ -25,11 +25,50 @@
 								<%= notification.user.nickname %> 评论了您的话题：
 								<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %>
 							</p>
-							<p><%= notification.notificationable.content %></p>
+							<p>
+								<%= truncate notification.notificationable.content, length: 50 %>
+							</p>
 							<% if notification.is_read == false %>
 								<%= link_to '已读', "/notifications/read/#{notification.id}/1" %>
 							<% end %>
 							<%= link_to '删除', [@user, notification], comfirm: '是否要删除该条数据', method: :delete %>
+						</td>
+					</tr>
+			<% end -%>
+			</tbody>
+		</table>
+		
+		<table class="table table-hover">
+			
+			<tr class="info"><td><h5>通知提及<%= @mentions.count %>条</h5></td></tr>
+			<% @mentions.each do |mention| %>
+				
+				<% if mention.is_read == false %>
+					<tr class="success">
+			       	<td>
+			        	<span style="color:red">新</span>
+			       
+			    <% else %>
+			    	<tr>
+			    		<td>
+			    <% end %>
+						
+							<p>
+								<% if mention.user.icon.exists? %>
+									<%= image_tag mention.user.icon.url(:thumb) ,:alt => mention.user.nickname%>
+								<% else %>
+									<%= image_tag 'avatar.png' ,:alt => mention.user.nickname%>
+								<% end -%>
+								<%= mention.user.nickname %> 提及了您:：
+								<%= link_to mention.notificationable.commentable.title, "/notifications/read/#{mention.id}/0" %>
+							</p>
+							<p>
+								<%= truncate mention.notificationable.content, length: 50 %>
+							</p>
+							<% if mention.is_read == false %>
+								<%= link_to '已读', "/notifications/read/#{mention.id}/1" %>
+							<% end %>
+							<%= link_to '删除', [@user, mention], comfirm: '是否要删除该条数据', method: :delete %>
 						</td>
 					</tr>
 			<% end -%>

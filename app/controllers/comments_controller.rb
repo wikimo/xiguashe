@@ -27,6 +27,9 @@ class CommentsController < ApplicationController
           
           eval("@#{model_info.last} = model_instance")
           
+          
+          
+          
           #just temporary, will use ajax
           redirect_to  topic_path(model_instance)
 
@@ -51,6 +54,5 @@ class CommentsController < ApplicationController
     end
 
   end
-
 
 end

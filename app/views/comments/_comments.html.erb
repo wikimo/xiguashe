@@ -15,7 +15,7 @@
 						<%= comment.user.nickname %>
 					</a> 
 					发表于：<%= timeago_tag comment.created_at, :nojs => true, :limit => 10.days.ago %>
-					<%= link_to("回复", "#", 'data-login' => comment.user.nickname, :title => "回复#{comment.user.nickname}", :class => 'post-again', :onclick => "comment('#{comment.user.nickname}')") %>
+					<%= link_to("回复", "#", 'data-login' => comment.user.nickname, :title => "回复#{comment.user.nickname}", :class => 'post-again', :onclick => "return comment('#{comment.user.id}', '#{comment.user.nickname}')") %>
 				</p>
 			</div>
 			<div class="content">
@@ -28,23 +28,6 @@
 	</div>
 <% end -%>
 
-<script type="text/javascript">
 
-	function comment(user_nickname)
-	{
-		var comment_body = $("#comment-textarea");
-
-		var new_text = "@"+user_nickname;
-
-		if(comment_body.val().trim().length == 0)
-			new_text += "";
-		else
-			new_text = "\n" + new_text
-
-		comment_body.focus().val(comment_body.val() + new_text);
-
-	}
-
-</script>
 
 
