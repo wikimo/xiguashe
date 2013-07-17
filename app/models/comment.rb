@@ -17,7 +17,10 @@ class Comment < ActiveRecord::Base
 	after_create :send_comment_notification
   
 	def send_comment_notification
-    mention_users = self.content.scan(/@(\w{3,20})/).flatten
+    mention_users = match_user_test(self.content)
+    p "mention_users "
+    p mention_users
+    
   	mention_ids = []
   	
 	  if mention_users.any?
@@ -39,6 +42,9 @@ class Comment < ActiveRecord::Base
       end
     end
     
+    p "mention_ids"
+    p mention_ids
+    
 		if self.commentable_type != nil
 			if self.user != self.commentable.user 
 				Notification.create(:user => self.commentable.user, :notificationable => self)
@@ -53,16 +59,10 @@ class Comment < ActiveRecord::Base
 	end
 
 
-	def match_user_test
-		# coding: utf-8
-		#正则用于匹配用户名
-		str = "@wikimo @中國 @水手   测试看看"
+	def match_user_test(str)
 
-		#{2,20}字符长度至少2个，不多于20个，以下任意方式匹配
-		#arr = str.scan(/@([一-龠\w]{2,20}\s)/u).flatten
 		arr = str.scan(/@([\p{Han}+\w]{2,20}\s)/u).flatten
 
-		puts arr
 	end
 	
 end
