@@ -11,7 +11,7 @@
 .topic-footer .user{float: left;}
 .topic-footer .user img{width: 40px;height: 40px;}
 .topic-footer .counter{float: right;margin:20px 0 0 0}
-.topic-list .nm{margin-right: 0}
+.topic-list .last-item{margin-right: 0}
 .counter .viewer-num, .counter .liked-num,  .counter .comments-num, .counter .members-num {
     display: inline-block;
     line-height: 10px;

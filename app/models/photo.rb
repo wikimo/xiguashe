@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
 		:styles => {
 		    :original => "480x480>",
 		    :medium => "200X",
-	        :thumb => "120x120#",
+	        :thumb => "80x80#",
         }, 
 		:url => '/attachment/:class/:month_partition/:style/:id_:basename.:extension',
 		:path =>':rails_root/public/attachment/:class/:month_partition/:style/:id_:basename.:extension'

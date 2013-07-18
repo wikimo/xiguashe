@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
 	has_attached_file :icon, 
 					  :styles => {
 						            :thumb  => "50X50>",
-									:original => "200x150>", 
+						            :medium => '80X80>',
+									:original => "120x120>"
 							    }, 
 					  :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 					  :path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
@@ -109,7 +110,5 @@ class User < ActiveRecord::Base
 
 	    def old_password_ok
 	    	errors.add(:old_password, "不正确！") if !User.authenticate(email,old_password)
-	    end
-
-	  
+	    end  
 end

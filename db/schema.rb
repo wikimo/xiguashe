@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20130711054348) do
     t.datetime "updated_at",                 :null => false
     t.integer  "group_id",   :default => 0
     t.string   "ip",         :default => ""
-    t.integer  "like_num",   :default => 0,  :null => false
+    t.integer  "like_num",   :default => 0
   end
 
   create_table "user_relations", :force => true do |t|

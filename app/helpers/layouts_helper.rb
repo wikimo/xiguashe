@@ -13,6 +13,11 @@ module LayoutsHelper
   	raw html
   end
 
+  def li_css(index,pre = 2,cls="last-item")
+    html  =  (index + 1) % pre == 0 ?  "<li class='#{cls}'>" : '<li>'
+    raw html
+  end
+
   def web_nav(controller_name,action)
     html = ''
 

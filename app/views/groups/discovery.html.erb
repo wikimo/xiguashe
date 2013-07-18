@@ -13,16 +13,12 @@
 
 		
 
-		<div class="group-list comm-box cc mt10">
-			<div class="grp-cats">
-				<!-- <span>小组分类 | </span> -->
-				
-				
-			</div>
+		<div class="group-list  cc mt10">
+	
 			<ul>
-			<% @groups.each do |group| %>
-				<li>
-					<a href="/groups/<%= group.id%>/topics">
+			<% @groups.each_with_index do |group,i| %>
+				<%= li_css(i,3) %>
+					<a href="/groups/<%= group.id%>/topics" class="grp-icon">
 					<% if group.icon.exists? %>
 								<%= image_tag group.icon.url(:original) %>
 							<% else %>

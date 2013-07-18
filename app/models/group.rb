@@ -10,8 +10,8 @@ class Group < ActiveRecord::Base
 
 	has_attached_file :icon, 
 					:styles => {
-                                    :thumb  => "50X50>",
-									:original => "200x150>",
+                                    :thumb  => "80X80>",
+									:original => "180x180>",
 							    }, 
 								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',

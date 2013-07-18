@@ -1,7 +1,7 @@
 <div class="topic-list topics">
 	<ul>
 		<% topics.each_with_index do |topic, i| %>
-			<%= li_with_style(i)%>
+			<%= li_css(i)%>
 			<h2><%= link_to topic.title,topic_path(topic)%></h2>
 			<div class="content">
 			

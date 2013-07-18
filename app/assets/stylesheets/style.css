@@ -40,10 +40,13 @@ a:hover{text-decoration: none;}
 .grp-cats a:hover{color: #ee0000;}
 
 .comm-box{background: #FFF;}
-.group-list{padding: 20px;position: relative;}
-.group-list li{width: 220px;float: left;padding:10px;background: #F3F3F3;margin:5px 0 25px 45px;}
-.group-list li img{width: 220px;height: 150px}
+.group-list{position: relative;}
+.group-list li{width: 280px;float: left;padding:10px;background: #FFF;margin:5px 15px 25px 2px;}
+.group-list li img{width: 100px;height: 100px}
 .group-list li h4{color: #666}
+.group-list .grp-icon{float: left;margin:0 10px 0 0;}
+.group-list  .last-item{margin-right: 0}
+.group-list  p{font-size: 13px}
 
 .comm-left{width: 630px;float: left;}
 .comm-right{width: 300px;float: right;}
@@ -108,6 +111,8 @@ a:hover{text-decoration: none;}
 .small_liked{background-position:-60px 0px;}
 
 .fl{float: left;}
+
+
 
 /*清除浮动 代码*/
 .cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}
