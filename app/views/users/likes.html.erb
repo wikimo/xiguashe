@@ -6,30 +6,11 @@
 
 <div id="main">
 	<div  class="container">
-		
-
-		<div class="topic-list topics">
-				<ul>
-					<% @topics.each_with_index do |topic, i| %>
-					<% if i%2 == 0 %>
-					<li>	
-					<% else %>
-
-					<li  class="nm">
-					<% end -%>	
-						<h2><%= link_to topic.title,topic_path(topic)%></h2>
-						<div class="content">
-						
-						<p>
-						<%= truncate(topic.content, :length => 150, :omission => "...")%>
-						</p>
-						</div>
-						<%= render :partial => 'topic_footer',:locals  => {:topic  => topic}%>
-					</li>
-				<%end%>	
-					
-				</ul>
+		<div class="topics">
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics}%>
 		</div>
+
+		
 		<%= will_paginate @likes %>
 	</div>
 </div>
