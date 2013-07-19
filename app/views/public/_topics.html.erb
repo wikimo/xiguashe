@@ -6,7 +6,10 @@
 			<div class="content">
 			
 			<p>
-			<%= raw truncate(topic.content, :length => 150, :omission => "...")%>
+			
+
+			<%=h truncate(topic.content.gsub(/<.*?>/,''),:length => 150, :truncate_string =>"...") %>
+
 			</p>
 			</div>
 			
