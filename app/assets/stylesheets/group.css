@@ -1,8 +1,9 @@
 .group-info{background: #FFF;padding: 15px;position:relative;}
 .group-detail h4{margin: 0 0 5px 0}
 .group-logo{float: left;margin: 0 10px 0 0}
+.group-logo img{width: 120px;height: 120px}
 
-.topic-list{margin:10px 0;width: 630px;overflow: hidden;}
+.topic-list{margin:10px 0;overflow: hidden;}
 .topic-list ul li{background:#fff;line-height: 2em;padding:10px;width: 290px;float: left;margin: 0 10px 10px 0 }
 .topic-list ul li h2{font: 14px/1.5em 'Microsoft Yahei'}
 .topic-list ul li:hover{background: #ddd}

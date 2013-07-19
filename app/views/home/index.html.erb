@@ -37,11 +37,15 @@
 		<div class="title-box">
 			<h4>正在发生 ...</h4>
 		</div>
+		<div class="topics">
 		<%= render :partial => 'public/topics',:locals  => {:topics  => @recent_topics}%>
+		</div>
 
 		<div class="title-box">
 			<h4>大家喜欢 ...</h4>
 		</div>
+		<div class="topics">
 		<%= render :partial => 'public/topics',:locals  => {:topics  => @like_topics}%>
+		</div>
 	</div>
 </div>
