@@ -8,7 +8,7 @@
 	<div  class="container">
 		
 		<div class="topics">
-		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics}%>
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics, :is_topics => false}%>
 		</div>
 		
 		<%= will_paginate @topics %>

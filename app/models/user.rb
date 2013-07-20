@@ -73,15 +73,19 @@ class User < ActiveRecord::Base
 		like = Like.where(:likeable_id => likeable.id, :likeable_type => likeable.class, :user_id => self.id).first
 		like.destroy
 	end
+	
+	def unread_notification_count
+    unread_notifications_count = self.notifications.unread_notifications.count + self.mentions.unread_notifications.count
+  end
 
 	def groups
 		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
     	
         Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
-    end
+  end
 
-    class << self
-		def authenticate(username_or_email,password)
+  class << self
+	  def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)
 
 			if user && user.hashed_password ==  Digest::SHA256.hexdigest(password + user.salt)
@@ -93,9 +97,9 @@ class User < ActiveRecord::Base
 
 
 		def active_user_for_group
-			
+		
 		end
-	end	
+  end	
   	
 
 	private

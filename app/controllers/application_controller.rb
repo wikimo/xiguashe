@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
       render :template => "/errors/unknown", :format => [:html], :handler => [:erb], :status => status, :layout => "application"
     end
   end
-
+  
   protected
     def current_user
 	    @current_user ||= User.find(session[:uid]) if  session[:uid]  

@@ -6,10 +6,7 @@
 			<div class="content">
 			
 			<p>
-			
-
-			<%=h truncate(topic.content.gsub(/<.*?>/,''),:length => 150, :truncate_string =>"...") %>
-
+				<%=h truncate(topic.content.gsub(/<.*?>/,''),:length => 150, :truncate_string =>"...") %>
 			</p>
 			</div>
 			
@@ -24,14 +21,17 @@
 				      	<% end %>
 			        </a>
 
-					<a href=""><%= topic.user.nickname %></a> 发表于 <%= link_to topic.group.name,group_topics_path(topic.group)%>
+					<%= link_to topic.user.nickname, topic.user %> 发表于<%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %><br/>
+					<% if !is_topics %>
+						发表在<%= link_to topic.group.name,group_topics_path(topic.group) %>
+					<% end -%>
 				</div>
 
 				<div class="counter">
-					<span title="浏览" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num%></span></span>
-					<span title="评论" class="comments-num"><i class="ico"></i><span><%= topic.reply_num%></span></span>
-					<span title="喜欢" class="liked-num"><i class="ico"></i><span><%= topic.like_num%></span></span>
-					</div>
+					<span title="浏览" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num %></span></span>
+					<span title="评论" class="comments-num"><i class="ico"></i><span><%= topic.reply_num %></span></span>
+					<span title="喜欢" class="liked-num"><i class="ico"></i><span><%= topic.like_num %></span></span>
+				</div>
 				<div class="c"></div>
 			</div>
 		</li>

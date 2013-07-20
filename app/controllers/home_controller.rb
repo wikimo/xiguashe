@@ -8,5 +8,8 @@ class HomeController < ApplicationController
 
 		today =  Date.today
 		@like_topics = Topic.like_topics(today, recent_tids)
+		
+		
+	 
 	end
 end
