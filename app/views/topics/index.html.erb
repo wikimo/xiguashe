@@ -58,7 +58,7 @@
 							<% if manager.icon.exists? %>
 								<%= link_to (image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname), manager %>
 							<% else %>
-								<%= link_to (image_tag 'avatar.jpg' ,:alt => @creater.nickname), manager %>
+								<%= link_to (image_tag 'avatar.jpg' ,:alt => manager.nickname), manager %>
 							<% end -%>
 							
 							<p><%= manager.nickname %></p>
