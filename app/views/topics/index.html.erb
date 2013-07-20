@@ -9,12 +9,10 @@
 				</a>
 			</div>
 			<div class="group-detail">
-				<h4><%= @group.name%></h4>
-				<p>成员：100</p>
-				<p>话题：100</p>
-				<p>简介：<%= @group.descrip%></p>
-			</div>
-			<% if @gu %>
+				<h4><%= @group.name%></h4><cite>（<%= @group.member_num%> 个成员）</cite>
+				<p><%= @group.descrip%></p>
+
+				<% if @gu %>
 					<div class="group-btns">
 						<%= link_to '发表话题', new_group_topic_path(@group), class: 'btn btn-success' %>
 
@@ -28,7 +26,10 @@
 					<% end -%>
 			<% else %>
 				<%= link_to '加入小组', join_group_path(@group), class: 'btn btn-success group-join'%>
+				<span>加入之后，你可以在这个小组发布分享和话题</span>
 			<% end %>
+			</div>
+
 			
 		</div>
 		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics}%>

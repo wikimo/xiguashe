@@ -2,6 +2,11 @@
 .group-detail h4{margin: 0 0 5px 0}
 .group-logo{float: left;margin: 0 10px 0 0}
 .group-logo img{width: 120px;height: 120px}
+.group-detail{float: right;width: 460px;font-size: 13px}
+.group-detail h4{display: inline;font:24px/2em 'Microsoft Yahei';}
+.group-detail cite{font-size:12px;padding: 0 8px;color: #bbb}
+.group-detail p{font-size: 13px;border-top: 1px dotted #ccc;padding:5px 0;margin:0;}
+
 
 .topic-list{margin:10px 0;overflow: hidden;}
 .topic-list ul li{background:#fff;line-height: 2em;padding:10px;width: 290px;float: left;margin: 0 10px 10px 0 }
