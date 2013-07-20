@@ -9,6 +9,8 @@ class TopicsController < ApplicationController
 
 		if current_user
 			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
+
+			p @gu
 		end
 
 		@members = @group.members
@@ -16,6 +18,7 @@ class TopicsController < ApplicationController
 		@creater = @group.creater
 
 		@managers = @group.managers
+		puts @managers.size
 	end
 
 

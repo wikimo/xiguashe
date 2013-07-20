@@ -40,18 +40,20 @@
 			<h4>小组管理员</h4>
 			<div class="content cc">
 				<ul>
+					<% if !@creater.nil? %> 
 					<li>
-						<% if @creater != nil %> 
+						
 							<%if @creater.icon.exists? %>
 						        <%= link_to (image_tag @creater.icon.url(:thumb) ,:alt => @creater.nickname), @creater %>
 						    <%else%>
 						        <%= link_to (image_tag 'avatar.jpg' ,:alt => @creater.nickname), @creater %>
 						    <%end%>
 							<p><%= @creater.nickname %></p>
-						<% end -%>
+						
 					</li>
-					<% if @manager != nil %>
-						<% @managers.each do |manager| %>
+					<% end%>
+				
+						<% @managers.size > 0 && @managers.each do |manager| %>
 						<li>
 							<% if manager.icon.exists? %>
 								<%= link_to (image_tag manager.icon.url(:thumb),:alt => manager.nickname, :title => manager.nickname), manager %>
@@ -62,16 +64,16 @@
 							<p><%= manager.nickname %></p>
 						</li>
 						<% end -%>
+					
+					
+				
+					<% if @gu.nil?  || (@gu.level == 0 && (@gu.status == 0 || @gu.status == 3)) %>
+			
+						<li>
+						<%= link_to image_tag('avatar.jpg',:alt => 'wiki' ,:title => 'wiki'),apply_group_path(@group)%>
+						<p>申请管理员</p></li>
 					<% end -%>
 					
-					<% if !@gu.nil? %>
-						<% if @gu.level == 0 && (@gu.status == 0 || @gu.status == 3) %>
-				
-							<li>
-							<%= link_to image_tag('avatar.jpg',:alt => 'wiki' ,:title => 'wiki'),apply_group_path(@group)%>
-							<p>申请管理员</p></li>
-						<% end -%>
-					<% end %>
 					
 				</ul>
 			</div>
