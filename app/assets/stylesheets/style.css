@@ -111,7 +111,7 @@ a:hover{text-decoration: none;}
 .small_liked{background-position:-60px 0px;}
 
 .fl{float: left;}
-
+.dropdown-menu li > a{font-size: 13px}
 
 
 /*清除浮动 代码*/

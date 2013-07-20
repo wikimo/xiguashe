@@ -3154,9 +3154,8 @@ input[type="submit"].btn.btn-mini {
   border-radius: 0 0 6px 6px;
 }
 .nav-pills .dropdown-menu {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+
+  border-radius: 2px;
 }
 .nav .dropdown-toggle .caret {
   border-top-color: #ee0000;
@@ -4689,8 +4688,6 @@ a.thumbnail:hover {
   margin: 2px 0 0;
   list-style: none;
   background-color: #F24564;
-  border: 1px solid #ccc;
-  border: 1px solid #d44c64;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
   -webkit-border-radius: 6px;

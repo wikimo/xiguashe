@@ -15,21 +15,7 @@
 
 		<div class="group-list  cc mt10">
 	
-			<ul>
-			<% @groups.each_with_index do |group,i| %>
-				<%= li_css(i,3) %>
-					<a href="/groups/<%= group.id%>/topics" class="grp-icon">
-					<% if group.icon.exists? %>
-								<%= image_tag group.icon.url(:original) %>
-							<% else %>
-								<%= image_tag 'no_pic.png' %>
-							<% end %>	
-					</a>
-					<h4><%= link_to group.name,"/groups/#{group.id}/topics" %></h4>
-					<p><%= truncate group.descrip, :length => 300 %></p>
-				</li>
-			<% end %>
-			</ul>
+			<%= render :partial => 'public/groups',:locals  => {:groups  => @groups}%>
 		</div>
 	</div>
 </div>
