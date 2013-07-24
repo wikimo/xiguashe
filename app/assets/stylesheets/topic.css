@@ -12,6 +12,7 @@
 .other-topics ul li:hover{background: #ddd}
 .other-topics ul li a{color: #444}
 .other-topics ul li p,.other-topics ul li p a{color: #aaa;}
-.return-group a{background: #5bb75b;padding: 10px 15px;border-radius: 3px;display: block;color: #fff;margin-bottom: 10px}
+.post-return a{background: #fff;padding: 10px 15px;border-radius: 3px;display: inline-block;color: #F24564;margin-bottom: 10px;width: 115px;float: right;text-align: center;}
+.post-return .post-btn{background: #5bb75b;color: #fff;float: left;}
 
 .reply-box{padding: 15px 25px;background: #FFF;margin:0 0 0 120px;}

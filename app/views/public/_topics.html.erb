@@ -6,7 +6,8 @@
 			<div class="content">
 			
 			<p>
-				<%=h truncate(topic.content.gsub(/<.*?>/,''),:length => 150, :truncate_string =>"...") %>
+				
+				<%=h format_content(topic.content)%>
 			</p>
 			</div>
 			

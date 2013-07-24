@@ -34,4 +34,8 @@ module LayoutsHelper
     end
     raw html
   end
+
+  def format_content(content,len = 150)
+    truncate(content.gsub(/<.*?>/,''),:length => len, :truncate_string =>"...") if !content.nil?
+  end
 end  
