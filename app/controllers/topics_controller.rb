@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
 
 
 	def discovery
-		@topics = Topic.order_by_reply_num
+		@topics = Topic.order_by_reply_num.paginate(:page => params[:page])
 	end
 
 
@@ -56,6 +56,10 @@ class TopicsController < ApplicationController
 		@comments = @topic.comments.order_desc_by_created_at
 
 		@group = @topic.group
+		
+		@user = @topic.user
+		
+		@user_topics = @user.topics.order_by_created_at.limit(5)
 	end
 
 	private 

@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
       @category = Category.find(params[:category_id])
 
-      @groups = @category.groups
+      @groups = @category.groups.paginate(:page => params[:page]).order("created_at DESC")
 
     end
     
@@ -110,6 +110,13 @@ class GroupsController < ApplicationController
 
     redirect_to applyers_group_path(@group)
 
+  end
+  
+  def members
+    @group = Topic.find(params[:topic_id]).group
+    @members = @group.members
+    
+    render :json => @members
   end
 
 

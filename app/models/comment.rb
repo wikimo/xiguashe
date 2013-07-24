@@ -18,8 +18,6 @@ class Comment < ActiveRecord::Base
   
 	def send_comment_notification
     mention_users = match_user_test(self.content)
-    p "mention_users "
-    p mention_users
     
   	mention_ids = []
   	
@@ -41,9 +39,6 @@ class Comment < ActiveRecord::Base
 
       end
     end
-    
-    p "mention_ids"
-    p mention_ids
     
 		if self.commentable_type != nil
 			if self.user != self.commentable.user 

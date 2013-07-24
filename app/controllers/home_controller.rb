@@ -6,10 +6,7 @@ class HomeController < ApplicationController
 		@recent_topics =  Topic.recent_topics
 		recent_tids =  @recent_topics.map(&:id)
 
-		today =  Date.today
-		@like_topics = Topic.like_topics(today, recent_tids)
+		@like_topics = Topic.like_topics(recent_tids)
 		
-		
-	 
 	end
 end

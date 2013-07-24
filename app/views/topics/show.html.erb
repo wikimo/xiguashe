@@ -39,27 +39,15 @@
 				<%= link_to '返回小组', group_topics_path(@topic.group)%></div>
 			<div class="other-topics">
 				<ul>
-					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
-						<p>来自 <a href="">wikimo</a></p>
+					<% @user_topics.each do |user_topic| %>
+						<li>
+							<%= link_to user_topic.title, user_topic %>
+							
+							
+							<p>来自 <%= link_to @user.nickname, @user %></p>
 
-					</li>
-					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
-						<p>来自 <a href="">wikimo</a></p>
-
-					</li>
-
-					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
-						<p>来自 <a href="">wikimo</a></p>
-
-					</li>
-					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
-						<p>来自 <a href="">wikimo</a></p>
-
-					</li>
-					<li><a href="">话题标题话题标题话题标题话题标题话题标题话题标题</a>
-						<p>来自 <a href="">wikimo</a></p>
-
-					</li>
+						</li>
+					<% end -%>
 				</ul>
 			</div>
 		</div>	

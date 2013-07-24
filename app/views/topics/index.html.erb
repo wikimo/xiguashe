@@ -71,7 +71,7 @@
 					<% if @gu.nil?  || (@gu.level == 0 && (@gu.status == 0 || @gu.status == 3)) %>
 			
 						<li>
-						<%= link_to image_tag('avatar.jpg',:alt => 'wiki' ,:title => 'wiki'),apply_group_path(@group)%>
+						<%= link_to image_tag('avatar.jpg',:alt => '申请管理员' ,:title => '申请管理员'),apply_group_path(@group)%>
 						<p>申请管理员</p></li>
 					<% end -%>
 					

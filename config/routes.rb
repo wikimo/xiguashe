@@ -32,7 +32,7 @@ Xiguashe::Application.routes.draw do
       get :join, :leave, :apply, :applyers
     end
     collection do
-        get :discovery
+        get :discovery, :members
       end
     resources :topics
   end  

@@ -96,8 +96,8 @@ class User < ActiveRecord::Base
 		end
 
 
-		def active_user_for_group
-		
+		def active_user_in_group
+		  
 		end
   end	
   	

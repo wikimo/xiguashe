@@ -1,14 +1,18 @@
 class Group < ActiveRecord::Base
-	
+  
+	  self.per_page = 20
+	  
     belongs_to :category
 
     has_many :topics
 
-	has_many :group_users, :dependent => :destroy
+	  has_many :group_users, :dependent => :destroy
 	
     has_many :users, :through => :group_users
+    
+    
 
-	has_attached_file :icon, 
+	  has_attached_file :icon, 
 					:styles => {
                                     :thumb  => "80X80>",
 									:original => "180x180>",

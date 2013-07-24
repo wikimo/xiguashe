@@ -17,3 +17,4 @@
 //= require locales/jquery.timeago.zh-CN.js
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require jquery.atwho

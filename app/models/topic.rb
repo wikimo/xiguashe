@@ -1,11 +1,13 @@
 class Topic < ActiveRecord::Base
-	self.per_page = 10
+	self.per_page = 20
 
 	belongs_to :group
 	
 	belongs_to :user
 
 	has_many :comments, :as => :commentable, :dependent => :destroy
+	
+	scope :order_by_created_at, order("created_at desc")
 
 	searchable	do
 		text :title, :content
@@ -15,8 +17,9 @@ class Topic < ActiveRecord::Base
 
 	class << self
 
-		def like_topics(today, topic_ids)
-			Topic.find(:all,:conditions => ['created_at >= ? and created_at <=? and id not in(?)',(today - 7),(today + 1),topic_ids],:limit => 10,:order => 'like_num desc, id desc')
+		def like_topics(topic_ids)
+		  #this sql is error
+			Topic.find(:all,:conditions => ['created_at >= ? and id not in(?)',7.day.ago,topic_ids],:limit => 10,:order => 'like_num desc, id desc')
 		end
 
 
@@ -28,8 +31,6 @@ class Topic < ActiveRecord::Base
 		def order_by_reply_num
 			Topic.find(:all, :order => 'reply_num desc')
 		end
-
-	
 
 	end
 end
