@@ -5,7 +5,7 @@
 			<h4 class="fl">发现小组 ... </h4>
 			<div class="grp-cats">
 				<% @categories.each do |category| %>
-				<%= link_to category.name, category_groups_path(category) %>
+				<%= link_to category.name, discovery_category_groups_path(category) %>
 				<% end -%>
 			</div>
 			<%= link_to '创建小组', new_group_path, :class => 'btn btn-primary opt-btn' %>

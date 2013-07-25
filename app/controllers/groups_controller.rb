@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def discovery
 
-    if params[:category_id] == nil
+    if params[:category_id] == "0"
       @groups = Group.last_groups
 
       @categories = Category.all

@@ -22,9 +22,9 @@ module LayoutsHelper
     html = ''
 
     if controller_name == 'groups' && action == 'discovery'
-      html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_groups_path,:class => 'active')))
+      html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_category_groups_path(:category_id => 0),:class => 'active')))
     else
-      html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_groups_path)))
+      html.concat(content_tag(:li,content_tag(:a ,'发现小组',:href => discovery_category_groups_path(:category_id => 0))))
     end
 
     if controller_name == 'topics' && action == 'discovery'
