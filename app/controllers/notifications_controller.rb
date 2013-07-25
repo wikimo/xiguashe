@@ -5,14 +5,16 @@ class NotificationsController < ApplicationController
   def index
 
   	@user = User.find(params[:user_id])
-  	@notifications = @user.notifications.recent_notifications
+  	@notifications = @user.notifications.except_mention.recent_notifications
     @mentions = @user.mentions.recent_notifications
     
     @mentions.each do |mention|
       @notifications << mention
     end
     
-    @notifications.sort!{|a,b| b.created_at <=> a.created_at}
+    @notifications = @notifications.sort!{|a,b| b.created_at <=> a.created_at}
+
+    
   end
 
 
