@@ -84,6 +84,20 @@ class User < ActiveRecord::Base
         Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
   end
 
+	def notices(page = 1, per_page = 20)
+
+	  	# notifications = self.notifications.except_mention.recent_notifications
+	   #  mentions = self.mentions.recent_notifications
+	    
+	   #  mentions.each do |mention|
+	   #    notifications << mention
+	   #  end
+	    
+	   #  notifications = notifications.sort!{|a,b| b.created_at <=> a.created_at}
+
+	   Notification.where("mention_id = ? or (user_id = ? and mention_id is null) ",self.id ,self.id).order('created_at desc').paginate(:page => page,:per_page => per_page )
+	end
+
   class << self
 	  def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)

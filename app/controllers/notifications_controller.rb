@@ -14,7 +14,6 @@ class NotificationsController < ApplicationController
     
     @notifications = @notifications.sort!{|a,b| b.created_at <=> a.created_at}
 
-    
   end
 
 
