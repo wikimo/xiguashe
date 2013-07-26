@@ -7,7 +7,7 @@ Xiguashe::Application.routes.draw do
 
   match "groups/audit/:id/:user_id/:status" => "groups#audit",       :via => :get
   match "notifications/read/:id/:type"      => "notifications#read", :via => :get
-
+  
   resources :sessions
 
   resources :photos
@@ -23,7 +23,11 @@ Xiguashe::Application.routes.draw do
   end  
 
   resources :categories do 
-    resources :groups 
+    resources :groups do 
+      collection do 
+        get :discovery
+      end
+    end
   end
  
 
@@ -32,7 +36,7 @@ Xiguashe::Application.routes.draw do
       get :join, :leave, :apply, :applyers
     end
     collection do
-        get :discovery, :members
+        get :members
       end
     resources :topics
   end  

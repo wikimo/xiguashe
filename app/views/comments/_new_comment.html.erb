@@ -20,7 +20,7 @@
 <script type="text/javascript">
 
 	$(function(){
-		var name_array = new Array();
+		
 		$.ajax({
 			type:"get",
 			url :"/groups/members",
@@ -28,12 +28,15 @@
 			data:"topic_id=" + <%= item.id %>,
 			success: function(data){
 				data = eval(data);
+				var name_array = new Array();
 				for(var i = 0; i < data.length; i ++){
 					name_array.push(data[i].nickname);
 				}
+				
+				$("#comment-textarea").atwho({at:"@", 'data':name_array});
 			}
 		});
-		$("#comment-textarea").atwho({at:"@", 'data':name_array});
+		
 	});
 
 	function comment(user_id, user_nickname)
