@@ -72,6 +72,10 @@ Xiguashe::Application.routes.draw do
     end
     resources :topics do 
     end
+    
+    resources :comments do 
+    end
+    
     resources :users do
     end
   end
