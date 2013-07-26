@@ -32,5 +32,9 @@ class Topic < ActiveRecord::Base
 			Topic.find(:all, :order => 'reply_num desc')
 		end
 
+		def discovery(page = 1,per_page = 20)
+			Topic.order('reply_num desc').paginate(:page => page,:per_page => per_page )
+		end
+
 	end
 end

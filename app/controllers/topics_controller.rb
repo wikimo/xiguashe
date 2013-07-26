@@ -22,7 +22,8 @@ class TopicsController < ApplicationController
 
 
 	def discovery
-		@topics = Topic.order_by_reply_num.paginate(:page => params[:page])
+		#@topics = Topic.order_by_reply_num.paginate(:page => params[:page])
+		@topics = Topic.discovery(params[:page])
 	end
 
 
