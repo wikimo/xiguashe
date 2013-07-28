@@ -13,9 +13,12 @@
 .topic-list ul li h2{font: 14px/1.5em 'Microsoft Yahei'}
 .topic-list ul li:hover{background: #ddd}
 .topic-list ul li .content{height: 55px;overflow: hidden;}
+.topic-list ul li .topic-footer{line-height: 1em}
 .topic-footer{padding:8px 0 0 0;border-top: 1px dashed #ccc;margin:5px 0 0 0}
 .topic-footer .user{float: left;}
 .topic-footer .user img{width: 40px;height: 40px;}
+.topic-footer .user .ava{float: left;margin-right: 10px;}
+.topic-footer .user p{font-size: 12px;margin-top: 5px;color: #999}
 .topic-footer .counter{float: right;margin:20px 0 0 0}
 .topic-list .last-item{margin-right: 0}
 .counter .viewer-num, .counter .liked-num,  .counter .comments-num, .counter .members-num {

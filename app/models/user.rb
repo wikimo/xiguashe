@@ -100,11 +100,15 @@ class User < ActiveRecord::Base
 	   Notification.where("mention_id = ? or (user_id = ? and mention_id is null) ",self.id ,self.id).order('created_at desc').paginate(:page => page,:per_page => per_page )
 	end
 
-	 def generate_token(column)
-		    begin
-		      self[column] = SecureRandom.urlsafe_base64
-		    end while User.exists?(column => self[column])
-		end
+	
+	def send_password_reset
+	  generate_token(:password_reset_token)
+	  self.password_reset_sent_at = Time.zone.now
+	  save!
+	  UserMailer.password_reset(self).deliver
+	end
+
+	
 
   class << self
 	  def authenticate(username_or_email,password)
@@ -136,7 +140,14 @@ class User < ActiveRecord::Base
 
 	    def old_password_ok
 	    	errors.add(:old_password, "不正确！") if !User.authenticate(email,old_password)
-	    end 
+	    end
+
+	    def generate_token(column)
+		    begin
+		      self[column] = SecureRandom.urlsafe_base64
+		    end while User.exists?(column => self[column])
+		end
+
 
 	   
 end

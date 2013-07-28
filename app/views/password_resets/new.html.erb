@@ -1,0 +1,29 @@
+<%= stylesheet('bootstrap','style','reg-login')%>
+<div id="main">
+  <div  class="container">
+      <div class="comm-form">
+        <h2 class="title">忘记密码</h2>
+        <%= form_tag  password_resets_path ,:method => :post, :class => 'form-horizontal' do %>
+          <div class="control-group">
+            <label class="control-label" >Email</label>
+            <div class="controls">
+              <input type="text" class="input-large " name="email">
+            </div>
+          </div>
+          <%if flash[:notice]%>
+                <div class="msgs-box">
+                  <ul>
+                  
+                  <li>* <%= flash[:notice]%></li>
+                  
+                </ul>
+              </div>
+            <% end %>
+            
+	        <div class="controls">
+	          <button class="btn btn-success" type="submit">提交</button>
+	        </div>
+        <% end %>
+      </div>
+    </div>
+</div>

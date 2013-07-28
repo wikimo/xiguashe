@@ -229,3 +229,4 @@ zh-CN:
   has_applied: '当前已申请，请耐心等待！'
 
   update_success: '更新成功！'
+  update_pass_ok: '密码修改成功！'

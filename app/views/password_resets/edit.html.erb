@@ -1,0 +1,39 @@
+
+
+
+<%= stylesheet('bootstrap','style','reg-login')%>
+<div id="main">
+  <div  class="container">
+      <div class="comm-form">
+        <h2 class="title">重置密码</h2>
+        <%= form_for @user, :url => password_reset_path(params[:id]) ,:html => { :class => 'form-horizontal'} do |f| %>
+          <div class="control-group">
+            <label class="control-label" >新密码</label>
+            <div class="controls">
+              <%= f.password_field :password,:class=> 'input-large' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" >确认密码</label>
+            <div class="controls">
+              <%= f.password_field :password_confirmation,:class=> 'input-large' %>
+            </div>
+          </div>
+ 
+          <% if @user.errors.any? %>
+          <div class="msgs-box">
+            <ul>
+              <% for message in @user.errors.full_messages %>
+              <li>* <%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>    
+
+          <div class="controls">
+            <button class="btn btn-success" type="submit">更新密码</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

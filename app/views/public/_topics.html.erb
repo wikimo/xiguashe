@@ -14,7 +14,7 @@
 			<div class="topic-footer">
 
 				<div class="user">
-					<a href="/users/<%= topic.user.id%>">
+					<a href="/users/<%= topic.user.id%>" class="ava">
 						<% if topic.user.icon.exists? %>
 				        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname %>
 				      	<% else %>
@@ -22,10 +22,12 @@
 				      	<% end %>
 			        </a>
 
-					<%= link_to topic.user.nickname, topic.user %> 发表于<%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %><br/>
+					<%= link_to topic.user.nickname, topic.user %>
 					<% if !is_topics %>
-						发表在<%= link_to topic.group.name,group_topics_path(topic.group) %>
+						发表在 <%= link_to topic.group.name,group_topics_path(topic.group) %>
 					<% end -%>
+
+					<p>发表于: <%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %></p>
 				</div>
 
 				<div class="counter">

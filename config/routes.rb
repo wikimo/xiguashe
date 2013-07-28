@@ -1,5 +1,5 @@
 Xiguashe::Application.routes.draw do
-  
+
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
   get "login" => "sessions#new",               :as => "login"
@@ -11,6 +11,8 @@ Xiguashe::Application.routes.draw do
   resources :sessions
 
   resources :photos
+
+  resources :password_resets
 
   resources :users do
     member do

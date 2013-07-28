@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	@user.created_ip =  request.ip
   	if @user.save
-  		session[:uid] = @user.id
+  		# session[:uid] = @user.id
+      cookies[:auth_token] = @user.auth_token  
   		redirect_to user_path(@user), :notice => t(:sign_up_success)
   	else
   		render 'new'
