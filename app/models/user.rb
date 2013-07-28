@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
 					  :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 					  :path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
+
+    before_create { generate_token(:auth_token) }
 	
 	def password
 	    @password
@@ -98,6 +100,12 @@ class User < ActiveRecord::Base
 	   Notification.where("mention_id = ? or (user_id = ? and mention_id is null) ",self.id ,self.id).order('created_at desc').paginate(:page => page,:per_page => per_page )
 	end
 
+	 def generate_token(column)
+		    begin
+		      self[column] = SecureRandom.urlsafe_base64
+		    end while User.exists?(column => self[column])
+		end
+
   class << self
 	  def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)
@@ -128,5 +136,7 @@ class User < ActiveRecord::Base
 
 	    def old_password_ok
 	    	errors.add(:old_password, "不正确！") if !User.authenticate(email,old_password)
-	    end  
+	    end 
+
+	   
 end

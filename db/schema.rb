@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711054348) do
+ActiveRecord::Schema.define(:version => 20130728081828) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20130711054348) do
     t.datetime "updated_at",                 :null => false
     t.integer  "group_id",   :default => 0
     t.string   "ip",         :default => ""
-    t.integer  "like_num",   :default => 0,  :null => false
+    t.integer  "like_num",   :default => 0
   end
 
   create_table "user_relations", :force => true do |t|
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20130711054348) do
     t.string   "icon_file_name"
     t.datetime "icon_updated_at"
     t.string   "nickname"
+    t.string   "auth_token"
   end
 
 end
