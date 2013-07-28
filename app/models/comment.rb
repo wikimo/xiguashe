@@ -1,6 +1,8 @@
 # coding: utf-8
 class Comment < ActiveRecord::Base
 
+  self.per_page = 20
+  
 	belongs_to :commentable, :polymorphic => true
 
 	belongs_to :user

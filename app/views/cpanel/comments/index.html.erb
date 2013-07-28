@@ -1,0 +1,35 @@
+
+<div id="module_win">
+	
+</div>
+
+<table id="comments" class="table table-striped">
+	<thead>
+		<tr>
+			<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
+			<th>评论内容</th>
+			<th>评论者</th>
+			<th>所属话题</th>
+			<th>所属小组</th>
+			<th>创建时间</th>
+			<td>操作</td>
+		</tr>
+	</thead>
+	<% @comments.each do |comment| %>
+	<tbody>
+		<tr>
+			<td><%= check_box_tag 'checkbox_name', comment.id %></td>
+			<td><%= truncate comment.content, length: 15 %></td>
+			<td><%= comment.user.nickname %></td>
+			<td><%= comment.commentable.title %></td>
+			<td><%= comment.commentable.group.name %></td>
+			<td><%= format_datetime comment.created_at,'%Y-%m-%d %H:%M' %></td>
+			
+			<td>
+				<%= link_to '查看', cpanel_comment_path(comment), remote: true %>
+				<%= link_to '删除', [:cpanel, comment], confirm: '确认删除吗？', method: :delete %>
+			</td>
+		</tr>
+	</tbody>
+	<% end -%>
+</table>
