@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def discovery
 
     if params[:category_id] == "0"
-      @groups = Group.last_groups
+      @groups = Group.last_groups(params[:page], Group.per_page)
 
       @categories = Category.all
     else

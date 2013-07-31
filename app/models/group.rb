@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   
-	  self.per_page = 20
+	  self.per_page = 30
 	  
     belongs_to :category
 
@@ -60,8 +60,8 @@ class Group < ActiveRecord::Base
 
      class << self
 
-        def last_groups
-            groups = Group.find(:all, :order => 'created_at DESC')
+        def last_groups(page = 1, per_page = 20)
+            groups = Group.order('created_at DESC').paginate(:page => page, :per_page => per_page)
         end
     end
 end
