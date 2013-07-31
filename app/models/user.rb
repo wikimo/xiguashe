@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 					  :styles => {
 						            :thumb  => "50X50>",
 						            :medium => '80X80>',
-									:original => "120x120>"
+									      :original => "120x120>"
 							    }, 
 					  :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 					  :path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
 	end
 	
 	def unread_notification_count
-    unread_notifications_count = self.notifications.unread_notifications.count + self.mentions.unread_notifications.count
+    unread_notifications_count = self.notifications.except_mention.unread_notifications.count + self.mentions.unread_notifications.count
   end
 
 	def groups
@@ -87,16 +87,6 @@ class User < ActiveRecord::Base
   end
 
 	def notices(page = 1, per_page = 20)
-
-	  	# notifications = self.notifications.except_mention.recent_notifications
-	   #  mentions = self.mentions.recent_notifications
-	    
-	   #  mentions.each do |mention|
-	   #    notifications << mention
-	   #  end
-	    
-	   #  notifications = notifications.sort!{|a,b| b.created_at <=> a.created_at}
-
 	   Notification.where("mention_id = ? or (user_id = ? and mention_id is null) ",self.id ,self.id).order('created_at desc').paginate(:page => page,:per_page => per_page )
 	end
 
@@ -143,10 +133,10 @@ class User < ActiveRecord::Base
 	    end
 
 	    def generate_token(column)
-		    begin
-		      self[column] = SecureRandom.urlsafe_base64
-		    end while User.exists?(column => self[column])
-		end
+  	    begin
+  	      self[column] = SecureRandom.urlsafe_base64
+  	    end while User.exists?(column => self[column])
+  	  end
 
 
 	   

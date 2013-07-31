@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token  
       end
-    
+      p @user
+      
       redirect_to user_path(@user), :notice => t(:login_success)
     else
       flash[:notice] =  t(:login_fail)
