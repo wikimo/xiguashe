@@ -115,6 +115,9 @@ a:hover{text-decoration: none;}
 .fl{float: left;}
 .dropdown-menu li > a{font-size: 13px}
 
+.comm-form-wrap{background: none repeat scroll 0 0 #FFFFFF;
+    padding: 20px 50px;}
+
 /*notice*/
 .notice-list{background: #fff;padding:20px;color: #666;}
 .notice-list .notice-content ul li{border-top: 1px solid #ccc;padding: 10px 0;margin:10px 0 0 0;}
