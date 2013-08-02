@@ -61,7 +61,7 @@ class GroupsController < ApplicationController
 
     @group.update_attributes({:member_num => @group.member_num + 1})
 
-    redirect_to group_topics_path(@group)
+    redirect_to group_topics_path(@group), :notice => t(:join_group_success)
   end
 
   def leave
@@ -83,7 +83,7 @@ class GroupsController < ApplicationController
 
     @gu.update_attributes({:status => 1})
 
-    redirect_to group_topics_path(@group)
+    redirect_to group_topics_path(@group), :notice => t(:has_applied)
   end
 
   def applyers

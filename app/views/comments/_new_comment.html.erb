@@ -9,7 +9,7 @@
 				<label class="control-label" >评论内容：</label>
 				<div class="controls">
 					<%=f.hidden_field :user_id, :id=> 'user_id', :value => current_user.id %>
-					<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span4", :placeholder => "限500字以内..."%>
+					<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span5", :placeholder => "限500字以内..."%>
 				</div>
 			</div>
 			<%= f.submit '评论', :class => 'btn btn-success'%>
@@ -24,7 +24,6 @@
 		$.ajax({
 			type:"get",
 			url :"/groups/members",
-			async: false,
 			data:"topic_id=" + <%= item.id %>,
 			success: function(data){
 				data = eval(data);

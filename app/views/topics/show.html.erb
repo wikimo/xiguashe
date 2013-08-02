@@ -3,6 +3,9 @@
 
 <div id="main">
 	<div  class="container">
+
+		<%= render 'public/flash_notice' %>
+		
 		<div class="comm-left">
 				<div class="tr-item cc">
 					<div class="avatar">
@@ -28,7 +31,13 @@
 
 				<%= render 'comments/comments' %>
 
+				<div class="paginate-right-position">
+					<%= will_paginate @comments, :previous_label =>'上一页', :next_label => '下一页' %>
+				</div>
+
 				<%= render 'comments/new_comment', :item => @topic %>
+
+
 			</div>
 
 			

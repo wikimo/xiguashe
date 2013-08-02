@@ -53,7 +53,7 @@ class TopicsController < ApplicationController
 		@topic = Topic.find params[:id]
 
 		@topic.update_attributes({:hit_num => @topic.hit_num + 1})
-		@comments = @topic.comments.order_desc_by_created_at
+		@comments = @topic.comments.order_desc_by_created_at(params[:page], Comment.per_page)
 
 		@group = @topic.group
 		

@@ -222,8 +222,11 @@ zh-CN:
   user_not_login: '当前用户未登陆！'
 
   user_not_belong_to_group: '当前用户未加入组！'
+  join_group_success: '小组加入成功'
   new_topic: '发表新话题'
   edit_topic: '编辑话题'
+
+  comment_create_success: '评论成功'
 
   wait_for_check: '等待管理员审核！'
   has_applied: '当前已申请，请耐心等待！'
