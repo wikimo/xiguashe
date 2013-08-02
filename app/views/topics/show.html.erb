@@ -34,21 +34,24 @@
 			
 
 		<div class="comm-right">
-			<div class="post-return cc">
-				<%= link_to '发表话题', new_group_topic_path(@group),:class => 'post-btn'%>
-				<%= link_to '返回小组', group_topics_path(@topic.group)%></div>
-			<div class="other-topics">
-				<ul>
-					<% @user_topics.each do |user_topic| %>
-						<li>
-							<%= link_to user_topic.title, user_topic %>
-							
-							
-							<p>来自 <%= link_to @user.nickname, @user %></p>
+			<div class="fixed">
+				<div class="post-return cc">
+					<%= link_to '发表话题', new_group_topic_path(@group),:class => 'post-btn'%>
+					<%= link_to '返回小组', group_topics_path(@topic.group)%></div>
+				<div class="other-topics">
+					<h4>你可能感兴趣...</h4>
+					<ul>
+						<% @user_topics.each do |user_topic| %>
+							<li>
+								<%= link_to user_topic.title, user_topic %>
+								
+								
+								<p>来自 <%= link_to @user.nickname, @user %></p>
 
-						</li>
-					<% end -%>
-				</ul>
+							</li>
+						<% end -%>
+					</ul>
+				</div>
 			</div>
 		</div>	
 	</div>
