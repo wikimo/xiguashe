@@ -3,4 +3,11 @@
 	    <button type="button" class="close" data-dismiss="alert">&times;</button>
 	    <strong><%= flash[:notice]%></strong>
     </div>
+    <script type="text/javascript">
+    $(function(){
+    	setTimeout(function(){
+    		$(".alert").alert('close')
+    	},3000)
+    })
+    </script>
 <% end %>
