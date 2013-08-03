@@ -62,16 +62,19 @@ Xiguashe::Application.routes.draw do
   match 'users/unfollow/:followed_id' => 'user_relations#destroy',:via  => :delete
 
   namespace :cpanel do 
+    
     resources :categories do 
       member do
         get :change_use 
       end
     end
+
     resources :groups do
       member do
         get :change_status
       end
     end
+
     resources :topics do 
     end
     
