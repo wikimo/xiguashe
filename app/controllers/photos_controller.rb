@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-
+	before_filter :logined?
 	def create
 		@photo = Photo.new init_params(params)
 		if @photo.save

@@ -8,7 +8,7 @@
     		<thead>
 				<tr>
 					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
-					<th>组ID</th>
+					
 					<th>组名</th>
 					<th>话题数</th>
 					<th>成员数量</th>
@@ -18,11 +18,12 @@
 					<td>操作</td>
 				</tr>
 			</thead>
+			<tbody>
     		<% @groups.each do |group| %>
-    		<tbody>
+    		
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', group.id %></td>
-					<td><%= group.id %></td>
+					
 					<td><%= truncate group.name, length: 5 %></td>
 					<td><%= group.topic_num %></td>
 					<td><%= group.member_num %></td>
@@ -43,6 +44,7 @@
 						<% end %>
 					</td>
 				</tr>
-			</tbody>
+			
     		<% end -%>
+    		</tbody>
 		</table>

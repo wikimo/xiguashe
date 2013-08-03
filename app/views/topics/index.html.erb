@@ -13,7 +13,7 @@
 			</div>
 			<div class="group-detail">
 				<h4><%= @group.name%></h4><cite>（<%= @group.member_num + 1 %> 个成员）</cite>
-				<p><%= @group.descrip%></p>
+				<p><%= truncate(@group.descrip,:length =>60, :truncate_string =>"...")%></p>
 
 				<% if @gu %>
 					<div class="group-btns">
@@ -38,7 +38,7 @@
 		
 	</div>
 	<div class="comm-right">
-
+		<div class="fixed">
 		<div class="group-members">
 
 			<h4>小组管理员</h4>
@@ -127,7 +127,7 @@
 		</div>
 
 		
-
+		</div>
 		</div>
 	</div>
 </div>
