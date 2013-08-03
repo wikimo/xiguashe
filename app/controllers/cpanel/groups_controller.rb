@@ -1,7 +1,7 @@
 class Cpanel::GroupsController < Cpanel::ApplicationController
 
 	def index
-		@groups = Group.all
+		@groups = Group.order_desc_by_created_at(params[:page], Group.per_page)
 	end
 
 
@@ -16,7 +16,7 @@ class Cpanel::GroupsController < Cpanel::ApplicationController
 	def destroy
 		@group = Group.find(params[:id])
 		@group.destroy
-		redirect_to cpanel_groups_path
+		redirect_to cpanel_groups_path, :notice => t(:delete_success)
 	end
 
 	def change_status

@@ -20,7 +20,7 @@
           	<% if current_logined? %>
 				<%= link_to current_user.unread_notification_count,  user_notifications_path(current_user) ,:class => 'msg'%>
           		<a class="dropdown-toggle" data-toggle="dropdown" href="#menu-user">
-			      <%= current_user.nickname %>
+				    <%= current_user.nickname %>
 			    </a>
 				<ul class="dropdown-menu">
 					<li><%= link_to '个人主页',user_path(current_user) %></li>

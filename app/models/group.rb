@@ -63,5 +63,9 @@ class Group < ActiveRecord::Base
         def last_groups(page = 1, per_page = 20)
             groups = Group.order('created_at DESC').paginate(:page => page, :per_page => per_page)
         end
+
+        def order_desc_by_created_at(page = 1, per_page = 20)
+            Group.order("created_at DESC").paginate(:page => page, :per_page => per_page)
+        end
     end
 end

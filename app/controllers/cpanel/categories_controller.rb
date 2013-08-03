@@ -2,7 +2,7 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
 
   def index
   	
-  	@categories = Category.all
+  	@categories = Category.order_desc_by_created_at(params[:page], Category.per_page)
   	
   end
 
@@ -15,7 +15,7 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
   	@category = Category.create(:name => params[:category][:name], :description => params[:category][:description])
 
   	if @category.save
-  		redirect_to cpanel_categories_path,:notice  => 'create_group_success'
+  		redirect_to cpanel_categories_path,:notice  => t(:create_success)
   	else
 
   	end
@@ -32,7 +32,7 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
     @category = Category.find(params[:category][:id])
 
     if @category.update_attributes(params[:category])
-      redirect_to cpanel_categories_path
+      redirect_to cpanel_categories_path, :notice => t(:update_success)
     else
       render 'edit'  #error
     end
@@ -48,7 +48,7 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
     @category.destroy
 
     #will use ajax
-    redirect_to cpanel_categories_path
+    redirect_to cpanel_categories_path, :notice => t(:delete_success)
   end
 
 

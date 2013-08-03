@@ -115,6 +115,10 @@ class User < ActiveRecord::Base
 		def active_user_in_group
 		  
 		end
+
+		def order_desc_by_created_at(page = 1, per_page = 20)
+			User.order("created_at DESC").paginate(:page => page, :per_page => per_page)
+		end
   end	
   	
 

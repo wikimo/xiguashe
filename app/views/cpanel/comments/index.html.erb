@@ -1,3 +1,4 @@
+<%= render 'public/flash_notice' %>
 
 <div id="module_win">
 	
@@ -33,3 +34,6 @@
 	</tbody>
 	<% end -%>
 </table>
+<div class="paginate-right-position">
+	<%= will_paginate @comments, :previous_label =>'上一页', :next_label => '下一页' %>
+</div>
