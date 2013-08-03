@@ -2,17 +2,13 @@
 <html>
 <head>
   <title>XIGUASHE admin</title>
-  <%= stylesheet_link_tag    "cpanel/bootstrap" %>
+  <%= stylesheet_link_tag    "bootstrap" %>
   <%= stylesheet_link_tag    "dataTables/jquery.dataTables","dataTables/jquery.dataTables.bootstrap" %>
   <%= javascript_include_tag "application", "bootstrap" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-<div class="container">
-
-	<!-- navgation -->
+<header>
 	<div class="navbar">
 	    <div class="navbar-inner">
 		    <div class="container">
@@ -51,6 +47,11 @@
 		    </div>
 	    </div>
     </div>
+</header>
+
+<div class="container">
+
+	
 
 	<%= yield %>
 </div>

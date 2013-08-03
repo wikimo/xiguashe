@@ -21,13 +21,14 @@
 				        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
 				      	<% end %>
 			        </a>
+					<div class="info">
+						<%= link_to topic.user.nickname, topic.user %>
+						<% if !is_topics %>
+							发表在 <%= link_to topic.group.name,group_topics_path(topic.group) %>
+						<% end -%>
 
-					<%= link_to topic.user.nickname, topic.user %>
-					<% if !is_topics %>
-						发表在 <%= link_to topic.group.name,group_topics_path(topic.group) %>
-					<% end -%>
-
-					<p>发表于: <%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %></p>
+						<p><%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %></p>
+					</div>
 				</div>
 
 				<div class="counter">
