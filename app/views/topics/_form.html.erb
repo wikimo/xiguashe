@@ -14,7 +14,13 @@
         <label class="control-label" >内容：</label>
         <div class="controls">
        
-        <div contenteditable="true" class="editable-box" id="content-box"></div>
+        <div contenteditable="true" class="editable-box" id="content-box">
+
+          <% if !@topic.nil? %>
+            <%= raw @topic.content %>
+          <% end -%>
+          
+        </div>
         <%= f.text_area :content,:class => "hide"%>
         </div>
       </div>
@@ -76,7 +82,7 @@
       // custom_settings : {
       //     fileList : "file-list"
       // },
-      debug: true
+      //debug: true
   });
 
 </script> 
