@@ -58,6 +58,10 @@ module Xiguashe
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    %w(middlewares).each do |dir|
+       config.autoload_paths << "#{Rails.root.to_s}/app/#{dir}"
+    end
+
   end
 end
 

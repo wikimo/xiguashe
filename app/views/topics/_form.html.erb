@@ -49,7 +49,9 @@
   })
 
   var swfu = new SWFUpload({
-      upload_url : "/photos",
+      upload_url : "/photos?auth_token=<%=  cookies[:auth_token] %>",
+
+
       flash_url : "/assets/swfupload.swf",
       post_params:{"user_id":'<%=current_user.id%>'},
 
@@ -76,7 +78,7 @@
       // custom_settings : {
       //     fileList : "file-list"
       // },
-      debug: true
+      // debug: true
   });
 
 </script> 

@@ -5,7 +5,6 @@
 	      var $t = $(this)[0];
 	      var ele =  $($t)
 	      if (document.selection) {
-	      		console.log()
 	          this.focus();
 	          sel = document.selection.createRange();
 	          sel.innerHTML = myValue;
@@ -21,7 +20,6 @@
 	       $t.selectionEnd = startPos + myValue.length;
 	         $t.scrollTop = scrollTop;
 	     } else {
-	     	console.log(myValue);
 	        ele.html(ele.html() + myValue)
 	        ele.focus();
 	     }

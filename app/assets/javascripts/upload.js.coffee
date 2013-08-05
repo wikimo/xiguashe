@@ -56,6 +56,10 @@ window.UploadApp =
 	  		input = $ "<input type='hidden' name='photo_id[]' value='#{@id}' />"
 	  		idsList.append input
 
+	  		stats = swfu.getStats();
+	  		stats.successful_uploads = stats.successful_uploads -1
+	  		console.log 
+		
 	  catch ex
 	    @debug ex
 
