@@ -1,5 +1,6 @@
 
-
+		
+		<%= render 'public/flash_notice' %>
 
   		<%= link_to '新增', new_cpanel_category_path, :class => "btn btn-primary", remote: true %>
 
@@ -54,3 +55,6 @@
 			</tbody>
     		
 		</table>
+		<div class="paginate-right-position">
+			<%= will_paginate @categories, :previous_label =>'上一页', :next_label => '下一页' %>
+		</div>

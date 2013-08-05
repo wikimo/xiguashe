@@ -228,8 +228,11 @@ zh-CN:
 
   comment_create_success: '评论成功'
 
+
   wait_for_check: '等待管理员审核！'
   has_applied: '当前已申请，请耐心等待！'
-
+  
+  create_success: '创建成功！'
+  delete_success: '删除成功！'
   update_success: '更新成功！'
   update_pass_ok: '密码修改成功！'

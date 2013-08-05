@@ -1,4 +1,5 @@
 <%= stylesheet('bootstrap','style','jquery.atwho')%>
+
 <div class="reply-box">
 	<% if !current_user %>
 		<p>登录后可进行评论，请先 <%= link_to '登录', login_path %> 或 <%= link_to '注册', reg_path %></p>
@@ -9,6 +10,7 @@
 				<label class="control-label" >评论内容：</label>
 				<div class="controls">
 					<%=f.hidden_field :user_id, :id=> 'user_id', :value => current_user.id %>
+					<%= f.hidden_field :topic_id, :id => 'topic_id', :value => item.id %>
 					<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span5", :placeholder => "限500字以内..."%>
 				</div>
 			</div>
@@ -17,46 +19,3 @@
 	<% end %>
 
 </div>
-<script type="text/javascript">
-
-	$(function(){
-		
-		$.ajax({
-			type:"get",
-			url :"/groups/members",
-			data:"topic_id=" + <%= item.id %>,
-			success: function(data){
-				data = eval(data);
-				var name_array = new Array();
-				for(var i = 0; i < data.length; i ++){
-					name_array.push(data[i].nickname);
-				}
-				
-				$("#comment-textarea").atwho({at:"@", 'data':name_array});
-			}
-		});
-		
-	});
-
-	function comment(user_id, user_nickname)
-	{
-		var comment_body = $("#comment-textarea");
-		var new_text = "@" + user_nickname;
-		if(comment_body.val().trim().length == 0)
-		{
-			new_text += "";
-		}
-		else
-		{
-			new_text = "\n" + new_text;
-		}
-		
-		comment_body.focus().val(comment_body.val() + new_text);
-
-		return false;
-
-	}
-	
-	
-
-</script>

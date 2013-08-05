@@ -1,7 +1,7 @@
 # coding: utf-8
 class Comment < ActiveRecord::Base
 
-  	self.per_page = 5
+  	self.per_page = 30
   
 	belongs_to :commentable, :polymorphic => true
 

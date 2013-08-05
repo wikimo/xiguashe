@@ -2,7 +2,7 @@ class Cpanel::UsersController < Cpanel::ApplicationController
 
 
 	def index
-		@users = User.all
+		@users = User.order_desc_by_created_at(params[:page], User.per_page)
 	end
 
 	def show

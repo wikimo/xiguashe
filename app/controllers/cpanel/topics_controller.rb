@@ -2,7 +2,7 @@ class Cpanel::TopicsController < Cpanel::ApplicationController
 
 
 	def index
-		@topics = Topic.all
+		@topics = Topic.order_desc_by_created_at(params[:page], Topic.per_page)
 	end
 
 	def show
