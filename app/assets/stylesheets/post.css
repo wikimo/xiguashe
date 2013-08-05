@@ -1,15 +1,14 @@
 .post-form-wrap{padding:20px 50px;background: #FFF;}
 .post-form{position: relative;width: 570px;float: left;}
 #upload-plug{position: absolute;bottom:20px;right: 25px;}
-#photo-list{width: 240px;float: right;max-height: 390px}
+#photo-list{width: 240px;float: right;height: 450px;overflow-y: auto; }
 #photo-list img{margin:5px;float: left;width: 100px}
 
 
 .editable-box {
     width: 540px; 
-    min-height: 120px; 
-    max-height: 300px;
-    _height: 120px; 
+    min-height: 300px; 
+
 
     padding: 3px; 
     outline: 0; 

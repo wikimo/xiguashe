@@ -49,6 +49,7 @@ window.UploadApp =
 	  	idsList = $ '#photo-ids'
 	  	json =  '(' + serverData + ')'
 	  	json = $ eval(json)
+
 	  	json.each ->
 	  		img =  $ "<img src='#{@photo}' data-id='#{@id}'/>"
 	  		postList.append img
@@ -57,9 +58,8 @@ window.UploadApp =
 	  		idsList.append input
 
 	  		stats = swfu.getStats();
-	  		stats.successful_uploads = stats.successful_uploads -1
-	  		console.log 
-		
+	  		stats.successful_uploads--
+	  		swfu.setStats stats
 	  catch ex
 	    @debug ex
 
