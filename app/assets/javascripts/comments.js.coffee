@@ -14,19 +14,20 @@ window.CommentApp =
 
 $(document).ready -> 
 	topic_id = $("#topic_id").val()
-	$.ajax
-	    type: "get"
-	    url: "/groups/members"
-	    data: 
-	    	topic_id : topic_id
-	    success: (data) ->
-	      data = eval(data)
-	      name_array = new Array()
-	      i = 0
+	if topic_id
+		$.ajax
+		    type: "get"
+		    url: "/groups/members"
+		    data: 
+		    	topic_id : topic_id
+		    success: (data) ->
+		      data = eval(data)
+		      name_array = new Array()
+		      i = 0
 
-	      while i < data.length
-	        name_array.push data[i].nickname
-	        i++
-	      $("#comment-textarea").atwho
-	        at: "@"
-	        data: name_array
+		      while i < data.length
+		        name_array.push data[i].nickname
+		        i++
+		      $("#comment-textarea").atwho
+		        at: "@"
+		        data: name_array
