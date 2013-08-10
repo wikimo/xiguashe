@@ -44,7 +44,7 @@ a:hover{text-decoration: none;}
 .group-list li{width: 280px;float: left;padding:10px;background: #FFF;margin:5px 15px 25px 2px;}
 .group-list li img{width: 100px;height: 100px}
 .group-list li h4{color: #666}
-.group-list .grp-icon{float: left;margin:0 10px 0 0;}
+.group-list .grp-icon{float: left;margin:0 10px 0 0;width: 100px}
 .group-list  .last-item{margin-right: 0}
 .group-list  p{font-size: 13px}
 
@@ -134,6 +134,48 @@ a:hover{text-decoration: none;}
 /* paginate position*/
 .paginate-right-position{text-align: right}
 
+/*back to top*/
+#back-to-top {
+	background-color: #CCCCCC;
+    border-radius: 2px;
+    bottom: 10px;
+    display: block;
+    font-family: Arial;
+    line-height: 46px;
+    margin-right: 0;
+    padding:  5px 7px 8px 5px;
+    position: fixed;
+    right: 10px;
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+    text-align:center;
+    cursor: pointer;
+    color:#eee;
+  }
+  #back-to-top span{cursor: pointer; }
+
+  #back-to-top em.tr {
+    display: block;
+    font-size: 74px;
+    height: 27px;
+    margin: 0 0 0 2px;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
+    width: 40px;
+}
+#back-to-top .tube {
+    display: block;
+    font-size: 30px;
+    height: 20px;
+    margin: -10px 0 0 5px;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
+    width: 40px;
+}
+
 .fixed{width: 300px}
 /*清除浮动 代码*/
 .cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}
@@ -141,3 +183,4 @@ a:hover{text-decoration: none;}
 * html .cc {height: 1%;}
 .cc {display: block;}/* End hide from IE-mac *//*清除浮动 代码*/
 .c{clear:both;font:0px/0px Arial;overflow:hidden;height:0;width:0;}
+
