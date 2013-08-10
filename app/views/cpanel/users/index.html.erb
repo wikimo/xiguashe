@@ -7,9 +7,9 @@
     	<table id="users" class="table table-striped">
     		<thead>
 				<tr>
-					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
-					<th>用户email</th>
-					<th>别名</th>
+					<th><%= check_box_tag 'checkbox_all' %></th>
+					<th>Email</th>
+					<th>昵称</th>
 					
 					<th>创建时间</th>
 					<th>最后更新时间</th>
@@ -17,8 +17,9 @@
 					<td>操作</td>
 				</tr>
 			</thead>
+			<tbody>
     		<% @users.each do |user| %>
-    		<tbody>
+    		
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', user.id %></td>
 					<td><%= user.email %></td>
@@ -34,8 +35,9 @@
 						<%= link_to '删除', [:cpanel, user], confirm: '确认删除吗？', method: :delete %>
 					</td>
 				</tr>
-			</tbody>
+			
     		<% end -%>
+    		</tbody>
 		</table>
 		<div class="paginate-right-position">
 			<%= will_paginate @users, :previous_label =>'上一页', :next_label => '下一页' %>

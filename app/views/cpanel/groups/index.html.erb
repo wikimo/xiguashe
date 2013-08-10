@@ -8,13 +8,12 @@
     	<table id="groups" class="table table-striped">
     		<thead>
 				<tr>
-					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
+					<th><%= check_box_tag 'checkbox_all' %> </th>
 					
 					<th>组名</th>
 					<th>话题数</th>
 					<th>成员数量</th>
 					<th>创建时间</th>
-					<th>最后更新时间</th>
 					<th>状态</th>
 					<td>操作</td>
 				</tr>
@@ -29,7 +28,7 @@
 					<td><%= group.topic_num %></td>
 					<td><%= group.member_num %></td>
 					<td><%= format_datetime group.created_at,'%Y-%m-%d %H:%M' %></td>
-					<td><%= format_datetime group.updated_at,'%Y-%m-%d %H:%M' %></td>
+
 					<% if group.state %>
 						<td>可用</td>
 					<% else %>

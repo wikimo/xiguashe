@@ -11,13 +11,13 @@
     	<table id="categories" class="table table-striped">
     		<thead>
 				<tr>
-					<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
-					<th>分类ID</th>
+					<th><%= check_box_tag 'checkbox_all' %></th>
+					<th>ID</th>
 					<th>分类名</th>
 					<th>描述</th>
 					<th>是否可用</th>
 					<th>创建时间</th>
-					<th>结束时间</th>
+
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -37,8 +37,7 @@
 						<% end -%>
 					</td>
 					<td><%= format_datetime category.created_at,'%Y-%m-%d %H:%M' %></td>
-					<td><%= format_datetime category.updated_at,'%Y-%m-%d %H:%M' %></td>
-					
+
 					<td>
 						<%= link_to '查看', cpanel_category_path(category), remote: true %>
 						<%= link_to '修改', edit_cpanel_category_path(category), remote: true %>

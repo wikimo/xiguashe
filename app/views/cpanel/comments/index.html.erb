@@ -7,7 +7,7 @@
 <table id="comments" class="table table-striped">
 	<thead>
 		<tr>
-			<th><%= check_box_tag 'checkbox_all' %>全选/取消</th>
+			<th><%= check_box_tag 'checkbox_all' %></th>
 			<th>评论内容</th>
 			<th>评论者</th>
 			<th>所属话题</th>
@@ -16,11 +16,12 @@
 			<td>操作</td>
 		</tr>
 	</thead>
-	<% @comments.each do |comment| %>
 	<tbody>
+	<% @comments.each do |comment| %>
+	
 		<tr>
 			<td><%= check_box_tag 'checkbox_name', comment.id %></td>
-			<td><%= truncate comment.content, length: 15 %></td>
+			<td><%= format_content comment.content, 20 %></td>
 			<td><%= comment.user.nickname %></td>
 			<td><%= comment.commentable.title %></td>
 			<td><%= comment.commentable.group.name %></td>
@@ -31,8 +32,9 @@
 				<%= link_to '删除', [:cpanel, comment], confirm: '确认删除吗？', method: :delete %>
 			</td>
 		</tr>
-	</tbody>
+	
 	<% end -%>
+	</tbody>
 </table>
 <div class="paginate-right-position">
 	<%= will_paginate @comments, :previous_label =>'上一页', :next_label => '下一页' %>
