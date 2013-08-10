@@ -5,8 +5,9 @@
 		<div class="search-keyword">
 			<h4>检索关键词：<%= @keyword %></h4>
 		</div>
-		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics}%>
-		
+		<div class="topics">
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics,:is_topics => false}%>
+		</div>
 		
 	</div>
 </div>
