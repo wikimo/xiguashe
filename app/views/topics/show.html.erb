@@ -18,7 +18,12 @@
 						<h1><%=@topic.title%></h1>
 					
 						<div class="topic-info">
-							<p><a href=""><%= @topic.user.nickname %></a> 发表于：<%= timeago_tag @topic.created_at, :nojs => true, :limit => 10.days.ago %></p>
+							<p><a href=""><%= @topic.user.nickname %></a> 发表于：<%= timeago_tag @topic.created_at, :nojs => true, :limit => 10.days.ago %>
+
+							<% if !current_user.nil? && current_user.id == @topic.user.id %>
+								<%= link_to '编辑',  edit_topic_path(@topic) %>
+							<% end -%>
+							</p>
 						</div>
 						<dic class="c"></dic>
 						<div class="content">
@@ -26,11 +31,7 @@
 						</div>
 						<%= likeable_tag(@topic) %>
 
-						<div class="paginate-right-position">
-							<% if !current_user.nil? && current_user.id == @topic.user.id %>
-								<%= link_to '编辑',  edit_topic_path(@topic) %>
-							<% end -%>
-						</div>
+						
 					</div>
 					
 				</div>

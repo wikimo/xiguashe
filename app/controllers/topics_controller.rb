@@ -34,7 +34,6 @@ class TopicsController < ApplicationController
 	def create
 		@group = Group.find_by_id(params[:group_id])
 
-		params[:topic][:content] = params[:topic][:content].gsub(/\r\n/,"<br/>")
 		@topic = @group.topics.create(params[:topic])
 		@topic.ip = request.ip
 
@@ -42,7 +41,7 @@ class TopicsController < ApplicationController
 			update_photos(params[:photo_id],@topic)
 			
 			@group.update_attributes({:topic_num => @group.topic_num + 1})
-			redirect_to topic_path(@topic), :notice => 'create_topic_success'
+			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
 			render 'new'
 		end
@@ -58,8 +57,8 @@ class TopicsController < ApplicationController
 
 	def update
 		@topic = Topic.find(params[:id])
-		params[:topic][:title] = params[:topic][:title].gsub(/\r\n/, "<br/>")
-		params[:topic][:content] = params[:topic][:content].gsub(/\r\n/,"<br/>")
+
+		params[:topic][:content] = content_filter(params[:topic][:content])
 
 		if @topic.update_attributes(params[:topic])
 			update_photos(params[:photo_id],@topic)
@@ -87,5 +86,10 @@ class TopicsController < ApplicationController
 	      photo_id  && photo_id.each do |id|
 	        Photo.find(id).update_attributes!(:photoable  => topic)      
 	      end  
+	    end
+
+	    def content_filter(content)
+	    	substitute = '\r\n';
+			content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
 	    end
 end
