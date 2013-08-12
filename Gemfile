@@ -47,3 +47,5 @@ gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
 
 gem 'thin'
+
+gem 'capistrano'

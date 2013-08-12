@@ -20,7 +20,7 @@ Xiguashe::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.assets.debug = true
+  #config.assets.debug = true
 
   config.assets.precompile += ['admin.css']
 
