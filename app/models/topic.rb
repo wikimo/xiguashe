@@ -36,7 +36,7 @@ class Topic < ActiveRecord::Base
 		end
 
 		def discovery(page = 1,per_page = 20)
-			Topic.order('reply_num desc').paginate(:page => page,:per_page => per_page )
+			Topic.order('updated_at desc, reply_num desc').paginate(:page => page,:per_page => per_page )
 		end
 
 	end
