@@ -27,18 +27,18 @@ class Comment < ActiveRecord::Base
 		      
 			    if mention_ids.any?
 			        mention_ids.each do |id|
-		  	        if user.id == id
-		  	          break
-		  	        else
-		              mention_ids << user.id
-		            end
-		          end
+			  	        if user.id == id
+			  	          break
+			  	        else
+			              mention_ids << user.id
+			            end
+		          	end
 		        else
 		          mention_ids << user.id
 		        end
 
-	    end
-    end
+	    	end
+    	end
     
 		if self.commentable_type != nil
 			if self.user != self.commentable.user 

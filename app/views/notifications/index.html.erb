@@ -27,7 +27,7 @@
 						
 
 							<% if notification.mention_id == nil %>
-							<%= notification.user.nickname %> 评论了您的话题：
+							<%= notification.notificationable.user.nickname %> 评论了您的话题：
 										<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %>
 										<%= format_content( notification.notificationable.content) %> <br/>
 										<p><%= timeago_tag notification.created_at, :nojs => true, :limit => 10.days.ago %>
@@ -39,7 +39,7 @@
 							<% end %>
 
 							<% if notification.is_read == false %>
-							<span class="new-icon">(new) </span>
+							<span class="new-icon">(新) </span>
 							<%end%>
 							</p>
 						</div>
