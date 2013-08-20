@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :login_redirect
+	before_filter :login_redirect, :except => [:about]
 
 	def index
 		#@topics =  Topic.find(:all,:limit => 10,:order => 'id desc')
@@ -7,6 +7,9 @@ class HomeController < ApplicationController
 		recent_tids =  @recent_topics.map(&:id)
 
 		@like_topics = Topic.like_topics(recent_tids)
+		
+	end
+	def about
 		
 	end
 end

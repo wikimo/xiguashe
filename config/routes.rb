@@ -1,9 +1,12 @@
 Xiguashe::Application.routes.draw do
 
+  get 'about' => 'home#about'
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
   get "login" => "sessions#new",               :as => "login"
+
   match "/search" => "search#index",           :as => :search
+
 
   match "groups/audit/:id/:user_id/:status" => "groups#audit",       :via => :get
   match "notifications/read/:id/:type"      => "notifications#read", :via => :get
