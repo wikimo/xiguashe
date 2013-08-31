@@ -11,14 +11,12 @@ class SessionsController < ApplicationController
   	@user =  User.authenticate(user_info,params[:password])
 
     if @user
-      # session[:uid] =  @user.id
-
       if params[:remember_me]
         cookies.permanent[:auth_token] = @user.auth_token
       else
         cookies[:auth_token] = @user.auth_token  
       end
-      #p @user
+
       
       redirect_to user_path(@user), :notice => t(:login_success)
     else

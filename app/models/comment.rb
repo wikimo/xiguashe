@@ -15,38 +15,42 @@ class Comment < ActiveRecord::Base
 	has_many :notifications, :as => :notificationable, :dependent => :destroy
 
 	after_create :send_comment_notification
-  
-	def send_comment_notification
-	    mention_users = match_user_test(self.content)
-	    
-	  	mention_ids = []
-  	
-		if mention_users.any?
-		    mention_users.each do |mention_user|
+	before_create :filter_at
+
+	def filter_at
+		@mention_users = match_user_test(self.content)
+
+		@mention_ids = []
+		if @mention_users.any?
+		    @mention_users.each do |mention_user|
 		      	user = User.where(:nickname => mention_user).first
-		      
-			    if mention_ids.any?
-			        mention_ids.each do |id|
+		      	reg = /@#{mention_user}/ 
+		      	self.content = self.content.gsub(reg,"<a href='/users/#{user.id}'>@#{user.nickname}</a> ")
+
+			    if @mention_ids.any?
+			        @mention_ids.each do |id|
 			  	        if user.id == id
 			  	          break
 			  	        else
-			              mention_ids << user.id
+			              @mention_ids << user.id
 			            end
 		          	end
 		        else
-		          mention_ids << user.id
+		          @mention_ids << user.id
 		        end
 
 	    	end
     	end
-    
+	end
+  
+	def send_comment_notification
 		if self.commentable_type != nil
 			if self.user != self.commentable.user 
 				Notification.create(:user => self.commentable.user, :notificationable => self)
 			end
       
-			if !mention_ids.include?(self.commentable.user.id)
-				mention_ids.each do |mention_id|
+			if !@mention_ids.include?(self.commentable.user.id)
+				@mention_ids.each do |mention_id|
 					Notification.create(:user => self.commentable.user, :notificationable => self, :mention_id => mention_id)
 				end
 			end
