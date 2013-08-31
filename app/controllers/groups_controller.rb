@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
       @gu = GroupUser.create(:group_id => @group.id, :user_id => current_user.id, :level => 2)
 
       if @gu.save
-  		  redirect_to groups_path,:notice  => 'create_group_success'
+  		  redirect_to discovery_category_groups_path(0),:notice  => t(:create_success)
       end
   	else
   		render 'new'
