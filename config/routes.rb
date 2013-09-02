@@ -1,6 +1,13 @@
 Xiguashe::Application.routes.draw do
 
+  get "recommend/topic" => "recommend#topic"
+
+  get "recommend/user" => "recommend#user"
+
+  get "recommend/group" => "recommend#group"
+
   get 'about' => 'home#about'
+
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
   get "login" => "sessions#new",               :as => "login"
@@ -10,6 +17,7 @@ Xiguashe::Application.routes.draw do
 
   match "groups/audit/:id/:user_id/:status" => "groups#audit",       :via => :get
   match "notifications/read/:id/:type"      => "notifications#read", :via => :get
+
   
   resources :sessions
 

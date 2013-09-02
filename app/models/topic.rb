@@ -39,5 +39,13 @@ class Topic < ActiveRecord::Base
 			Topic.order('updated_at desc, reply_num desc').paginate(:page => page,:per_page => per_page )
 		end
 
+		def recommend(page = 1, per_page = 20)
+			Topic.order('updated_at desc, reply_num desc').paginate(page: page, per_page: per_page)
+		end
+
+		def following_topic(ids, page = 1, per_page = 20)
+			Topic.where('user_id in (?)', ids).paginate(page: page, per_page: per_page)
+		end
+
 	end
 end

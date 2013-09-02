@@ -1,0 +1,16 @@
+<%= stylesheet('bootstrap','style','group')%>
+<div id="main">
+	<div  class="container">
+		<ul class="nav nav-pills">
+		    <li>
+		    	<%= link_to '推荐话题', recommend_topic_path %>
+		    </li>
+		    <li class="active"><%= link_to '关注人的动态', recommend_user_path %></li>
+		    <li><%= link_to '推荐小组', recommend_group_path %></li>
+	    </ul>
+
+	    <%= render :partial => 'public/topics',:locals  => {:topics  => @topics, :is_topics => true} %>
+	</div>
+
+
+</div>

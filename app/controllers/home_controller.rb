@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 		@like_topics = Topic.like_topics(recent_tids)
 		
 	end
+
 	def about
 		
 	end
