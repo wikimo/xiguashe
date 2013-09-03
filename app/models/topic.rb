@@ -5,15 +5,21 @@ class Topic < ActiveRecord::Base
 	
 	belongs_to :user
 
+	has_many :photos,   :as => :photoable,   :dependent => :destroy
+
 	has_many :comments, :as => :commentable, :dependent => :destroy
 	
-	scope :order_by_created_at, order("created_at desc")
+	scope :order_by_created_at_desc, order('created_at DESC')
+
+	scope :order_by_updated_at_desc, order('updated_at DESC')
+
+	scope :order_by_reply_num_desc,  order('reply_num DESC')
+
+	scope :by_user_ids,  lambda { |ids| where('user_id in (?)', ids) }
 
 	searchable	do
 		text :title, :content
 	end
-
-
 
 	class << self
 
@@ -26,25 +32,20 @@ class Topic < ActiveRecord::Base
 			Topic.find(:all,:limit => 2,:order =>'id desc')
 		end
 
-
-		def order_by_reply_num
-			Topic.find(:all, :order => 'reply_num desc')
-		end
-
 		def order_desc_by_created_at(page = 1, per_page = 20)
-			Topic.order("created_at DESC").paginate(:page => page, :per_page => per_page)
+			Topic.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
 		end
 
 		def discovery(page = 1,per_page = 20)
-			Topic.order('updated_at desc, reply_num desc').paginate(:page => page,:per_page => per_page )
+			Topic.order_by_updated_at_desc.order_by_reply_num_desc.paginate(:page => page,:per_page => per_page )
 		end
 
 		def recommend(page = 1, per_page = 20)
-			Topic.order('updated_at desc, reply_num desc').paginate(page: page, per_page: per_page)
+			Topic.order_by_updated_at_desc.order_by_reply_num_desc.paginate(page: page, per_page: per_page)
 		end
 
-		def following_topic(ids, page = 1, per_page = 20)
-			Topic.where('user_id in (?)', ids).paginate(page: page, per_page: per_page)
+		def recommend_user_topic(ids, page = 1, per_page = 20)
+			Topic.by_user_ids(ids).order_by_updated_at_desc.paginate(page: page, per_page: per_page)
 		end
 
 	end

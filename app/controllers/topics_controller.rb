@@ -78,7 +78,7 @@ class TopicsController < ApplicationController
 		
 		@user = @topic.user
 		
-		@user_topics = @user.topics.order_by_created_at.limit(5)
+		@user_topics = @user.topics.order_by_created_at_desc.limit(5)
 	end
 
 	private 

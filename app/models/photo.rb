@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
 	belongs_to :photoable , :polymorphic  => true
-	belongs_to :topic
+
 
 	has_attached_file :pic, 
 		:styles => {

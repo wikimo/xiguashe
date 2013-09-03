@@ -40,6 +40,8 @@ class User < ActiveRecord::Base
                 :whiny => false
 
     before_create { generate_token(:auth_token) }
+
+    scope :order_by_created_at_desc, order('created_at DESC')
 	
 	def password
 	    @password
@@ -77,14 +79,14 @@ class User < ActiveRecord::Base
 	end
 	
 	def unread_notification_count
-    unread_notifications_count = self.notifications.except_mention.unread_notifications.count + self.mentions.unread_notifications.count
-  end
+    	unread_notifications_count = self.notifications.except_mention.unread_notifications.count + self.mentions.unread_notifications.count
+  	end
 
 	def groups
 		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
     	
         Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
-  end
+  	end
 
 	def notices(page = 1, per_page = 20)
 	   Notification.where("mention_id = ? or (user_id = ? and mention_id is null) ",self.id ,self.id).order('created_at desc').paginate(:page => page,:per_page => per_page )
@@ -98,10 +100,12 @@ class User < ActiveRecord::Base
 	  UserMailer.password_reset(self).deliver
 	end
 
-	
+	def last_ten_user
+		User.where('id != ?', self.id).order_by_created_at_desc.limit(10)
+	end
 
-  class << self
-	  def authenticate(username_or_email,password)
+  	class << self
+	  	def authenticate(username_or_email,password)
 			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)
 
 			if user && user.hashed_password ==  Digest::SHA256.hexdigest(password + user.salt)
@@ -112,14 +116,12 @@ class User < ActiveRecord::Base
 		end
 
 
-		def active_user_in_group
-		  
-		end
-
 		def order_desc_by_created_at(page = 1, per_page = 20)
 			User.order("created_at DESC").paginate(:page => page, :per_page => per_page)
 		end
-  end	
+
+		
+  	end
   	
 
 	private
@@ -137,10 +139,10 @@ class User < ActiveRecord::Base
 	    end
 
 	    def generate_token(column)
-  	    begin
-  	      self[column] = SecureRandom.urlsafe_base64
-  	    end while User.exists?(column => self[column])
-  	  end
+	  	    begin
+	  	      self[column] = SecureRandom.urlsafe_base64
+	  	    end while User.exists?(column => self[column])
+  	  	end
 
 
 	   
