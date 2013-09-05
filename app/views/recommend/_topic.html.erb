@@ -7,7 +7,7 @@
 					<% if topic.photos.count > 0 %>
 						<% topic.photos.limit(3).each do |photo| %>
 							
-							<%= image_tag photo.pic.url(:medium) %>
+							<%= image_tag photo.pic.url(:thumb) %>
 							
 						<% end -%>
 					<% end -%>
