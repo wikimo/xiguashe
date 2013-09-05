@@ -1,4 +1,4 @@
- <div class="topic-list">
+ <div class="topic-list-s">
 	<ul>
 		<% topics.each_with_index do |topic, i| %>
 			<%= li_css(i)%>
@@ -17,7 +17,7 @@
 						<%= h format_content(topic.content) %>
 					</p>
 				</div>
-				<div class="topic-footer">
+				<div class="topic-footer-s">
 
 					<div class="user">
 						<a href="/users/<%= topic.user.id%>" class="ava">
