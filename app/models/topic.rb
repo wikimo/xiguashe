@@ -25,27 +25,27 @@ class Topic < ActiveRecord::Base
 
 		def like_topics(topic_ids)
 		  	#this sql is error
-			Topic.find(:all,:conditions => ['created_at >= ? and id not in(?)',7.day.ago,topic_ids],:limit => 10,:order => 'like_num desc, id desc')
+			self.find(:all,:conditions => ['created_at >= ? and id not in(?)',7.day.ago,topic_ids],:limit => 10,:order => 'like_num desc, id desc')
 		end
 
 		def recent_topics
-			Topic.find(:all,:limit => 2,:order =>'id desc')
+			self.find(:all,:limit => 2,:order =>'id desc')
 		end
 
 		def order_desc_by_created_at(page = 1, per_page = 20)
-			Topic.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
+			self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
 		end
 
 		def discovery(page = 1,per_page = 20)
-			Topic.order_by_updated_at_desc.order_by_reply_num_desc.paginate(:page => page,:per_page => per_page )
+			self.order_by_updated_at_desc.order_by_reply_num_desc.paginate(:page => page,:per_page => per_page )
 		end
 
 		def recommend(page = 1, per_page = 20)
-			Topic.order_by_updated_at_desc.order_by_reply_num_desc.paginate(page: page, per_page: per_page)
+			self.order_by_updated_at_desc.order_by_reply_num_desc.paginate(page: page, per_page: per_page)
 		end
 
 		def recommend_user_topic(ids, page = 1, per_page = 20)
-			Topic.by_user_ids(ids).order_by_updated_at_desc.paginate(page: page, per_page: per_page)
+			self.by_user_ids(ids).order_by_updated_at_desc.paginate(page: page, per_page: per_page)
 		end
 
 	end

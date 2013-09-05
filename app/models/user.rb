@@ -101,7 +101,7 @@ class User < ActiveRecord::Base
 	end
 
 	def last_ten_user
-		User.where('id != ?', self.id).order_by_created_at_desc.limit(10)
+		self.where('id != ?', self.id).order_by_created_at_desc.limit(10)
 	end
 
   	class << self
@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
 
 
 		def order_desc_by_created_at(page = 1, per_page = 20)
-			User.order("created_at DESC").paginate(:page => page, :per_page => per_page)
+			self.order("created_at DESC").paginate(:page => page, :per_page => per_page)
 		end
 
 		

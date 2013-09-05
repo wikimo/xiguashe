@@ -27,8 +27,10 @@ class Group < ActiveRecord::Base
 
     scope :order_by_updated_at_desc, order('updated_at DESC')
 
+    scope :order_by_created_at_desc, order('created_at DESC')
+
     def group_can_use
-        groups = Group.find(:all,:conditions =>['state=?',true])
+        groups = self.find(:all,:conditions =>['state=?',true])
     end
 
     def creater
@@ -63,15 +65,15 @@ class Group < ActiveRecord::Base
     class << self
 
         def last_groups(page = 1, per_page = 20)
-            groups = Group.order('created_at DESC').paginate(:page => page, :per_page => per_page)
+            groups = self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
         end
 
         def order_desc_by_created_at(page = 1, per_page = 20)
-            Group.order("created_at DESC").paginate(:page => page, :per_page => per_page)
+            self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
         end
 
         def recommend(page = 1, per_page = 20)
-            Group.order_by_topic_num_desc.order_by_member_num_desc.order_by_updated_at_desc.paginate(page: page, per_page: per_page)
+            self.order_by_topic_num_desc.order_by_member_num_desc.order_by_updated_at_desc.paginate(page: page, per_page: per_page)
         end
 
     end

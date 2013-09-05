@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     end
 
     def login_redirect
-      redirect_to user_path(current_user) if current_logined?
+      redirect_to recommend_topic_path if current_logined?
     end
 
 end

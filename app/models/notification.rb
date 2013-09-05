@@ -8,7 +8,8 @@ class Notification < ActiveRecord::Base
 
 	belongs_to :mention, :class_name => "User"
   
-  scope :except_mention, where("mention_id is null")
+  	scope :except_mention, where("mention_id is null")
+  	
 	scope :recent_notifications, order("created_at desc")
 
 	scope :unread_notifications, where("is_read = false")

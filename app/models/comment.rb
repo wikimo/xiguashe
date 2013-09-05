@@ -14,6 +14,8 @@ class Comment < ActiveRecord::Base
 
 	has_many :notifications, :as => :notificationable, :dependent => :destroy
 
+	scope :order_by_created_at_desc, order('created_at DESC')
+
 	after_create :send_comment_notification
 	before_create :filter_at
 
@@ -68,7 +70,7 @@ class Comment < ActiveRecord::Base
 	class << self
 
 		def order_desc_by_created_at(page = 1, per_page = 20)
-			Comment.order("created_at desc").paginate(:page => page, :per_page => per_page)
+			self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
 		end
 
 	end

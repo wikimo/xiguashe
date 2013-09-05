@@ -1,0 +1,51 @@
+ <div class="topic-list">
+	<ul>
+		<% topics.each_with_index do |topic, i| %>
+			<%= li_css(i)%>
+				<h2><%= link_to topic.title,topic_path(topic)%></h2>
+				<p>
+					<% if topic.photos.count > 0 %>
+						<% topic.photos.limit(3).each do |photo| %>
+							
+							<%= image_tag photo.pic.url(:medium) %>
+							
+						<% end -%>
+					<% end -%>
+				</p>
+				<div class="content">
+					<p>	
+						<%= h format_content(topic.content) %>
+					</p>
+				</div>
+				<div class="topic-footer">
+
+					<div class="user">
+						<a href="/users/<%= topic.user.id%>" class="ava">
+							<% if topic.user.icon.exists? %>
+					        	<%= image_tag topic.user.icon.url(:thumb) ,:alt => topic.user.nickname %>
+					      	<% else %>
+					        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
+					      	<% end %>
+				        </a>
+						<div class="info">
+							<%= link_to topic.user.nickname, topic.user %>
+
+							发表在 <%= link_to topic.group.name,group_topics_path(topic.group) %>
+
+
+							<p><%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %></p>
+						</div>
+					</div>
+
+					<div class="counter">
+						<span title="浏览" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num %></span></span>
+						<span title="评论" class="comments-num"><i class="ico"></i><span><%= topic.reply_num %></span></span>
+						<span title="喜欢" class="liked-num"><i class="ico"></i><span><%= topic.like_num %></span></span>
+					</div>
+					<div class="c"></div>
+				</div>
+			</li>
+		<%end%>
+	</ul>
+</div>
+<%= will_paginate topics, :previous_label =>'上一页', :next_label => '下一页' %>

@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
 	class << self
 
 		def order_desc_by_created_at(page = 1, per_page = 30)
-			Category.order("created_at desc").paginate(:page => page, :per_page => per_page)
+			self.order("created_at desc").paginate(:page => page, :per_page => per_page)
 		end
 	end
 
