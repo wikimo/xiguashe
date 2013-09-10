@@ -8,9 +8,10 @@
 					<%= image_tag 'no_pic.png' %>
 				<% end %>	
 		</a>
-		<h4><%= link_to group.name,group_topics_path(group) %></h4>
+		<h4><%= link_to group.name,group_topics_path(group) %> </h4>
+		<cite><%= group.member_num %> 成员在此聚集... </cite>
 		<p><%= truncate group.descrip, :length => 20 %></p>
-		<p>话题数:<%= group.topic_num %> | 成员数:<%= group.member_num %></p>
+		
 	</li>
 <% end %>
 </ul>

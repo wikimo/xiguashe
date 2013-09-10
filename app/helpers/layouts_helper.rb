@@ -27,6 +27,7 @@ module LayoutsHelper
       html.concat(content_tag(:li,content_tag(:a ,'小组',:href => discovery_category_groups_path(:category_id => 0))))
     end
 
+    html.concat(content_tag(:li,content_tag(:a ,'百科')))
     
     #if controller_name == 'topics' && action == 'discovery'
     #  html.concat(content_tag(:li,content_tag(:a ,'发现话题',:href => discovery_topics_path,:class => 'active')))
