@@ -3,15 +3,15 @@
 		<% topics.each_with_index do |topic, i| %>
 			<%= li_css(i)%>
 				<h2><%= link_to topic.title,topic_path(topic)%></h2>
-				<p>
+				<div class="photos">
 					<% if topic.photos.count > 0 %>
 						<% topic.photos.limit(3).each do |photo| %>
 							
-							<%= image_tag photo.pic.url(:thumb) %>
 							
+							<a href="<%= photo.pic.url(:original)%>" data-lightbox="photos-<%= topic.id%>"><%= image_tag photo.pic.url(:thumb) %></a>
 						<% end -%>
 					<% end -%>
-				</p>
+				</div>
 				<div class="content">
 					<p>	
 						<%= h format_content(topic.content) %>
