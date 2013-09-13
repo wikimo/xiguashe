@@ -19,8 +19,15 @@ class PhotosController < ApplicationController
 	# end
 
 	def destroy
-		photo = Photo.find(params[:id])
-		photo.destroy
+		@photo = Photo.find(params[:id])
+
+		# topic =  Topic.find(@photo.photoable_id)
+
+		# topic.content = topic.content.gsub(/<img(.*?)#{@photo.pic_file_name}(.*?)>/,'')
+		# p topic.content
+		# topic.save
+		
+		@photo.destroy
 	end
 
 	private 

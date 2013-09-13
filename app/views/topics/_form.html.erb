@@ -36,9 +36,19 @@
       </div>
     </div>
 
-    <div id="photo-list">
-      
-    </div>
+    <ul id="photo-list">
+
+              <%if @topic.photos.size > 0%>
+          <%@topic.photos.each do |photo|%>
+          <li id="photo-<%= photo.id%>"><%=image_tag photo.pic.url(:thumb)%>
+          <p>
+          <%= link_to '删除',photo_path(photo),:method => :delete,:remote => true,:confirm => '是否删除？'%>
+          </p>
+          </li>
+          <%end%>
+        <%end%>
+
+    </ul>
 </div>
 
 <script type="text/javascript">
