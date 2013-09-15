@@ -9,7 +9,7 @@
 				<% end %>	
 		</a>
 		<h4><%= link_to group.name,group_topics_path(group) %> </h4>
-		<cite><%= group.member_num %> 成员在此聚集... </cite>
+		<cite><%= group.member_num + 1 %> 成员在此聚集... </cite>
 		<p><%= truncate group.descrip, :length => 20 %></p>
 		
 	</li>

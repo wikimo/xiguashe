@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
       @category = Category.find(params[:category_id])
 
-      @groups = @category.groups.paginate(:page => params[:page]).order("created_at DESC")
+      @groups = @category.groups.using_groups.paginate(:page => params[:page]).order_by_created_at_desc
 
     end
     
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
       @gu = GroupUser.create(:group_id => @group.id, :user_id => current_user.id, :level => 2)
 
       if @gu.save
-  		  redirect_to discovery_category_groups_path(0),:notice  => t(:create_success)
+  		  redirect_to discovery_category_groups_path(0),:notice  => t(:create_group_success)
       end
   	else
   		render 'new'

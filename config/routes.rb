@@ -21,6 +21,8 @@ Xiguashe::Application.routes.draw do
   
   resources :sessions
 
+  resources :feedbacks
+
   resources :photos
 
   resources :password_resets

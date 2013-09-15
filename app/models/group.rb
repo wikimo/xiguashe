@@ -21,6 +21,9 @@ class Group < ActiveRecord::Base
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
 
+
+    scope :using_groups, where('state = true')
+
     scope :order_by_topic_num_desc, order('topic_num DESC')
 
     scope :order_by_member_num_desc, order('member_num DESC')
@@ -28,10 +31,6 @@ class Group < ActiveRecord::Base
     scope :order_by_updated_at_desc, order('updated_at DESC')
 
     scope :order_by_created_at_desc, order('created_at DESC')
-
-    def group_can_use
-        groups = self.find(:all,:conditions =>['state=?',true])
-    end
 
     def creater
         gu = GroupUser.find(:all, :conditions => ['group_id = ? and level = ?', self.id, 2], :order => 'created_at DESC')
@@ -65,7 +64,7 @@ class Group < ActiveRecord::Base
     class << self
 
         def last_groups(page = 1, per_page = 20)
-            groups = self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
+            groups = self.using_groups.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
         end
 
         def order_desc_by_created_at(page = 1, per_page = 20)
@@ -73,7 +72,7 @@ class Group < ActiveRecord::Base
         end
 
         def recommend(page = 1, per_page = 20)
-            self.order_by_topic_num_desc.order_by_member_num_desc.order_by_updated_at_desc.paginate(page: page, per_page: per_page)
+            self.using_groups.order_by_topic_num_desc.order_by_member_num_desc.order_by_updated_at_desc.paginate(page: page, per_page: per_page)
         end
 
     end
