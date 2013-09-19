@@ -48,4 +48,6 @@ gem 'bootstrap-will_paginate'
 
 gem 'thin'
 
+gem 'addressable'
+
 gem 'capistrano'

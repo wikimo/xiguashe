@@ -59,7 +59,7 @@ module Xiguashe
     config.assets.version = '1.0'
     
 
-    %w(middlewares).each do |dir|
+    %w(middlewares products).each do |dir|
        config.autoload_paths << "#{Rails.root.to_s}/app/#{dir}"
     end
 

@@ -1,5 +1,7 @@
 Xiguashe::Application.routes.draw do
 
+  get "products/new"
+
   get "recommend/topic" => "recommend#topic"
 
   get "recommend/user" => "recommend#user"

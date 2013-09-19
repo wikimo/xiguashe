@@ -54,7 +54,7 @@ window.UploadApp =
 	  		img =  $ "<li id='photo-#{@id}'><img src='#{@photo}' data-id='#{@id}'/><p><a rel='nofollow' data-remote='true' data-method='delete' data-confirm='是否删除？' href='/photos/#{@id}'>删除</a></p></li>"
 	  		postList.append img
 
-	  		input = $ "<input type='hidden' name='photo_id[]' value='#{@id}' />"
+	  		input = $ "<input type='hidden' name='photo_id[]' value='#{@id}' id='pid-#{@id}'/>"
 	  		idsList.append input
 
 	  		stats = swfu.getStats();
