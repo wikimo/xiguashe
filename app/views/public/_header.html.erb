@@ -17,7 +17,8 @@
 		  <%if params[:controller] != 'home'%>	
           <div class="navbar-text pull-right nav nav-pills">
           	<% if current_logined? %>
-				<%= link_to current_user.unread_notification_count,  user_notifications_path(current_user) ,:class => 'msg'%>
+          		<%= render 'public/notification', user: current_user %>
+				
           		<a class="dropdown-toggle" data-toggle="dropdown" href="#menu-user">
 				    <%= current_user.nickname %>
 			    </a>

@@ -28,7 +28,6 @@ class TopicsController < ApplicationController
 
 	def new
 		@group = Group.find_by_id(params[:group_id])
-
 	end
 
 	def create
@@ -84,8 +83,8 @@ class TopicsController < ApplicationController
 	private 
 	    def update_photos (photo_id,topic)
 	      photo_id  && photo_id.each do |id|
-	        Photo.find(id).update_attributes!(:photoable  => topic)      
-	      end  
+	        Photo.find(id).update_attributes!(:photoable  => topic)
+	      end
 	    end
 
 	    def content_filter(content)

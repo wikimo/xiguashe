@@ -21,8 +21,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'jquery-atwho-rails'
-
-  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 end
 
 gem 'jquery-rails'

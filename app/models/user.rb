@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
 	end
 
 	def last_ten_user
-		self.where('id != ?', self.id).order_by_created_at_desc.limit(10)
+		User.where('id != ?', self.id).order_by_created_at_desc.limit(10)
 	end
 
   	class << self
