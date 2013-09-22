@@ -16,8 +16,6 @@ class ProductsController < ApplicationController
 		class_instance =  Object.const_get(class_name).new
 
 		item  = class_instance.get_good_info  params[:link]
-		item[:desc] = params[:desc]
-		p item
 
 	end
 end

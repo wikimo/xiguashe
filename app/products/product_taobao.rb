@@ -45,9 +45,9 @@ class ProductTaobao < ProductBase
 				:key => 'tb_' + num_iid,
 				:title => item['title'],
   				:price => item['price'],
-  				:pic => item['pic_url'],
+  				:img => item['pic_url'],
   				:url => item['detail_url'],
-  				:desc => item['desc'],
+  				:descrip => item['desc'],
   				:nick => item['nick']}
 		end
 

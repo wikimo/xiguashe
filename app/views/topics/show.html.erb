@@ -25,9 +25,16 @@
 							<% end -%>
 							</p>
 						</div>
-						<dic class="c"></dic>
+						<div class="c"></div>
 						<div class="content">
 							<%=raw @topic.content%>
+						</div>
+						<div class="c"></div>
+						--话题中涉及到的购物商品链接--
+						<div class="content">
+							<% @topic.products.each do |product| %>
+								<%= link_to image_tag(product.img), product.url %>
+							<% end -%>
 						</div>
 						<%= likeable_tag(@topic) %>
 					</div>

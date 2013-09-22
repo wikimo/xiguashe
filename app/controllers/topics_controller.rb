@@ -40,6 +40,9 @@ class TopicsController < ApplicationController
 			update_photos(params[:photo_id],@topic)
 			
 			@group.update_attributes({:topic_num => @group.topic_num + 1})
+
+			create_product(params[:link], current_user.id, @topic.id)
+
 			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
 			render 'new'
@@ -90,5 +93,32 @@ class TopicsController < ApplicationController
 	    def content_filter(content)
 	    	substitute = '\r\n';
 			content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
+	    end
+
+
+	    def create_product(link, user_id, topic_id)
+	    	url = URI.parse(link)  
+
+			if url.host.include? 'tb' or url.host.include? 'tmall'
+				class_name = 'ProductTaobao'
+			elsif url.host.include? 'paipai'
+				class_name = 'ProductPaipai'      
+			else
+				puts 'error'
+			end
+			class_instance =  Object.const_get(class_name).new
+
+			item  = class_instance.get_info  link
+
+			item[:user_id] = user_id
+			item[:topic_id] = topic_id
+
+			product = Product.new item
+
+			if product.save
+				product
+			else 
+				nil
+			end
 	    end
 end

@@ -8,6 +8,8 @@ class Topic < ActiveRecord::Base
 	has_many :photos,   :as => :photoable,   :dependent => :destroy
 
 	has_many :comments, :as => :commentable, :dependent => :destroy
+
+	has_many :products, dependent: :destroy
 	
 	scope :order_by_created_at_desc, order('created_at DESC')
 

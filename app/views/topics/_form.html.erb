@@ -13,20 +13,28 @@
       <div class="control-group">
         <label class="control-label" >内容：</label>
         <div class="controls">
-       
-        <div contenteditable="true" class="editable-box" id="content-box">
+          <div contenteditable="true" class="editable-box" id="content-box">
 
-          <% if !@topic.nil? %>
-            <%= raw @topic.content %>
-          <% end -%>
-          
-        </div>
-        <%= f.text_area :content,:class => "hide"%>
+            <% if !@topic.nil? %>
+              <%= raw @topic.content %>
+            <% end -%>
+            
+          </div>
+          <%= f.text_area :content,:class => "hide"%>
         </div>
       </div>
       <%= f.hidden_field :user_id,  :value => current_user.id %>
-        <%= f.hidden_field :username, :value => current_user.username %>
+      <%= f.hidden_field :username, :value => current_user.username %>
+
+      
+      <div class="control-group">
+        <label>分享链接</label>
+        <input type="text" size="30" name="link">
+        <span>目前支持淘宝，天猫</span>
+      </div>
+
       <button type="button" class="btn btn-success" id="form-post">提交</button>
+
       <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
 
       <div id="photo-ids"></div>
