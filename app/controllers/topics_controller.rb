@@ -34,6 +34,7 @@ class TopicsController < ApplicationController
 		@group = Group.find_by_id(params[:group_id])
 
 		@topic = @group.topics.create(params[:topic])
+
 		@topic.ip = request.ip
 
 		if @topic.save
@@ -41,7 +42,7 @@ class TopicsController < ApplicationController
 			
 			@group.update_attributes({:topic_num => @group.topic_num + 1})
 
-			create_product(params[:link], current_user.id, @topic.id)
+			update_products(params[:product_id], @topic)
 
 			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
@@ -83,11 +84,54 @@ class TopicsController < ApplicationController
 		@user_topics = @user.topics.order_by_created_at_desc.limit(5)
 	end
 
+	def new_product
+		@product = Product.new
+	end
+
+	def create_product
+    	url = URI.parse(params[:link])  
+
+		if url.host.include? 'tb' or url.host.include? 'tmall'
+			class_name = 'ProductTaobao'
+		elsif url.host.include? 'paipai'
+			class_name = 'ProductPaipai'      
+		else
+			puts 'error'
+		end
+		class_instance =  Object.const_get(class_name).new
+
+		item  = class_instance.get_info  params[:link]
+
+		item[:user_id] = current_user.id
+		#item[:topic_id] = topic_id
+
+		@product = Product.new item
+
+		if @product.save
+			@product
+		else 
+			nil
+		end
+    end
+
+
+    def destroy_product
+    	@product = Product.find(params[:product_id])
+
+    	@product.destroy
+    end
+
 	private 
 	    def update_photos (photo_id,topic)
 	      photo_id  && photo_id.each do |id|
 	        Photo.find(id).update_attributes!(:photoable  => topic)
 	      end
+	    end
+
+	    def update_products(product_id, topic)
+	    	product_id && product_id.each do |id|
+	    		Product.find(id).update_attributes!(topic_id: topic.id)
+	    	end
 	    end
 
 	    def content_filter(content)
@@ -96,29 +140,5 @@ class TopicsController < ApplicationController
 	    end
 
 
-	    def create_product(link, user_id, topic_id)
-	    	url = URI.parse(link)  
-
-			if url.host.include? 'tb' or url.host.include? 'tmall'
-				class_name = 'ProductTaobao'
-			elsif url.host.include? 'paipai'
-				class_name = 'ProductPaipai'      
-			else
-				puts 'error'
-			end
-			class_instance =  Object.const_get(class_name).new
-
-			item  = class_instance.get_info  link
-
-			item[:user_id] = user_id
-			item[:topic_id] = topic_id
-
-			product = Product.new item
-
-			if product.save
-				product
-			else 
-				nil
-			end
-	    end
+	    
 end

@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
+	
 	def new
-		
+		@product = Product.new
 	end
 	
 	def create
@@ -15,7 +16,15 @@ class ProductsController < ApplicationController
 		end
 		class_instance =  Object.const_get(class_name).new
 
-		item  = class_instance.get_good_info  params[:link]
+		item  = class_instance.get_info  params[:link]
+		item[:user_id] = current_user.id
 
+		product = Product.new item
+
+		if product.save
+			product
+		else 
+			nil
+		end
 	end
 end

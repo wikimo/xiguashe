@@ -1,7 +1,5 @@
 Xiguashe::Application.routes.draw do
 
-  get "products/new"
-
   get "recommend/topic" => "recommend#topic"
 
   get "recommend/user" => "recommend#user"
@@ -17,11 +15,13 @@ Xiguashe::Application.routes.draw do
   match "/search" => "search#index",           :as => :search
 
 
-  match "groups/audit/:id/:user_id/:status" => "groups#audit",       :via => :get
-  match "notifications/read/:id/:type"      => "notifications#read", :via => :get
-
+  match "groups/audit/:id/:user_id/:status"  => "groups#audit",           :via => :get
+  match "notifications/read/:id/:type"       => "notifications#read",     :via => :get
+  match "topics/destroy_product/:product_id" => "topics#destroy_product", :via => :get
   
   resources :sessions
+
+  resources :products
 
   resources :feedbacks
 
@@ -60,7 +60,7 @@ Xiguashe::Application.routes.draw do
 
   resources :topics do
     collection do
-      get :discovery
+      get :discovery, :new_product, :create_product
     end
     resources :comments
   end
