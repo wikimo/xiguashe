@@ -33,12 +33,16 @@
 
 						<% @topic.products.each do |product| %>
 							<div class="product-list">
-								<%= link_to image_tag(product.img), product.url %>
+								<%= image_tag product.img, alt:product.title %>
 								<div class="product-info">
 									<div class="product-title">
-										<%= link_to product.title, product.url %> | 
-										 ¥ <%= link_to product.price %>
+										<%= product.title %> | 
+										 ¥ <%= product.price %>
+										 <div class="product-btn">
+											<%= link_to '去购买', product.url, class:'btn' %>
+										</div>
 									</div>
+									
 								</div>
 								
 								
