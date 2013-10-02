@@ -48,7 +48,7 @@
     </div>
 
     <ul id="photo-list">
-      <% unless @topic.nil? %>
+      <% unless @topic.photos.nil? %>
         <% if @topic.photos.size > 0 %>
           <% @topic.photos.each do |photo|%>
             <li id="photo-<%= photo.id%>">
