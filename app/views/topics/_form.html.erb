@@ -48,8 +48,8 @@
     </div>
 
     <ul id="photo-list">
-      <% unless @topic.photos.nil? %>
-        <% if @topic.photos.size > 0 %>
+    
+        <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
           <% @topic.photos.each do |photo|%>
             <li id="photo-<%= photo.id%>">
               <%=image_tag photo.pic.url(:thumb)%>
@@ -59,7 +59,7 @@
             </li>
           <%end%>
         <%end%>
-      <% end -%>
+      
     </ul>
 </div>
 
