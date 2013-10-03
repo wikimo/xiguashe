@@ -31,27 +31,31 @@
 						</div>
 						<div class="c"></div>
 
-						<% @topic.products.each do |product| %>
+						
+						
+						<%= likeable_tag(@topic) %>
+
+
+					</div>
+					
+					<% @topic.products.each do |product| %>
 							<div class="product-list">
 								<%= image_tag product.img, alt:product.title %>
 								<div class="product-info">
-									<div class="product-title">
-										<%= product.title %> | 
-										<%= number_to_currency product.price, unit: "￥" %>
-										 <div class="product-btn">
-											<%= link_to '去购买', product.url, class:'btn btn-primary' %>
-										</div>
-									</div>
+									<h4><%= link_to product.title ,product.url,:target => '_blank'%></h4>
+									<p><%= number_to_currency product.price, unit: "￥" %></p>
+										
+										
+									<%= link_to '去购买', product.url, class:'btn btn-primary',:target => '_blank' %>
+										
+									
 									
 								</div>
 								
 								
 							</div>
 						<% end -%>
-						
-						<%= likeable_tag(@topic) %>
-					</div>
-					
+
 				</div>
 
 				<%= render 'comments/comments' %>
