@@ -1,8 +1,4 @@
-<!--stylesheet('bootstrap','style','group')-->
-<div id="main">
-	<div class="container">
-		<div class="comm-form-wrap">
-			<%= form_for @group,:html => {:class => 'form-vertical'} do |f| %>
+<%= form_for @group,:html => {:class => 'form-horizontal'} do |f| %>
 
 				<%= render :partial => 'public/model_errors',:locals  => {:model_errors  => @group} %> 
 
@@ -10,14 +6,14 @@
 					<%= f.label :小组名称,:class => 'control-label'%> 
 					<div class="controls"><%= f.text_field :name %></div>
 				</div>
-
+				<%if params[:action] == 'new'%>
 				<div class="control-group">
 					<%= f.label :小组所属分类,:class => 'control-label'%> 
 					<div class="controls">
 						<%= f.select :category_id, @categories_array %>
 					</div>
 				</div>
-
+				<%end%>
 				<div class="control-group">
 					<%= f.label :小组描述,:class => 'control-label' %> 
 					<div class="controls"><%= f.text_area :descrip ,:cols  =>40,:rows  => 5%></div>
@@ -25,13 +21,19 @@
 
 				<div class="control-group">
 			        <%= f.label :小组图标,:class => 'control-label'  %>  
-			        <div class="controls"><%= f.file_field :icon %></div>
+			        <div class="controls">
+
+<a class="btn-add-pic grp-upload-pic" href="javascript:void(0);"><span><em>+</em>选择图片</span> 
+              <%= f.file_field :icon, :class => 'file-prew',:title=>'支持jpg、jpeg、gif、png格式，文件小于5M' %>
+              </a>
+              <%if @group.icon.exists?%>
+			        	<%= image_tag @group.icon.url(:thumb) ,:alt => @group.name%>
+			        <%end%>
+			        </div>
+			        
 			    </div>
 
 				<div class="form-actions">
 				  <%= button_tag "提交",:class=>'btn btn-success' %>
 				</div> 
 			<% end  %>
-			</div>
-	</div>
-</div>

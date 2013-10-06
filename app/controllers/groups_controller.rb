@@ -119,5 +119,20 @@ class GroupsController < ApplicationController
     render :json => @members
   end
 
+  def edit
+    @group = Group.find params[:id]
+  end
+
+  def update
+    @group =  Group.find params[:id]
+
+    if @group.update_attributes(params[:group])
+      flash[:notice] = t(:update_success)
+      redirect_to group_topics_path @group 
+    else
+      render 'edit'
+    end
+  end
+
 
 end
