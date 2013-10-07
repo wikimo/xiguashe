@@ -28,6 +28,8 @@ gem 'rails-timeago', '~> 2.0'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
 
+gem 'acts-as-taggable-on' ,'2.3.3'
+
 #for photos upload
 gem 'paperclip'
 
