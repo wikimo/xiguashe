@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
 
 	has_many :mentions, :foreign_key => :mention_id, :class_name => "Notification", :dependent => :destroy
 
+	acts_as_taggable
+
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	#validate :old_password_ok ,:on => :update#更新密码是严重原始密码
 	validates_confirmation_of :password,:if => :password_present?
