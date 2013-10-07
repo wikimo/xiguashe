@@ -4,39 +4,51 @@
   <h3>发表话题</h3>
     <div class="post-form">
       <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
-      <div class="control-group">
-        <label for="" class="control-label">标题：</label>
-        <div class="controls">
-        <%= f.text_field :title,:class => 'span5' %>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" >内容：</label>
-        <div class="controls">
-          <div contenteditable="true" class="editable-box" id="content-box">
-
-            <% if !@topic.nil? %>
-              <%= raw @topic.content %>
-            <% end -%>
-            
+        <div class="control-group">
+          <label for="" class="control-label">标题：</label>
+          <div class="controls">
+          <%= f.text_field :title,:class => 'span5' %>
           </div>
-          <%= f.text_area :content,:class => "hide"%>
         </div>
-      </div>
-      <%= f.hidden_field :user_id,  :value => current_user.id %>
-      <%= f.hidden_field :username, :value => current_user.username %>
+        <div class="control-group">
+          <label class="control-label" >内容：</label>
+          <div class="controls">
+            <div contenteditable="true" class="editable-box" id="content-box">
 
-      
+              <% if !@topic.nil? %>
+                <%= raw @topic.content %>
+              <% end -%>
+              
+            </div>
+            <%= f.text_area :content,:class => "hide"%>
+          </div>
+        </div>
+        <%= f.hidden_field :user_id,  :value => current_user.id %>
+        <%= f.hidden_field :username, :value => current_user.username %>
 
-      <button type="button" class="btn btn-success" id="form-post">提交</button>
+        
 
-      <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
+        <button type="button" class="btn btn-success" id="form-post">提交</button>
 
-      <%= link_to '分享购物', new_product_topics_path, :class => "btn", remote: true %>
+        <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
 
-      <div id="photo-ids"></div>
-      <div id="product-ids"></div>
-      <%end%>
+        <%= link_to '分享购物', new_product_topics_path, :class => "btn", remote: true %>
+
+        <div id="photo-ids"></div>
+        <div id="product-ids">
+
+          <% if params[:action] == 'edit' && @topic.products.size > 0 %>
+            <% @topic.products.each do |product| %>
+                <p id="p_<%= product.id %>">
+                  <%= link_to product.title, product.url %>
+                  <a data-remote="true" href="/topics/destroy_product/<%= product.id %>">X</a>
+                <p>
+              </li>
+            <% end -%>
+          <% end -%>
+
+        </div>
+      <% end %>
 
       <div id="module_win">
         
@@ -59,7 +71,6 @@
             </li>
           <%end%>
         <%end%>
-      
     </ul>
 </div>
 

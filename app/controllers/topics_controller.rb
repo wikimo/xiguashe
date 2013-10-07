@@ -65,6 +65,7 @@ class TopicsController < ApplicationController
 
 		if @topic.update_attributes(params[:topic])
 			update_photos(params[:photo_id],@topic)
+			update_products(params[:product_id], @topic)
 			redirect_to @topic, :notice => t(:update_success)
 		else
 			#error
