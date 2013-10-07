@@ -19,10 +19,10 @@ class ProductsController < ApplicationController
 		item  = class_instance.get_info  params[:link]
 		item[:user_id] = current_user.id
 
-		product = Product.new item
+		@product = Product.new item
 
-		if product.save
-			product
+		if @product.save
+			@product
 		else 
 			nil
 		end

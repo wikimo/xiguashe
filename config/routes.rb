@@ -34,8 +34,15 @@ Xiguashe::Application.routes.draw do
       get :groups
       get :following
       get :likes
-    end
 
+      get :tags
+      
+      post :tag_create
+      delete :tag_destroy
+    end
+    collection do
+      get :tag_with
+    end  
     resources :notifications
   end  
 

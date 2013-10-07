@@ -1,5 +1,5 @@
 
-<%= form_for product, url: { action: "create_product"}, method: "get", html: {class: 'form-vertical'}, remote: true do |f| %>
+<%= form_for product html: {class: 'form-vertical'}, remote: true do |f| %>
 	<div id="product_form" class="modal hide">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

@@ -76,5 +76,9 @@ class UsersController < ApplicationController
 
   end
 
+  def tags
+    @user = User.find(params[:id]) 
+    @tags = @user.tag_list
+  end
 
 end

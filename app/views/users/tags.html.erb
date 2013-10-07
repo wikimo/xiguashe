@@ -1,0 +1,14 @@
+<div id="main">
+  <div class="comm-form">
+    <h2 class="title">标签管理</h2>
+    <div class="tags">
+    	<%@tags.each do |tag|%>
+			<span class="tag-item">
+				<a href="/users/tag_with?=<%= tag%>"><%= tag%></a>
+				<%= link_to '删除','', :class => 'del'%>
+			</span>
+		<%end%>	
+	</div>
+
+  </div>
+</div>

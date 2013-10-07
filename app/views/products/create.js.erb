@@ -1,0 +1,10 @@
+
+
+
+$("#id_link").val();
+$("#product_form").modal('hide');
+
+$("#product-ids").append('<p id="p_<%= @product.id %>"><input id="<%= @product.id %>" type="hidden" value="<%= @product.id %>" name="product_id[]" >');
+$("#<%= @product.id %>").after('<%= link_to @product.title, @product.url, :id => "link_#{@product.id}" %>');
+$("#link_<%= @product.id %>").after('<a data-remote="true" href="/topics/destroy_product/<%= @product.id %>">X</a></p>');
+$("#module_win").html('')
