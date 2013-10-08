@@ -26,39 +26,26 @@
         <%= f.hidden_field :user_id,  :value => current_user.id %>
         <%= f.hidden_field :username, :value => current_user.username %>
 
-        
-
         <button type="button" class="btn btn-success" id="form-post">提交</button>
 
-        <%= link_to '返回', group_topics_path(@group), class: 'btn btn-successs' %>
-
-        <%= link_to '分享购物', new_product_topics_path, :class => "btn", remote: true %>
-
-<<<<<<< HEAD
       <%= link_to '分享购物', new_product_path, :class => "btn", remote: true %>
 
       <div id="photo-ids"></div>
      
-      <%end%>
-      <div id="product-ids"></div>
-=======
-        <div id="photo-ids"></div>
         <div id="product-ids">
 
           <% if params[:action] == 'edit' && @topic.products.size > 0 %>
             <% @topic.products.each do |product| %>
                 <p id="p_<%= product.id %>">
                   <%= link_to product.title, product.url %>
-                  <a data-remote="true" href="/topics/destroy_product/<%= product.id %>">X</a>
+                  <a data-remote="true" href="/product/<%= product.id %>">X</a>
                 <p>
               </li>
             <% end -%>
           <% end -%>
 
         </div>
-      <% end %>
-
->>>>>>> 54ed8a56a15dbbfddd176deb97ef868e674b253a
+      <%end%>
       <div id="module_win">
         
       </div>
