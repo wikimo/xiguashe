@@ -28,7 +28,7 @@ class ProductTaobao < ProductBase
 			'method' => 'taobao.item.get',
 			'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
 			'format' => 'json', 
-			'app_key' => '1021035540', 
+			'app_key' => '21627701', 
 			'v' => '2.0',
 			'sign_method' => 'md5',
 			'num_iid' => num_iid,
