@@ -5,3 +5,5 @@
 * 改进添加小组模板；
 
 http://item.tbsandbox.com/item.htm?id=1500010992719&spm=2014.1021035540.0.0
+
+CREATE DATABASE `xiguashe_production` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci

@@ -3,8 +3,10 @@ require "addressable/uri"
 class ProductTaobao < ProductBase
 	
 	def initialize
-		@url = URI.parse('http://gw.api.tbsandbox.com/router/rest')
-		@app_secret = 'sandbox36ed58b7ae4e991eb091cb6c2' 
+		#@url = URI.parse('http://gw.api.tbsandbox.com/router/rest')
+		@url = URI.parse('http://gw.api.taobao.com/router/rest')
+		#@app_secret = 'sandbox36ed58b7ae4e991eb091cb6c2' 
+		@app_secret = '648d7800f2ab5060174e9b06ef594b10' 
 	end
 
 	def get_info url

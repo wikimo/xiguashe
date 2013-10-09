@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 	def create
 		url = URI.parse(params[:link])  
 
-		if url.host.include? 'tb' or url.host.include? 'tmall'
+		if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmall'
 			class_name = 'ProductTaobao'
 		elsif url.host.include? 'paipai'
 			class_name = 'ProductPaipai'      
