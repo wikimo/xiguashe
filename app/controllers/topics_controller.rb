@@ -85,36 +85,6 @@ class TopicsController < ApplicationController
 		@user_topics = @user.topics.order_by_created_at_desc.limit(5)
 	end
 
-	def new_product
-		@product = Product.new
-	end
-
-	def create_product
-    	url = URI.parse(params[:link])  
-
-		if url.host.include? 'tb' or url.host.include? 'tmall' or url.host.include? 'taobao'
-			class_name = 'ProductTaobao'
-		elsif url.host.include? 'paipai'
-			class_name = 'ProductPaipai'      
-		else
-			puts 'error'
-		end
-		class_instance =  Object.const_get(class_name).new
-
-		item  = class_instance.get_info  params[:link]
-
-		item[:user_id] = current_user.id
-		#item[:topic_id] = topic_id
-
-		@product = Product.new item
-
-		if @product.save
-			@product
-		else 
-			nil
-		end
-    end
-
 
     def destroy_product
     	@product = Product.find(params[:product_id])
@@ -130,6 +100,7 @@ class TopicsController < ApplicationController
 	    end
 
 	    def update_products(product_id, topic)
+
 	    	product_id && product_id.each do |id|
 	    		Product.find(id).update_attributes!(topic_id: topic.id)
 	    	end
