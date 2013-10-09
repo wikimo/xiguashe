@@ -38,7 +38,8 @@
             <% @topic.products.each do |product| %>
                 <p id="p_<%= product.id %>">
                   <%= link_to product.title, product.url %>
-                  <a data-remote="true" href="/product/<%= product.id %>">X</a>
+                  <%= link_to 'X', product, method: :delete, confirm: '是否确定删除', remote: true %>
+                  
                 <p>
               </li>
             <% end -%>

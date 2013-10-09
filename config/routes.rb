@@ -67,7 +67,7 @@ Xiguashe::Application.routes.draw do
 
   resources :topics do
     collection do
-      get :discovery, :new_product, :create_product
+      get :discovery
     end
     resources :comments
   end
