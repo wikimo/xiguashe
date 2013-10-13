@@ -81,4 +81,24 @@ class UsersController < ApplicationController
     @tags = @user.tag_list
   end
 
+  def create_tag
+    @user = User.find params[:id]
+    tag_list =  @user.tag_list
+
+    if tag_list.count < 5
+      @user.tag_list.add(params[:tag])
+      @user.save
+    end
+    
+    redirect_to tags_user_path(@user)
+  end
+
+  def destroy_tag
+     @user = User.find params[:id]
+     @user.tag_list.remove(params[:tag])
+     @user.save
+     
+     redirect_to tags_user_path(@user)  
+  end
+
 end

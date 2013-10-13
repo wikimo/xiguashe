@@ -18,7 +18,7 @@ Xiguashe::Application.routes.draw do
   match "groups/audit/:id/:user_id/:status"  => "groups#audit",           :via => :get
   match "notifications/read/:id/:type"       => "notifications#read",     :via => :get
   match "topics/destroy_product/:product_id" => "topics#destroy_product", :via => :get
-  
+
   resources :sessions
 
   resources :products
@@ -37,14 +37,15 @@ Xiguashe::Application.routes.draw do
 
       get :tags
       
-      post :tag_create
-      delete :tag_destroy
+      post :create_tag
     end
     collection do
       get :tag_with
     end  
     resources :notifications
-  end  
+  end
+
+    match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
 
   resources :categories do 
     resources :groups do 

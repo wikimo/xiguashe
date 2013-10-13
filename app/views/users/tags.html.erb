@@ -1,11 +1,32 @@
 <div id="main">
   <div class="comm-form">
-    <h2 class="title">标签管理</h2>
+    <h2 class="title">个人标签</h2>
+
     <div class="tags">
+    	<div class="tag-form">
+		<%= form_tag  create_tag_user_path ,:class => 'form-inline' do %>
+		 
+		 <input type="text" class="input-large " name="tag" placeholder="请输入标签...">
+         <button class="btn btn-success" type="submit">提交</button> 
+          <span  class="help-block"> * 最多添加5个标签</span>
+          <%if flash[:notice]%>
+                <div class="msgs-box">
+                  <ul>
+                  
+                  <li>* <%= flash[:notice]%></li>
+                  
+                </ul>
+              </div>
+            <% end %>
+          
+
+        <% end %>
+	</div>
+
     	<%@tags.each do |tag|%>
 			<span class="tag-item">
 				<a href="/users/tag_with?=<%= tag%>"><%= tag%></a>
-				<%= link_to '删除','', :class => 'del'%>
+				<%= link_to '删除',"/users/#{@user.id}/destroy_tag/#{tag}", :class => 'del',:method => :delete%>
 			</span>
 		<%end%>	
 	</div>

@@ -27,6 +27,21 @@ module LayoutsHelper
       html.concat(content_tag(:li,content_tag(:a ,'小组',:href => discovery_category_groups_path(:category_id => 0))))
     end
 
+    if current_user
+      if controller_name == 'recommend' && action == 'topic'
+        html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path,:class => 'active')))
+      else
+        html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path)))
+      end
+
+      if controller_name == 'recommend' && action == 'user'
+        html.concat(content_tag(:li,content_tag(:a ,'关注',:href => recommend_user_path,:class => 'active')))
+      else
+        html.concat(content_tag(:li,content_tag(:a ,'关注',:href => recommend_user_path)))
+      end
+
+    end
+    
     html.concat(content_tag(:li,content_tag(:a ,'百科')))
     
     #if controller_name == 'topics' && action == 'discovery'
