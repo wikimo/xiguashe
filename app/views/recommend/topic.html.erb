@@ -1,7 +1,15 @@
 <%= stylesheet('bootstrap','style','group')%>
 <div id="main">
 	<div  class="container">
-	
+		<div class="recommend-nav">
+			<h4>推荐</h4>
+			<div class="btn-group">
+			  <button class="btn">话题</button>
+			  <button class="btn">小组</button>
+			  <button class="btn">关注</button>
+			</div>
+		</div>
+		
 	    <div class="recom-nav">
 	    	<%= recommend_nav  params[:action]%>
 	    </div>
