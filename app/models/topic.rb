@@ -1,5 +1,10 @@
+# coding: utf-8
+
 class Topic < ActiveRecord::Base
+	
 	self.per_page = 30
+
+	validates :title, :content, presence: true
 
 	belongs_to :group
 	

@@ -4,6 +4,11 @@
   <h3>发表话题</h3>
     <div class="post-form">
       <%= form_for(!@topic.nil? ? @topic : [@group, @group.topics.build],:html => { :multipart => true})  do |f| %>
+        
+        <% unless @topic.nil? %>
+            <%= render :partial => 'public/model_errors',:locals  => {:model_errors  => @topic} %> 
+        <% end -%>
+        
         <div class="control-group">
           <label for="" class="control-label">标题：</label>
           <div class="controls">
