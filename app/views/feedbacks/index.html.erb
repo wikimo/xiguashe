@@ -3,50 +3,28 @@
 <div id="main">
 	<div  class="container">
 		<%= render 'public/flash_notice' %>
-		<div class="comm-left">
-			<div class="reply-box">
+	
+			<div class="page-box">
+				<h3>意见反馈</h3>
 				<% if !current_user %>
 					<p>登录后可进行意见反馈，请先 <%= link_to '登录', login_path %> 或 <%= link_to '注册', reg_path %></p>
 				<% else %>
 					<%= form_for [Feedback.new] do |f| %>
 						<div class="control-group">
-							<label class="control-label" >反馈内容：</label>
+							
 							<div class="controls">
 								<%=f.hidden_field :user_id, :id=> 'user_id', :value => current_user.id %>
 								
-								<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span5", :placeholder => "限500字以内..."%>
+								<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span5", :placeholder => "您的建议对我们很重要，限500字以内..."%>
 							</div>
 						</div>
-						<%= f.submit '反馈', :class => 'btn btn-success'%>
+						<%= f.submit '提交', :class => 'btn btn-success'%>
 					<% end %>
 				<% end %>
 			</div>
 
-			<% @feedbacks.each do |feedback| %>
-				<div class="tr-item cc">
-					<div class="avatar">
-						<%if feedback.user.icon.exists? %>
-					        <%= image_tag feedback.user.icon.url(:thumb) ,:alt => feedback.user.nickname %>
-					      <%else%>
-					        <%= image_tag 'avatar.png' ,:alt => feedback.user.nickname %>
-					      <%end%>
-					</div>
-					<div class="topic-box">
-						<div class="topic-info">
-							<p>
-								<a href="">
-									<%= feedback.user.nickname %>
-								</a> 
-								发表于：<%= timeago_tag feedback.created_at, :nojs => true, :limit => 10.days.ago %>
-							</p>
-						</div>
-						<div class="content">
-							<p><%= raw feedback.content %></p>
-						</div>
-					</div>
-				</div>
-			<% end -%>
-		</div>
+			
+		
 	</div>
 </div>
 

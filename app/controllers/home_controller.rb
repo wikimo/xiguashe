@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :login_redirect, :except => [:about]
+	before_filter :login_redirect, :except => [:about,:contact,:links]
 
 	def index
 		#@topics =  Topic.find(:all,:limit => 10,:order => 'id desc')
@@ -11,6 +11,14 @@ class HomeController < ApplicationController
 	end
 
 	def about
+		
+	end
+
+	def contact
+		
+	end
+
+	def links
 		
 	end
 end

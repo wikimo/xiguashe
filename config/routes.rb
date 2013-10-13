@@ -7,6 +7,8 @@ Xiguashe::Application.routes.draw do
   get "recommend/group" => "recommend#group"
 
   get 'about' => 'home#about'
+  get 'contact' => 'home#contact'
+  get 'links' => 'home#links'
 
   get "reg"  => "users#new",                   :as => "reg"
   get "quit" => "sessions#destroy",            :as => "quit"
