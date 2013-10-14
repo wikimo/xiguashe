@@ -1,6 +1,6 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
-	self.per_page = 15
+	self.per_page = 10
 
 	attr_accessor :old_password 
 
@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     before_create { generate_token(:auth_token) }
 
     scope :order_by_created_at_desc, order('created_at DESC')
+
+    searchable	do
+		text :nickname
+	end
 	
 	def password
 	    @password

@@ -2,7 +2,7 @@
 
 class Topic < ActiveRecord::Base
 	
-	self.per_page = 30
+	self.per_page = 10
 
 	validates :title, :content, presence: true
 

@@ -5,9 +5,11 @@
 		<div class="search-keyword">
 			<h4>检索关键词：<%= @keyword %></h4>
 		</div>
-		<div class="topics">
-		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics,:is_topics => false}%>
+		<div class="users">
+		<%@users.each do |user|%>
+			<%= user.nickname%>
+		<%end%>
 		</div>
-		<%= will_paginate @topics %>
+		<%= will_paginate @users %>
 	</div>
 </div>
