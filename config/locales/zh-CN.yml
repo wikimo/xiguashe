@@ -100,7 +100,7 @@ zh-CN:
     messages:
       accepted: 必须是可被接受的
       blank: 不能为空
-      confirmation: 与确认值不匹配
+      confirmation: 与确认密码不匹配
       empty: 不能留空
       equal_to: 必须等于 %{count}
       even: 必须为双数
@@ -195,6 +195,7 @@ zh-CN:
       user: '用户'
     attributes:
       user:
+        nickname: '昵称'
         username: '用户名'
         email: '邮箱'
         password: '密码'

@@ -28,8 +28,11 @@ class User < ActiveRecord::Base
 
 	acts_as_taggable
 
+    validates :nickname,  :length  => {:minimum  => 4,:maximum  => 15}
+    validates :email, presence: true, uniqueness: true
+
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
-	#validate :old_password_ok ,:on => :update#更新密码是严重原始密码
+	#validate :old_password_ok ,:on => :update#更新密码是原始密码
 	validates_confirmation_of :password,:if => :password_present?
 
 	has_attached_file :icon, 
