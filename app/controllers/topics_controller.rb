@@ -3,13 +3,13 @@ class TopicsController < ApplicationController
     before_filter :logined?, :except => [:index, :show, :discovery]
 
 	def index
+
 		@group = Group.find_by_id(params[:group_id])
 
 		@topics = Topic.where(:group_id => params[:group_id]).paginate(:page => params[:page]).order('created_at DESC')
 
 		if current_user
 			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
-
 		end
 
 		@members = @group.members
@@ -19,7 +19,6 @@ class TopicsController < ApplicationController
 		@managers = @group.managers
 	
 	end
-
 
 	def discovery
 		@topics = Topic.discovery(params[:page], Topic.per_page)
@@ -85,14 +84,8 @@ class TopicsController < ApplicationController
 		@user_topics = @user.topics.order_by_created_at_desc.limit(5)
 	end
 
+	private
 
-    def destroy_product
-    	@product = Product.find(params[:product_id])
-
-    	@product.destroy
-    end
-
-	private 
 	    def update_photos (photo_id,topic)
 	      photo_id  && photo_id.each do |id|
 	        Photo.find(id).update_attributes!(:photoable  => topic)
@@ -100,7 +93,6 @@ class TopicsController < ApplicationController
 	    end
 
 	    def update_products(product_id, topic)
-
 	    	product_id && product_id.each do |id|
 	    		Product.find(id).update_attributes!(topic_id: topic.id)
 	    	end
@@ -111,6 +103,4 @@ class TopicsController < ApplicationController
 			content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
 	    end
 
-
-	    
 end

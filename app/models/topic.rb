@@ -22,6 +22,8 @@ class Topic < ActiveRecord::Base
 
 	scope :order_by_reply_num_desc,  order('reply_num DESC')
 
+	scope :order_by_score_desc, order('score DESC')
+
 	scope :by_user_ids,  lambda { |ids| where('user_id in (?)', ids) }
 
 	searchable	do
@@ -48,7 +50,7 @@ class Topic < ActiveRecord::Base
 		end
 
 		def recommend(page = 1, per_page = 20)
-			self.order_by_updated_at_desc.order_by_reply_num_desc.paginate(page: page, per_page: per_page)
+			self.order_by_score_desc.paginate(page: page, per_page: per_page)
 		end
 
 		def recommend_user_topic(ids, page = 1, per_page = 20)
