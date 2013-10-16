@@ -29,12 +29,13 @@ class Like < ActiveRecord::Base
 
 	private
 		def change_topic_score
+		
 
-			hour = (Time.new - likeable.created_at) / (60 * 60)
+			day = (Time.new - likeable.created_at)  / 3600 / 24
 
-			score = likeable.like_num / hour ** 1.8
-
-			self.likeable.update_attributes(:score => score)
+			score = (likeable.like_num / day ** 1.8 ).to_f
+			p score
+			self.likeable.update_attributes({:score => score})
 		end
 	
 end
