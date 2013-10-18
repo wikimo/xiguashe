@@ -3,6 +3,11 @@
   			
   		</div>
 
+  		<%= form_tag cpanel_topics_path, method: 'get', :class => "form-search" do %>
+  			<%= text_field_tag :search, params[:search],:placeholder => "输入话题名称" %>
+  			<%= submit_tag "查找", :name => nil,  :class => 'btn' %>
+  		<% end -%>
+
     	<table id="topics" class="table table-striped">
     		<thead>
 				<tr>
@@ -24,7 +29,7 @@
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', topic.id %></td>
 					<td><%= truncate topic.title, length: 10 %></td>
-					<td><%= topic.username %></td>
+					<td><%= topic.user.nickname %></td>
 					<td><%= topic.hit_num %></td>
 					<td><%= topic.reply_num %></td>
 					<td><%= topic.like_num %></td>

@@ -5,6 +5,11 @@
   			
   		</div>
 
+  		<%= form_tag cpanel_groups_path, method: 'get', :class => "form-search" do %>
+  			<%= text_field_tag :search, params[:search],:placeholder => "输入小组名称" %>
+  			<%= submit_tag "查找", :name => nil,  :class => 'btn' %>
+  		<% end -%>
+
     	<table id="groups" class="table table-striped">
     		<thead>
 				<tr>
