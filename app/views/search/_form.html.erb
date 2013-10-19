@@ -1,0 +1,14 @@
+<div class="search-form cc">
+	<ul class="nav nav-tabs">
+
+	  <li <%if params[:action] == 'topics'%>class="active"<%end%>><a href="/search/topics?query=<%= params[:query]%>">话题</a></li>
+	  <li <%if params[:action] == 'users'%>class="active"<%end%> ><a  href="/search/users?query=<%= params[:query]%>"   >用户</a></li>
+	</ul>
+	<div class="content cc">
+		<form action='<%= form_action%>' class="form-inline" method='get'>
+			<%= text_field_tag :query, params[:query], :class => "span3", :placeholder => " 搜索其实很简单... " %>
+			<button type="submit" class="btn btn-success">Go...</button>
+		</form>
+		
+  </div>
+</div>

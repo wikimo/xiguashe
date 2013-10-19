@@ -1,0 +1,14 @@
+<%= stylesheet('bootstrap','style','group','search')%>
+<div id="main">
+	<div  class="container">
+		
+
+		<%= render 'form',:form_action => @form_action%>
+
+	
+		<div class="topics">
+		<%= render :partial => 'public/topics',:locals  => {:topics  => @topics,:is_topics => false}%>
+		</div>
+		<%= will_paginate @topics %>
+	</div>
+</div>
