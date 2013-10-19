@@ -1,7 +1,7 @@
 class Cpanel::GroupsController < Cpanel::ApplicationController
 
 	def index
-		@groups = Group.order_desc_by_created_at(params[:page], Group.per_page)
+		@groups = Group.search(params[:search], params[:page], Group.per_page)
 	end
 
 
