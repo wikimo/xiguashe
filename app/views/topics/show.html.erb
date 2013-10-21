@@ -9,7 +9,7 @@
 				<div class="tr-item cc">
 					<div class="avatar">
 						<%if @topic.user.icon.exists? %>
-				        <%= image_tag @topic.user.icon.url(:thumb) ,:alt => @topic.user.nickname%>
+				        <%= image_tag @topic.user.icon.url(:medium) ,:alt => @topic.user.nickname%>
 				      <%else%>
 				        <%= image_tag 'avatar.png' ,:alt => @topic.user.nickname%>
 				      <%end%>
