@@ -4,7 +4,7 @@
 window.CommentApp = 
 	comment : (user_id, user_nickname) ->
 	  comment_body = $("#comment-textarea")
-	  new_text = "@" + user_nickname
+	  new_text = "@" + user_nickname + " "
 	  if comment_body.val().trim().length is 0
 	    new_text += ""
 	  else
