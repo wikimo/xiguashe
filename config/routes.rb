@@ -104,7 +104,8 @@ Xiguashe::Application.routes.draw do
 
     resources :topics do 
       member do 
-        get :change_edit, :change_update
+        get :change_edit
+        post :change_update
       end
     end
     
