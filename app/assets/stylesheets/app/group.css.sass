@@ -64,6 +64,8 @@
       float: left
       margin-right: 10px
       width: 40px
+      border-radius: 18px
+      overflow: hidden
     p
       font-size: 12px
       margin-top: 5px
@@ -81,13 +83,17 @@
 .topic-list-s
   margin: 10px 0
   overflow: hidden
-  ul li
-    background: #fff
-    line-height: 2em
-    padding: 10px
-    width: 920px
-    float: left
-    margin: 0 10px 10px 0
+  ul 
+    li
+      background: #fff
+      line-height: 2em
+      padding: 10px
+      width: 440px
+      float: left
+      margin: 0 10px 10px 0
+      height: 280px
+    .last-item
+      margin-right: 0
     h2
       font: 18px / 1.5em "Microsoft Yahei"
     &:hover
@@ -95,10 +101,16 @@
     img
       margin-right: 5px
     .content
-      height: 55px
+      height: 90px
       overflow: hidden
-    .topic-footer-s
+    .topic-footer
       line-height: 1em
+    .photos
+      height: 80px
+      margin: 0 0 10px 0
+      overflow: hidden
+    .counter
+      margin: 10px 0 0 0  
 
 .topic-footer-s
   padding: 8px 0 0 0

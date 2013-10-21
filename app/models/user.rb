@@ -132,13 +132,13 @@ class User < ActiveRecord::Base
 			self.order("created_at DESC").paginate(:page => page, :per_page => per_page)
 		end
 
-		def search(search, page = 1, per_page = 20)
-			if search 
-				where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_desc_by_created_at(page, per_page)
-			else
-				order_desc_by_created_at(page, per_page)
-			end
-		end
+		# def search(search, page = 1, per_page = 20)
+		# 	if search 
+		# 		where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_desc_by_created_at(page, per_page)
+		# 	else
+		# 		order_desc_by_created_at(page, per_page)
+		# 	end
+		# end
 		
   	end
   	

@@ -3,6 +3,12 @@
 		<% topics.each_with_index do |topic, i| %>
 			<%= li_css(i)%>
 				<h2><%= link_to topic.title,topic_path(topic)%></h2>
+				
+				<div class="content">
+					<p>	
+						<%= h format_content(topic.content,70) %>
+					</p>
+				</div>
 				<div class="photos">
 					<% if topic.photos.count > 0 %>
 						<% topic.photos.limit(3).each do |photo| %>
@@ -12,12 +18,9 @@
 						<% end -%>
 					<% end -%>
 				</div>
-				<div class="content">
-					<p>	
-						<%= h format_content(topic.content) %>
-					</p>
-				</div>
-				<div class="topic-footer-s">
+				
+					
+				<div class="topic-footer">
 
 					<div class="user">
 						<a href="/users/<%= topic.user.id%>" class="ava">
@@ -48,4 +51,4 @@
 		<%end%>
 	</ul>
 </div>
-<%= will_paginate topics, :previous_label =>'上一页', :next_label => '下一页' %>
+<%= will_paginate @topics, :previous_label =>'上一页', :next_label => '下一页' %>
