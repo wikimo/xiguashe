@@ -24,6 +24,8 @@ class Group < ActiveRecord::Base
 
     scope :using_groups, where('state = true')
 
+    scope :have_joined, lambda { |id| where('id != ?', id) }
+
     scope :order_by_topic_num_desc, order('topic_num DESC')
 
     scope :order_by_member_num_desc, order('member_num DESC')
@@ -75,12 +77,16 @@ class Group < ActiveRecord::Base
             self.using_groups.order_by_topic_num_desc.order_by_member_num_desc.order_by_updated_at_desc.paginate(page: page, per_page: per_page)
         end
 
-        def search(search, page = 1, per_page = 20)
+        def search_in_cpanel(search, page = 1, per_page = 20)
             if search 
                 where('name like ? ', "%#{search}%").order_desc_by_created_at(page, per_page)
             else
                 order_desc_by_created_at(page, per_page)
             end
+        end
+
+        def useing_groups_except_joined(id, page = 1, per_page = 20)
+            self.using_groups.have_joined(id).paginate(:page => page, :per_page => per_page)
         end
 
     end
