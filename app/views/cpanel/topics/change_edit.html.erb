@@ -1,39 +1,51 @@
 
 
 <%= render 'public/flash_notice' %>
-
-<h5>话题名称</h5>
-<div><%= @topic.title %></div>
-
-<h5>话题创建用户</h5>
-<div><%= @topic.user.nickname %></div>
-
-<h5>所属小组</h5>
-<div><%= @topic.group.name %></div>
-
-<h5>选择小组</h5>
-
-<%= form_tag(controller: "cpanel/topics", action: "change_update") do %>
-
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>选择</th>
-			<th>组名</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @groups.each do |group| %>
-		<tr>
-			<td><%= radio_button_tag(:group, "#{group.id}") %></td>
-			<td><%= group.name %></td>
-		</tr>
-		<% end -%>
-	</tbody>
-</table>
-<%= will_paginate @groups, :previous_label =>'上一页', :next_label => '下一页' %>
-
-<%= button_tag '提交', class: 'btn btn_primary' %>
+<%= form_tag({controller: "cpanel/topics", action: "change_update"}, class: "form-horizontal") do %>
+	<div class="control-group">
+		<label class="control-label">话题名称</label>
+		<label class="control-label"><%= @topic.title %></label>
+	</div>
+	<div class="control-group">
+		<label class="control-label">话题创建用户</label>
+		<label class="control-label"><%= @topic.user.nickname %></label>
+	</div>
+	<div class="control-group">
+		<label class="control-label">所属小组</label>
+		<label class="control-label"><%= @topic.group.name %></label>
+	</div>
+	<div class="control-group">
+		<label class="control-label">选择小组</label>
+		<div class="controls">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>选择</th>
+						<th>组名</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @groups.each do |group| %>
+					<tr>
+						<td>
+							<label class="radio">
+								<%= radio_button_tag(:group, "#{group.id}") %>
+							</label>
+						</td>
+						<td>
+							<%= group.name %>
+						</td>
+					</tr>
+					<% end -%>
+				</tbody>
+			</table>
+			<%= will_paginate @groups, :previous_label =>'上一页', :next_label => '下一页' %>
+		    <div class="form-actions">
+		    	<%= button_tag '提交', class: 'btn btn_primary' %>
+				<%= link_to '返回', cpanel_topics_path, class: 'btn btn_primary' %>
+		    </div>
+		</div>
+	</div>
 
 <% end -%>
 			
