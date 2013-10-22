@@ -3,7 +3,7 @@
 	<div class="tr-item cc">
 		<div class="avatar">
 			<%if comment.user.icon.exists? %>
-		        <%= image_tag comment.user.icon.url(:thumb) ,:alt => comment.user.nickname%>
+		        <%= image_tag comment.user.icon.url(:medium) ,:alt => comment.user.nickname%>
 		      <%else%>
 		        <%= image_tag 'avatar.png' ,:alt => comment.user.nickname%>
 		      <%end%>
