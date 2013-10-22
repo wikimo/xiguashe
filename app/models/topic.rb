@@ -57,13 +57,13 @@ class Topic < ActiveRecord::Base
 			self.by_user_ids(ids).order_by_updated_at_desc.paginate(page: page, per_page: per_page)
 		end
 
-		# def search(search, page = 1, per_page = 20)
-		# 	if search
-		# 		where('title like ? ', "%#{search}%").order_desc_by_created_at(page, per_page)
-		# 	else
-		# 		order_desc_by_created_at(page, per_page)
-		# 	end
-		# end
+		def search_in_cpanel(search, page = 1, per_page = 20)
+		 	if search
+		 		where('title like ? ', "%#{search}%").order_desc_by_created_at(page, per_page)
+		 	else
+		 		order_desc_by_created_at(page, per_page)
+		 	end
+		end
 
 	end
 end

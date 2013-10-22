@@ -1,0 +1,40 @@
+
+
+<%= render 'public/flash_notice' %>
+
+<h5>话题名称</h5>
+<div><%= @topic.title %></div>
+
+<h5>话题创建用户</h5>
+<div><%= @topic.user.nickname %></div>
+
+<h5>所属小组</h5>
+<div><%= @topic.group.name %></div>
+
+<h5>选择小组</h5>
+
+<%= form_tag(controller: "cpanel/topics", action: "change_update") do %>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>选择</th>
+			<th>组名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @groups.each do |group| %>
+		<tr>
+			<td><%= radio_button_tag(:group, "#{group.id}") %></td>
+			<td><%= group.name %></td>
+		</tr>
+		<% end -%>
+	</tbody>
+</table>
+<%= will_paginate @groups, :previous_label =>'上一页', :next_label => '下一页' %>
+
+<%= button_tag '提交', class: 'btn btn_primary' %>
+
+<% end -%>
+			
+	

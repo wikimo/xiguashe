@@ -103,6 +103,10 @@ Xiguashe::Application.routes.draw do
     end
 
     resources :topics do 
+      member do 
+        get :change_edit
+        post :change_update
+      end
     end
     
     resources :comments do 

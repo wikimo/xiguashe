@@ -4,7 +4,7 @@ class Cpanel::UsersController < Cpanel::ApplicationController
 	def index
 
 		
-		@users = User.search(params[:search], params[:page], User.per_page)
+		@users = User.search_in_cpanel(params[:search], params[:page], User.per_page)
 	end
 
 	def show
