@@ -33,18 +33,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    @do =  params[:do]
   end
 
   def update
-    if params[:user][:password].blank?
-      params[:user].delete("old_password")
-      params[:user].delete("password")
-      params[:user].delete("password_confirmation")
-    end
+    # if params[:user][:password].blank?
+    #   params[:user].delete("old_password")
+    #   params[:user].delete("password")
+    #   params[:user].delete("password_confirmation")
+    # end
 
-    if params[:user][:icon].blank?
-      params[:user].delete("icon")
-    end
+    # if params[:user][:icon].blank?
+    #   params[:user].delete("icon")
+    # end
 
 
     @user = User.find(params[:id])

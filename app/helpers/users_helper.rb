@@ -33,4 +33,21 @@ module UsersHelper
 
 		raw html
 	end
+
+	def profile_nav(user_id,action = 'passwd')
+	    html = ''
+	    if action == 'passwd'
+	      html.concat(content_tag(:li,content_tag(:a ,'修改密码',:href => "/users/#{user_id}/edit?do=passwd"),:class => 'active'))
+	    else
+	      html.concat(content_tag(:li,content_tag(:a ,'修改密码',:href => "/users/#{user_id}/edit?do=passwd")))
+	    end
+
+	    if action == 'avatar'
+	      html.concat(content_tag(:li,content_tag(:a ,'更新头像',:href => "/users/#{user_id}/edit?do=avatar"),:class => 'active'))
+	    else
+	      html.concat(content_tag(:li,content_tag(:a ,'更新头像',:href => "/users/#{user_id}/edit?do=avatar")))
+	    end
+
+	    raw html
+	end
 end
