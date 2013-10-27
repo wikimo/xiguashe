@@ -15,8 +15,12 @@
           <%= f.text_field :title,:class => 'span5' %>
           </div>
         </div>
-        <div class="control-group">
+        <div class="control-group editor">
           <label class="control-label" >内容：</label>
+          <div class="editor-tools">
+            <a href="javascript:void(0)" title="插入图片" class="insert-img"><i class="icon-picture"></i></a>
+            <a href="javascript:void(0)"  title="插入链接" class="insert-link"><i class="icon-leaf" ></i></a>
+          </div>
           <div class="controls">
             <div contenteditable="true" class="editable-box" id="content-box">
 
@@ -76,6 +80,21 @@
     </ul>
 </div>
 
+<div id="insert-modal" class="modal hide">
+  <div class="modal-header">
+    <h3>插入内容</h3>
+  </div>
+  <div class="modal-body">
+    <label  class="control-label">地址：</label> 
+        <div class="controls"><input type="text" name="link" size="30" class="input-large"></div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+      
+      <%= button_tag "提交", class: "btn btn-primary insert-modal-btn" %>
+  </div>
+</div>
+
 <script type="text/javascript">
   $('#photo-list').delegate('img','click',function(){
     var ele =  $(this)
@@ -88,6 +107,8 @@
     $('textarea').html($('#content-box').html())
     $('form').submit();
   })
+
+
 
   var swfu = new SWFUpload({
       upload_url : "/photos?auth_token=<%=  cookies[:auth_token] %>",
@@ -121,6 +142,41 @@
       // },
       //debug: true
   });
+
+//editor-tools start
+var editorBtn;
+$('.editor-tools > a').bind('click',function(){
+    var cls = $(this).attr('class');
+  
+    switch(cls){
+      case 'insert-img':
+        $('#insert-modal  h3').html('插入图片')
+        break;
+      default :
+        $('#insert-modal  h3').html('插入链接')
+        break;  
+    }
+    editorBtn = cls;
+
+
+    $('#insert-modal').modal('show');
+  })
+
+  $('.insert-modal-btn').bind('click',function(){
+    $('#insert-modal').modal('hide');
+    var link = $('#insert-modal  input').val()
+    var html
+    switch(editorBtn){
+      case 'insert-img':
+        html = '<img src="' + link + '"/>';
+        break;
+      default :
+        html = '<a href="' + link + '" target="_blank">' +link+ '</a>';
+        break;  
+    }
+    $('#insert-modal  input').val('')
+    $('#content-box').insertAtCursor(html)
+  })
 
 </script> 
 
