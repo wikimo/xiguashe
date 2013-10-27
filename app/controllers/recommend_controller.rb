@@ -1,6 +1,6 @@
 class RecommendController < ApplicationController
 
-  before_filter :logined?, :except => [:topic,:topics]
+  before_filter :logined?, :except => [:topic]
 
   def topic
   	@topics = Topic.recommend(params[:page], Topic.per_page)

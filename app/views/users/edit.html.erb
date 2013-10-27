@@ -1,4 +1,6 @@
 <div id="main">
+  <%= render 'public/errors',:obj => @user %>
+  <%= render 'public/flash_notice' %>
   <div class="comm-form">
     <h2 class="title">更新资料</h2>
 
@@ -38,27 +40,6 @@
           </div>
       </div>
       <%end%>
-      <%if @user.errors.any?%>
-          <div class="msgs-box">
-            <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-            <li>* <%= msg%></li>
-            <% end %>
-
-            
-            
-          </ul>
-        </div>
-      <% end %>
-      <%if flash[:notice] %>
-      <div class="msgs-box">
-        <ul>
-          <li>* <%= flash[:notice]%></li>
-        </ul>
-      </div>
-      <%end %>
-
-
       <div class="form-actions">
         <%= button_tag "更新",:class=>'btn btn-primary' %>
       </div>

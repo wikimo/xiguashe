@@ -1,6 +1,7 @@
 <%= stylesheet('bootstrap','style','reg-login')%>
 <div id="main">
   <div  class="container">
+    <%= render 'public/flash_notice' %>
       <div class="comm-form">
         <h2 class="title">用户登陆</h2>
         <%= form_tag  sessions_path ,:class => 'form-horizontal' do %>
@@ -26,18 +27,6 @@
                 <a href="">忘记密码</a>
                  </label>
           </div>
-
-          <%if flash[:notice]%>
-                <div class="msgs-box">
-                  <ul>
-                  
-                  <li>* <%= flash[:notice]%></li>
-                  
-                </ul>
-              </div>
-            <% end %>
-          
-
                 <div class="controls">
                   <button class="btn btn-success" type="submit">提交</button>
                 </div>
