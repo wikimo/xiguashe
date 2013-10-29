@@ -34,13 +34,18 @@
         </div>
         <%= f.hidden_field :user_id,  :value => current_user.id %>
         <%= f.hidden_field :username, :value => current_user.username %>
-
+      
+      <div class="form-actions">
         <button type="button" class="btn btn-success" id="form-post">提交</button>
 
       <%= link_to '分享购物', new_product_path, :class => "btn", remote: true %>
-
+      <div id="upload-plug">
+        <button id="upload-btn">xxx</button>
+      </div>
+      </div>
+        
       <div id="photo-ids"></div>
-     
+        <h4>产品列表</h4>
         <div id="product-ids">
 
           <% if params[:action] == 'edit' && @topic.products.size > 0 %>
@@ -60,9 +65,7 @@
         
       </div>
 
-      <div id="upload-plug">
-        <button id="upload-btn">xxx</button>
-      </div>
+      
     </div>
 
     <ul id="photo-list">

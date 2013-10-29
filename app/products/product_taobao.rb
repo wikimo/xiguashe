@@ -39,7 +39,7 @@ class ProductTaobao < ProductBase
 
 		resp  = Net::HTTP.post_form(@url, params)
 		json  =JSON.parse(resp.body)
-		p json
+		# p json
 		if !json['item_get_response'].nil?
 			item = json['item_get_response']['item']
 
