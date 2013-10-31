@@ -27,12 +27,12 @@
 							<% if notification.mention_id == nil %>
 								<%= notification.notificationable.user.nickname %> 评论了您的话题：
 										<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %>
-										<%= format_content( notification.notificationable.content) %> <br/>
+										<%= format_content( truncate notification.notificationable.content, length: 100 ) %> <br/>
 										<p><%= timeago_tag notification.created_at, :nojs => true, :limit => 10.days.ago %>
 							<% else %>
 								<%= link_to notification.notificationable.user.nickname,  notification.notificationable.user %> 在 
 										<%= link_to notification.notificationable.commentable.title, "/notifications/read/#{notification.id}/0" %> 提及了您:
-										<%= format_content( notification.notificationable.content) %> <br/>
+										<%= format_content( truncate notification.notificationable.content, length: 100 ) %> <br/>
 										<p><%= timeago_tag notification.created_at, :nojs => true, :limit => 10.days.ago %>
 							<% end %>
 
