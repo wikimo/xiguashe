@@ -17,6 +17,7 @@
 					<th>查看数</th>
 					<th>回复数</th>
 					<th>喜欢数</th>
+					<th>score</th>
 					<th>创建时间</th>
 					<th>最后更新时间</th>
 					<th>状态</th>
@@ -33,6 +34,7 @@
 					<td><%= topic.hit_num %></td>
 					<td><%= topic.reply_num %></td>
 					<td><%= topic.like_num %></td>
+					<td><%= topic.score %></td>
 					<td><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
 					<td><%= format_datetime topic.updated_at,'%Y-%m-%d %H:%M' %></td>
 					<td>
