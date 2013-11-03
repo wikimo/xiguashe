@@ -9,6 +9,13 @@ class Cpanel::TopicsController < Cpanel::ApplicationController
 		@topic = Topic.find(params[:id])
 	end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
+  def update
+  end
+
 	def destroy
 		@topic = Topic.find(params[:id])
 		@topic.destroy
