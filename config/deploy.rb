@@ -1,4 +1,4 @@
-set :domain, '127.0.0.1'  
+set :domain, 'www.xiguashe.com'  
 set :user, "root"
 
 set :application, "www.xiguashe.com"

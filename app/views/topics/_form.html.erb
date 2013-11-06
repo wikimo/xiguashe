@@ -41,6 +41,7 @@
       <%= link_to '分享购物', new_product_path, :class => "btn", remote: true %>
       <div id="upload-plug">
         <button id="upload-btn">xxx</button>
+
       </div>
       </div>
         
@@ -69,7 +70,7 @@
     </div>
 
     <ul id="photo-list">
-    
+        <span>* 图片最大为2M，支持jpg，gif，png</span>
         <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
           <% @topic.photos.each do |photo|%>
             <li id="photo-<%= photo.id%>">
@@ -137,7 +138,7 @@
       upload_complete_handler : UploadApp.uploadComplete,
 
       file_types : "*.jpg;*.jpeg;*.gif;*.png",
-      file_size_limit : "5000",
+      file_size_limit : "2000",
       file_upload_limit: UploadApp.upload_limit,
 
       // custom_settings : {
