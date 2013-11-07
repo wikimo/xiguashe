@@ -1,0 +1,41 @@
+		<%= render 'public/flash_notice' %>
+  		<div id="module_win">
+  			
+  		</div>
+
+  		<%= form_tag cpanel_products_path, method: 'get', :class => "form-search" do %>
+  			<%= text_field_tag :search, params[:search],:placeholder => "输入话题名称" %>
+  			<%= submit_tag "查找", :name => nil,  :class => 'btn' %>
+  		<% end -%>
+
+    	<table id="topics" class="table table-striped">
+    		<thead>
+				<tr>
+					<th><%= check_box_tag 'checkbox_all' %></th>
+					<th>商品标题</th>
+					<th>商品价格</th>
+					<th>创建时间</th>
+					<th>最后更新时间</th>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+    		<% @products.each do |product| %>
+    	
+				<tr>
+					<td><%= check_box_tag 'checkbox_name', product.id %></td>
+					<td><%= truncate product.title, length: 10 %></td>
+					<td><%= product.price %></td>
+					<td><%= format_datetime product.created_at,'%Y-%m-%d %H:%M' %></td>
+					<td><%= format_datetime product.updated_at,'%Y-%m-%d %H:%M' %></td>
+					<td>
+						<%= link_to '查看', cpanel_product_path(product), remote: true %>
+					</td>
+				</tr>
+			
+    		<% end -%>
+    		</tbody>
+		</table>
+		<div class="paginate-right-position">
+			<%= will_paginate @products, :previous_label =>'上一页', :next_label => '下一页' %>
+		</div>
