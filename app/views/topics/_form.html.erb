@@ -52,7 +52,7 @@
           <% @topic.products.each do |product| %>
               <div id="p_<%= product.id %>">
                 <%= link_to product.title, product.url %>
-                <%= link_to '点击删除', product, :method =>:delete, :confirm =>'是否确定删除?',:class=>'pro-del' %>
+                <%= link_to '点击删除', product, :method =>:delete, :confirm =>'是否确定删除?',:class=>'pro-del',:remote => true %>
                 
               </div>
           <% end %>
