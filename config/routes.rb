@@ -109,6 +109,8 @@ Xiguashe::Application.routes.draw do
       end
     end
     
+		resources :products 
+
     resources :comments do 
     end
     
