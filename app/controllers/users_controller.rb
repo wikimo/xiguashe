@@ -50,12 +50,16 @@ class UsersController < ApplicationController
 
 
     @user = User.find(params[:id])
-
     if @user.update_attributes(params[:user])
       flash[:notice] = t(:update_success)
-      redirect_to edit_user_path @user 
+      redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}" 
     else
-      render action: "edit"  
+      message = ''
+      @user.errors.full_messages.each do |msg|
+         message << msg 
+      end
+      flash[:notice] = message
+      redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}"   
     end
   end
 
