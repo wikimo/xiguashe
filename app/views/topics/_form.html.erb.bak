@@ -1,4 +1,4 @@
-<%= stylesheet('http://cdn.staticfile.org/font-awesome/3.2.1/css/font-awesome.min.css')%>
+<%= stylesheet('bootstrap','style','post')%>
 
 <div class="post-form-wrap cc">
   <h3>发表话题</h3>
@@ -10,21 +10,33 @@
         <% end -%>
         
         <div class="control-group">
+          <label for="" class="control-label">标题：</label>
           <div class="controls">
-          <%= f.text_field :title,:class => 'span5',:placeholder => '请输入标题' %>
+          <%= f.text_field :title,:class => 'span5' %>
           </div>
         </div>
         <div class="control-group editor">
+          <label class="control-label" >内容：</label>
+          <div class="editor-tools">
+            <a href="javascript:void(0)" title="插入图片" class="insert-img"><i class="icon-picture"></i></a>
+            <a href="javascript:void(0)"  title="插入链接" class="insert-link"><i class="icon-leaf" ></i></a>
+          </div>
           <div class="controls">
-     
-            <%= f.text_area :content, :id => 'content-box',:placeholder => '请输入内容，5000字以内...'%>
+            <div contenteditable="true" class="editable-box" id="content-box">
+
+              <% if !@topic.nil? %>
+                <%= raw @topic.content %>
+              <% end -%>
+              
+            </div>
+            <%= f.text_area :content,:class => "hide"%>
           </div>
         </div>
         <%= f.hidden_field :user_id,  :value => current_user.id %>
         <%= f.hidden_field :username, :value => current_user.username %>
       
       <div class="form-actions">
-        <button type="submit" class="btn btn-success" id="form-post">提交</button>
+        <button type="button" class="btn btn-success" id="form-post">提交</button>
 
         <%= link_to '分享购物', new_product_path, :class => "btn", remote: true %>
         <div id="upload-plug">
@@ -88,12 +100,17 @@
 <script type="text/javascript">
   $('#photo-list').delegate('img','click',function(){
     var ele =  $(this)
-    img = ele.attr('src').replace('thumb','original');
-    document.execCommand('insertimage', false, img)
-    $('.qeditor').val($('.qeditor_preview').html());
+    var img =  '<img src="' + ele.attr('src') + '"/>';
+    img = img.replace('thumb','original');
+    $('#content-box').insertAtCursor(img)
   })
 
-  $("#content-box").qeditor({});
+  $('#form-post').bind('click',function(){
+    $('textarea').html($('#content-box').html())
+    $('form').submit();
+  })
+
+
 
   var swfu = new SWFUpload({
       upload_url : "/photos?auth_token=<%=  cookies[:auth_token] %>",
@@ -121,6 +138,47 @@
       file_types : "*.jpg;*.jpeg;*.gif;*.png",
       file_size_limit : "2000",
       file_upload_limit: UploadApp.upload_limit,
+
+      // custom_settings : {
+      //     fileList : "file-list"
+      // },
+      //debug: true
   });
+
+//editor-tools start
+var editorBtn;
+$('.editor-tools > a').bind('click',function(){
+    var cls = $(this).attr('class');
+  
+    switch(cls){
+      case 'insert-img':
+        $('#insert-modal  h3').html('插入图片')
+        break;
+      default :
+        $('#insert-modal  h3').html('插入链接')
+        break;  
+    }
+    editorBtn = cls;
+
+
+    $('#insert-modal').modal('show');
+  })
+
+  $('.insert-modal-btn').bind('click',function(){
+    $('#insert-modal').modal('hide');
+    var link = $('#insert-modal  input').val()
+    var html
+    switch(editorBtn){
+      case 'insert-img':
+        html = '<img src="' + link + '"/>';
+        break;
+      default :
+        html = '<a href="' + link + '" target="_blank">' +link+ '</a>';
+        break;  
+    }
+    $('#insert-modal  input').val('')
+    $('#content-box').insertAtCursor(html)
+  })
+
 </script> 
 
