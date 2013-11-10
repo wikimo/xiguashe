@@ -6,6 +6,7 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
 
 	def show
+    @product = Product.find(params[:id])
 	end
 
 	def update
@@ -13,6 +14,7 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 	end
 
 	def destroy
+
 	end
 
 end

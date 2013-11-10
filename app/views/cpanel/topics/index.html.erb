@@ -17,6 +17,7 @@
 					<th>查看数</th>
 					<th>回复数</th>
 					<th>喜欢数</th>
+          <th>拥有商品</th>
 					<th>score</th>
 					<th>创建时间</th>
 					<th>最后更新时间</th>
@@ -34,6 +35,7 @@
 					<td><%= topic.hit_num %></td>
 					<td><%= topic.reply_num %></td>
 					<td><%= topic.like_num %></td>
+          <td><%= topic.products.count %></td>
 					<td><%= topic.score %></td>
 					<td><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
 					<td><%= format_datetime topic.updated_at,'%Y-%m-%d %H:%M' %></td>
@@ -46,7 +48,7 @@
 					</td>
 					<td>
 						<%= link_to '查看', cpanel_topic_path(topic), remote: true %>
-            <%= link_to '修改', edit_cpanel_topic_path(topic), remote: true %>
+            <%= link_to '修改', edit_cpanel_topic_path(topic) %>
 						<%= link_to '删除', [:cpanel, topic], confirm: '确认删除吗？', method: :delete %>
 						<%= link_to '变更小组', change_edit_cpanel_topic_path(topic) %>
 					</td>
