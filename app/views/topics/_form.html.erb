@@ -16,8 +16,11 @@
         </div>
         <div class="control-group editor">
           <div class="controls">
-     
+            <%if !@topic.nil?%>
+            <%= f.text_area :content, :id => 'content-box'%>
+            <%else%>
             <%= f.text_area :content, :id => 'content-box',:placeholder => '请输入内容，5000字以内...'%>
+            <%end%>
           </div>
         </div>
         <%= f.hidden_field :user_id,  :value => current_user.id %>
@@ -54,9 +57,9 @@
 
       
     </div>
-
+    <span>* 图片最大为2M，支持jpg，gif，png</span>
     <ul id="photo-list">
-        <span>* 图片最大为2M，支持jpg，gif，png</span>
+        
         <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
           <% @topic.photos.each do |photo|%>
             <li id="photo-<%= photo.id%>">

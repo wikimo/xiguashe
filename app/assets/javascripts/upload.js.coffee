@@ -33,13 +33,20 @@ window.UploadApp =
 
 	uploadStart : (file) ->
 	  try
+	  	postList =  $ '#photo-list'
+	  	li = $ "<li><em></em></li>"
+	  	postList.append li
 	  catch ex
 	  	@debug ex
 	  true
 
 	uploadProgress : (file, bytesLoaded, bytesTotal) ->
 	  try
-	    
+	    percent = Math.ceil((bytesLoaded / bytesTotal) * 100)
+	
+	    progressBar = $('#photo-list > li > em').last()
+	    progressBar.html("上传中...#{percent}%")
+	    progressBar.css('width', "#{percent}%")
 	  catch ex
 	    @debug ex
 
@@ -49,10 +56,14 @@ window.UploadApp =
 	  	idsList = $ '#photo-ids'
 	  	json =  '(' + serverData + ')'
 	  	json = $ eval(json)
-
+	
 	  	json.each ->
-	  		img =  $ "<li id='photo-#{@id}'><img src='#{@photo}' data-id='#{@id}'/><p><a rel='nofollow' data-remote='true' data-method='delete' data-confirm='是否删除？' href='/photos/#{@id}'>删除</a></p></li>"
-	  		postList.append img
+	  		li = $('#photo-list > li ').last()
+	  		li.attr('id',"photo-#{@id}")
+	  		img =  $ "<img src='#{@photo}' data-id='#{@id}'/><p><a rel='nofollow' data-remote='true' data-method='delete' data-confirm='是否删除？' href='/photos/#{@id}'>删除</a></p>"
+
+	  		$('#photo-list > li > em').last().remove()
+	  		li.append img
 
 	  		input = $ "<input type='hidden' name='photo_id[]' value='#{@id}' id='pid-#{@id}'/>"
 	  		idsList.append input
