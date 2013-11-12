@@ -1,7 +1,7 @@
 $("#id_link").val();
 $("#product_form").modal('hide');
 
-$("#product-ids").append('<div id="p_<%= @product.id %>"><input id="<%= @product.id %>" type="hidden" value="<%= @product.id %>" name="product_id[]" >');
-$("#<%= @product.id %>").after('<%= link_to @product.title, @product.url, :id => "link_#{@product.id}" %>');
+$("#product-ids").append('<div id="p_<%= @product.id %>"><input id="<%= @product.id %>" type="hidden" value="<%= @product.id %>" name="product_id[]" ></div>');
+$("#p_<%= @product.id %>").append('<%= link_to @product.title, @product.url, :id => "link_#{@product.id}" %>');
 $("#link_<%= @product.id %>").after('<%= link_to "点击删除", @product, :method => :delete, :confirm => "是否确定删除", :remote => true, :class => "pro-del"  %></div>');
 $("#module_win").html('')
