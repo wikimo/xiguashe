@@ -57,4 +57,8 @@ module LayoutsHelper
   def format_content(content,len = 150)
     truncate(content.gsub(/<.*?>|\302\240/,'').strip,:length => len, :truncate_string =>"...") if !content.nil?
   end
+
+  def quote_string(s)
+    s.gsub(/'/, '') # ' (for ruby-mode)
+  end
 end  
