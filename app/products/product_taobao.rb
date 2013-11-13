@@ -23,7 +23,9 @@ class ProductTaobao < ProductBase
 	#url: http://item.tbsandbox.com/item.htm?id=1500010992719&spm=2014.1021035540.0.0
 	def get_item url
 		num_iid =  get_id(url)
-
+    
+    promotion_hash = get_item_promotion num_iid
+    p promotion_hash
 		params = { 
 			'method' => 'taobao.item.get',
 			'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -50,11 +52,41 @@ class ProductTaobao < ProductBase
   				:img => item['pic_url'],
   				:url => item['detail_url'],
   				:descrip => item['desc'],
-  				:nick => item['nick']}
+  				:nick => item['nick'],
+          :promo_price => promotion_hash[:promo_price]
+      }
 		end
 
 		item_hash	
 	end
+
+  def get_item_promotion item_id
+
+    params = {
+      'method' => 'taobao.ump.promotion.get',
+      'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
+      'format' => 'json',
+      'app_key' => '21627701',
+      'v' => '2.0',
+      'sign_method' => 'md5',
+      'item_id' => item_id
+    }
+
+		params["sign"] = Digest::MD5.hexdigest( @app_secret + params.sort.flatten.join + @app_secret).upcase
+
+		resp  = Net::HTTP.post_form(@url, params)
+		json  =JSON.parse(resp.body)
+		#p json
+    if !json['ump_promotion_get_response'].nil?
+        promotion = json['ump_promotion_get_response']['promotions']['promotion_in_item']
+        promotion_hash = {
+           :promo_price => promotion['promotion_in_item'][0]['item_promo_price'],
+        }
+    end
+
+    promotion_hash
+
+  end
 
 	def get_shop nick
 		params = { 

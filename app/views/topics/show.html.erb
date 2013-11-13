@@ -43,7 +43,8 @@
 								<%= image_tag product.img, alt:product.title %>
 								<div class="product-info">
 									<h4><%= link_to product.title ,product.url,:target => '_blank'%></h4>
-									<p><%= number_to_currency product.price, unit: "￥" %></p>
+									<p>价  格:<%= number_to_currency product.price, unit: "￥" %></p>
+                  <p>促销价:<%= number_to_currency product.promo_price, unit: "￥"%></p>
 										
 										
 									<%= link_to '去购买', product.url, class:'btn btn-primary',:target => '_blank' %>
