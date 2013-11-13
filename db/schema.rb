@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016125959) do
+ActiveRecord::Schema.define(:version => 20131113044400) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -99,12 +99,13 @@ ActiveRecord::Schema.define(:version => 20131016125959) do
     t.string   "img"
     t.integer  "user_id"
     t.string   "source"
-    t.datetime "created_at",                                                 :null => false
-    t.datetime "updated_at",                                                 :null => false
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
     t.integer  "topic_id"
     t.string   "key"
-    t.decimal  "price",      :precision => 18, :scale => 2, :default => 0.0
+    t.decimal  "price",       :precision => 18, :scale => 2, :default => 0.0
     t.string   "nick"
+    t.decimal  "promo_price", :precision => 18, :scale => 2, :default => 0.0
   end
 
   create_table "taggings", :force => true do |t|
@@ -136,7 +137,7 @@ ActiveRecord::Schema.define(:version => 20131016125959) do
     t.datetime "updated_at",                                                 :null => false
     t.integer  "group_id",                                  :default => 0
     t.string   "ip",                                        :default => ""
-    t.integer  "like_num",                                  :default => 0,   :null => false
+    t.integer  "like_num",                                  :default => 0
     t.integer  "types",                                     :default => 1
     t.decimal  "score",      :precision => 18, :scale => 5, :default => 0.0
   end
