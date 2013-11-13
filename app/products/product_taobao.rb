@@ -25,7 +25,6 @@ class ProductTaobao < ProductBase
 		num_iid =  get_id(url)
     
     promotion_hash = get_item_promotion num_iid
-    p promotion_hash
 		params = { 
 			'method' => 'taobao.item.get',
 			'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -76,11 +75,11 @@ class ProductTaobao < ProductBase
 
 		resp  = Net::HTTP.post_form(@url, params)
 		json  =JSON.parse(resp.body)
-		#p json
+    
     if !json['ump_promotion_get_response'].nil?
         promotion = json['ump_promotion_get_response']['promotions']['promotion_in_item']
         promotion_hash = {
-           :promo_price => promotion['promotion_in_item'][0]['item_promo_price'],
+          :promo_price => promotion['promotion_in_item'][0]['item_promo_price'],
         }
     end
 
