@@ -54,7 +54,12 @@ class UsersController < ApplicationController
       flash[:notice] = t(:update_success)
       redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}" 
     else
-      render action: "edit"  
+      message = ''
+      @user.errors.full_messages.each do |msg|
+        message << msg
+      end
+      flash[:notice] = message
+      redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}"
     end
   end
 

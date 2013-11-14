@@ -228,6 +228,7 @@ zh-CN:
   edit_topic: '编辑话题'
 
   comment_create_success: '评论成功'
+  comment_create_fail: '评论失败'
 
 
   wait_for_check: '等待管理员审核！'
