@@ -31,7 +31,12 @@ class CommentsController < ApplicationController
           redirect_to  topic_path(model_instance), :notice => t(:comment_create_success)
 
         else
-          #create comment error
+          message = ''
+          @comment.errors.full_messages.each do |msg|
+            message << msg
+          end
+          flash[:notice] = message
+          redirect_to  topic_path(model_instance)
         end
 
         break

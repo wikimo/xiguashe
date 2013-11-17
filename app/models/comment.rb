@@ -1,7 +1,9 @@
 # coding: utf-8
 class Comment < ActiveRecord::Base
 
-  	self.per_page = 30
+ 	self.per_page = 30
+
+  validates :content, presence: true
   
 	belongs_to :commentable, :polymorphic => true
 
