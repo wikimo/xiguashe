@@ -28,8 +28,9 @@ class User < ActiveRecord::Base
 
 	acts_as_taggable
 
-    validates :nickname, uniqueness: true,  :length  => {:minimum  => 4,:maximum  => 15}
+    validates :nickname, uniqueness: true,  :length  => {:minimum  => 3,:maximum  => 10}
     validates :email, presence: true, uniqueness: true
+    validates_format_of  :email,  :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i  
 
 	#validates :password,:length  => {:minimum  => 6,:maximum  => 15},:if => :password_present?
 	#validates_confirmation_of :password,:if => :password_present?

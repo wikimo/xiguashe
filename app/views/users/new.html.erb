@@ -1,5 +1,22 @@
 <%= stylesheet('bootstrap','style','reg-login')%>
 <div id="main">
+  <%if @user.errors.any?%>
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <ul>
+         <% @user.errors.full_messages.each do |msg| %>
+      <li>* <%= msg%></li>
+        <%end %>
+      </ul>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+      setTimeout(function(){
+        $(".alert").alert('close')
+      },10000)
+    })
+    </script>
+<% end %>
 
   <div  class="container">
     <div class="comm-form">
@@ -16,7 +33,7 @@
           <label class="control-label" >您的昵称</label>
           <div class="controls">
             <%= f.text_field :nickname,:class => 'input-large' %>
-            <p class="help-block">该怎么称呼你？4-15个字符</p>
+            <p class="help-block">该怎么称呼你？3-10个字符</p>
           </div>
         </div>
         <div class="control-group">
@@ -32,24 +49,14 @@
             <%= f.password_field :password_confirmation,:class => 'input-large' %>
           </div>
         </div>
-        <div class="control-group">
+       <!--  <div class="control-group">
             <div class="controls">
                     <label class="checkbox">
                       <input type="checkbox"  name="agreement" checked>
               我已阅读并接受《<a target="_blank" href="/info/agreement">使用协议</a>》
                     </label>
                 </div>
-              </div>
-
-              <%if @user.errors.any?%>
-                <div class="msgs-box">
-                  <ul>
-                  <% @user.errors.full_messages.each do |msg| %>
-                  <li>* <%= msg%></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
+              </div> -->
 
               <div class="controls">
                 <button class="btn btn-success" type="submit">提交</button>

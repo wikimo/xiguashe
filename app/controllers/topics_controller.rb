@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
 
     before_filter :logined?, :except => [:index, :show, :discovery]
+    before_filter :find_topic, :only => [:edit,:update,:show]
 
 	def index
 
@@ -51,15 +52,10 @@ class TopicsController < ApplicationController
 	end
 
 	def edit
-
-		@topic = Topic.find(params[:id])
-
 		@group = @topic.group
 	end
 
 	def update
-		@topic = Topic.find(params[:id])
-
 		params[:topic][:content] = content_filter(params[:topic][:content])
 
 		if @topic.update_attributes(params[:topic])
@@ -72,8 +68,6 @@ class TopicsController < ApplicationController
 	end
 
 	def show
-		@topic = Topic.find params[:id]
-
 		@topic.update_attributes({:hit_num => @topic.hit_num + 1})
 		@comments = @topic.comments.order_desc_by_created_at(params[:page], Comment.per_page)
 
@@ -101,6 +95,12 @@ class TopicsController < ApplicationController
 	    def content_filter(content)
 	    	substitute = '\r\n';
 			content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
+	    end
+
+	    def find_topic
+	    	@topic =  Topic.where(:id => params[:id]).first
+
+      		render_404 if @topic.nil?
 	    end
 
 end

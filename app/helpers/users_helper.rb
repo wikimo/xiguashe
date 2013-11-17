@@ -49,9 +49,9 @@ module UsersHelper
 	    end
 
       if action == 'nickname'
-        html.concat(content_tag(:li, content_tag(:a ,'昵称变更',:href => "/users/#{user_id}/edit?do=nickname"), :class => 'active'))
+        html.concat(content_tag(:li, content_tag(:a ,'修改昵称',:href => "/users/#{user_id}/edit?do=nickname"), :class => 'active'))
       else
-        html.concat(content_tag(:li, content_tag(:a , '昵称变更', :href => "/users/#{user_id}/edit?do=nickname")))
+        html.concat(content_tag(:li, content_tag(:a , '修改昵称', :href => "/users/#{user_id}/edit?do=nickname")))
       end
 	    raw html
 	end

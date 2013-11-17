@@ -1,7 +1,7 @@
 <%if obj.errors.any?%>
-   	<div class="alert alert-success">
+   	<div class="alert alert-error">
 	    <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <% @user.errors.full_messages.each do |msg| %>
+         <% obj.errors.full_messages.each do |msg| %>
 	    <strong><%= msg%></strong>
         <%end %>
     </div>

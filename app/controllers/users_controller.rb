@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
-  def groups
-    @user = User.find params[:id]
 
+  before_filter :find_user, :except => [:new, :create]
+  before_filter :logined?, :only => [:edit, :update,:create_tag, :destroy_tag]
+
+  def groups
     @groups = @user.groups  
   end
 
   def show
-  	@user =  User.find params[:id]
-
-    #@topics =  Topic.find(:all, :conditions =>["user_id = ?",@user.id])
     @topics =  Topic.where(:user_id => @user.id).paginate(:page => params[:page]).order('id desc')
   end
 
@@ -32,24 +31,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-
     @do =  params[:do]
   end
 
   def update
-    # if params[:user][:password].blank?
-    #   params[:user].delete("old_password")
-    #   params[:user].delete("password")
-    #   params[:user].delete("password_confirmation")
-    # end
-
-    # if params[:user][:icon].blank?
-    #   params[:user].delete("icon")
-    # end
-
-
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = t(:update_success)
       redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}" 
@@ -59,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user = User.find(params[:id])
     @following = @user.following.paginate(:page => params[:page]).order('id desc')
 
   end
@@ -70,7 +54,6 @@ class UsersController < ApplicationController
   # end
 
   def likes
-    @user = User.find(params[:id]) 
     @likes =  Like.where( :likeable_type => 'Topic', :user_id => @user.id).paginate(:page => params[:page]).order('id desc')
   
     @topics = Topic.find(:all ,:conditions =>['id in (?)',@likes.map(&:likeable_id)])
@@ -78,12 +61,10 @@ class UsersController < ApplicationController
   end
 
   def tags
-    @user = User.find(params[:id]) 
     @tags = @user.tag_list
   end
 
   def create_tag
-    @user = User.find params[:id]
     tag_list =  @user.tag_list
 
     if tag_list.count < 5
@@ -95,11 +76,16 @@ class UsersController < ApplicationController
   end
 
   def destroy_tag
-     @user = User.find params[:id]
      @user.tag_list.remove(params[:tag])
      @user.save
      
      redirect_to tags_user_path(@user)  
   end
 
+  protected
+    def find_user
+      @user =  User.where(:id => params[:id]).first
+
+      render_404 if @user.nil?
+    end
 end
