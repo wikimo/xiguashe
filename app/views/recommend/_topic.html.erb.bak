@@ -9,6 +9,16 @@
 						<%= h format_content(topic.content,70) %>
 					</p>
 				</div>
+				<div class="photos">
+					<% if topic.photos.count > 0 %>
+						<% topic.photos.limit(3).each do |photo| %>
+							
+							
+							<a href="<%= photo.pic.url(:original)%>" data-lightbox="photos-<%= topic.id%>"><%= image_tag photo.pic.url(:thumb) %></a>
+						<% end -%>
+					<% end -%>
+				</div>
+				
 					
 				<div class="topic-footer">
 

@@ -6,7 +6,8 @@ class ProductTaobao < ProductBase
 		#@url = URI.parse('http://gw.api.tbsandbox.com/router/rest')
 		@url = URI.parse('http://gw.api.taobao.com/router/rest')
 		#@app_secret = 'sandbox36ed58b7ae4e991eb091cb6c2' 
-		@app_secret = '648d7800f2ab5060174e9b06ef594b10' 
+		@app_secret = '00baeda45fb039fd76f20387a4adee0e' 
+		@app_key = '21627701'
 	end
 
 	def get_info url
@@ -29,7 +30,7 @@ class ProductTaobao < ProductBase
 			'method' => 'taobao.item.get',
 			'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
 			'format' => 'json', 
-			'app_key' => '21627701', 
+			'app_key' => @app_key, 
 			'v' => '2.0',
 			'sign_method' => 'md5',
 			'num_iid' => num_iid,
@@ -65,7 +66,7 @@ class ProductTaobao < ProductBase
       'method' => 'taobao.ump.promotion.get',
       'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
       'format' => 'json',
-      'app_key' => '21627701',
+      'app_key' => @app_key,
       'v' => '2.0',
       'sign_method' => 'md5',
       'item_id' => item_id
@@ -92,7 +93,7 @@ class ProductTaobao < ProductBase
 			'method' => 'taobao.shop.get',
 			'timestamp' => Time.now.strftime("%Y-%m-%d %H:%M:%S"),
 			'format' => 'json', 
-			'app_key' => '1021035540', 
+			'app_key' => @app_key, 
 			'v' => '2.0',
 			'sign_method' => 'md5',
 			'fields' => 'sid,title,nick',
