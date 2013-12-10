@@ -11,13 +11,10 @@ class ProductTaobao < ProductBase
 	end
 
 	def get_info url
-		item = get_item url
+		good = TaoBaoApi::Good.new
+		item = good.get_info url
 
-		# shop = get_shop item[:nick]
-
-		# if !item.nil? and !shop.nil?
-		# 	item.merge shop
-		# end
+		item
 	end
 
 
