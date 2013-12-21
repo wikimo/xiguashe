@@ -33,9 +33,9 @@ class Like < ActiveRecord::Base
 
 			day = (Time.new - likeable.created_at)  / (3600 * 24)
 
-			score = ( likeable.like_num / (day + 2) ** 1.8 ).to_f
+			score = ( 1 / (day + 2) ** 1.8 ).to_f
 
-			self.likeable.update_attributes({:score => score})
+			self.likeable.update_attributes( { :score => likeable.score + score } )
 		end
 	
 end
