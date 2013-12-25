@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113044400) do
+ActiveRecord::Schema.define(:version => 20131224111340) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "hit_num",         :default => 0
+    t.integer  "like_num",        :default => 0
+    t.integer  "reply_num",       :default => 0
+    t.integer  "status",          :default => 1
+    t.string   "from_url"
+    t.string   "province"
+    t.string   "city"
+    t.string   "area"
+    t.integer  "user_id"
+    t.string   "icon_file_name"
+    t.datetime "icon_updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -137,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20131113044400) do
     t.datetime "updated_at",                                                 :null => false
     t.integer  "group_id",                                  :default => 0
     t.string   "ip",                                        :default => ""
-    t.integer  "like_num",                                  :default => 0
+    t.integer  "like_num",                                  :default => 0,   :null => false
     t.integer  "types",                                     :default => 1
     t.decimal  "score",      :precision => 18, :scale => 5, :default => 0.0
   end

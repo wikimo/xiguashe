@@ -1,5 +1,6 @@
 Xiguashe::Application.routes.draw do
 
+
   get "recommend/topic" => "recommend#topic"
 
   get "recommend/user" => "recommend#user"
@@ -30,6 +31,8 @@ Xiguashe::Application.routes.draw do
   resources :feedbacks
 
   resources :photos
+  
+  resources :activities, only: [:index, :show]
 
   resources :password_resets
 
@@ -116,10 +119,10 @@ Xiguashe::Application.routes.draw do
     
     resources :users do
     end
+
+    resources :activities 
   end
  
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'recommend#topic'
 
 end
