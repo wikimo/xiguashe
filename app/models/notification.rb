@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id                    :integer          not null, primary key
+#  notificationable_id   :integer
+#  notificationable_type :string(255)
+#  user_id               :integer
+#  is_read               :boolean          default(FALSE)
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  mention_id            :integer
+#
+
 class Notification < ActiveRecord::Base
 
   self.per_page = 30

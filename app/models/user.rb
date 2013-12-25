@@ -1,4 +1,24 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  username               :string(255)
+#  hashed_password        :string(255)
+#  salt                   :string(255)
+#  email                  :string(255)
+#  created_ip             :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  icon_file_name         :string(255)
+#  icon_updated_at        :datetime
+#  nickname               :string(255)
+#  auth_token             :string(255)
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
+#
+
 class User < ActiveRecord::Base
 	self.per_page = 10
 
@@ -10,6 +30,7 @@ class User < ActiveRecord::Base
 	has_many :comments,    :dependent => :destroy
 	has_many :likes,       :dependent => :destroy
 	has_many :feedbacks,    :dependent => :destroy
+  has_many :activities,  dependent: :destroy
 
 	#follower followed
 	has_many :user_relations, :foreign_key => "follower_id",

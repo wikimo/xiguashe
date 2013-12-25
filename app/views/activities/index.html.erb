@@ -1,0 +1,44 @@
+
+<%= stylesheet('bootstrap', 'style', 'group') %>
+
+<div id="main">
+  <div class="container">
+    <%= render 'public/flash_notice' %>
+
+    <div class="topic-list">
+      <ul>
+        <% @activities.each_with_index do |activity, i| %>
+          <%= li_css(i) %>
+          <h2><%= link_to activity.title, activity_path(activity) %></h2>
+
+          <div class="content">
+            <p>
+              <%= h format_content(activity.content) %>
+            </p>
+          </div>
+          <div class="topic-footer">
+            <div class="user">
+              <a href="/users/<%= activity.user.id %>" class="ava">
+                <% if activity.user.icon.exists? %>
+                  <%= image_tag activity.user.icon.url(:thumb), alt: activity.user.nickname %>
+                <% else %>
+                  <% image_tag 'avatar.jpg', alt: activity.user.nickname %>
+                <% end %>
+              </a>
+              <div class="info">
+                <%= link_to activity.user.nickname, activity.user %>
+                <p>
+                  <%= timeago_tag activity.created_at, nojs: true, limit: 10.day.ago %>
+                <p>
+              </div>
+            </div>
+
+            <div class="counter">
+              <span title="浏览" class="viewer-num"><i class="ico"></i><span><%= activity.hit_num %></span></span>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

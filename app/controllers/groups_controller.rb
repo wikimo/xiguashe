@@ -30,6 +30,7 @@ class GroupsController < ApplicationController
 
     #used in select
     @categories_array = Category.find(:all, :conditions => ['is_use = ?', true ]).collect {|c| [c.name, c.id]}
+    p @categories_array
   end
 
   def create

@@ -1,4 +1,25 @@
 # coding: utf-8
+# == Schema Information
+#
+# Table name: topics
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  content    :text
+#  user_id    :integer          default(0)
+#  username   :string(255)
+#  hit_num    :integer          default(0)
+#  reply_num  :integer          default(0)
+#  state      :integer          default(0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  group_id   :integer          default(0)
+#  ip         :string(255)      default("")
+#  like_num   :integer          default(0), not null
+#  types      :integer          default(1)
+#  score      :decimal(18, 5)   default(0.0)
+#
+
 
 class Topic < ActiveRecord::Base
 	

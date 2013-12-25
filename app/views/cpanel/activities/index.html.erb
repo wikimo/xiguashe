@@ -1,0 +1,42 @@
+<%= render 'public/flash_notice' %>
+
+<%= link_to '新增活动', new_cpanel_activity_path, class: 'btn btn-primary'%>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= check_box_tag 'checkbox_all' %></th>
+      <th>活动名称</th>
+      <th>查看数</th>
+      <th>创建者</th>
+      <th>创建时间</th>
+      <th>最后更新时间</th>
+      <th>是否可用</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= check_box_tag 'checkbox_name', activity.id %></td>
+        <td><%= truncate activity.title, length: 20 %></td>
+        <td><%= activity.hit_num %></td>
+        <td><%= activity.user.nickname %></td>
+        <td><%= format_datetime activity.created_at, '%Y-%m-%d %H:%M' %></td>
+        <td><%= format_datetime activity.updated_at, '%Y-%m-%d %H:%M' %></td>
+        <td>
+          <% if activity.status == 0 %>
+            不可用
+          <% elsif activity.status == 1 %>
+            可用
+          <% end %>
+        </td>
+        <td>
+          <%= link_to '查看', cpanel_activity_path(activity) %>
+          <%= link_to '修改', edit_cpanel_activity_path(activity) %>
+          <%= link_to '删除', [:cpanel, activity], confirm: '确认删除？', method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

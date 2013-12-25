@@ -1,0 +1,45 @@
+
+<%= form_for [:cpanel, @activity], html: { class: 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :标题, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, value: @activity.title %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :省, class: "control-label" %>
+    <div class="controls">
+      <%= f.select :province, @province %>
+    </div>
+    <%= f.label :市, class: "control-label" %>
+    <div class="controls">
+      <%= f.select :city, @city %>
+    </div>
+    <%= f.label :区, class: "control-label"%>
+    <div class="controls">
+      <%= f.select :area, @area %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :内容, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :content, cols: 100, rows: 10, value: @activity.content %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :主图, class: "control-label" %>
+    <div class="controls">
+      <a class="btn-add-pic" href="javascript:void(0);">
+        <%= f.file_field :icon, class: 'file-prew', title: '支持jpg、jpeg、gif、png格式，文件小于5M' %>
+      </a>
+      <% if @activity.icon.exists? %>
+        <%= image_tag @activity.icon.url(:original), alt: @acitivity.title %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+      <%= button_tag "提交", class: 'btn btn-large' %>
+  </div>
+<% end %>

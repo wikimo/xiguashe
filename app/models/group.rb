@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: groups
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  descrip         :string(255)
+#  topic_num       :integer          default(0)
+#  member_num      :integer          default(0)
+#  orderby         :integer          default(0)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  icon_file_name  :string(255)
+#  icon_updated_at :datetime
+#  state           :boolean          default(FALSE)
+#  category_id     :integer
+#
+
 class Group < ActiveRecord::Base
   
 	self.per_page = 30
