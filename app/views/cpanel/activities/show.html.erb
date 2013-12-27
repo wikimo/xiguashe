@@ -1,0 +1,15 @@
+<div class="hero-unit">
+  <h1><%= @activity.title %></h1>
+  <p>
+    <%= image_tag @activity.icon.url(:original) %>
+  </p>
+  <p>
+    <%= location_helper(@activity) %>
+  </p>
+  <p>
+    <%= @activity.content %>
+  </p>
+  <p>
+    <%= link_to '返回', cpanel_activities_path, class:'btn btn-primary' %>
+  </p>
+</div>

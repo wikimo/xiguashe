@@ -10,9 +10,7 @@
 #  reply_num       :integer          default(0)
 #  status          :integer          default(1)
 #  from_url        :string(255)
-#  province        :string(255)
-#  city            :string(255)
-#  area            :string(255)
+#  location        :string(255)
 #  user_id         :integer
 #  icon_file_name  :string(255)
 #  icon_updated_at :datetime
@@ -22,7 +20,7 @@
 
 class Activity < ActiveRecord::Base
 
-  attr_accessible :title, :content, :province, :city, :area, :icon
+  attr_accessible :title, :content, :location, :icon
 
   self.per_page = 20
 

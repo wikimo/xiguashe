@@ -11,6 +11,7 @@
           <%= li_css(i) %>
           <h2><%= link_to activity.title, activity_path(activity) %></h2>
 
+          <%= image_tag activity.icon.url(:original) %>
           <div class="content">
             <p>
               <%= h format_content(activity.content) %>

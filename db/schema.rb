@@ -21,9 +21,7 @@ ActiveRecord::Schema.define(:version => 20131224111340) do
     t.integer  "reply_num",       :default => 0
     t.integer  "status",          :default => 1
     t.string   "from_url"
-    t.string   "province"
-    t.string   "city"
-    t.string   "area"
+    t.string   "location"
     t.integer  "user_id"
     t.string   "icon_file_name"
     t.datetime "icon_updated_at"
