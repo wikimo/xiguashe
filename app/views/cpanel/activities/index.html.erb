@@ -9,6 +9,7 @@
       <th>活动名称</th>
       <th>查看数</th>
       <th>创建者</th>
+      <th>活动开始时间</th>
       <th>创建时间</th>
       <th>最后更新时间</th>
       <th>是否可用</th>
@@ -22,6 +23,7 @@
         <td><%= truncate activity.title, length: 20 %></td>
         <td><%= activity.hit_num %></td>
         <td><%= activity.user.nickname %></td>
+        <td><%= format_datetime activity.activity_created_at, '%Y-%m-%d %H:%M' %></td>
         <td><%= format_datetime activity.created_at, '%Y-%m-%d %H:%M' %></td>
         <td><%= format_datetime activity.updated_at, '%Y-%m-%d %H:%M' %></td>
         <td>
@@ -40,3 +42,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="paginate-right-position">
+    <%= will_paginate @activities, previous_label: '上一页', next_label: '下一页' %>
+</div>

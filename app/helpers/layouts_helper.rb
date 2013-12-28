@@ -28,10 +28,16 @@ module LayoutsHelper
     end
 
     if controller_name == 'recommend' && action == 'topic'
-        html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path,:class => 'active')))
-      else
-        html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path)))
-      end
+      html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path,:class => 'active')))
+    else
+      html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path)))
+    end
+    
+    if controller_name == 'activities' && action == 'index'
+      html.concat(content_tag(:li, content_tag(:a, '活动', :href => activities_path, :class => "active" )))
+    else
+      html.concat(content_tag(:li, content_tag(:a, '活动', :href => activities_path)))
+    end
 
     if current_user
       

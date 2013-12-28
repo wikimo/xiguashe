@@ -2,27 +2,29 @@
 #
 # Table name: activities
 #
-#  id              :integer          not null, primary key
-#  title           :string(255)
-#  content         :string(255)
-#  hit_num         :integer          default(0)
-#  like_num        :integer          default(0)
-#  reply_num       :integer          default(0)
-#  status          :integer          default(1)
-#  from_url        :string(255)
-#  location        :string(255)
-#  user_id         :integer
-#  icon_file_name  :string(255)
-#  icon_updated_at :datetime
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  title               :string(255)
+#  content             :string(255)
+#  hit_num             :integer          default(0)
+#  like_num            :integer          default(0)
+#  reply_num           :integer          default(0)
+#  status              :integer          default(1)
+#  from_url            :string(255)
+#  location            :string(255)
+#  user_id             :integer
+#  activity_created_at :datetime
+#  icon_file_name      :string(255)
+#  icon_updated_at     :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 class Activity < ActiveRecord::Base
 
-  attr_accessible :title, :content, :location, :icon
+  attr_accessible :title, :content, :location, 
+                  :icon, :activity_created_at, :hit_num
 
-  self.per_page = 20
+  self.per_page = 30
 
   validates :title, presence: true, length: { maximum: 140 } 
   validates :content, presence: true

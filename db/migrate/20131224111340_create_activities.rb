@@ -10,6 +10,7 @@ class CreateActivities < ActiveRecord::Migration
       t.string   :from_url
       t.string   :location
       t.integer  :user_id
+      t.datetime :activity_created_at
       t.string   :icon_file_name
       t.datetime :icon_updated_at
 

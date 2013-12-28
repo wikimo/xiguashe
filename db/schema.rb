@@ -16,17 +16,18 @@ ActiveRecord::Schema.define(:version => 20131224111340) do
   create_table "activities", :force => true do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "hit_num",         :default => 0
-    t.integer  "like_num",        :default => 0
-    t.integer  "reply_num",       :default => 0
-    t.integer  "status",          :default => 1
+    t.integer  "hit_num",             :default => 0
+    t.integer  "like_num",            :default => 0
+    t.integer  "reply_num",           :default => 0
+    t.integer  "status",              :default => 1
     t.string   "from_url"
     t.string   "location"
     t.integer  "user_id"
+    t.datetime "activity_created_at"
     t.string   "icon_file_name"
     t.datetime "icon_updated_at"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "categories", :force => true do |t|

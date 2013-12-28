@@ -1,9 +1,14 @@
 
 <%= form_for [:cpanel, @activity], html: { class: 'form-horizontal' } do |f| %>
   <div class="control-group">
+    <div class="controls">
+      <h2><%= title_tag(params[:action]) %></h2>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :标题, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :title, value: @activity.title %>
+      <%= f.text_field :title, value: @activity.title, class: 'input-xxlarge' %>
     </div>
   </div>
   
@@ -14,9 +19,15 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :活动开始时间, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :activity_created_at, value: @activity.activity_created_at, class: 'form_datetime', readonly:'true'%>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :内容, class: "control-label" %>
     <div class="controls">
-      <%= f.text_area :content, cols: 100, rows: 10, value: @activity.content %>
+      <%= f.text_area :content, rows: 10, value: @activity.content %>
     </div>
   </div>
   <div class="control-group">
@@ -25,13 +36,20 @@
       <a class="btn-add-pic" href="javascript:void(0);">
         <%= f.file_field :icon, class: 'file-prew', title: '支持jpg、jpeg、gif、png格式，文件小于5M' %>
       </a>
+    </div>
+    <div class="controls">
       <% if @activity.icon.exists? %>
-        <%= image_tag @activity.icon.url(:original), alt: @acitivity.title %>
+        <%= image_tag @activity.icon.url(:original), alt: @activity.title %>
       <% end %>
     </div>
   </div>
 
   <div class="form-actions">
       <%= button_tag "提交", class: 'btn btn-large' %>
+      <%= link_to '返回', cpanel_activities_path, class: 'btn btn-large' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
+</script>
