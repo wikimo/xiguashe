@@ -43,7 +43,7 @@ class Activity < ActiveRecord::Base
                     :whiny => false
 
   scope :order_by_created_at_desc, order('created_at DESC') 
-
+  scope :status_can_use, where('status = 1')
  
 
 end

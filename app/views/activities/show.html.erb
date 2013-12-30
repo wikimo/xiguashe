@@ -8,7 +8,7 @@
           <%if @activity.user.icon.exists? %>
             <%= image_tag @activity.user.icon.url(:medium), alt: @activity.user.nickname %>
           <% else %>
-            <%= iamge_tag 'avatar.jpg', alt: @activities.user.nickname %>
+            <%= image_tag 'avatar.jpg', alt: @activity.user.nickname %>
           <% end %>
         </div>
         <div class="topic-box">

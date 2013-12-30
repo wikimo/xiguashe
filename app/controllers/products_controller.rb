@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
 		if @product.save
 			@product
-		else 
+		else
 			nil
 		end
 	end
