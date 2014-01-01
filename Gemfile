@@ -58,6 +58,7 @@ gem "TaoBaoApi", "~> 0.0.3"
 
 # API
 gem 'grape', github: 'intridea/grape'
+gem 'grape-entity', github: 'intridea/grape-entity'
 
 group :development do
   gem 'annotate', '2.5.0'
