@@ -43,7 +43,12 @@
       <% end %>
     </div>
   </div>
-
+  <div class="control-group">
+    <%= f.label :来源, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :from_url, value: @activity.from_url, class: 'input-xxlarge' %>
+    </div>
+  </div>
   <div class="form-actions">
       <%= button_tag "提交", class: 'btn btn-large' %>
       <%= link_to '返回', cpanel_activities_path, class: 'btn btn-large' %>

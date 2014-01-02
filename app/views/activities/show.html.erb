@@ -27,6 +27,9 @@
           <div class="content">
             <%= raw @activity.content %>
           </div>
+          <div>
+            <%= link_to '查看来源', @activity.from_url %>
+          </div>
         </div>
       </div>
     </div>

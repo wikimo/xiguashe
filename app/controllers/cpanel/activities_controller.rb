@@ -2,7 +2,7 @@
 class Cpanel::ActivitiesController < Cpanel::ApplicationController
   
   before_filter :location, only: [:new, :edit]
-  before_filter :find_activity, only: [:show, :edit, :update, :destroy]
+  before_filter :find_activity, only: [:show, :edit, :update, :destroy, :status]
 
   def index
     @activities = Activity.order_by_created_at_desc.paginate(page:params[:page], per_page: Activity.per_page || 30)
@@ -42,6 +42,20 @@ class Cpanel::ActivitiesController < Cpanel::ApplicationController
   def destroy
     @activity.destroy
     redirect_to cpanel_activities_path, notice: t(:delete_success)
+  end
+
+  def status
+    if @activity.status == 0
+      @activity.status = 1
+    elsif @activity.status == 1
+      @activity.status = 0
+    end
+
+    if @activity.save
+      redirect_to cpanel_activities_path, notice: t(:update_success)
+    else
+      redirect_to cpanel_activities_path, notice: t(:update_failed)
+    end
   end
 
   private 

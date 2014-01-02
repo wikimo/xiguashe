@@ -22,7 +22,8 @@
 class Activity < ActiveRecord::Base
 
   attr_accessible :title, :content, :location, 
-                  :icon, :activity_created_at, :hit_num
+                  :icon, :activity_created_at, :hit_num,
+                  :from_url
 
   self.per_page = 30
 

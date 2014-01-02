@@ -119,7 +119,11 @@ Xiguashe::Application.routes.draw do
     resources :users do
     end
 
-    resources :activities 
+    resources :activities do
+      member do
+        get :status
+      end
+    end
   end
   
   mount API => '/'
