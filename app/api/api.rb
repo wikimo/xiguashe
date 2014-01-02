@@ -1,4 +1,4 @@
 class API < Grape::API
   prefix 'api'
-  mount Acme::Ping
+  mount Acme::ActivityAPI
 end
