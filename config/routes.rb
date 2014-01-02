@@ -1,7 +1,5 @@
 Xiguashe::Application.routes.draw do
 
-  require 'api'
-
   get "recommend/topic" => "recommend#topic"
 
   get "recommend/user" => "recommend#user"
@@ -124,9 +122,7 @@ Xiguashe::Application.routes.draw do
     resources :activities 
   end
   
-  get "api" => "home#api", as: 'api'
-
-  mount Xiguashe::API => '/'
+  mount API => '/'
 
   root :to => 'recommend#topic'
 
