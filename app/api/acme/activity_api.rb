@@ -17,6 +17,10 @@ module Acme
       get :show do
         @activity = Activity.find params[:id]
       end
+      
+      get :two_week_before_and_no_ended do
+        @activities = Activity.two_week_before(14.days.ago).no_ended(Time.zone.now).paginate(page:params[:page], per_page:params[:per_page])
+      end
 
     end
   end
