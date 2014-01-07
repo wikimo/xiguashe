@@ -52,5 +52,7 @@ class Activity < ActiveRecord::Base
   scope :two_week_before, lambda { |time| where( "activity_created_at > ?", time ) }  
 
   scope :no_ended, lambda { |time| where("activity_ended_at > ? ", time) }
+  
+  scope :location, lambda { |location| where("location = ?", location) }
 
 end
