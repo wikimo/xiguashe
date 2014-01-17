@@ -4,10 +4,16 @@
     <%= image_tag @activity.icon.url(:original) %>
   </p>
   <p>
-    <%= location_helper(@activity) %>
+    所在区域：<%= location_helper(@activity) %>
   </p>
   <p>
-    <%= @activity.activity_created_at %>
+    详细地址：<%= @activity.address %>
+  </p>
+  <p>
+    活动开始时间：<%= @activity.activity_created_at %> 
+  </p>
+  <p>
+    活动结束时间：<%= @activity.activity_ended_at %>
   </p>
   <p>
     <%= @activity.content %>

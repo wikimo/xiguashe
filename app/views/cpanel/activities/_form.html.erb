@@ -18,10 +18,22 @@
       <%= f.select :location, @location %>
     </div>
   </div>
+  <div  class="control-group">
+    <%= f.label :详细地址, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :address, value: @activity.address, class: 'input-xxlarge' %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :活动开始时间, class: "control-label" %>
     <div class="controls">
       <%= f.text_field :activity_created_at, value: @activity.activity_created_at, class: 'form_datetime', readonly:'true'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :活动结束时间, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :activity_ended_at, vaule: @activity.activity_ended_at, class: 'form_datetime', readonly: 'true' %>
     </div>
   </div>
   <div class="control-group">
@@ -43,7 +55,12 @@
       <% end %>
     </div>
   </div>
-
+  <div class="control-group">
+    <%= f.label :来源, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :from_url, value: @activity.from_url, class: 'input-xxlarge' %>
+    </div>
+  </div>
   <div class="form-actions">
       <%= button_tag "提交", class: 'btn btn-large' %>
       <%= link_to '返回', cpanel_activities_path, class: 'btn btn-large' %>
@@ -51,5 +68,5 @@
 <% end %>
 
 <script type="text/javascript">
-  $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii'});
+  $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd'});
 </script>

@@ -27,16 +27,13 @@
         <td><%= format_datetime activity.created_at, '%Y-%m-%d %H:%M' %></td>
         <td><%= format_datetime activity.updated_at, '%Y-%m-%d %H:%M' %></td>
         <td>
-          <% if activity.status == 0 %>
-            不可用
-          <% elsif activity.status == 1 %>
-            可用
-          <% end %>
+          <%= status_tag(activity.status, "不可用", "可用")%>
         </td>
         <td>
           <%= link_to '查看', cpanel_activity_path(activity) %>
           <%= link_to '修改', edit_cpanel_activity_path(activity) %>
           <%= link_to '删除', [:cpanel, activity], confirm: '确认删除？', method: :delete %>
+          <%= link_to status_tag(activity.status, "置为可用", "置为不可用"), status_cpanel_activity_path(activity) %>
         </td>
       </tr>
     <% end %>

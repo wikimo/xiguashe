@@ -56,6 +56,9 @@ gem 'capistrano'
 
 gem "TaoBaoApi", "~> 0.0.3"
 
+# API
+gem 'grape', git: 'https://github.com/intridea/grape.git'
+
 group :development do
   gem 'annotate', '2.5.0'
 end

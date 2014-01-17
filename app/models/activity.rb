@@ -17,12 +17,15 @@
 #  icon_updated_at     :datetime
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  address             :string(255)
+#  activity_ended_at   :datetime
 #
 
 class Activity < ActiveRecord::Base
 
   attr_accessible :title, :content, :location, 
-                  :icon, :activity_created_at, :hit_num
+                  :icon, :activity_created_at, :hit_num,
+                  :from_url, :activity_ended_at, :address
 
   self.per_page = 30
 
@@ -44,6 +47,12 @@ class Activity < ActiveRecord::Base
 
   scope :order_by_created_at_desc, order('created_at DESC') 
 
- 
+  scope :status_can_use, where('status = 1')
+
+  scope :two_week_before, lambda { |time| where( "activity_created_at > ?", time ) }  
+
+  scope :no_ended, lambda { |time| where("activity_ended_at > ? ", time) }
+  
+  scope :location, lambda { |location| where("location = ?", location) }
 
 end
