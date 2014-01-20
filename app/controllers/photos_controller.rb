@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	def create
 		@photo = Photo.new init_params(params)
 		if @photo.save
-			render :json  => {:text  => 1,:msg => 'ok',:photo  => @photo.pic.url(:thumb),:id  => @photo.id}
+			render :json  => {:text  => 1,:msg => 'ok',:photo  => @photo.path.url('100x100'),:id  => @photo.id}
 		else
 			render :json => {:text  => 0,:msg => 'fail'}
 		end
@@ -38,6 +38,7 @@ class PhotosController < ApplicationController
 	        h[:photo][:user_id] = params[:user_id] 
 	        h[:photo][:pic] = params[:Filedata] 
 	        h[:photo][:pic].content_type = MIME::Types.type_for(h[:photo][:pic].original_filename).to_s
+	        h[:photo][:path] = params[:Filedata] 
 	        h[:photo]
 	      else 
 	        params[:photo]

@@ -63,7 +63,7 @@
         <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
           <% @topic.photos.each do |photo|%>
             <li id="photo-<%= photo.id%>">
-              <%=image_tag photo.pic.url(:thumb)%>
+              <%=image_tag photo.path.url('100x100')%>
               <p>
                 <%= link_to '删除',photo_path(photo),:method => :delete,:remote => true,:confirm => '是否删除？'%>
               </p>
@@ -91,7 +91,7 @@
 <script type="text/javascript">
   $('#photo-list').delegate('img','click',function(){
     var ele =  $(this)
-    img = ele.attr('src').replace('thumb','original');
+    img = ele.attr('src').replace('!100x100','');
     document.execCommand('insertimage', false, img)
     $('.qeditor').val($('.qeditor_preview').html());
   })

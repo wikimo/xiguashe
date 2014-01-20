@@ -62,3 +62,8 @@ gem 'grape', git: 'https://github.com/intridea/grape.git'
 group :development do
   gem 'annotate', '2.5.0'
 end
+
+gem "carrierwave"
+gem "carrierwave-upyun"
+gem "rest-client"
+

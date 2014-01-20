@@ -28,6 +28,8 @@ class Photo < ActiveRecord::Base
             :url => '/attachment/:class/:month_partition/:style/:id_:basename.:extension',
             :path =>':rails_root/public/attachment/:class/:month_partition/:style/:id_:basename.:extension'
 
+    mount_uploader :path, ImageUploader        
+
     before_post_process :rename_photo
     
     private

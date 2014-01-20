@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
 	validates :password,:length  => {:minimum  => 6,:maximum  => 15}, :if => lambda{ new_record? || !password.nil? }
 	validates_confirmation_of :password
 
+	mount_uploader :avatar, ImageUploader
 	has_attached_file :icon, 
 					  :styles => {
 						            :thumb  => "50X50>",

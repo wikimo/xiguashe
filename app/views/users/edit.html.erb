@@ -35,7 +35,7 @@
           <label for="" class="control-label">用户头像</label>
           <div class="controls">
             <a class="btn-add-pic" href="javascript:void(0);"><span><em>+</em>选择头像</span> 
-              <%= f.file_field :icon, :class => 'file-prew',:title=>'支持jpg、jpeg、gif、png格式，文件小于5M' %>
+              <%= f.file_field :avatar, :class => 'file-prew',:title=>'支持jpg、jpeg、gif、png格式，文件小于5M' %>
               </a>
               <%= hidden_field_tag 'do', 'avatar' %>
           </div>

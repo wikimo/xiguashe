@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140106214234) do
+ActiveRecord::Schema.define(:version => 20140117085537) do
 
   create_table "activities", :force => true do |t|
     t.string   "title"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20140106214234) do
     t.integer  "photoable_id"
     t.string   "photoable_type"
     t.integer  "user_id"
+    t.string   "path"
   end
 
   create_table "products", :force => true do |t|
@@ -186,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20140106214234) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "avatar"
   end
 
 end

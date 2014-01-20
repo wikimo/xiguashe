@@ -1,7 +1,7 @@
 <div class="user-box">
 	<div class="avatar">
-	  <%if @user.icon.exists? %>
-        <%= image_tag @user.icon.url(:medium) ,:alt => @user.nickname%>
+	  <%if !@user.avatar.nil? %>
+       <%= image_tag(@user.avatar.url('100x100'))%>
       <%else%>
         <%= image_tag 'avatar.png' ,:alt => @user.nickname%>
       <%end%>
