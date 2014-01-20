@@ -71,7 +71,8 @@ class Topic < ActiveRecord::Base
 		end
 
 		def recommend(page = 1, per_page = 20)
-			self.order_by_score_desc.paginate(page: page, per_page: per_page)
+			# self.order_by_score_desc.paginate(page: page, per_page: per_page)
+			self.order_by_created_at_desc.paginate(page: page, per_page: per_page)
 		end
 
 		def recommend_user_topic(ids, page = 1, per_page = 20)
