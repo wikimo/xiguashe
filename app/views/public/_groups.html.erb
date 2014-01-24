@@ -2,8 +2,8 @@
 <% groups.each_with_index do |group,i| %>
 	<%= li_css(i,3) %>
 		<a href="/groups/<%= group.id%>/topics" class="grp-icon">
-		<% if group.icon.exists? %>
-					<%= image_tag group.icon.url(:original) %>
+		<% if !group.ico.nil? %>
+					<%= image_tag group.ico.url('100x100') %>
 				<% else %>
 					<%= image_tag 'no_pic.png' %>
 				<% end %>	

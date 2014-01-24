@@ -7,8 +7,8 @@
 	<div class="comm-left">
 		<div class="group-info cc">
 			<div class="group-logo">
-				<% if @group.icon.exists? %>
-					<%= link_to (image_tag @group.icon.url(:original), :alt => @group.name), @group %>
+				<% if !@group.ico.nil? %>
+					<%= link_to (image_tag @group.ico.url('100x100'), :alt => @group.name), @group %>
 				<% else %>
 					<%= link_to (image_tag 'g.jpg', :alt => @group.name), @group %>  
 				<% end -%>

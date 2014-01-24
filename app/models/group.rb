@@ -39,6 +39,8 @@ class Group < ActiveRecord::Base
 								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
                 :whiny => false
 
+    mount_uploader :ico, ImageUploader             
+
 
     scope :using_groups, where('state = true')
 

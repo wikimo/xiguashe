@@ -37,7 +37,7 @@ class PhotosController < ApplicationController
 	        h[:photo] = Hash.new 
 	        h[:photo][:user_id] = params[:user_id] 
 	        h[:photo][:pic] = params[:Filedata] 
-	        h[:photo][:pic].content_type = MIME::Types.type_for(h[:photo][:pic].original_filename).to_s
+	        h[:photo][:pic].content_type = MIME::Types.type_for(h[:photo][:pic].original_filename).first
 	        h[:photo][:path] = params[:Filedata] 
 	        h[:photo]
 	      else 
