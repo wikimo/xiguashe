@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user,:current_logined?
 
+
   def render_404
     render_optional_error_file(404)
   end
