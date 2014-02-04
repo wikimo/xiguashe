@@ -4,10 +4,11 @@
 
   <title>
   <%if !@topic.nil?%><%=@topic.title%>_<%end%>
-    <%= t(:web_title)%></title>
+  <%= t(:web_title)%></title>
   <meta name="description" content="西瓜社是一个针对年轻父母交流育儿，早教，亲子等相关信息的社区，通过该平台分享孩子生活的点滴，交流相关经验，分享亲子相关的一些兴趣爱好，帮助年轻父母解决孩子成长过程中的一系列问题" />
   <meta name="keywords" content="亲子,西瓜社,育儿,孕期" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "application" %>
   <%= yield :head %>

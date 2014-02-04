@@ -10,8 +10,6 @@
 				<label class="control-label" >评论内容：</label>
 				<div class="controls">
 					<%=f.hidden_field :user_id, :id=> 'user_id', :value => current_user.id %>
-					<%= f.hidden_field :topic_id, :id => 'topic_id', :value => item.id %>
-          			<%= f.hidden_field :current_nickname, :id => 'current_nickname', :value => current_user.nickname %>
 					<%= f.text_area :content, :id => "comment-textarea", :rows => 5,:cols => 50, :class => "span5", :placeholder => "限500字以内..."%>
 				</div>
 			</div>

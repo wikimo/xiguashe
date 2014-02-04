@@ -19,20 +19,20 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
   
-	belongs_to :commentable, :polymorphic => true
+	belongs_to :commentable, polymorphic: true
 
 	belongs_to :user
 
-	belongs_to :parent, :class_name => "Comment"
+	belongs_to :parent, class_name: "Comment"
 
-	has_many   :replies,  :class_name => "Comment", :foreign_key => "reply_parent_id"
+	has_many   :replies,  class_name: "Comment", foreign_key: "reply_parent_id"
 
+	has_many :notifications, as: :notificationable, dependent: :destroy
 
-	has_many :notifications, :as => :notificationable, :dependent => :destroy
-
-	scope :order_by_created_at_desc, order('created_at DESC')
+	default_scope  order: 'created_at ASC'
 
 	after_create :send_comment_notification
+
 	before_create :filter_at
 
 	def filter_at
@@ -77,17 +77,11 @@ class Comment < ActiveRecord::Base
 
 
 	def match_user_test(str)
-
 		arr = str.scan(/@([\p{Han}+\w]{2,20}\s)/u).flatten
-
 	end
-
 
 	class << self
 
-		def order_desc_by_created_at(page = 1, per_page = 20)
-			self.order_by_created_at_desc.paginate(:page => page, :per_page => per_page)
-		end
 
 	end
 	

@@ -1,53 +1,24 @@
-<!-- stylesheet('bootstrap','style','group')-->
+<div class="home_index">
+  <div class="row">
 
-<div class="reg-login-wrap">
-	<div class="anony-reg cc">
-		<div class="index-reg">
-	        <%= link_to '加入我们',reg_path,:class => 'lnk-reg'%>
-	        <b>发现小时候 ...</b>
-	    </div>
+    <div class="col-xs-12 col-md-8">
+      <div class="topic-list">
+        <h3>最新话题...</h3>
+        <ul>
+          <%= render partial: "public/topics", collection: @topics, as: :topic %>
+        </ul>
+        <%= link_to '显示更多...', topics_path, class: 'more' %>
+      </div>
+    </div>
 
-	    <div class="index-login">
-			<%= form_tag  sessions_path  do %>
-				<div class="control-group">
-					<div class="controls">
-					<input type="text" class="input-medium" placeholder="邮件地址" name="email" tabIndex="1">
-					<p class="help-block"> <input type="checkbox" name="remember_me" checked> 记住我</p>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<div class="controls">
-					<input type="password" class="input-medium" placeholder="密码" name="password" tabIndex="2">
-					<p class="help-block"> 
-						<%= link_to '忘记密码',new_password_reset_path%>
-					</p>
-					</div>
-				</div>
- 
-  				<button type="submit" class="btn btn-success" tabIndex="3">登录</button>
-		    <% end %>
-		</div>
-
-	</div>
-</div>
-
-<div id="main">
-	
-	<div  class="container">
-
-		<div class="title-box">
-			<h4>正在发生 ...</h4>
-		</div>
-		<div class="topics">
-		<%= render :partial => 'public/topics',:locals  => { :topics  => @recent_topics, :is_topics => false }%>
-		</div>
-
-		<div class="title-box">
-			<h4>大家喜欢 ...</h4>
-		</div>
-		<div class="topics">
-		<%= render :partial => 'public/topics',:locals  => { :topics  => @like_topics, :is_topics => false }%>
-		</div>
-	</div>
+    <div class="col-xs-6 col-md-4">
+      <div class="good-list">
+        <h3>最新分享...</h3>
+				<ul>
+          <%= render partial: "products", collection: @products, as: :product %>
+        </ul>
+        <%= link_to '显示更多...', products_path, class: 'more' %>
+      </div>
+    </div>
+  </div>
 </div>

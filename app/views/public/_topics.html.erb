@@ -1,45 +1,26 @@
-<div class="topic-list">
-	<ul>
-		<% topics.each_with_index do |topic, i| %>
-			<%= li_css(i)%>
-			<h2><%= link_to topic.title,topic_path(topic)%></h2>
-			<div class="content">
-			
-			<p>
-				
-				<%=h format_content(topic.content)%>
-			</p>
+<li>
+  <article>
+    <h2><%= link_to topic.title, topic %></h2>
+      <div class="ua">
+         <%= link_to topic.user.nickname, topic.user, class: "username" %>
+         <%= user_avatar_helper(topic.user) %> 
 			</div>
-			
-			<div class="topic-footer">
-
-				<div class="user">
-					<a href="/users/<%= topic.user.id%>" class="ava">
-						<% if !topic.user.avatar.nil?  %>
-				        	<%= image_tag topic.user.avatar.url('100x100') ,:alt => topic.user.nickname %>
-				      	<% else %>
-				        	<%= image_tag 'avatar.jpg' ,:alt => topic.user.nickname %>
-				      	<% end %>
-			        </a>
-					<div class="info">
-						<%= link_to topic.user.nickname, topic.user %>
-						<% if !is_topics %>
-							发表在 <%= link_to topic.group.name,group_topics_path(topic.group) %>
-						<% end -%>
-
-						<p><%= timeago_tag topic.created_at, :nojs => true, :limit => 10.day.ago %></p>
-					</div>
-				</div>
-
-				<div class="counter">
-					<span title="浏览" class="viewer-num"><i class="ico"></i><span><%= topic.hit_num %></span></span>
-					<span title="评论" class="comments-num"><i class="ico"></i><span><%= topic.reply_num %></span></span>
-					<span title="喜欢" class="liked-num"><i class="ico"></i><span><%= topic.like_num %></span></span>
-				</div>
-				<div class="c"></div>
-			</div>
-			</li>
-		<% end %>
-	</ul>
-	
-</div>
+      <p>
+         <%= h format_content(topic.content, 200) %>
+      </p>
+      <div class="article-info">
+				<span><i class="glyphicon glyphicon-eye-open"></i>
+          <%= topic.hit_num %>
+        </span>
+				<span><i class="glyphicon glyphicon-comment"></i>
+          <%= topic.reply_num %>
+        </span>
+				<span><i class="glyphicon glyphicon-heart"></i>
+          <%= topic.like_num %>
+        </span>
+        <cite class="pull-right">
+          <%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %>
+        </cite>
+		 </div>
+  </article>
+</li>

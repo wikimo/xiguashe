@@ -1,97 +1,26 @@
+<div class="container">
+  <div class="topic">
+    <p>
+      <%= user_avatar_helper(@topic.user) %>
+      <%= @topic.user.nickname %>
+    </p>
+    <p>
+      <%= raw @topic.content %>
+    </p>
+    <p>
+      <%= timeago_tag @topic.created_at, nojs: true, limit: 10.day.ago %>
+    </p>
+  </div>
 
-
-<div id="main">
-	<div  class="container">
-
-		<%= render 'public/flash_notice' %>
-		
-		<div class="comm-left">
-				<div class="tr-item cc">
-					<div class="avatar">
-						<%if !@topic.user.avatar.nil? %>
-				        <%= image_tag @topic.user.avatar.url('100x100') ,:alt => @topic.user.nickname%>
-				      <%else%>
-				        <%= image_tag 'avatar.png' ,:alt => @topic.user.nickname%>
-				      <%end%>
-					</div>
-					<div class="topic-box">
-						<h1><%=@topic.title%></h1>
-					
-						<div class="topic-info">
-							<p><a href=""><%= @topic.user.nickname %></a> 发表于：<%= timeago_tag @topic.created_at, :nojs => true, :limit => 10.days.ago %>
-
-							<% if !current_user.nil? && current_user.id == @topic.user.id %>
-								<%= link_to '编辑',  edit_topic_path(@topic) %>
-							<% end -%>
-							</p>
-						</div>
-						<div class="c"></div>
-						<div class="content">
-							<%=raw @topic.content%>
-						</div>
-						<div class="c"></div>
-
-						
-						
-						<%= likeable_tag(@topic) %>
-
-
-					</div>
-					
-					<% @topic.products.each do |product| %>
-							<div class="product-list">
-								<%= image_tag product.img, alt:product.title %>
-								<div class="product-info">
-									<h4><%= link_to product.title ,product.url,:target => '_blank'%></h4>
-									<div class="price-info">
-									<span>售价:<%= number_to_currency product.price, unit: "￥"%></span>
-									</div>
-									
-									<%= link_to '去购买', product.url, class:'btn btn-primary',:target => '_blank' %>
-										
-									
-									
-								</div>
-								
-								
-							</div>
-						<% end -%>
-
-				</div>
-
-				<%= render 'comments/comments' %>
-
-				<div class="paginate-right-position">
-					<%= will_paginate @comments, :previous_label =>'上一页', :next_label => '下一页' %>
-				</div>
-
-				<%= render 'comments/new_comment', :item => @topic %>
-
-
-			</div>
-
-			
-
-		<div class="comm-right">
-			<div class="fixed">
-				<div class="post-return cc">
-					<%= link_to '发表话题', new_group_topic_path(@group),:class => 'post-btn'%>
-					<%= link_to '返回小组', group_topics_path(@topic.group)%></div>
-				<div class="other-topics">
-					<h4>你可能感兴趣...</h4>
-					<ul>
-						<% @user_topics.each do |user_topic| %>
-							<li>
-								<%= link_to user_topic.title, user_topic %>
-								
-								
-								<p>来自 <%= link_to @user.nickname, @user %></p>
-
-							</li>
-						<% end -%>
-					</ul>
-				</div>
-			</div>
-		</div>	
-	</div>
+  <p>
+    <h3>评论...</h3>
+  </p>
+  <div class="comments">
+    <%= render partial: 'comments/comments', collection: @comments, as: :comment %>
+    <%= will_paginate @comments %>
+  </div>
+  <div class="new-comment">
+    <%= render partial: 'comments/new_comment', locals: { item: @topic } %>
+  </div>
 </div>
+
