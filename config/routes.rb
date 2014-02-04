@@ -1,11 +1,5 @@
 Xiguashe::Application.routes.draw do
 
-  get "recommend/topic" => "recommend#topic"
-
-  get "recommend/user" => "recommend#user"
-
-  get "recommend/group" => "recommend#group"
-
   get 'about' => 'home#about'
   get 'contact' => 'home#contact'
   get 'links' => 'home#links'
@@ -128,6 +122,6 @@ Xiguashe::Application.routes.draw do
   
   mount API => '/'
 
-  root :to => 'recommend#topic'
+  root :to => 'home#index'
 
 end
