@@ -7,14 +7,20 @@
 3、partial的使用方法：
     以往我们的写法：
     ``
-        index: render partial 'topics', locals: {topics: @topics }
-        _topics: topics.each do |topic|
+        index:
+
+        render partial 'topics', locals: {topics: @topics }
+
+        _topics: 
+
+                topics.each do |topic|
                     topic.title.....
                  end
     ``
     现在的写法：
     ``
         index: render partial: 'topics', collection: @topics, as: :topic
+
         _topics: topic.title.....
     ``
 
