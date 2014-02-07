@@ -6,17 +6,23 @@
 
 3、partial的使用方法：
     以往我们的写法：
+    ``
         index: render partial 'topics', locals: {topics: @topics }
         _topics: topics.each do |topic|
                     topic.title.....
                  end
+    ``
     现在的写法：
+    ``
         index: render partial: 'topics', collection: @topics, as: :topic
         _topics: topic.title.....
+    ``
 
    这样的写法可以少写一条each语句，还可以提升性能。
 
 4、避免n+1次查询
    在查询时若需要获取相关表的数据需：
+   ``
    topics = Topic.includes(:user).scope.....
+   ``
 
