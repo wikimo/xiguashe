@@ -87,26 +87,6 @@
 				</ul>
 			</div>
 		</div>
-
-		<!-- <div class="group-members">
-			<h4>活跃成员</h4>
-			<div class="content cc">
-				<ul>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>
-					<li><a href="">
-						<%= image_tag 'avatar.jpg',:alt => 'wiki' ,:title => 'wiki'%>
-						<p>wiki</p></li>	
-				</ul>
-			</div>
-		</div> -->
         
 		<div class="group-members">
 			<h4>最新加入</h4>
@@ -115,9 +95,9 @@
 					<% if @members != nil %>
 						<% @members.each do |member| %>
 							<li>
-								<% if member.icon.exists? %>
+								<% if !member.avatar.nil? %>
 
-									<%= link_to (image_tag member.icon.url(:thumb),:alt => member.nickname ,:title => member.nickname), member %>
+									<%= link_to (image_tag member.avatar.url('100x100'),:alt => member.nickname ,:title => member.nickname), member %>
 								<% else %>
 									<%= link_to (image_tag 'avatar.jpg' ,:alt => member.nickname), member %>
 
