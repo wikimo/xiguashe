@@ -32,9 +32,9 @@ module ApplicationHelper
 
   def user_avatar_helper(user)
     if user.avatar
-      link_to image_tag(user.avatar.url('100x100'), alt:user.nickname), user, class: 'avatar'
+      image_tag user.avatar.url('100x100'), alt:user.nickname
     else
-      link_to image_tag('avatar.jpg', alt:user.nickname), user, class: 'avatar'
+      image_tag 'avatar.jpg', alt:user.nickname
     end
   end
 

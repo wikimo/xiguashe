@@ -1,13 +1,27 @@
-<div class="home_index">
+<div class="home-index">
   <div class="row">
+
     <div class="col-xs-12 col-md-8">
       <div class="topic-list">
-        <%= link_to '创建话题', new_topic_path, class: 'btn btn-primary' %>
         <ul>
           <%= render partial: "public/topics", collection: @topics, as: :topic %>
         </ul>
       </div>
         <%= will_paginate @topics, previous_label: '上一页', next_label: '下一页' %>
+    </div>
+
+    <div class="col-xs-6 col-md-4">
+      <%= link_to '创建话题', new_topic_path, class: 'btn btn-primary' %>
+      <div class="hot-tags">
+        <h4>热门标签</h4>
+        <a href="">备孕</a>
+				<a href="">早教</a>
+				<a href="">亲子</a>
+				<a href="">产前检查</a>
+				<a href="">奶粉</a>
+				<a href="">疫苗</a>
+				<a href="">预防针</a>
+      </div>
     </div>
   </div>
 </div>

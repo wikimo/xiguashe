@@ -1,18 +1,21 @@
-
-
-<p>
-  <p>
-    <%= user_avatar_helper(comment.user) %>
-  </p>
-  <p><%= raw comment.content %></p>
-  <p>发表于：<%= timeago_tag comment.created_at, nojs: true, limit: 10.day.ago %></p>
-  <p>
-  <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
-              title:  "回复#{comment.user.nickname}", class: 'post-again', 
-              onclick:  "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')") %>
-  </p>
-</p>
-
-
-
-
+<div class="comment-item">
+  <div class="avatar">
+    <%= link_to user_avatar_helper(comment.user), comment.user %>
+  </div>
+  <div class="content">
+    <header>
+      <%= link_to comment.user.nickname, comment.user %>
+      <span>
+        <%= timeago_tag comment.created_at, nojs: true, limit: 10.day.ago %>
+      </span>
+    </header>
+    <p>
+      <%= raw comment.content %>
+    <p>
+    <footer>
+    <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
+                title: "回复#{comment.user.nickname}", class: 'pull-right',
+                onclick: "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')" ) %>
+    </footer>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_filter :logined?, :except => [:create, :new]
   
   def new
-    redirect_to recommend_topic_path if current_logined?
+    redirect_to root_path if current_logined?
   end
 
   def create
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = @user.auth_token  
       end
 
-      redirect_to recommend_topic_path, :notice => t(:login_success)
+      redirect_to root_path, :notice => t(:login_success)
     else
       flash[:notice] =  t(:login_fail)
       render 'new'

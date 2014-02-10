@@ -1,21 +1,49 @@
 a{color: #555}
 body{overflow-x:hidden;background: #EBECED}
 header{margin-bottom: 10px;}
-.home_index{margin: 0 10%;/*padding: 50px 0 0 0*/}
-.search-box{padding:8px 0 0 12px;width: 25%;float: left;display: none;}
 
-.web-title{display: inline;font-size: 20px;line-height: 3em;font-family: "Hiragino Sans GB","Microsoft YaHei",Helvetica,sans-serif;}
+.xgs-row:before,
+.xgs-row:after {
+  display: table;
+  content: " ";
+}
+
+.xgs-row:after {
+  clear: both;
+}
+/*.home-index{margin: 0 10%;}*/
+
 .logo{padding: 5px 10px;float: left;}
 .logo img{width: 40px}
 
 .sub-nav{margin-bottom: 10px;}
+.nav .search-input {float: right;margin:2px 0 0 0;height: 30px}
+.search-box{padding:8px 0 0 12px;width: 25%;float: left;display: none;}
+
+.xgs-inverse .navbar-toggle .icon-bar {
+  background-color: #DE533C;
+}
+
+.xgs-nav{
+    background: #fff;
+    border-radius: 3px;
+}
+.xgs-nav li a{
+     font-size: 16px;   
+}
+
+.xgs-nav li a:hover{
+    background: #DE533C;
+    color: #fff
+}
+
 .more-item{position: absolute;right: 20px; top: 5px;text-decoration: none;}
 
 .topic-list ul {padding: 0;margin:0;}
 .topic-list ul li {list-style: none;color: #555;position: relative;padding: 0 15px 18px 0;margin-bottom: 15px;background: #fff;padding: 15px;border-radius: 4px}
 .topic-list ul li:hover{}
 .topic-list ul li h2{}
-.topic-list ul li p{line-height: 2em;font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;font-size: 16px;padding-bottom: 30px;color: #888}
+.topic-list ul li p{line-height: 2em;font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;font-size: 16px;padding-bottom: 30px;color: #666}
 
 .topic-list ul li h2{font:  18px/1.5em "黑体";margin:5px 0;}
 
@@ -26,76 +54,16 @@ header{margin-bottom: 10px;}
     margin:0 5px;
 
 }
-
-a.more{
-  width: 120px;
-  float: right;
-  background: #fff;
-  padding: 8px 15px;
-  border-radius: 2px;
-  text-decoration: none;
-  display: block;
-  text-align: right;
+.topic-list ul li .ua .username{
+    color: #999;
 }
-.more:hover{background: #DE533C;color: #fff;}
-
-
 .topic-list .article-info{color: #999}
 .topic-list .article-info span{padding: 0 6px;}
 
-.nav .search-input {float: right;margin:2px 0 0 0;height: 30px}
-
-
-.pin{padding: 25px 15px;}
-.web-box{font-size: 12px;color: #eee;position: absolute;bottom: 10px}
-.web-box a{color: #999}
-.sidebar{background: #F6F6F6;height:100%;position: fixed;right: 0;margin: 0 0 20px;}
-
-.left-aside {
-    background: #F6F6F6;
-
-    bottom: 0;
-    left: 50px;
-    overflow: hidden;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1;
-}
+a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: none;display: block;margin-bottom: 15px;}
+.more:hover{background: #DE533C;color: #fff;}
 
 .tag-nav{margin-left: 10px}
-.navbar-xgs {
-    background:  #333;
-    /*background: #E8E6E3;*/
-/*    box-shadow: 0 0 10px #1D1D1D inset;*/
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 50px;
-    z-index: 999;
-}
-
-.navbar-xgs .logo img{width: 50px; height: 50px}
-
-.navbar-xgs a {
-    color: #999999;
-    display: block;
-    font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 10px;
-    text-align: center;
-    text-shadow: 0 1px 0 #000000;
-    z-index: 1010;
-}
-
-.navbar-xgs .dropdown a:hover, .navbar-xgs .dropdown a.active {
-    background-color: #DE533C;
-    color: #FFFFFF;
-    text-shadow: 0 1px 0 #BC3C25;
-}
-
 .nav-user {
     bottom: 0;
     padding-bottom: 10px;
@@ -103,58 +71,89 @@ a.more{
     width: 50px;
 }
 
-.good-list ul{
+.dis-none{
+    display: none;
+}
+
+.good-list ul,.act-list ul{
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.good-list li{
-    color: #999;
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 4px;
+
+.good-list li,.act-list li{
+
+    padding: 0 15px;
+    margin-bottom: 1em;
+    min-height: 1px;
 }
 
-.good-list li img{
-    width: 100%;
-    height: 100%;
-    max-width: 200px;
+.good-list .good,.act-list .item{
+    color: #999;
+    background: #fff;
+    border-radius: 4px;
+    padding: 1em;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+.good-list .good > *,.act-list .item > *{
+    white-space:nowrap;/* 不换行 */
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+
+.good-list .good h3,.act-list .item h3{
+    text-align: left;
+}
+
+
+
+
+.good-list li img,.act-list li img{
+    max-width: 100%;
+    max-height: 100%;
+    /*max-width: 200px;*/
+    vertical-align: middle;
+    margin:auto;
+
 }
 .good-list li p{text-indent: 1em;}
 
-.good-list li h3{
+.good-list li h3,.act-list li h3{
     
     font: 14px/1.5em "Hiragino Sans GB","Microsoft YaHei",Helvetica,sans-serif;
 }
-.no-left-pd{padding-left: 0;}
 
-
-
-.group-list{
-    /*position: fixed;*/
+.good-list:before,
+.good-list:after,
+.act-list:before,
+.act-list:after  {
+  display: table;
+  content: " ";
 }
-.group-list ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.group-list ul li{
-    background: #fff;
-    border-radius: 4px;
-    margin-bottom: 15px;
+.good-list:after,.act-list:after{
+    clear: both;
 }
 
-.group-list ul li a{
+.act-list .act-info{
+    text-align: left;
+}
+.act-list .act-info .item{
+    position: relative;
+}
+.act-list .item .like{
+    position: static;
     display: block;
-    padding: 10px;
-    border-radius: 4px;
-    text-decoration: none;
+    text-align: left;
 }
 
-.group-list ul li a:hover{
-    background: #DE533C;color: #fff;
+.like{
+    color: #999;
+}
+
+.good-list-fixed{
+    display: none;
 }
 
 .sign-up{
@@ -168,11 +167,114 @@ a.more{
 
 
 
-/*@media (min-width: 768px){*/
-@media all and (max-width: 768px) {
-    .good-list{
-        display: none;
-    }
+.hot-tags{
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    display: none;
+}
+
+.hot-tags a{
+    padding: 8px 5px;
+    display: inline-block;
+    width: 100px;
+
+}
+
+.topic{
+    background: #fff;
+    padding: 15px 30px;
+    border-radius: 4px;
+}
+.topic h1{
+    font: 28px/1.8em Georgia,"Times New Roman",Times,"Kai","Kaiti SC","KaiTi","BiauKai","楷体","楷体_GB2312",serif;
+}
+.topic-info{
+    color: #808080;
+}
+
+.topic .author{
+    position: relative;
+    line-height: 2em;
+}
+.author .avatar{
+    display: none;
+    margin-left: 5px;
+}
+.author .avatar img{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.topic .show-content{
+    font:18px/1.8em Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;
+    color: #2F2F2F;
+    font-weight: 100;
+}
+
+.topic .show-content p{
+    margin-bottom: 25px;
+}
+
+.actions{
+
+    margin: 10px 0 0 0 ;
+    background: #3F3F3F;
+}
+
+.actions-content{
+    margin: 0 10%;
+    padding: 10px 0;
+}
+
+.post-comment{
+    margin: 10px 0 0 0;
+}
+
+.comment-item{
+    padding: 15px 10px;
+    background: #555555;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.comment-item,.comment-item a{
+    color: #B3B3B3;
+}
+
+.comment-item .avatar{
+    float: left;
+    margin-right: 8px
+}
+
+.comment-item:after{
+    clear: both;
+}
+
+.comment-item:before,
+.comment-item:after {
+  display: table;
+  content: " ";
+}
+
+.comment-item .avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.act{
+    background: #fff;
+    padding: 15px 45px;
+    border-radius: 5px;
+}
+.act-pic{
+    text-align: center;
+}
+.act-pic img{
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -190,11 +292,54 @@ a.more{
     .sign-up{
         position: fixed;
         right: 5px;
-    top: 5px;
-    z-index: 2;
+        top: 5px;
+        z-index: 2;
     }
-}
+    .xgs-nav{
+        background: #EBECED;
+    }
+    .xgs-nav li a:hover{
+        background: none;
+        color: #DE533C; 
+    }
+    .xgs-nav .active a{color: #DE533C}
 
-.xgs-inverse .navbar-toggle .icon-bar {
-  background-color: #DE533C;
+    .hot-tags{
+        display: block;
+    }
+
+    .good-list{
+        display: block;
+    }
+
+    .topic .author{
+        position: absolute;
+        right: 50px;
+        top: 50px;
+        display: block;
+    }
+    .topic .author .avatar{
+        display: inline;
+    }
+    .good-list li,.act-list li{
+        float: left;
+        width: 30%;
+    }
+    
+    .good-list-fixed{
+        display: block;
+    }
+    .good-list-fixed li{
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .act-list .item .like{
+        position: absolute;
+        right: 14px;
+        bottom: 25px;
+    }
+
+    .home-index{margin: 0 10%;}
 }

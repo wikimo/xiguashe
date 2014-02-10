@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :short, select: "id, title, url, img, created_at"
+  scope :short, select: "id, title, url, img, price, created_at"
 
 	scope :order_by_created_at_desc, order('created_at DESC')
 
