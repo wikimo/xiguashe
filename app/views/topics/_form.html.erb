@@ -1,112 +1,24 @@
-<%= stylesheet('http://cdn.staticfile.org/font-awesome/3.2.1/css/font-awesome.min.css')%>
 
-<div class="post-form-wrap cc">
-  <h3>发表话题</h3>
-    <div class="post-form">
-      <%= form_for(!@topic.nil? && params[:action] == 'edit' ? @topic : Topic.new,:html => { :multipart => true})  do |f| %>
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="topic-form">
+        <h4>发表话题</h4>
         
-        <% unless @topic.nil? %>
-            <%= render :partial => 'public/model_errors',:locals  => {:model_errors  => @topic} %> 
-        <% end -%>
-        
-        <div class="control-group">
-          <div class="controls">
-            <%= f.text_field :title,:class => 'span5',:placeholder => '请输入标题' %>
-          </div>
-        </div>
+          <%= form_for @topic, html: { multipart: true, role: 'form'} do |f| %>
 
-        <div class="control-group editor">
-          <div class="controls">
-            <% if !@topic.nil? %>
-              <%= f.text_area :content, :id => 'content-box'%>
-            <% else %>
-              <%= f.text_area :content, :id => 'content-box',:placeholder => '请输入内容，5000字以内...'%>
-            <% end %>
-          </div>
-        </div>
+            <%= render partial: 'public/model_errors', locals: { model_errors: @topic } %>
 
-        <%= f.hidden_field :user_id,  :value => current_user.id %>
-        <%= f.hidden_field :username, :value => current_user.username %>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-success" id="form-post">提交</button>
-          <div id="photo-ids"></div>
-        </div>
-
-      <% end %>
-      <div id="module_win">
-        
+            <div class="form-group">
+              <%= f.text_field :title, class: 'form-control', placeholder: '取个有意思的标题吧……'%>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :content, id: 'content-box', class: 'form-control', cols: '30', rows: '10',  placeholder: '发挥下你的创作灵感……' %>
+            </div>
+            <%= f.submit '发表', class: 'btn btn-primary' %>
+          <% end %>
       </div>
-
-      
     </div>
-    <span>* 图片最大为2M，支持jpg，gif，png</span>
-    <ul id="photo-list">
-        
-        <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
-          <% @topic.photos.each do |photo|%>
-            <li id="photo-<%= photo.id%>">
-              <%=image_tag photo.path.url('100x100')%>
-              <p>
-                <%= link_to '删除',photo_path(photo),:method => :delete,:remote => true,:confirm => '是否删除？'%>
-              </p>
-            </li>
-          <%end%>
-        <%end%>
-    </ul>
-</div>
-
-<div id="insert-modal" class="modal hide">
-  <div class="modal-header">
-    <h3>插入内容</h3>
-  </div>
-  <div class="modal-body">
-    <label  class="control-label">地址：</label> 
-        <div class="controls"><input type="text" name="link" size="30" class="input-large"></div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-      
-      <%= button_tag "提交", class: "btn btn-primary insert-modal-btn" %>
   </div>
 </div>
-
-<script type="text/javascript">
-  $('#photo-list').delegate('img','click',function(){
-    var ele =  $(this)
-    img = ele.attr('src').replace('!100x100','');
-    document.execCommand('insertimage', false, img)
-    $('.qeditor').val($('.qeditor_preview').html());
-  })
-
-  $("#content-box").qeditor({});
-
-  var swfu = new SWFUpload({
-      upload_url : "/photos?auth_token=<%=  cookies[:auth_token] %>",
-
-
-      flash_url : "/assets/swfupload.swf",
-      post_params:{"user_id":'<%=current_user.id%>'},
-
-      button_placeholder_id : "upload-btn",
-      button_image_url : "/assets/pic-btn.png",
-      button_width: 82,
-      button_height: 30,
-
-      file_dialog_start_handler : UploadApp.fileDialogStart,
-      file_queued_handler : UploadApp.fileQueued,
-      file_queue_error_handler : UploadApp.fileQueueError,
-      file_dialog_complete_handler : UploadApp.fileDialogComplete,
-
-      upload_start_handler : UploadApp.uploadStart,
-      upload_progress_handler : UploadApp.uploadProgress,
-      upload_error_handler : UploadApp.uploadError,
-      upload_success_handler : UploadApp.uploadSuccess,
-      upload_complete_handler : UploadApp.uploadComplete,
-
-      file_types : "*.jpg;*.jpeg;*.gif;*.png",
-      file_size_limit : "2000",
-      file_upload_limit: UploadApp.upload_limit,
-  });
-</script> 
 
