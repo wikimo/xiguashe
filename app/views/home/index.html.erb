@@ -15,7 +15,7 @@
       <div class="good-list good-list-fixed">
         <h3>最新分享...</h3>
 				<ul>
-          <%= render partial: "products", collection: @products, as: :product %>
+          <%= render partial: "public/products", collection: @products, as: :product %>
         </ul>
         <%= link_to '显示更多...', products_path, class: 'more' %>
       </div>

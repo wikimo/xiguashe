@@ -1,0 +1,12 @@
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="good-list">
+        <ul>
+          <%= render partial: 'public/products', collection: @products, as: :product %>
+        </ul>
+        <%= will_paginate @products %>
+      </div>
+    </div>
+  </div>
+</div>

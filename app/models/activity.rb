@@ -23,10 +23,6 @@
 
 class Activity < ActiveRecord::Base
 
-  attr_accessible :title, :content, :location, 
-                  :icon, :activity_created_at, :hit_num,
-                  :from_url, :activity_ended_at, :address
-
   self.per_page = 30
 
   validates :title, presence: true, length: { maximum: 140 } 

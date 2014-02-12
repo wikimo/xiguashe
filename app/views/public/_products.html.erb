@@ -1,0 +1,7 @@
+<li>
+  <div class="good">
+    <%= link_to image_tag(product.img, alt: ''), product %>
+    <h3><%= link_to product.title, product %></h3>
+    <span><em><%= number_to_currency product.price, unit: "¥" %></em></span>
+  </div>
+</li>

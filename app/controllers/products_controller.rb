@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 
   def index
-
+    @products = Product.short.includes(:user).order_by_created_at_desc.paginate(page: params[:page])
   end
 	
 	def new

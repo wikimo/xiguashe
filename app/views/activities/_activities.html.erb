@@ -1,0 +1,16 @@
+<li>
+  <div class="item">
+    <%= link_to image_tag(activity.icon.url(:original), alt: ''), activity %>
+    <h3><%= activity.title %></h3>
+    <div class="act-info">
+      <p>时间: <%= activity.activity_created_at %></p>
+      <p>地点: <%= activity.location %></p>
+      <div>
+        <span class="like">
+          <i class="glyphicon glyphicon-heart-empty"></i> <%= activity.like_num %> 人喜欢
+        </span>
+      </div>
+    </div>
+  </div>
+
+</li>
