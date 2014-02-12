@@ -4,21 +4,7 @@ class TopicsController < ApplicationController
     before_filter :find_topic, :only => [:edit,:update,:show]
 
 	def index
-
-		@group = Group.find_by_id(params[:group_id])
-
-		@topics = Topic.where(:group_id => params[:group_id]).paginate(:page => params[:page]).order('created_at DESC')
-
-		if current_user
-			@gu = GroupUser.find_by_group_id_and_user_id(@group.id, current_user.id)
-		end
-
-		@members = @group.members
-
-		@creater = @group.creater
-
-		@managers = @group.managers
-	
+		@topics = Topic.short.includes(:user).order_by_created_at_desc.paginate(:page => params[:page])
 	end
 
 	def discovery
@@ -27,22 +13,17 @@ class TopicsController < ApplicationController
 
 
 	def new
-		@group = Group.find_by_id(params[:group_id])
+    @topic = Topic.new
 	end
 
 	def create
-		@group = Group.find_by_id(params[:group_id])
 
-		@topic = @group.topics.create(params[:topic])
+		@topic = Topic.create(params[:topic])
 
 		@topic.ip = request.ip
 
 		if @topic.save
 			update_photos(params[:photo_id],@topic)
-			
-			@group.update_attributes({:topic_num => @group.topic_num + 1})
-
-			update_products(params[:product_id], @topic)
 
 			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
@@ -69,13 +50,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic.update_attributes({:hit_num => @topic.hit_num + 1})
-		@comments = @topic.comments.order_desc_by_created_at(params[:page], Comment.per_page)
-
-		@group = @topic.group
-		
-		@user = @topic.user
-		
-		@user_topics = @user.topics.order_by_created_at_desc.limit(5)
+		@comments = @topic.comments.paginate(page:params[:page])
 	end
 
 	private
@@ -100,7 +75,7 @@ class TopicsController < ApplicationController
 	    def find_topic
 	    	@topic =  Topic.where(:id => params[:id]).first
 
-      		render_404 if @topic.nil?
+      	render_404 if @topic.nil?
 	    end
 
 end

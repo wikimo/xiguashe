@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user,:current_logined?
 
+
   def render_404
     render_optional_error_file(404)
   end
@@ -32,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
 
     def login_redirect
-      redirect_to recommend_topic_path if current_logined?
+      redirect_to root_path if current_logined?
     end
 
 end

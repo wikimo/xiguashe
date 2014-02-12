@@ -1,34 +1,21 @@
-
-<% @comments.each do |comment| %>
-	<div class="tr-item cc">
-		<div class="avatar">
-			<%if !comment.user.avatar.nil? %>
-		        <%= image_tag comment.user.avatar.url('100x100') ,:alt => comment.user.nickname%>
-		      <%else%>
-		        <%= image_tag 'avatar.png' ,:alt => comment.user.nickname%>
-		      <%end%>
-		</div>
-		<div class="topic-box">
-			<div class="topic-info">
-				<p>
-					<a href="">
-						<%= comment.user.nickname %>
-					</a> 
-					发表于：<%= timeago_tag comment.created_at, :nojs => true, :limit => 10.days.ago %>
-					<%= link_to("回复", "#", 'data-login' => comment.user.nickname, :title => "回复#{comment.user.nickname}", :class => 'post-again', :onclick => "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')") %>
-				</p>
-			</div>
-			<div class="content">
-
-				<p><%= raw comment.content %></p>
-
-				
-			</div>
-		</div>
-	</div>
-<% end -%>
-
-
-
-
-
+<div class="comment-item">
+  <div class="avatar">
+    <%= link_to user_avatar_helper(comment.user), comment.user %>
+  </div>
+  <div class="content">
+    <header>
+      <%= link_to comment.user.nickname, comment.user %>
+      <span>
+        <%= timeago_tag comment.created_at, nojs: true, limit: 10.day.ago %>
+      </span>
+    </header>
+    <p>
+      <%= raw comment.content %>
+    <p>
+    <footer>
+    <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
+                title: "回复#{comment.user.nickname}", class: 'pull-right',
+                onclick: "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')" ) %>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,345 @@
+a{color: #555}
+body{overflow-x:hidden;background: #EBECED}
+header{margin-bottom: 10px;}
+
+.xgs-row:before,
+.xgs-row:after {
+  display: table;
+  content: " ";
+}
+
+.xgs-row:after {
+  clear: both;
+}
+/*.home-index{margin: 0 10%;}*/
+
+.logo{padding: 5px 10px;float: left;}
+.logo img{width: 40px}
+
+.sub-nav{margin-bottom: 10px;}
+.nav .search-input {float: right;margin:2px 0 0 0;height: 30px}
+.search-box{padding:8px 0 0 12px;width: 25%;float: left;display: none;}
+
+.xgs-inverse .navbar-toggle .icon-bar {
+  background-color: #DE533C;
+}
+
+.xgs-nav{
+    background: #fff;
+    border-radius: 3px;
+}
+.xgs-nav li a{
+     font-size: 16px;   
+}
+
+.xgs-nav li a:hover{
+    background: #DE533C;
+    color: #fff
+}
+
+.more-item{position: absolute;right: 20px; top: 5px;text-decoration: none;}
+
+.topic-list ul {padding: 0;margin:0;}
+.topic-list ul li {list-style: none;color: #555;position: relative;padding: 0 15px 18px 0;margin-bottom: 15px;background: #fff;padding: 15px;border-radius: 4px}
+.topic-list ul li:hover{}
+.topic-list ul li h2{}
+.topic-list ul li p{line-height: 2em;font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;font-size: 16px;padding-bottom: 30px;color: #666}
+
+.topic-list ul li h2{font:  18px/1.5em "黑体";margin:5px 0;}
+
+
+.topic-list ul li .ua img{
+    width:40px;height: 40px;border-radius: 50%;
+    display: none;
+    margin:0 5px;
+
+}
+.topic-list ul li .ua .username{
+    color: #999;
+}
+.topic-list .article-info{color: #999}
+.topic-list .article-info span{padding: 0 6px;}
+
+a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: none;display: block;margin-bottom: 15px;}
+.more:hover{background: #DE533C;color: #fff;}
+
+.tag-nav{margin-left: 10px}
+.nav-user {
+    bottom: 0;
+    padding-bottom: 10px;
+    position: absolute;
+    width: 50px;
+}
+
+.dis-none{
+    display: none;
+}
+
+.good-list ul,.act-list ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.good-list li,.act-list li{
+
+    padding: 0 15px;
+    margin-bottom: 1em;
+    min-height: 1px;
+}
+
+.good-list .good,.act-list .item{
+    color: #999;
+    background: #fff;
+    border-radius: 4px;
+    padding: 1em;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+.good-list .good > *,.act-list .item > *{
+    white-space:nowrap;/* 不换行 */
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+
+.good-list .good h3,.act-list .item h3{
+    text-align: left;
+}
+
+
+
+
+.good-list li img,.act-list li img{
+    max-width: 100%;
+    max-height: 100%;
+    /*max-width: 200px;*/
+    vertical-align: middle;
+    margin:auto;
+
+}
+.good-list li p{text-indent: 1em;}
+
+.good-list li h3,.act-list li h3{
+    
+    font: 14px/1.5em "Hiragino Sans GB","Microsoft YaHei",Helvetica,sans-serif;
+}
+
+.good-list:before,
+.good-list:after,
+.act-list:before,
+.act-list:after  {
+  display: table;
+  content: " ";
+}
+.good-list:after,.act-list:after{
+    clear: both;
+}
+
+.act-list .act-info{
+    text-align: left;
+}
+.act-list .act-info .item{
+    position: relative;
+}
+.act-list .item .like{
+    position: static;
+    display: block;
+    text-align: left;
+}
+
+.like{
+    color: #999;
+}
+
+.good-list-fixed{
+    display: none;
+}
+
+.sign-up{
+      position: fixed;
+        right: 5px;
+    top: 5px;
+    z-index: 2;  
+}
+.sign-up li{float: left;}
+.sign-up .dropdown-menu li{float: none;}
+
+
+
+.hot-tags{
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    display: none;
+}
+
+.hot-tags a{
+    padding: 8px 5px;
+    display: inline-block;
+    width: 100px;
+
+}
+
+.topic{
+    background: #fff;
+    padding: 15px 30px;
+    border-radius: 4px;
+}
+.topic h1{
+    font: 28px/1.8em Georgia,"Times New Roman",Times,"Kai","Kaiti SC","KaiTi","BiauKai","楷体","楷体_GB2312",serif;
+}
+.topic-info{
+    color: #808080;
+}
+
+.topic .author{
+    position: relative;
+    line-height: 2em;
+}
+.author .avatar{
+    display: none;
+    margin-left: 5px;
+}
+.author .avatar img{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.topic .show-content{
+    font:18px/1.8em Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;
+    color: #2F2F2F;
+    font-weight: 100;
+}
+
+.topic .show-content p{
+    margin-bottom: 25px;
+}
+
+.actions{
+
+    margin: 10px 0 0 0 ;
+    background: #3F3F3F;
+}
+
+.actions-content{
+    margin: 0 10%;
+    padding: 10px 0;
+}
+
+.post-comment{
+    margin: 10px 0 0 0;
+}
+
+.comment-item{
+    padding: 15px 10px;
+    background: #555555;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.comment-item,.comment-item a{
+    color: #B3B3B3;
+}
+
+.comment-item .avatar{
+    float: left;
+    margin-right: 8px
+}
+
+.comment-item:after{
+    clear: both;
+}
+
+.comment-item:before,
+.comment-item:after {
+  display: table;
+  content: " ";
+}
+
+.comment-item .avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.act{
+    background: #fff;
+    padding: 15px 45px;
+    border-radius: 5px;
+}
+.act-pic{
+    text-align: center;
+}
+.act-pic img{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .search-box{
+        display: block;
+    }
+    .topic-list ul li .ua {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+    .topic-list ul li .ua img{
+        display: inline;
+    }
+    .sign-up{
+        position: fixed;
+        right: 5px;
+        top: 5px;
+        z-index: 2;
+    }
+    .xgs-nav{
+        background: #EBECED;
+    }
+    .xgs-nav li a:hover{
+        background: none;
+        color: #DE533C; 
+    }
+    .xgs-nav .active a{color: #DE533C}
+
+    .hot-tags{
+        display: block;
+    }
+
+    .good-list{
+        display: block;
+    }
+
+    .topic .author{
+        position: absolute;
+        right: 50px;
+        top: 50px;
+        display: block;
+    }
+    .topic .author .avatar{
+        display: inline;
+    }
+    .good-list li,.act-list li{
+        float: left;
+        width: 30%;
+    }
+    
+    .good-list-fixed{
+        display: block;
+    }
+    .good-list-fixed li{
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .act-list .item .like{
+        position: absolute;
+        right: 14px;
+        bottom: 25px;
+    }
+
+    .home-index{margin: 0 10%;}
+}

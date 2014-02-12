@@ -18,48 +18,6 @@ module LayoutsHelper
     raw html
   end
 
-  def web_nav(controller_name,action)
-    html = ''
-
-    if controller_name == 'groups' && action == 'discovery'
-      html.concat(content_tag(:li,content_tag(:a ,'小组',:href => discovery_category_groups_path(:category_id => 0),:class => 'active')))
-    else
-      html.concat(content_tag(:li,content_tag(:a ,'小组',:href => discovery_category_groups_path(:category_id => 0))))
-    end
-
-    if controller_name == 'recommend' && action == 'topic'
-      html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path,:class => 'active')))
-    else
-      html.concat(content_tag(:li,content_tag(:a ,'话题',:href => recommend_topic_path)))
-    end
-    
-    if controller_name == 'activities' && action == 'index'
-      html.concat(content_tag(:li, content_tag(:a, '活动', :href => activities_path, :class => "active" )))
-    else
-      html.concat(content_tag(:li, content_tag(:a, '活动', :href => activities_path)))
-    end
-
-    if current_user
-      
-
-      if controller_name == 'recommend' && action == 'user'
-        html.concat(content_tag(:li,content_tag(:a ,'关注',:href => recommend_user_path,:class => 'active')))
-      else
-        html.concat(content_tag(:li,content_tag(:a ,'关注',:href => recommend_user_path)))
-      end
-
-    end
-    
-    #html.concat(content_tag(:li,content_tag(:a ,'百科')))
-    
-    #if controller_name == 'topics' && action == 'discovery'
-    #  html.concat(content_tag(:li,content_tag(:a ,'发现话题',:href => discovery_topics_path,:class => 'active')))
-    #else
-    #  html.concat(content_tag(:li,content_tag(:a ,'发现话题',:href => discovery_topics_path)))
-    #end
-    raw html
-  end
-
   def format_content(content,len = 150)
     truncate(content.gsub(/<.*?>|\302\240/,'').strip,:length => len, :truncate_string =>"...") if !content.nil?
   end
