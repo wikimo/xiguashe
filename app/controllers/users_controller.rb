@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @topics =  Topic.where(:user_id => @user.id).paginate(:page => params[:page]).order('id desc')
+    @topics =  @user.topics.paginate(page: params[:page])
   end
 
   def new

@@ -1,0 +1,4 @@
+<li>
+  <%= link_to topic.title, topic %>
+  <span><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></span>
+</li>
