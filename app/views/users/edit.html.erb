@@ -1,61 +1,13 @@
-<div id="main">
-  <%= render 'public/errors',:obj => @user %>
-  <%= render 'public/flash_notice' %>
-  <div class="comm-form">
-    <h2 class="title">更新资料</h2>
-
-    <ul class="nav nav-pills x-tab">
-      <%= profile_nav(@user.id, @do)%>
-    </ul>
-
-    <%= form_for @user, :html => { :class => "form-horizontal"} do |f| %>
-      <%if @do == 'passwd' || @do.nil?%>
-      <div class="control-group">
-        <label for="" class="control-label">旧密码</label>
-        <div class="controls">
-          <%= f.password_field :old_password,:class => 'txt' %>
-        </div>
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="setting">
+        <h2>设置</h2>
+        <ul class="nav nav-pills">
+          <li class="active">
+          </li>
+        </ul>
       </div>
-       <div class="control-group">
-        <label for="" class="control-label">新密码</label>
-        <div class="controls">
-          <%= f.password_field :password,:class => 'txt' %>
-        </div>
-      </div>
-      <div class="control-group">
-        <label for="" class="control-label">确认密码</label>
-        <div class="controls">
-          <%= f.password_field :password_confirmation,:class => 'txt' %>
-        </div>
-      </div>
-      <%end%>
-
-      <%if @do == 'avatar'%>
-      <div class="control-group">
-          <label for="" class="control-label">用户头像</label>
-          <div class="controls">
-            <a class="btn-add-pic" href="javascript:void(0);"><span><em>+</em>选择头像</span> 
-              <%= f.file_field :avatar, :class => 'file-prew',:title=>'支持jpg、jpeg、gif、png格式，文件小于5M' %>
-              </a>
-              <%= hidden_field_tag 'do', 'avatar' %>
-          </div>
-      </div>
-      <%end%>
-      <% if @do == 'nickname' %>
-        <div>
-          <label for="" class="control-label">用户昵称</label>
-          <div class="controls">
-            <%= f.text_field :nickname, :class => 'input-large' %>
-            <%= hidden_field_tag 'do',  'nickname' %>
-            <p class="help-block">该怎么称呼您？3-10个字符</p>
-          </div>
-        </div>
-
-      <% end %>
-      <div class="form-actions">
-        <%= button_tag "更新",:class=>'btn btn-primary' %>
-      </div>
-    <% end %>
-
+    </div>
   </div>
 </div>

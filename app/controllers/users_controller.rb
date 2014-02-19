@@ -3,20 +3,19 @@ class UsersController < ApplicationController
   before_filter :find_user, :except => [:new, :create]
   before_filter :logined?, :only => [:edit, :update,:create_tag, :destroy_tag]
 
-  def groups
-    @groups = @user.groups  
-  end
 
   def show
-    @topics =  @user.topics.paginate(page: params[:page])
+    @topics = @user.topics.paginate(page: params[:page])
+  end
+
+  def topics
+    @topics = @user.topics.paginate(page: params[:page])
   end
 
   def new
     redirect_to user_path(current_user) if current_logined?
   	@user = User.new
   end
-
-  
 
   def create
   	@user = User.new(params[:user])
@@ -53,38 +52,9 @@ class UsersController < ApplicationController
 
   end
 
-  # def followers
-  #   @user = User.find(params[:id])
-  #   @followers = @user.followers
-  # end
-
   def likes
-    @likes =  Like.where( :likeable_type => 'Topic', :user_id => @user.id).paginate(:page => params[:page]).order('id desc')
-  
-    @topics = Topic.find(:all ,:conditions =>['id in (?)',@likes.map(&:likeable_id)])
-
-  end
-
-  def tags
-    @tags = @user.tag_list
-  end
-
-  def create_tag
-    tag_list =  @user.tag_list
-
-    if tag_list.count < 5
-      @user.tag_list.add(params[:tag])
-      @user.save
-    end
-    
-    redirect_to tags_user_path(@user)
-  end
-
-  def destroy_tag
-     @user.tag_list.remove(params[:tag])
-     @user.save
-     
-     redirect_to tags_user_path(@user)  
+    @likes = @user.likes('Topic')
+    @topics = Topic.by_ids(@likes.map(&:likeable_id))
   end
 
   protected

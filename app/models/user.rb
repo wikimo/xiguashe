@@ -103,6 +103,10 @@ class User < ActiveRecord::Base
 		Settings.admin_emails.include?(self.email)
 	end
 
+  def likes(likeable)
+    Like.where(likeable_type: likeable, user_id: self.id)
+  end
+
 	def like(likeable)
 		Like.where(:likeable_id => likeable.id, :likeable_type => likeable.class, :user_id => self.id).first_or_create
 	end

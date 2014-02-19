@@ -44,6 +44,8 @@ class Topic < ActiveRecord::Base
 	scope :order_by_score_desc, order('score DESC')
   
 	scope :by_user_ids,  lambda { |ids| where('user_id in (?)', ids) }
+  
+  scope :by_ids, lambda { |ids| where('id in (?)', ids) }
 
 	searchable	do
 		text :title, :content
