@@ -47,11 +47,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def following
-    @following = @user.following.paginate(:page => params[:page]).order('id desc')
-
-  end
-
   def likes
     @likes = @user.likes('Topic')
     @topics = Topic.by_ids(@likes.map(&:likeable_id))

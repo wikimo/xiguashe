@@ -4,9 +4,13 @@
       <div class="setting">
         <h2>设置</h2>
         <ul class="nav nav-pills">
-          <li class="active">
-          </li>
+          <%= profile_nav(@user.id, !params[:do].nil? ? params[:do] : 'profile') %>
         </ul>
+        <div class="tab-content">
+
+          <%= params_do_helper(params[:do]) %>
+
+        </div>
       </div>
     </div>
   </div>
