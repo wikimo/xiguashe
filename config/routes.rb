@@ -31,13 +31,8 @@ Xiguashe::Application.routes.draw do
 
   resources :users do
     member do
-      get :groups
-      get :following
       get :likes
-
-      get :tags
-      
-      post :create_tag
+      get :topics
     end
     collection do
       get :tag_with
