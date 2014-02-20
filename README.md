@@ -1,3 +1,19 @@
+rake sunspot:solr:start 
+rake sunspot:solr:start RAILS_ENV=production
+rake sunspot:reindex
+rake assets:precompile
+
+20130810
+1.搜索页面错误；
+2.缩略文字空格；
+3.加入回到顶部js；
+
+20130606
+1.更新了用户右上角下拉显示框；
+2.用户页话题显示更新；
+3.用户后无法继续登陆或注册；
+
+
 ### 项目介绍
 西瓜社是我和朋友构建的业余项目，是一个针对80后父母交流育儿，早教，亲子等相关信息的社区。通过该平台我们可以分享孩子生活的点滴，交流经验，分享心得，探讨孩子成长过程中的一系列问题。
 
@@ -5,10 +21,8 @@
 
 当然目前该应用的功能还很简洁，有很多不足的地方需要我们继续努力。我们计划在未来加入一些新元素以及提供移动客户端的访问。
 
-可能用到的命令行
-```c
-rake sunspot:solr:start 
-rake sunspot:solr:start RAILS_ENV=production
-rake sunspot:reindex
-rake assets:precompile
-```
+最后贴上地址：http://www.xiguashe.com
+
+欢迎大家拍砖。
+
+
