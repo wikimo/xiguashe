@@ -1,15 +1,15 @@
 <div class="home-index">
   <div class="row">
+    <%= render partial: 'public/errors', locals: { obj: @user } %>
+    <%= render 'public/flash_notice' %>
     <div class="col-xs-12">
       <div class="setting">
         <h2>设置</h2>
         <ul class="nav nav-pills">
-          <%= profile_nav(@user.id, !params[:do].nil? ? params[:do] : 'profile') %>
+          <%= profile_nav(@user.id, params_do_helper(params[:action], params[:do])) %>
         </ul>
         <div class="tab-content">
-
-          <%= params_do_helper(params[:do]) %>
-
+           <%= render partial: params_do_helper(params[:action], params[:do]), locals: { user: @user } %>
         </div>
       </div>
     </div>

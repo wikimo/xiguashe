@@ -5,11 +5,16 @@ class UsersController < ApplicationController
 
 
   def show
-    @topics = @user.topics.paginate(page: params[:page])
-  end
+    if params[:do].nil? || params[:do] == 'topics'
 
-  def topics
-    @topics = @user.topics.paginate(page: params[:page])
+      @topics = @user.topics.paginate(page: params[:page])
+      
+    elsif params[:do] == 'likes'
+      @likes = @user.likes('Topic')
+      @topics = Topic.by_ids(@likes.map(&:likeable_id)).paginate(page: params[:page])
+    end
+
+    @do = params[:do]
   end
 
   def new
@@ -34,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    p @user
     if @user.update_attributes(params[:user])
       flash[:notice] = t(:update_success)
       redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}" 
@@ -45,11 +51,6 @@ class UsersController < ApplicationController
       flash[:notice] = message
       redirect_to "/users/#{params[:id]}/edit?do=#{params[:do]}"
     end
-  end
-
-  def likes
-    @likes = @user.likes('Topic')
-    @topics = Topic.by_ids(@likes.map(&:likeable_id))
   end
 
   protected

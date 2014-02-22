@@ -4,13 +4,14 @@
       <div class="user-content">
         <ul class="nav nav-pills">
 
-          <%= user_nav_helper(current_user, params[:action]) %>
+          <%= user_nav_helper(current_user, params_do_helper(params[:action], params[:do])) %>
 
           </li>
         </ul>
         <div class="tab-content">
-          <%= render partial: 'tab_pane', locals: { topics: @topics } %>
+          <%= render partial: params_do_helper(params[:action], params[:do]), locals: { topics: @topics } %>
         </div>
+        <%= will_paginate @topics %>
       </div>
     </div>
   </div>
