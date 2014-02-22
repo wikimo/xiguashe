@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 
     nickname_or_email = params[:nickname_or_email]
 
-    p nickname_or_email
 
   	@user =  User.authenticate(nickname_or_email,params[:password])
 

@@ -74,8 +74,8 @@ class User < ActiveRecord::Base
     scope :order_by_created_at_desc, order('created_at DESC')
 
     searchable	do
-		text :nickname , :as => :nickname_textp
-	end
+		  text :nickname , :as => :nickname_textp
+	  end
 	
 	def password
 	    @password
@@ -118,12 +118,6 @@ class User < ActiveRecord::Base
 	
 	def unread_notification_count
     	unread_notifications_count = self.notifications.except_mention.unread_notifications.count + self.mentions.unread_notifications.count
-  	end
-
-	def groups
-		gu = GroupUser.find(:all,:conditions => ["user_id = ?",self.id])
-    	
-        Group.find(:all,:conditions => ["id in (?)",gu.map(&:group_id)],:order => 'topic_num DESC')
   	end
 
 	def notices(page = 1, per_page = 20)

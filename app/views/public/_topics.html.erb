@@ -8,6 +8,9 @@
       <p>
          <%= h format_content(topic.content, 200) %>
       </p>
+
+      <%= topic_photos_helper(topic) %>
+
       <div class="article-info">
 				<span><i class="glyphicon glyphicon-eye-open"></i>
           <%= topic.hit_num %>
