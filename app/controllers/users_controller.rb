@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   	@user.created_ip =  request.ip
   	if @user.save
       cookies[:auth_token] = @user.auth_token  
-  		redirect_to recommend_topic_path, :notice => t(:sign_up_success)
+  		redirect_to root_path, :notice => t(:sign_up_success)
   	else
   		render 'new'
   	end

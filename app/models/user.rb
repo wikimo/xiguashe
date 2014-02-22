@@ -143,15 +143,16 @@ class User < ActiveRecord::Base
 	end
 
   	class << self
-	  	def authenticate(username_or_email,password)
-			user = User.find_by_username(username_or_email) || User.find_by_email(username_or_email)
+	  	def authenticate(nickname_or_email,password)
 
-			if user && user.hashed_password ==  Digest::SHA256.hexdigest(password + user.salt)
-			  return user
-			end
+			  user = User.find_by_nickname(nickname_or_email) || User.find_by_email(nickname_or_email)
 
-			false
-		end
+			  if user && user.hashed_password ==  Digest::SHA256.hexdigest(password + user.salt)
+			    return user
+			  end
+
+			  false
+		  end
 
 
 		def order_desc_by_created_at(page = 1, per_page = 20)

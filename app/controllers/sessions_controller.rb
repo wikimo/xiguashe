@@ -7,8 +7,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user_info = params[:username] || params[:email]
-  	@user =  User.authenticate(user_info,params[:password])
+
+    nickname_or_email = params[:nickname_or_email]
+
+    p nickname_or_email
+
+  	@user =  User.authenticate(nickname_or_email,params[:password])
 
     if @user
       if params[:remember_me]
