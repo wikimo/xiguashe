@@ -1,0 +1,24 @@
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="comm-form">
+        <div class="col-sm-offset-2 col-sm-10">
+          <h4>获取东西</h4>
+        </div>
+        <%= form_tag new_product_path, class: "form-horizontal", role: "form" do %>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">东西链接</label>
+            <div class="col-sm-10">
+              <%= text_field_tag 'link', nil, class: 'form-control', placeholder: "复制东西的链接到这里试试……" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= submit_tag "获取", class: "btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

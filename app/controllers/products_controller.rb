@@ -1,13 +1,23 @@
 class ProductsController < ApplicationController
 
+  before_filter :find_by_id, only: [:show, :destroy]
 
   def index
     @products = Product.short.includes(:user).order_by_created_at_desc.paginate(page: params[:page])
+  end
+
+  def show
+
+    @comments = @product.comments.paginate(page: params[:page])
   end
 	
 	def new
 		@product = Product.new
 	end
+
+  def url
+
+  end
 	
 	def create
 		url = URI.parse(params[:link])  
@@ -34,8 +44,11 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
-		@product = Product.find(params[:id])
-
 		@product.destroy
 	end
+
+  private 
+    def find_by_id
+      @product = Product.find(params[:id])
+    end
 end

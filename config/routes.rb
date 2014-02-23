@@ -19,7 +19,12 @@ Xiguashe::Application.routes.draw do
 
   resources :sessions
 
-  resources :products
+  resources :products do
+    collection do
+      get :url
+    end
+    resources :comments
+  end
 
   resources :feedbacks
 
@@ -30,41 +35,12 @@ Xiguashe::Application.routes.draw do
   resources :password_resets
 
   resources :users do
-    member do
-      get :likes
-      get :topics
-    end
-    collection do
-      get :tag_with
-    end  
     resources :notifications
   end
 
-    match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
-
-  resources :categories do 
-    resources :groups do 
-      collection do 
-        get :discovery
-      end
-    end
-  end
- 
-
-  resources :groups do
-    member do
-      get :join, :leave, :apply, :applyers
-    end
-    collection do
-        get :members
-      end
-    resources :topics
-  end  
+  match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
 
   resources :topics do
-    collection do
-      get :discovery
-    end
     resources :comments
   end
 
@@ -75,9 +51,6 @@ Xiguashe::Application.routes.draw do
       get :reply_create
     end
   end
-
-  match 'users/follow/:followed_id' => 'user_relations#create',:via  => :post
-  match 'users/unfollow/:followed_id' => 'user_relations#destroy',:via  => :delete
 
   namespace :cpanel do 
     

@@ -8,7 +8,10 @@ class CommentsController < ApplicationController
 
   def create
 
-    model_hash = {:topic_id => 'Topic|topic'}
+    model_hash = {
+                  topic_id: 'Topic|topic',
+                  product_id: 'Product|product'
+                 }
 
     for key,value in model_hash do
       model_id = eval("params[:#{key}]")
@@ -27,8 +30,7 @@ class CommentsController < ApplicationController
           
           eval("@#{model_info.last} = model_instance")
 
-          #just temporary, will use ajax
-          redirect_to  topic_path(model_instance), :notice => t(:comment_create_success)
+          redirect_to  model_instance, :notice => t(:comment_create_success)
 
         else
           message = ''
@@ -36,7 +38,7 @@ class CommentsController < ApplicationController
             message << msg
           end
           flash[:notice] = message
-          redirect_to  topic_path(model_instance)
+          redirect_to  model_instance
         end
 
         break

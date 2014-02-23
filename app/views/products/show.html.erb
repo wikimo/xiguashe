@@ -1,0 +1,34 @@
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="good">
+        <div class="good-pic">
+          <%= image_tag @product.img, alt:@product.title %>
+        </div>
+        <div class="good-info">
+          <h3><%= @product.title %></h3>
+          <%= link_to '去购买', @product.url, class: "btn btn-primary" %>
+        </div>
+        <div class="c"></div>
+        <hr>
+        <h4 class="act-descrip"></h4>
+        <div class="good-content">
+          <blockquote>
+            <%= @product.description %>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="actions">
+      <div class="actions-content">
+        <%= render partial: 'comments/new_comment', locals: { item: @product } %>
+        <%= render partial: 'comments/comments', collection: @comments, as: :comment %>
+      </div>
+    </div>
+  </div>
+</div>

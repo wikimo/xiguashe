@@ -33,15 +33,11 @@
       <div class="actions-content">
         <ul class="nav nav-pills">
           <li class="active"><a href="#comments" data-toggle="tab">评论</a></li>
-          <li><a href="#products" data-toggle="tab">商品</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="comments">
             <%= render partial: 'comments/new_comment', locals: { item: @topic } %>
             <%= render partial: 'comments/comments', collection: @comments, as: :comment %>
-          </div>
-          <div class="tab-pane" id="products">
-            商品
           </div>
         </div>
       </div>
