@@ -5,8 +5,9 @@
         <ul>
           <%= render partial: 'public/products', collection: @products, as: :product %>
         </ul>
-        <%= will_paginate @products %>
+        
       </div>
+      <%= will_paginate @products %>
     </div>
   </div>
 </div>
