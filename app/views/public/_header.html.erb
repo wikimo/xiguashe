@@ -15,8 +15,15 @@
         <%= nav_helper(params[:controller]) %>
       </ul>
       <div class="search-box">
-        <input type="text" class="form-control "  placeholder="文章、话题、分享.....">
+        <input type="text" class="form-control "  placeholder="文章、问答、分享、活动.....">
       </div>
+      <ul class="nav navbar-nav navbar-right">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">发布<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to '发布文章', new_topic_path %></li>
+          <li><%= link_to '发布东西', url_products_path %></li>
+        </ul>
+      </ul>
     </nav>
     <ul class="nav navbar-nav pull-right sign-up">
       <% if current_logined? %>
@@ -25,8 +32,8 @@
             <%= current_user.nickname %><b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-			      <li><a href="#">主页</a></li>
-	          <li><a href="#">资料</a></li>
+			      <li><a href="#">我的主页</a></li>
+	          <li><a href="#">修改资料</a></li>
 	          <li><a href="#">退出</a></li>
 	        </ul>
         </li>
