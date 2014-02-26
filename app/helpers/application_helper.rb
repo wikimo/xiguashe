@@ -9,15 +9,15 @@ module ApplicationHelper
 
     html = ''
     if controller == 'topics' 
-      html.concat(content_tag :li, content_tag(:a, '话题', href: topics_path), class: 'active')
+      html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path), class: 'active')
     else
-      html.concat(content_tag :li, content_tag(:a, '话题', href: topics_path))
+      html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path))
     end
 
     if controller == 'products'
-      html.concat(content_tag :li, content_tag(:a, '分享', href: products_path), class: 'active')
+      html.concat(content_tag :li, content_tag(:a, '东西', href: products_path), class: 'active')
     else
-      html.concat(content_tag :li, content_tag(:a, '分享', href: products_path))
+      html.concat(content_tag :li, content_tag(:a, '东西', href: products_path))
     end
 
     if controller == 'activities'
