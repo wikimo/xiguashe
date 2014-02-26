@@ -57,7 +57,7 @@ header{margin-bottom: 10px;}
 .topic-list ul li .ua .username{
     color: #999;
 }
-.topic-list .article-info{color: #999}
+.topic-list .article-info{color: #999;margin:5px 0 0 0 ;}
 .topic-list .article-info span{padding: 0 6px;}
 
 a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: none;display: block;margin-bottom: 15px;}
