@@ -24,9 +24,15 @@ class ProductsController < ApplicationController
     class_instance = Object.const_get(class_name).new
 
     item = class_instance.get_info params[:link]
-    item[:user_id] = current_user.id
 
-    @product = Product.new item
+    @images = item[:images]
+
+    @product = Product.new 
+    @product.title = item[:title]
+    @product.url = item[:url]
+    @product.price = item[:price]
+    @product.user_id = current_user.id
+
 	end
 
   def url
@@ -34,27 +40,18 @@ class ProductsController < ApplicationController
   end
 	
 	def create
-		url = URI.parse(params[:link])  
 
-		if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmall'
-			class_name = 'ProductTaobao'
-		elsif url.host.include? 'paipai'
-			class_name = 'ProductPaipai'      
-		else
-			puts 'error'
-		end
-		class_instance =  Object.const_get(class_name).new
+    @product = Product.new params[:product]
 
-		item  = class_instance.get_info  params[:link]
-		item[:user_id] = current_user.id
+    if @product.save
+      p params[:photo]
 
-		@product = Product.new item
+      params[:photo].each do |p|
+        Photo.create(pic: p, path: p, photoable: @product, user_id: params[:product][:user_id]) if p
+      end
 
-		if @product.save
-			@product
-		else
-			nil
-		end
+    end
+
 	end
 
 	def destroy

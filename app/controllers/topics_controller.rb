@@ -23,12 +23,15 @@ class TopicsController < ApplicationController
 		@topic.ip = request.ip
 
 		if @topic.save
-			update_photos(params[:photo_id],@topic)
 
+      params[:photo].each do |p|
+        Photo.create(pic: p, path: p, photoable: @topic, user_id: params[:topic][:user_id]) if p
+      end
 			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
 			render 'new'
 		end
+
 
 	end
 
@@ -41,7 +44,6 @@ class TopicsController < ApplicationController
 
 		if @topic.update_attributes(params[:topic])
 			update_photos(params[:photo_id],@topic)
-			update_products(params[:product_id], @topic)
 			redirect_to @topic, :notice => t(:update_success)
 		else
 			#error
@@ -56,15 +58,9 @@ class TopicsController < ApplicationController
 	private
 
 	    def update_photos (photo_id,topic)
-	      photo_id  && photo_id.each do |id|
-	        Photo.find(id).update_attributes!(:photoable  => topic)
+	      if photo_id
+	        Photo.find(photo_id).update_attributes!(:photoable  => topic)
 	      end
-	    end
-
-	    def update_products(product_id, topic)
-	    	product_id && product_id.each do |id|
-	    		Product.find(id).update_attributes!(topic_id: topic.id)
-	    	end
 	    end
 
 	    def content_filter(content)

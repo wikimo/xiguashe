@@ -25,6 +25,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments, as: :commentable, dependent: :destroy
+  
+  has_many :photos, as: :photoable, dependent: :destroy
 
   scope :short, select: "id, title, url, img, price, user_id, created_at"
 

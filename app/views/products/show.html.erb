@@ -3,7 +3,9 @@
     <div class="col-xs-12">
       <div class="good">
         <div class="good-pic">
-          <%= image_tag @product.img, alt:@product.title %>
+          <% @product.photos.each do |photo| %>
+            <%= photo_tag_helper(photo.path, style: :small) %>
+          <% end %>
         </div>
         <div class="good-info">
           <h3><%= @product.title %></h3>
@@ -14,7 +16,7 @@
         <h4 class="act-descrip"></h4>
         <div class="good-content">
           <blockquote>
-            <%= @product.description %>
+            <%= @product.appraisal %>
           </blockquote>
         </div>
       </div>

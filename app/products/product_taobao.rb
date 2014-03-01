@@ -11,9 +11,8 @@ class ProductTaobao < ProductBase
 	end
 
 	def get_info url
-		good = TaoBaoApi::Good.new
-		item = good.get_info url
-
+		good = TaoBaoApi::Good.new url
+		item = good.get_info 
 		item
 	end
 

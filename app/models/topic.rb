@@ -29,9 +29,9 @@ class Topic < ActiveRecord::Base
 
 	belongs_to :user
 
-	has_many :photos,   :as => :photoable,   :dependent => :destroy
+	has_many :photos,   as: :photoable,   dependent: :destroy
 
-	has_many :comments, :as => :commentable, :dependent => :destroy
+	has_many :comments, as: :commentable, dependent: :destroy
 
   scope :short, select: 'id, title, content, user_id, hit_num, reply_num, like_num, created_at'
 	
