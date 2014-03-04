@@ -44,11 +44,19 @@ class ProductsController < ApplicationController
     @product = Product.new params[:product]
 
     if @product.save
-      p params[:photo]
+
+      p params[:image]
+
+      params[:image].each do |img|
+        Photo.create(path: img, photoable: @product, user_id: params[:product][:user_id]) if img
+      end
 
       params[:photo].each do |p|
         Photo.create(pic: p, path: p, photoable: @product, user_id: params[:product][:user_id]) if p
       end
+
+
+      redirect_to @product, notice: t(:create_success)
 
     end
 

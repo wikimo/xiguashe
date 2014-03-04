@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   before_filter :form_action
+
   def index
 
   	render 'topics'
@@ -13,11 +14,12 @@ class SearchController < ApplicationController
     end.results
 
     @keyword = params[:query]
+
+    
   end
 
   def users
   	@users = User.search do
-      #with(:nickname, params[:query])
       keywords params[:query]
       paginate :page => params[:page] ? params[:page] : 1, :per_page => 10
   	end.results	

@@ -15,7 +15,9 @@
         <%= nav_helper(params[:controller]) %>
       </ul>
       <div class="search-box">
-        <input type="text" class="form-control "  placeholder="搜索其实很简单.....">
+        <%= form_tag '/search/topics', method: :get do %>
+          <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: '搜索其实很简单......'%>
+        <% end %>
       </div>
   
     </nav>

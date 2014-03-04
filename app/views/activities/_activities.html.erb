@@ -3,7 +3,7 @@
     <%= link_to image_tag(activity.icon.url(:original), alt: ''), activity %>
     <h3><%= activity.title %></h3>
     <div class="act-info">
-      <p>时间: <%= activity.activity_created_at %></p>
+      <p>时间: <%= timeago_tag activity.activity_created_at, nojs: true, limit: 10.day.ago %></p>
       <p>地点: <%= activity.location %></p>
       <div>
         <span class="like">

@@ -1,25 +1,25 @@
-<%= stylesheet('bootstrap','style','group','search')%>
-<div id="main">
-	<div  class="container">
-
-		<%= render 'form',:form_action => @form_action%>
-
-		<div class="following">
-			<ul class="cc">
-				<%@users.each do |user|%>
-				<li>
-					<%= image_tag 'avatar.png',:class => 'user-photo'%>
-					
-					<%= link_to user.nickname,user_path(user),:class => 'nickname'%>
-					<p></p>
-					<div class="follow-action">
-						<%= render :partial => 'users/follow_unfollow',:locals  => {:user  => user} %> </div>
-				</li>
-				<%end%>
-				
-			</ul>
-			
-		</div>
-		<%= will_paginate @users %>
-	</div>
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="user-content">
+        <ul class="nav nav-pills">
+          <%= search_nav_helper(params[:action], params[:query]) %>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="users">
+              <% @users.each do |user| %>
+                <div class="user-item">
+                  <div class="avatar">
+                    <%= link_to user_avatar_helper(user), user %>
+                  </div>
+                  <p><%= user.nickname %><p>
+                </div>
+              <% end %>
+            </ul>
+            <%= will_paginate @users %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
