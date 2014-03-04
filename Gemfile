@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'http://ruby.taobao.org/'
+source 'https://rubygems.org'
+#source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.2'
 
@@ -54,7 +54,7 @@ gem 'addressable'
 
 gem 'capistrano'
 
-gem "TaoBaoApi"
+gem "TaoBaoApi", '~> 0.0.6'
 
 # API
 gem 'grape', git: 'https://github.com/intridea/grape.git'
