@@ -34,7 +34,7 @@
                 <% @images.each_with_index do |image, i| %>
                 <li id="image_#{i}">
                   <%= link_to image_tag(image, alt: @product.title), "" %>
-                  <%= hidden_field_tag 'image[]', value: image %>
+                  <%= hidden_field_tag 'image[]', image %>
                   <%= link_to '删除', '#', name: "del_img" %>
                 </li>
                 

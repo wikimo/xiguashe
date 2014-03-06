@@ -7,10 +7,6 @@ class TopicsController < ApplicationController
 		@topics = Topic.short.includes(:user).order_by_created_at_desc.paginate(:page => params[:page])
 	end
 
-	def discovery
-		@topics = Topic.discovery(params[:page], Topic.per_page)
-	end
-
 
 	def new
     @topic = Topic.new
@@ -43,7 +39,6 @@ class TopicsController < ApplicationController
 		params[:topic][:content] = content_filter(params[:topic][:content])
 
 		if @topic.update_attributes(params[:topic])
-			update_photos(params[:photo_id],@topic)
 			redirect_to @topic, :notice => t(:update_success)
 		else
 			#error
@@ -57,15 +52,9 @@ class TopicsController < ApplicationController
 
 	private
 
-	    def update_photos (photo_id,topic)
-	      if photo_id
-	        Photo.find(photo_id).update_attributes!(:photoable  => topic)
-	      end
-	    end
-
 	    def content_filter(content)
 	    	substitute = '\r\n';
-			content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
+	  		content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
 	    end
 
 	    def find_topic

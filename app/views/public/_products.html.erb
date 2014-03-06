@@ -1,7 +1,7 @@
 <li>
 <div class="good">
-    <% if !product.photos.empty? %>
-      <%= link_to photo_tag_helper(product.photos.first.path, style: :small), product %>
+    <% unless product.photos.empty? %>
+      <%= link_to photo_choose_helper(product.photos.first), product %>
     <% end %>
     <h3><%= link_to product.title, product %></h3>
     <span><em><%= number_to_currency product.price, unit: "¥" %></em></span>
