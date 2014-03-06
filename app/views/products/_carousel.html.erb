@@ -8,15 +8,7 @@
   <div class="carousel-inner">
     
     <% product.photos.each_with_index do |photo, index| %>
-      <% if index == 0 %>
-        <div class="item active">
-          <%= photo_tag_helper(photo.path, style: :small) %>
-        </div>
-      <% else %>
-        <div class="item">
-          <%= photo_tag_helper(photo.path, style: :small) %>
-        </div>
-      <% end %>
+       <%= carousel_helper(photo, index) %>
     <% end %>
   </div>
 
