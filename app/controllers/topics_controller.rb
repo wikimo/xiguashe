@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
-    before_filter :logined?, :except => [:index, :show, :discovery]
-    before_filter :find_topic, :only => [:edit,:update,:show]
+  before_filter :logined?, :except => [:index, :show, :discovery]
+  before_filter :find_topic, :only => [:edit,:update,:show]
 
 	def index
 		@topics = Topic.short.includes(:user).order_by_created_at_desc.paginate(:page => params[:page])
@@ -20,9 +20,8 @@ class TopicsController < ApplicationController
 
 		if @topic.save
 
-      params[:photo].each do |p|
-        Photo.create(pic: p, path: p, photoable: @topic, user_id: params[:topic][:user_id]) if p
-      end
+      update_photo(@topic, params[:photo_id])
+
 			redirect_to topic_path(@topic), :notice => t(:create_success)
 		else
 			render 'new'
@@ -39,9 +38,10 @@ class TopicsController < ApplicationController
 		params[:topic][:content] = content_filter(params[:topic][:content])
 
 		if @topic.update_attributes(params[:topic])
+      update_photo(@topic, params[:photo_id])
 			redirect_to @topic, :notice => t(:update_success)
 		else
-			#error
+
 		end
 	end
 
@@ -51,6 +51,12 @@ class TopicsController < ApplicationController
 	end
 
 	private
+
+      def update_photo(topic, photo_ids)
+        photo_ids && photo_ids.each do |id|
+          Photo.find(id).update_attributes!(:photoable  => topic)
+        end
+      end
 
 	    def content_filter(content)
 	    	substitute = '\r\n';
