@@ -48,18 +48,28 @@
 		  return arrFiles;
 	  },
     onSelect: function(files) {
+      var i = 0;
       var funAppendImage = function() {
         file = files[i];
+        var data = new FormData();
+        data.append('photo', file);
+        data.append('auth_token', '#{cookies[:auth_token]}');
+        data.append('user_id', '#{current_user.id}');
         if (file) {
           $.ajax({
             type: 'post',
-            url: '',
-            data: ''
+            url: '/photos',
+            data: data,
+            contentType: false,
+            processData: false,
             success: function(msg) {
+              console.log(msg);
+              i ++;
             }
           });
         }
-      }
+      };
+      funAppendImage();
     }
   };
 
