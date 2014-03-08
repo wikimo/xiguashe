@@ -17,9 +17,9 @@
             <div class="form-group">
               <%= file_field_tag 'photo[]', multiple: "multiple" %>
               <div id="photo-list">
+                <span class="loading"></span>
               </div>
             </div>
-            <a name="abc">fafdsaf</a>
             <%= f.hidden_field :user_id, value: current_user.id %>
 
             <%= f.submit '发表', class: 'btn btn-primary' %>

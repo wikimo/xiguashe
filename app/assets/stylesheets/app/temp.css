@@ -2,3 +2,11 @@
   width: 100px;
   height: 100px;
 }
+
+.loading{
+  display:none;
+  background:url(/assets/loading.gif);
+  float: left;
+  padding:8px;
+  margin:18px 0 0 18px;
+}

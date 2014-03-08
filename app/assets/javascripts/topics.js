@@ -4,9 +4,8 @@ $(function(){
 
     $.each($('#photo_')[0].files, function(i, file) {
 
-      console.log(file);
-
       data.append('photo', file);
+
 
       $.ajax({
         type: 'post',
@@ -16,22 +15,34 @@ $(function(){
         contentType: false,       
         processData: false,
         success: function(obj) {
-          console.log(obj['msg'])
           if (obj['msg'] == 'ok') {
             $('#photo-list').append('<div class="new-photo"></div>');
             $('.new-photo').prepend('<a id="del-' + obj['id'] + '" href="javascript:del_photo(' + obj['id'] + ')">删除</a></div>');
             $('.new-photo').prepend('<input type="hidden" name="photo_id[]" value="' + obj['id'] + '" />')
             $('.new-photo').prepend('<img src=' + obj['photo'] + ' alt="" />');
           }
+          else {
+          }
         }
       });
+
     });
   });
+
 });
 
 function del_photo(id) {
 
-  $('#del-' + id).parent().remove();
+  $.ajax({
+    type: 'DELETE',
+    url: '/photos/' + id,
+    success: function(obj) {
+      if (obj['msg'] == 'ok') {
+        $('#del-' + id).parent().remove();
+      }
+    }
+  });
+
 }
 
 

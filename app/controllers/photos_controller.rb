@@ -5,9 +5,9 @@ class PhotosController < ApplicationController
 
 		@photo = Photo.new(path: params[:photo], user_id: current_user.id)
 		if @photo.save
-			render :json  => {:text  => 1,:msg => 'ok',:photo  => @photo.path.url('100x100'),:id  => @photo.id}
+			render json: {:text  => 1,:msg => 'ok',:photo  => @photo.path.url('100x100'),:id  => @photo.id}
 		else
-			render :json => {:text  => 0,:msg => 'fail'}
+			render json: {:text  => 0,:msg => 'fail'}
 		end
 	end
 
@@ -16,6 +16,8 @@ class PhotosController < ApplicationController
 		@photo = Photo.find(params[:id])
 
 		@photo.destroy
+
+    render json: { text: 1, msg: 'ok'}
 	end
 
 end
