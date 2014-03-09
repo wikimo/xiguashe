@@ -31,7 +31,7 @@ class TopicsController < ApplicationController
 	end
 
 	def edit
-		@group = @topic.group
+
 	end
 
 	def update

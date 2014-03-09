@@ -16,9 +16,20 @@
             </div>
             <div class="form-group">
               <%= file_field_tag 'photo[]', multiple: "multiple" %>
+              <div class="loading"></div>
               <div id="photo-list">
-                <span class="loading"></span>
+                <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
+                  <% @topic.photos.each do |photo| %>
+                    <div id="new-photo-#{photo.id}">
+                      <%= photo_tag_helper(photo.path, style: :small) %>
+                      <%= link_to '删除', "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}" %>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
+            </div>
+            <div class="form-group">
+              <div id="error"></div>
             </div>
             <%= f.hidden_field :user_id, value: current_user.id %>
 
