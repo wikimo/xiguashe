@@ -50,6 +50,10 @@ class TopicsController < ApplicationController
 		@comments = @topic.comments.paginate(page:params[:page])
 	end
 
+	def get_comment_user
+		
+	end
+
 	private
 
       def update_photo(topic, photo_ids)
@@ -66,7 +70,7 @@ class TopicsController < ApplicationController
 	    def find_topic
 	    	@topic =  Topic.where(:id => params[:id]).first
 
-      	render_404 if @topic.nil?
+      		render_404 if @topic.nil?
 	    end
 
 end

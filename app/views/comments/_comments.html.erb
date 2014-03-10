@@ -13,7 +13,7 @@
       <%= raw comment.content %>
     <p>
     <footer>
-    <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
+      <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
                 title: "回复#{comment.user.nickname}", class: 'pull-right',
                 onclick: "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')" ) %>
     </footer>
