@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   before_filter :logined?, :except => [:index, :show, :discovery]
-  before_filter :find_topic, :only => [:edit,:update,:show]
+  before_filter :find_topic, :only => [:edit,:update,:show, :get_comment_user]
 
 	def index
 		@topics = Topic.short.includes(:user).order_by_created_at_desc.paginate(:page => params[:page])
@@ -52,6 +52,15 @@ class TopicsController < ApplicationController
 
 	def get_comment_user
 		
+		users = []
+
+		@topic.comments.each do |comment|
+
+			users << [comment.user.id, comment.user.nickname] unless comment.user.id == @topic.user.id
+		end 
+
+		render json: users.uniq
+
 	end
 
 	private

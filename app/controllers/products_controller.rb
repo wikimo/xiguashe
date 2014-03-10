@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
 
       unless params[:image].nil?
         params[:image].each do |img|
-          Photo.create(taobao_img: img, photoable: @product, user_id: params[:product][:user_id])
+          Photo.create(source: img, photoable: @product, user_id: params[:product][:user_id])
         end
       end
 

@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
 
 	def create
 
-    p params[:photo]
 		@photo = Photo.new(path: params[:photo], user_id: current_user.id)
 		if @photo.save
 			render json: {:text  => 1,:msg => 'ok',:photo  => @photo.path.url('100x100'),:id  => @photo.id}

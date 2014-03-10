@@ -9,9 +9,9 @@ window.CommentApp =
     comment_body.focus().val comment_body.val() + new_text
     false
 
-  put_nickname : (obj, name_array, nickname) ->
-    if obj.nickname != nickname
-      name_array.push obj.nickname
+  put_nickname : (name, name_array, nickname) ->
+    if name != nickname
+      name_array.push name
 
 
 $(document).ready ->
@@ -22,13 +22,13 @@ $(document).ready ->
   if topic_id
     $.ajax
       type: "get"
-      url: ""
-      data: 
-        id: topic_id
+      url: "/topics/#{topic_id}/get_comment_user"
       success:(data) ->
         data = eval(data)
+        console.log(data)
         name_array = new Array()
-        CommentApp.put_nickname(obj, name_array, current_nickname) for obj in data
+        
+        CommentApp.put_nickname(obj[1], name_array, current_nickname) for obj in data
 
         $("#comment-textarea").atwho
           at: "@"
