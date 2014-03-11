@@ -1,7 +1,7 @@
 module ProductsHelper
 
   def carousel_helper(photo, index)
-
+ 
     html = ""
 
     if index == 0

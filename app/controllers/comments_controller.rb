@@ -30,7 +30,9 @@ class CommentsController < ApplicationController
           
           eval("@#{model_info.last} = model_instance")
 
-          redirect_to  model_instance, :notice => t(:comment_create_success)
+          page = (model_instance.comments.count / Comment.per_page) + 1
+
+          redirect_to  "/#{model_info.last}s/#{model_instance.id}?page=#{page}##{@comment.id}", :notice => t(:comment_create_success)
 
         else
           message = ''
@@ -58,6 +60,10 @@ class CommentsController < ApplicationController
     end
 
   end
+
+
+  private 
+    
 
 
 end

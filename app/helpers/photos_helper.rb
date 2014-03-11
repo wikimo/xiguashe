@@ -2,8 +2,8 @@ module PhotosHelper
 
   def photo_choose_helper(photo)
 
-    if photo.taobao_img
-      image_tag photo.taobao_img
+    if photo.source
+      image_tag photo.source
     else
       photo_tag_helper(photo.path, style: :small)
     end
