@@ -13,6 +13,8 @@ class ProductTaobao < ProductBase
 	def get_info url
 		good = TaoBaoApi::Good.new url
 		item = good.get_info 
+    item[:source] = 'taobao'
+    item[:really_id] = get_id(url)
 		item
 	end
 
@@ -116,10 +118,8 @@ class ProductTaobao < ProductBase
 	end
 
 	def get_id url
-		#p url
 		uri = Addressable::URI.parse(url)
 		params = uri.query_values
-		#p params
 		id =   params.has_key?('id') ? params['id'] : 0
 	end
 

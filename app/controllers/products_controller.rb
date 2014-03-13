@@ -25,17 +25,23 @@ class ProductsController < ApplicationController
 
     item = class_instance.get_info params[:link]
 
-    @images = item[:images]
+    if is_exit(item[:really_id])
 
-    @product = Product.new 
-    @product.title = item[:title]
-    @product.url = item[:url]
-    @product.price = item[:price]
-    @product.user_id = current_user.id
+      redirect_to "/products/url?url=#{params[:link]}&really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
+    end
+
+    @images = item[:images]
+  
+    @product = Product.new(title: item[:title], url: item[:url], price: item[:price], 
+                           user_id: current_user.id, really_id: item[:really_id], source: item[:source]) 
 
 	end
 
   def url
+
+    @url = params[:url] ? params[:url] : ''
+
+    @product = Product.by_really_id(params[:really_id]) unless !params[:really_id].nil?
 
   end
 	
@@ -69,5 +75,13 @@ class ProductsController < ApplicationController
   private 
     def find_by_id
       @product = Product.find(params[:id])
+    end
+
+    def is_exit(really_id)
+
+      product = Product.by_really_id(really_id)
+    
+      product.nil? ? false : true
+
     end
 end

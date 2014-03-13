@@ -52,6 +52,8 @@
           </div>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :url, value: @product.url %>
+          <%= f.hidden_field :really_id, value: @product.really_id %>
+          <%= f.hidden_field :source, value: @product.source %>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <%= f.submit "提 交", class: "btn btn-primary" %>
