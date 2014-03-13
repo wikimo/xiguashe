@@ -36,4 +36,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path if current_logined?
     end
 
+    def update_photo(photoable, photo_ids)
+      photo_ids && photo_ids.each do |id| 
+        Photo.find(id).update_attributes!(photoable: photoable)
+      end
+    end
+
 end

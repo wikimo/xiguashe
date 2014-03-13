@@ -51,10 +51,8 @@ class ProductsController < ApplicationController
         end
       end
 
-      unless params[:photo].nil?
-        params[:photo].each do |p|
-          Photo.create(path: p, photoable: @product, user_id: params[:product][:user_id]) if p
-        end
+      unless params[:photo_id].nil?
+        update_photo(@product, params[:photo_id])
       end
 
 

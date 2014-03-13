@@ -41,6 +41,9 @@ Xiguashe::Application.routes.draw do
   match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
 
   resources :topics do
+    member do
+      get :get_comment_user
+    end
     resources :comments
   end
 

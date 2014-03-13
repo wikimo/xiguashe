@@ -32,22 +32,22 @@
             <div class="col-sm-10 good-photos">
               <ul>
                 <% @images.each_with_index do |image, i| %>
-                <li id="image_#{i}">
-                  <%= link_to image_tag(image, alt: @product.title), "" %>
-                  <%= hidden_field_tag 'image[]', image %>
-                  <%= link_to '删除', '#', name: "del_img" %>
-                </li>
-                
-                <div id="preview" class="upload_preview">
-                </div>
+                  <li id="image_#{i}">
+                    <%= link_to image_tag(image, alt: @product.title), "" %>
+                    <%= hidden_field_tag 'image[]', image %>
+                    <%= link_to '删除', '#', name: "del_img" %>
+                  </li>
                 <% end %>
               </ul>
+              <div id="photo-list">
+              </div>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">上传图片</label> 
             <div class="col-sm-10">
               <%= file_field_tag "photo[]",multiple: "multiple" %>
+              <div class="loading"></div>
             </div>
           </div>
           <%= f.hidden_field :user_id, value: current_user.id %>
@@ -62,76 +62,3 @@
     </div>
   </div>
 </div>
-
-<script>
-
-  $(function(){
-    $("a[name='del_img']").click(function(){
-      $(this).parent().remove();
-    });
-      
-  });
-var params = {
-  fileInput: $("#photo_").get(0),
-  filter: function(files) {
-    var arrFiles = [];
-    for (var i = 0, file; file = files[i]; i++) {
-        if (file.type.indexOf("image") == 0) {
-            if (file.size >= 512000) {
-                alert('您这张"'+ file.name +'"图片大小过大，应小于500k');	
-            } else {
-                arrFiles.push(file);	
-            }			
-        } else {
-            alert('文件"' + file.name + '"不是图片。');	
-        }
-    }
-    return arrFiles;
-  },
-  onSelect: function(files) {
-    var html = '', i = 0;
-    //等待载入gif动画
-    $("#preview").html('<div class="upload_loading"></div>');
-    var funAppendImage = function() {
-        file = files[i];
-        if (file) {
-            var reader = new FileReader()
-            reader.onload = function(e) {
-                html = html + '<div id="uploadList_'+ i +'" class="upload_append_list"><p>'+ 
-                    '<a href="javascript:" class="upload_delete" title="删除" data-index="'+ i +'">删除</a>' +
-                    '<img id="uploadImage_' + i + '" src="' + e.target.result + '" class="upload_image" /></p>'+ 
-                    '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
-                '</div>';
-                
-                i++;
-                funAppendImage();
-            }
-            reader.readAsDataURL(file);
-        } else {
-            //图片相关HTML片段载入
-            $("#preview").html(html);
-            if (html) {
-                //删除方法
-                $(".upload_delete").click(function() {
-                    ZXXFILE.funDeleteFile(files[parseInt($(this).attr("data-index"))]);
-                    return false;	
-                });
-                //提交按钮显示
-                $("#fileSubmit").show();	
-            } else {
-                //提交按钮隐藏
-                $("#fileSubmit").hide();	
-            }
-        }
-    };
-    //执行图片HTML片段的载人
-    funAppendImage();		
-  },
-  onDelete: function(file) {
-    $("#uploadList_" + file.index).fadeOut();
-  }
-};
-ZXXFILE = $.extend(ZXXFILE, params);
-ZXXFILE.init();
-</script>
-

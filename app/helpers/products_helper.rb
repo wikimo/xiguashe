@@ -6,11 +6,11 @@ module ProductsHelper
 
     if index == 0
       html = content_tag(:div, class: 'item active') do
-                photo_tag_helper(photo.path, style: :small)
+                photo_choose_helper(photo)
              end
     else
       html = content_tag(:div, class: 'item') do
-                photo_tag_helper(photo.path, style: :small)
+                photo_choose_helper(photo)
              end
     end
     

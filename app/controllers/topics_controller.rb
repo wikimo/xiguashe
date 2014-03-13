@@ -65,12 +65,6 @@ class TopicsController < ApplicationController
 
 	private
 
-      def update_photo(topic, photo_ids)
-        photo_ids && photo_ids.each do |id|
-          Photo.find(id).update_attributes!(:photoable  => topic)
-        end
-      end
-
 	    def content_filter(content)
 	    	substitute = '\r\n';
 	  		content = content.gsub(/^[#{substitute}]+|[#{substitute}]+$/, '').gsub(/\r\n/,"<br/>")
