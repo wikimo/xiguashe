@@ -239,3 +239,5 @@ zh-CN:
   delete_success: '删除成功！'
   update_success: '更新成功！'
   update_pass_ok: '密码修改成功！'
+
+  product_already_exit: '商品已存在！'

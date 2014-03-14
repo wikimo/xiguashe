@@ -38,11 +38,7 @@ class ProductsController < ApplicationController
 
   def url
 
-    @product = Product.by_really_id(params[:really_id]) unless !params[:really_id]
-
-    if @product.present?
-      p @product.title
-    end
+    @product = Product.by_really_id(params[:really_id]).first unless !params[:really_id]
 
   end
 	

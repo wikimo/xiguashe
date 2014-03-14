@@ -1,4 +1,5 @@
 <div class="home-index">
+  <%= render 'public/flash_notice' %>
   <div class="row">
     <div class="col-xs-12">
       <div class="comm-form">
@@ -12,9 +13,10 @@
               <%= text_field_tag 'link', nil, class: 'form-control', placeholder: "复制东西的链接到这里试试……" %>
             </div>
           </div>
-          <% if @product.present? %>
+          <% unless @product.blank? %>
             <div class="form-group">
-              <%= @product %>
+              <%= link_to photo_choose_helper(@product.photos.first), @product %>
+              <%= link_to @product.title, @product %>
             </div>
           <% end %>
           <div class="form-group">
