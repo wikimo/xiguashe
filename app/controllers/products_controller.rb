@@ -12,13 +12,17 @@ class ProductsController < ApplicationController
   end
 	
 	def new
+
+    mat = /(http|https):\/\//.match(params[:link])
+
+
     url = URI.parse(params[:link])
     if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmal'
       class_name = 'ProductTaobao'
     elsif url.host.include? 'paipai'
       class_name = 'ProductPaipai'
     else
-      puts 'error'
+      redirect_to url_products_path, notice: t(:no_product_url)
     end
 
     class_instance = Object.const_get(class_name).new
