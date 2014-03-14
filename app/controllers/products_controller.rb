@@ -26,8 +26,7 @@ class ProductsController < ApplicationController
     item = class_instance.get_info params[:link]
 
     if is_exit(item[:really_id])
-
-      redirect_to "/products/url?url=#{params[:link]}&really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
+      redirect_to "/products/url?really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
     end
 
     @images = item[:images]
@@ -39,9 +38,11 @@ class ProductsController < ApplicationController
 
   def url
 
-    @url = params[:url] ? params[:url] : ''
+    @product = Product.by_really_id(params[:really_id]) unless !params[:really_id]
 
-    @product = Product.by_really_id(params[:really_id]) unless !params[:really_id].nil?
+    if @product.present?
+      p @product.title
+    end
 
   end
 	
@@ -80,8 +81,8 @@ class ProductsController < ApplicationController
     def is_exit(really_id)
 
       product = Product.by_really_id(really_id)
-    
-      product.nil? ? false : true
 
+      product.present?
+    
     end
 end

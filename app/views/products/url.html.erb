@@ -9,12 +9,12 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">东西链接</label>
             <div class="col-sm-10">
-              <%= text_field_tag 'link', @url, class: 'form-control', placeholder: "复制东西的链接到这里试试……" %>
+              <%= text_field_tag 'link', nil, class: 'form-control', placeholder: "复制东西的链接到这里试试……" %>
             </div>
           </div>
           <% if @product.present? %>
             <div class="form-group">
-              <%= link_to @product.title, @product %>
+              <%= @product %>
             </div>
           <% end %>
           <div class="form-group">

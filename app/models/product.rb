@@ -34,16 +34,9 @@ class Product < ActiveRecord::Base
 
   scope :by_really_id, lambda { |really_id| where('really_id = ?', really_id) }
 
-  def is_exit()
-
-    product = Product.by_really_id
-
-    product.nil? ? false : true
-
-  end
 
 	class << self
-		
+
 		def search_in_cpanel(search, page = 1, per_page = 20)
 			if search 
 				where('title like ?', "%#{search}%").order_desc_by_created_at(page, per_page)
