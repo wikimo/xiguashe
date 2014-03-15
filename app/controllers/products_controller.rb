@@ -13,31 +13,35 @@ class ProductsController < ApplicationController
 	
 	def new
 
-    mat = /(http|https):\/\//.match(params[:link])
+    if !validate_url(params[:link])
 
+      redirect_to url_products_path, notice: t(:product_url_error)
 
-    url = URI.parse(params[:link])
-    if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmal'
-      class_name = 'ProductTaobao'
-    elsif url.host.include? 'paipai'
-      class_name = 'ProductPaipai'
     else
-      redirect_to url_products_path, notice: t(:no_product_url)
+
+      url = URI.parse(params[:link])
+      if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmal'
+        class_name = 'ProductTaobao'
+      elsif url.host.include? 'paipai'
+        class_name = 'ProductPaipai'
+      else
+        redirect_to url_products_path, notice: t(:no_product_url)
+      end
+
+      class_instance = Object.const_get(class_name).new
+
+      item = class_instance.get_info params[:link]
+
+      if is_exit(item[:really_id])
+        redirect_to "/products/url?really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
+      end
+
+      @images = item[:images]
+    
+      @product = Product.new(title: item[:title], url: item[:url], price: item[:price], 
+                             user_id: current_user.id, really_id: item[:really_id], source: item[:source]) 
+
     end
-
-    class_instance = Object.const_get(class_name).new
-
-    item = class_instance.get_info params[:link]
-
-    if is_exit(item[:really_id])
-      redirect_to "/products/url?really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
-    end
-
-    @images = item[:images]
-  
-    @product = Product.new(title: item[:title], url: item[:url], price: item[:price], 
-                           user_id: current_user.id, really_id: item[:really_id], source: item[:source]) 
-
 	end
 
   def url
@@ -84,5 +88,10 @@ class ProductsController < ApplicationController
 
       product.present?
     
+    end
+  
+    def validate_url(url)
+      mat = /(http|https):\/\//.match(params[:link])
+      mat.blank? ? false : true
     end
 end

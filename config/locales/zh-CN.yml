@@ -241,3 +241,4 @@ zh-CN:
   update_pass_ok: '密码修改成功！'
 
   product_already_exit: '商品已存在！'
+  product_url_error: 'url 错误'
