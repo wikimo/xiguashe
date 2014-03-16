@@ -1,8 +1,8 @@
 <div class="home-index">
   <div class="row">
     <div class="col-xs-12">
-      <div class="topic-form">
-        <h4>发表话题</h4>
+      <div class="topic-form comm-form">
+        <h4>发表文章</h4>
         
           <%= form_for @topic, html: { multipart: true, role: 'form'} do |f| %>
 
@@ -15,7 +15,7 @@
               <%= f.text_area :content, id: 'content-box', class: 'form-control', cols: '30', rows: '10',  placeholder: '发挥下你的创作灵感……' %>
             </div>
             <div class="form-group">
-              <%= file_field_tag 'photo[]', multiple: "multiple" %>
+              <%= file_field_tag 'photo[]', multiple: "multiple", class: 'file-inputs btn btn-default', title: '上传一张精美的图片吧！' %>
               <div class="loading"></div>
               <div id="photo-list">
                 <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
@@ -39,5 +39,9 @@
     </div>
   </div>
 </div>
-
+<script>
+  $(function(){
+    $('.file-inputs').bootstrapFileInput();
+  })
+</script>
 

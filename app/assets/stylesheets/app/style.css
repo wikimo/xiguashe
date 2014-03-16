@@ -57,7 +57,7 @@ header{margin-bottom: 10px;}
 .topic-list ul li .ua .username{
     color: #999;
 }
-.topic-list .article-info{color: #999;margin:5px 0 0 0 ;}
+.topic-list .article-info{color: #999;margin:5px 0 0 0;}
 .topic-list .article-info span{padding: 0 6px;}
 
 a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: none;display: block;margin-bottom: 15px;}
@@ -82,14 +82,13 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 
 .good-list li,.act-list li{
-
-    padding: 0 15px;
+    padding: 0 10px;
     margin-bottom: 1em;
     min-height: 1px;
 }
 
 .good-list .good,.act-list .item{
-    color: #999;
+    color: #666;
     background: #fff;
     border-radius: 4px;
     padding: 1em;
@@ -97,32 +96,86 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     text-align: center;
     position: relative;
 }
+.good-list .good{
+    text-align: left;
+}
 .good-list .good > *,.act-list .item > *{
-    white-space:nowrap;/* 不换行 */
+    /*white-space:nowrap;*/
     text-overflow:ellipsis;
     overflow: hidden;
+}
+.good-list .good blockquote{
+    padding: 5px;
+    height: 60px;
+    font-size: 13px;
+    color: #A9A9A9;
+}
+.good-list .good blockquote img{
+    width: 28px;
+}
+.good-list .good .avatar{
+    display: block;
+    width: 40px;
+    float: left;
+    margin-right: 5px;
+}
+.good-list .good .avatar img{
+    border-radius: 48%;
+}
+
+.good-img{position: relative;width: 100%;z-index: 1}
+.good-img span{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: #333;
+    opacity:0.3;
+    z-index: 2;
+    display: block;
+    width: 80px;
+    height: 30px;
+}
+.good-img em{
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    z-index: 3;
+    font-size: 16px;
+}
+
+.good-img img{
+    width: 100%;
 }
 
 .good-list .good h3,.act-list .item h3{
     text-align: left;
+    color: #DE533C;
+    margin:10px 0;
 }
-
-
-
-
+.good-list .good footer{
+    text-align: left;
+    color: #999;
+}
+.good-list .good footer em{
+    float: left;
+    font-size: 16px;
+   
+}
+.good-list .good footer cite{
+    float: right;
+}
 
 .good-list li img,.act-list li img{
     max-width: 100%;
     max-height: 100%;
-    /*max-width: 200px;*/
     vertical-align: middle;
     margin:auto;
-
 }
+
 .good-list li p{text-indent: 1em;}
 
 .good-list li h3,.act-list li h3{
-    
     font: 14px/1.5em "Hiragino Sans GB","Microsoft YaHei",Helvetica,sans-serif;
 }
 
@@ -158,15 +211,13 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 
 .sign-up{
-      position: fixed;
-        right: 5px;
+    position: fixed;
+    right: 5px;
     top: 5px;
     z-index: 2;  
 }
 .sign-up li{float: left;}
 .sign-up .dropdown-menu li{float: none;}
-
-
 
 .hot-tags{
     background: #fff;
@@ -179,7 +230,6 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     padding: 8px 5px;
     display: inline-block;
     width: 100px;
-
 }
 
 .topic{
@@ -206,7 +256,6 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     width:40px;
     height: 40px;
     border-radius: 50%;
-
 }
 
 .topic .show-content{
@@ -220,9 +269,9 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 
 .actions{
-
     margin: 10px 0 0 0 ;
-    background: #3F3F3F;
+    /*background: #3F3F3F;*/
+    background: rgba(147, 184, 185, 0.9);
 }
 
 .actions-content{
@@ -236,13 +285,15 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 
 .comment-item{
     padding: 15px 10px;
-    background: #555555;
+    /*background: #555555;*/
+    background: #697C82;
     border-radius: 4px;
     margin: 10px 0;
 }
 
 .comment-item,.comment-item a{
-    color: #B3B3B3;
+    /*color: #B3B3B3;*/
+    color: #FFF;
 }
 
 .comment-item .avatar{
@@ -356,9 +407,14 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 .good-pic img{
     width: 100%;
     height: 100%;
-    max-width: 350px;
+    
     margin: 0 20px 20px 0 ;
 } 
+
+.good-pic .carousel-inner > .item > img, .good-pic .carousel-inner > .item > a > img{
+    max-width: 350px;
+}
+
 .good-info h3{
     margin: 0px 0 20px 0
 }
@@ -391,7 +447,6 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     font-weight: normal;
 }
 
-
 .login-reg{
     background: #fff;
     border-radius: 5px;
@@ -399,6 +454,58 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 .login-reg-content{
     padding: 15px;
+}
+
+.opt-box{
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+.opt-box .btn{
+    margin-right: 10px;
+}
+.opt-box span{
+    color: #999;
+    line-height: 2em;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+.h-pdl-30{
+    padding-left: 30px;
+}
+
+.green-light{
+    background: #ABD6BA;
+}
+.green-weight{
+    background: #748D7D;
+}
+
+.good-info em{
+    font-size: 18px;
+    padding-right: 20px;
+}
+.good-info h3{
+    line-height: 1.5em;
+}
+.sharer{
+    padding: 15px 0;
+    color: #666;
+}
+
+.post{
+    margin-top: 10px;
+}
+
+.qrcode{
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+.qrcode{
+    display: none;
+}
+.qrcode p{
+    padding: 0 15px;
 }
 
 @media (min-width: 768px) {
@@ -414,12 +521,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
         display: inline;
     }
     .topic-list ul li h2{padding-right: 22%;}
-    .sign-up{
-        position: fixed;
-        right: 5px;
-        top: 5px;
-        z-index: 2;
-    }
+
     .xgs-nav{
         background: #EBECED;
     }
@@ -448,9 +550,8 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     }
     .good-list li,.act-list li{
         float: left;
-        width: 30%;
-        height: 305px;
-        overflow: hidden;
+        width: 33%;
+        min-width: 240px;
     }
     
     .good-list-fixed{
@@ -473,7 +574,11 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     .good-pic img{
         margin: 0 20px 20px 0 ;
     }
+    .qrcode{
+        display: block;
+    }
 }
+
 
 /*清除浮动 代码*/
 .cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}

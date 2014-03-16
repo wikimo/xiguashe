@@ -1,6 +1,6 @@
 <div class="post-comment">
   <% if !current_user %>
-		<p>登录后可进行评论，请先 <%= link_to '登录', login_path %> 或 <%= link_to '注册', reg_path %></p>
+    <%= link_to '登陆后发表评论', login_path, :class => 'btn btn-primary'%> 
   <% else %>
     <%= form_for [item, Comment.new] do |f| %>
       <div class="form-group">
