@@ -49,6 +49,12 @@ class ProductsController < ApplicationController
     @product = Product.by_really_id(params[:really_id]).first unless !params[:really_id]
 
   end
+
+  def test
+    url = URI.parse('http://dongxi.douban.com/shows/%E6%AF%8D%E5%A9%B4/')
+    dongxi = ProductDouban.new
+    p dongxi.get_goods_list url
+  end
 	
 	def create
 

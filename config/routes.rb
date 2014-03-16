@@ -21,7 +21,7 @@ Xiguashe::Application.routes.draw do
 
   resources :products do
     collection do
-      get :url
+      get :url, :test
     end
     resources :comments
   end
