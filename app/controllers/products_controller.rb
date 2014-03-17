@@ -53,7 +53,12 @@ class ProductsController < ApplicationController
   def test
     url = URI.parse('http://dongxi.douban.com/shows/%E6%AF%8D%E5%A9%B4/')
     dongxi = ProductDouban.new
-    p dongxi.get_goods_list url
+    products = dongxi.get_goods_list url
+
+    products.each do |product|
+      puts product[:title] 
+      puts product[:id]
+    end
   end
 	
 	def create
