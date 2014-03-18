@@ -51,14 +51,24 @@ class ProductsController < ApplicationController
   end
 
   def test
+
     url = URI.parse('http://dongxi.douban.com/shows/%E6%AF%8D%E5%A9%B4/')
     dongxi = ProductDouban.new
     products = dongxi.get_goods_list url
 
     products.each do |product|
-      puts product[:title] 
-      puts product[:id]
+
+      #p = Product.new(title: product[:title], url: product[:url], 
+      #                source: 'douban', really_id: product[:id], user_id: 1)
+      
+      #if p.save
+      #  product[:img].each do |img|
+      #    Photo.create(photoable: p, source: img[:original], is_main: img[:active], user_id: 1 )
+      #  end
+      #end
+
     end
+
   end
 	
 	def create

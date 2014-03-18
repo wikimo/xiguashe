@@ -33,16 +33,28 @@ class ProductDouban < ProductBase
     doc = Nokogiri::HTML(open(url))
     doc.encoding = 'utf-8'
 
-    title = doc.css('.commodity-detail').attr('data-title')
-    id = doc.css('.commodity-detail').attr('data-tid')
+    title = doc.css('.commodity-detail').attr('data-title').value()
+    id = doc.css('.commodity-detail').attr('data-tid').value()
 
-    product = Hash.new
+    product = {
+      title: title,
+      id: id
+    }
 
-    product[:title] = title
-    product[:id] = id
+    doc.css('.nav-image').each_with_index do |li, i|
 
-    doc.css('.nav-image').each do |li|
-      product[:img] = [ li.attr('data-original-url'), li.attr('data-large-url'), li.css('img').attr('src') ]
+      active = (i == 0 ? 1 : 0)
+
+      img = {
+
+        original: li.attr('data-original-url'),
+        large: li.attr('data-large-url'),
+        small: li.css('img').attr('src').value(),
+        active: active
+
+      } 
+
+      product[:img] = img
     end
 
     product
