@@ -58,14 +58,14 @@ class ProductsController < ApplicationController
 
     products.each do |product|
 
-      #p = Product.new(title: product[:title], url: product[:url], 
-      #                source: 'douban', really_id: product[:id], user_id: 1)
+      p = Product.new(title: product[:title], url: product[:url], 
+                      source: 'douban', really_id: product[:id], user_id: 7)
       
-      #if p.save
-      #  product[:img].each do |img|
-      #    Photo.create(photoable: p, source: img[:original], is_main: img[:active], user_id: 1 )
-      #  end
-      #end
+      if p.save
+        product[:img].each do |img|
+          p img
+        end
+      end
 
     end
 

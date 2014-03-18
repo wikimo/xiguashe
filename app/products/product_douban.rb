@@ -43,7 +43,7 @@ class ProductDouban < ProductBase
 
     doc.css('.nav-image').each_with_index do |li, i|
 
-      active = (i == 0 ? 1 : 0)
+      active = (i == 0 ? 'main' : 'unmain')
 
       img = {
 
@@ -54,7 +54,7 @@ class ProductDouban < ProductBase
 
       } 
 
-      product[:img] = img
+      product[:img] << img
     end
 
     product
