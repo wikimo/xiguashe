@@ -35,11 +35,18 @@ class ProductDouban < ProductBase
 
     title = doc.css('.commodity-detail').attr('data-title').value()
     id = doc.css('.commodity-detail').attr('data-tid').value()
+    price_content = doc.css('.commodity-detail').css('.commodity-price').children().text()
+    price = /[\d.\d]/.match(price_content)
+    #money_tag = /$|￥|￡/.match(price_content)
 
     product = {
       title: title,
-      id: id
+      id: id,
+      price: price,
+      #money_tag: money_tag
     }
+
+    product[:img] = []
 
     doc.css('.nav-image').each_with_index do |li, i|
 
@@ -56,6 +63,8 @@ class ProductDouban < ProductBase
 
       product[:img] << img
     end
+
+    p product
 
     product
 
