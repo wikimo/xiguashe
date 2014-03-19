@@ -35,15 +35,15 @@ class ProductDouban < ProductBase
 
     title = doc.css('.commodity-detail').attr('data-title').value()
     id = doc.css('.commodity-detail').attr('data-tid').value()
-    price_content = doc.css('.commodity-detail').css('.commodity-price').children().text()
-    price = /[\d.\d]/.match(price_content)
-    #money_tag = /$|￥|￡/.match(price_content)
+    price_content = doc.css('.commodity-detail').css('.commodity-price').children().text().chomp.strip
+    price = price_content[1, price_content.length]
+    money_tag = price_content[0,1]
 
     product = {
       title: title,
       id: id,
       price: price,
-      #money_tag: money_tag
+      money_tag: money_tag
     }
 
     product[:img] = []
@@ -63,8 +63,6 @@ class ProductDouban < ProductBase
 
       product[:img] << img
     end
-
-    p product
 
     product
 

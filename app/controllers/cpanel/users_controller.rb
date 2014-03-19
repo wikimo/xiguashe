@@ -4,7 +4,6 @@ class Cpanel::UsersController < Cpanel::ApplicationController
 	def index
 
 		
-		@users = User.search_in_cpanel(params[:search], params[:page], User.per_page)
 	end
 
 	def show
@@ -22,8 +21,4 @@ class Cpanel::UsersController < Cpanel::ApplicationController
 		
 	end
 
-	#目前没有状态字段
-	def change_status
-		
-	end
 end

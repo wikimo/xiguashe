@@ -37,11 +37,11 @@ class Product < ActiveRecord::Base
 
 	class << self
 
-		def search_in_cpanel(search, page = 1, per_page = 20)
+		def search_in_cpanel(search)
 			if search 
-				where('title like ?', "%#{search}%").order_desc_by_created_at(page, per_page)
-			else
-				order_desc_by_created_at(page, per_page)
+				where('title like ?', "%#{search}%").order_by_created_at_desc
+      else
+        order_by_created_at_desc
 			end
 		end
 	end

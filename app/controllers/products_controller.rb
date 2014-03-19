@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-
     @comments = @product.comments.paginate(page: params[:page])
   end
 	
@@ -50,30 +49,12 @@ class ProductsController < ApplicationController
 
   end
 
-  def test
 
-    url = URI.parse('http://dongxi.douban.com/shows/%E6%AF%8D%E5%A9%B4/')
-    dongxi = ProductDouban.new
-    products = dongxi.get_goods_list url
-
-    products.each do |product|
-
-      #p = Product.new(title: product[:title], url: product[:url], 
-      #                source: 'douban', really_id: product[:id], user_id: 1)
-      
-      #if p.save
-      #  product[:img].each do |img|
-      #    Photo.create(photoable: p, user_id: 1, source: img[:original], is_main: img[:active] == 'main'? 1 : 0)
-      #  end
-      #end
-
-    end
-
-  end
-	
 	def create
 
     @product = Product.new params[:product]
+
+    @product.img = params[:radio_img]
 
     if @product.save
 
@@ -86,7 +67,6 @@ class ProductsController < ApplicationController
       unless params[:photo_id].nil?
         update_photo(@product, params[:photo_id])
       end
-
 
       redirect_to @product, notice: t(:create_success)
 

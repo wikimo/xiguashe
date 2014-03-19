@@ -13,7 +13,6 @@ Xiguashe::Application.routes.draw do
   match "/search/topics" => "search#topics",:as => :search_topics
 
 
-  match "groups/audit/:id/:user_id/:status"  => "groups#audit",           :via => :get
   match "notifications/read/:id/:type"       => "notifications#read",     :via => :get
   match "topics/destroy_product/:product_id" => "topics#destroy_product", :via => :get
 
@@ -21,7 +20,7 @@ Xiguashe::Application.routes.draw do
 
   resources :products do
     collection do
-      get :url, :test
+      get :url
     end
     resources :comments
   end
@@ -57,18 +56,6 @@ Xiguashe::Application.routes.draw do
 
   namespace :cpanel do 
     
-    resources :categories do 
-      member do
-        get :change_use 
-      end
-    end
-
-    resources :groups do
-      member do
-        get :change_status
-      end
-    end
-
     resources :topics do 
       member do 
         get :change_edit
@@ -76,7 +63,11 @@ Xiguashe::Application.routes.draw do
       end
     end
     
-		resources :products 
+		resources :products do
+      collection do
+        get :douban_syn
+      end
+    end
 
     resources :comments do 
     end

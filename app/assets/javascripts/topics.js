@@ -35,6 +35,7 @@ $(function(){
             $('#new-photo-' + obj['id']).prepend('<a id="del-' + obj['id'] + '" href="javascript:del_photo(' + obj['id'] + ')">删除</a>');
             $('#new-photo-' + obj['id']).prepend('<input type="hidden" name="photo_id[]" value="' + obj['id'] + '" />')
             $('#new-photo-' + obj['id']).prepend('<img src=' + obj['photo'] + ' alt="" />');
+            $('#new-photo-' + obj['id']).prepend('<input type="radio" name="radio_img" value=' + obj['photo'] +' />')
           }
           
           $(".loading").hide();

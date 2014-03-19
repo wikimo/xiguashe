@@ -1,8 +1,6 @@
 <li>
 <div class="good">
-    <% unless product.photos.empty? %>
-      <%= link_to photo_choose_helper(product.photos.first), product %>
-    <% end %>
+    <%= link_to image_tag(product.try(:img), alt: ""), product %>
     <h3><%= link_to product.title, product %></h3>
     <span><em><%= number_to_currency product.price, unit: "¥" %></em></span>
   </div>

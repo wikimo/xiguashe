@@ -34,6 +34,11 @@
             <li><%= link_to '写点文章', new_topic_path%></li>
             <li><%= link_to '发布东西', url_products_path%></li>
             <li class="divider"></li>
+            <li>
+              <%if current_user.is_admin? %>
+                <%= link_to '后台管理', cpanel_products_path %>
+              <% end %>
+            </li>
 	          <li><a href="#">退出登录</a></li>
 	        </ul>
         </li>
