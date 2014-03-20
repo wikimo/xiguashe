@@ -39,13 +39,15 @@ header{margin-bottom: 10px;}
 
 .more-item{position: absolute;right: 20px; top: 5px;text-decoration: none;}
 
-.topic-list ul {padding: 0;margin:0;}
-.topic-list ul li {list-style: none;color: #555;position: relative;padding: 0 15px 18px 0;margin-bottom: 15px;background: #fff;padding: 15px;border-radius: 4px}
+.topic-list ul,.article-list ul{padding: 0;margin:0;}
+.topic-list ul li,.article-list ul li {list-style: none;color: #999;position: relative;padding: 0 15px 18px 0;margin-bottom: 15px;padding: 10px;border-radius: 4px;overflow: hidden;}
+
+.article-list ul li article{background: #fff;padding: 15px;border-radius: 5px;}
 .topic-list ul li:hover{}
 
 .topic-list ul li p{line-height: 2em;font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;font-size: 16px;padding-bottom: 30px;color: #666}
 
-.topic-list ul li h2{font:  18px/1.5em "黑体";margin:5px 0;}
+.topic-list ul li h2,.article-list ul li h2{font:  18px/1.5em "黑体";margin:5px 0;}
 .topic-list ul li img{width: 100%;max-width: 320px;}
 
 .topic-list ul li .ua img{
@@ -59,6 +61,9 @@ header{margin-bottom: 10px;}
 }
 .topic-list .article-info{color: #999;margin:5px 0 0 0;}
 .topic-list .article-info span{padding: 0 6px;}
+.article-list li .article-info {text-align: right;}
+.article-list li .article-info a{float: left;}
+.article-list li .article-info img{width: 28px;height: 28px;border-radius: 50%;}
 
 a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: none;display: block;margin-bottom: 15px;}
 .more:hover{background: #DE533C;color: #fff;}
@@ -81,7 +86,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     margin: 0;
 }
 
-.good-list li,.act-list li{
+.good-list li,.act-list li,.article-list li{
     padding: 0 10px;
     margin-bottom: 1em;
     min-height: 1px;
@@ -508,6 +513,22 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     padding: 0 15px;
 }
 
+.xg-slider{background: #fff;margin: 10px ;border-radius: 5px;color: #888;width: 96.5%;}
+.xg-slider-left{padding: 10px;}
+.xg-slider-left cite{font-size: 13px;color: #999}
+.xg-slider-avatar img{width: 28px;height: 28px;border-radius: 50%} 
+
+.xg-slider-right img{width: 100%}
+
+.msg-box ul{
+    list-style: none
+
+}
+.msg-box ul li{
+    padding: 10px 0;
+}
+.msg-box .avatar img{border-radius: 50%;width: 30px;height: 30px;}
+
 @media (min-width: 768px) {
     .search-box{
         display: block;
@@ -548,10 +569,14 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     .topic .author .avatar{
         display: inline;
     }
-    .good-list li,.act-list li{
+    .good-list li,.act-list li,.article-list li{
         float: left;
         width: 33%;
         min-width: 240px;
+    }
+    .article-list li img{
+        max-width: 310px;
+        width: 100%;
     }
     
     .good-list-fixed{
@@ -577,6 +602,11 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     .qrcode{
         display: block;
     }
+
+    .xg-slider-left{padding: 40px ;}
+    .xg-slider-right{height: 274px;}
+    .xg-slider-right a{display: block;height: 274px;}
+    .no-p{padding: 0}
 }
 
 

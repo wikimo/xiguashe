@@ -1,7 +1,7 @@
 <div class="home-index">
   <div class="row">
     <div class="col-xs-12">
-      <div class="user-content">
+      <div class="user-content msg-box">
         <div class="tab-content">
           <h3>消息提醒(<%= @notifications.size %>)</h3>
           <div class="tab-pane active" id="receive-msg">
@@ -9,11 +9,11 @@
               <% @notifications.each do |notification| %>
                 <li>
                   <input type="checkbox"/> 
-                    来自:<%= link_to user_avatar_helper(notification.notificationable.user), notification.notificationable.user %>
+                    <%= link_to user_avatar_helper(notification.notificationable.user), notification.notificationable.user ,:class=> 'avatar'%>
                     <%= notification.notificationable.user.nickname %> 的<%= mention_id_helper(notification.mention_id) %>
                     <%= link_to notification.notificationable.commentable.try(:title), "/notifications/read/#{notification.id}/0" %>
                     <%= format_content(truncate notification.notificationable.content, length: 100) %>
-                    <span><%= timeago_tag notification.created_at, nojs: true, limit: 10.day.ago %></span>
+                    <cite><%= timeago_tag notification.created_at, nojs: true, limit: 10.day.ago %></cite>
                 </li>
               <% end %> 
             </ul>
