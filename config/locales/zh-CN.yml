@@ -242,3 +242,4 @@ zh-CN:
 
   product_already_exit: '商品已存在！'
   product_url_error: 'url 错误'
+  douban_syn_success: '豆瓣商品同步完成'

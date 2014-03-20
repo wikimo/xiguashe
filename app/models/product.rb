@@ -34,6 +34,8 @@ class Product < ActiveRecord::Base
 
   scope :by_really_id, lambda { |really_id| where('really_id = ?', really_id) }
 
+  scope :by_source, lambda { |source| where('source = ?', source) }
+
 
 	class << self
 
