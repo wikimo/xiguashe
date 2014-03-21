@@ -28,10 +28,14 @@
             <%= current_user.nickname %><b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-			      <li><a href="#">我的主页</a></li>
-	          <li><a href="#">修改资料</a></li>
+            <li><%= link_to '我的主页', current_user %></li>
+            <li><%= link_to '修改资料', edit_user_path(current_user) %></li>
             <li class="divider"></li>
-            <li><%= link_to '写点文章', new_topic_path%></li>
+            <li>
+              <% if current_user.is_admin? %>
+                <%= link_to '写点文章', new_topic_path%>
+              <% end%>
+            </li>
             <li><%= link_to '发布东西', url_products_path%></li>
             <li class="divider"></li>
             <li>
@@ -39,7 +43,7 @@
                 <%= link_to '后台管理', cpanel_products_path %>
               <% end %>
             </li>
-	          <li><a href="#">退出登录</a></li>
+            <li><%= link_to '退出登录', quit_path %></li>
 	        </ul>
         </li>
       <% else %>

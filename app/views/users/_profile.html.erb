@@ -4,7 +4,7 @@
       <div class="col-md-5">
         <div class="avatar">
           <%= user_avatar_helper(user) %>
-          <%= f.file_field :icon, class: 'file-inputs btn btn-default', title: '修改头像' %>
+          <%= f.file_field :avatar, class: 'file-inputs btn btn-default', title: '修改头像' %>
         </div>
       </div>
     </div>
@@ -16,12 +16,10 @@
     </div>
     <div class="form-group">
       <div class="col-md-5">
-        <label>城市</label>
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-5">
-        <label>个性化域名</label>
       </div>
     </div>
     <%= hidden_field_tag 'do',  'profile' %>

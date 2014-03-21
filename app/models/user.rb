@@ -64,10 +64,10 @@ class User < ActiveRecord::Base
 						            :thumb  => "50X50>",
 						            :medium => '80X80>',
 									      :original => "120x120>"
-							    }, 
+						 }, 
 					  :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
 					  :path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-                :whiny => false
+            :whiny => false
 
     before_create { generate_token(:auth_token) }
 

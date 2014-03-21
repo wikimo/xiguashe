@@ -1,6 +1,7 @@
 defaults: &defaults
   admin_emails: 
     - "gwikimo@gmail.com"
+    - "cedric_chenzhong@163.com"
 
 development:
   <<: *defaults
