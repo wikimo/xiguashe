@@ -9,6 +9,33 @@ class ProductsController < ApplicationController
   def show
     @comments = @product.comments.paginate(page: params[:page])
   end
+
+  def get
+
+    if !validate_url(params[:link])
+      render json: { text: 0, msg: 'error_product_url' }
+    else
+      url = URI.parse(params[:link])
+      if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmall'
+        class_name = 'ProductTaobao'
+      elsif url.host.include? 'paipai'
+        class_name = 'ProductPaipai'
+      else
+        render json: { text: 1, msg: 'no_product_url'}
+      end
+
+      class_instance = Object.const_get(class_name).new
+
+      item = class_instance.get_info params[:link]
+
+      if is_exit(item[:really_id])
+        render json: { text: 2, really_id: item[:really_id], msg: 'product_already_exit' }
+      end
+
+      render json: { text: 3, item: item, msg: 'product_get_success' }
+        
+    end
+  end
 	
 	def new
 
