@@ -54,7 +54,7 @@ gem 'addressable'
 
 gem 'capistrano'
 
-gem "TaoBaoApi", '~> 0.0.6'
+gem "TaoBaoApi"
 
 # API
 gem 'grape', git: 'https://github.com/intridea/grape.git'
