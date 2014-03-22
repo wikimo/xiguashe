@@ -1,3 +1,4 @@
+#coding: utf-8
 class ProductsController < ApplicationController
 
   before_filter :find_by_id, only: [:show, :destroy]
@@ -12,36 +13,8 @@ class ProductsController < ApplicationController
 
   def get
 
-    if !validate_url(params[:link])
-      render json: { text: 0, msg: 'error_product_url' }
-    else
-      url = URI.parse(params[:link])
-      if url.host.include? 'taobao' or url.host.include? 'tb' or url.host.include? 'tmall'
-        class_name = 'ProductTaobao'
-      elsif url.host.include? 'paipai'
-        class_name = 'ProductPaipai'
-      else
-        render json: { text: 1, msg: 'no_product_url'}
-      end
-
-      class_instance = Object.const_get(class_name).new
-
-      item = class_instance.get_info params[:link]
-
-      if is_exit(item[:really_id])
-        render json: { text: 2, really_id: item[:really_id], msg: 'product_already_exit' }
-      end
-
-      render json: { text: 3, item: item, msg: 'product_get_success' }
-        
-    end
-  end
-	
-	def new
-
-    if !validate_url(params[:link])
-
-      redirect_to url_products_path, notice: t(:product_url_error)
+    if validate_url(params[:link]) 
+      render json: { text: 0, msg: t(:product_url_error) }
 
     else
 
@@ -51,28 +24,42 @@ class ProductsController < ApplicationController
       elsif url.host.include? 'paipai'
         class_name = 'ProductPaipai'
       else
-        redirect_to url_products_path, notice: t(:no_product_url)
+        render json: { text: 1, msg: t(:product_url_error) }
       end
 
       class_instance = Object.const_get(class_name).new
 
       item = class_instance.get_info params[:link]
 
-      if is_exit(item[:really_id])
-        redirect_to "/products/url?really_id=#{item[:really_id]}", notice: t(:product_already_exit) 
+      if is_exist(item[:really_id])
+        render json: { text: 2, really_id: item[:really_id], msg: t(:product_already_exit) }
+      else
+        render json: { text: 3, item: item  }
       end
 
-      @images = item[:images]
-    
-      @product = Product.new(title: item[:title], url: item[:url], price: item[:price], 
-                             user_id: current_user.id, really_id: item[:really_id], source: item[:source]) 
-
     end
+
+  end
+	
+	def new
+
+    @images = params[:images]
+   
+    @product = Product.new(title: params[:title], url: params[:url], price: params[:price], 
+                           user_id: current_user.id, really_id: params[:really_id], source: params[:source]) 
+
 	end
 
   def url
 
+
+  end
+
+  def exist
+
     @product = Product.by_really_id(params[:really_id]).first unless !params[:really_id]
+
+    render json: { product: @product }
 
   end
 
@@ -110,7 +97,7 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
-    def is_exit(really_id)
+    def is_exist(really_id)
 
       product = Product.by_really_id(really_id)
 
@@ -120,6 +107,6 @@ class ProductsController < ApplicationController
   
     def validate_url(url)
       mat = /(http|https):\/\//.match(params[:link])
-      mat.blank? ? false : true
+      mat.nil? 
     end
 end
