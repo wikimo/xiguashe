@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'http://ruby.taobao.org/'
+# source 'https://rubygems.org'
+source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.2'
 
@@ -67,3 +67,5 @@ gem "carrierwave"
 gem "carrierwave-upyun"
 gem "rest-client"
 
+#markdown
+gem 'redcarpet'

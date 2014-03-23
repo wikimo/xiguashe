@@ -719,7 +719,7 @@
         name: 'groupFont',
         data: [{
           name: 'cmdBold',
-          title: 'Bold',
+          title: '加粗',
           icon: { glyph: 'glyphicon glyphicon-bold', fa: 'fa fa-bold' },
           callback: function(e){
             // Give/remove ** surround the selection
@@ -748,7 +748,7 @@
           }
         },{
           name: 'cmdItalic',
-          title: 'Italic',
+          title: '斜体',
           icon: { glyph: 'glyphicon glyphicon-italic', fa: 'fa fa-italic' },
           callback: function(e){
             // Give/remove * surround the selection
@@ -777,7 +777,7 @@
           }
         },{
           name: 'cmdHeading',
-          title: 'Heading',
+          title: '标题',
           icon: { glyph: 'glyphicon glyphicon-header', fa: 'fa fa-font' },
           callback: function(e){
             // Append/remove ### surround the selection
@@ -813,7 +813,7 @@
         name: 'groupLink',
         data: [{
           name: 'cmdUrl',
-          title: 'URL/Link',
+          title: '链接',
           icon: { glyph: 'glyphicon glyphicon-globe', fa: 'fa fa-globe' },
           callback: function(e){
             // Give [] surround the selection and prepend the link
@@ -826,7 +826,7 @@
               chunk = selected.text
             }
 
-            link = prompt('Insert Hyperlink','http://')
+            link = prompt('插入链接地址','http://')
 
             if (link != null && link != '' && link != 'http://') {
               // transform selection and set the cursor into chunked text
@@ -839,7 +839,7 @@
           }
         },{
           name: 'cmdImage',
-          title: 'Image',
+          title: '图片',
           icon: { glyph: 'glyphicon glyphicon-picture', fa: 'fa fa-picture-o' },
           callback: function(e){
             // Give ![] surround the selection and prepend the image link
@@ -852,7 +852,7 @@
               chunk = selected.text
             }
 
-            link = prompt('Insert Image Hyperlink','http://')
+            link = prompt('插入图片地址','http://')
 
             if (link != null) {
               // transform selection and set the cursor into chunked text
@@ -871,7 +871,7 @@
         name: 'groupMisc',
         data: [{
           name: 'cmdList',
-          title: 'List',
+          title: '列表',
           icon: { glyph: 'glyphicon glyphicon-list', fa: 'fa fa-list' },
           callback: function(e){
             // Prepend/Give - surround the selection
@@ -923,7 +923,7 @@
           name: 'cmdPreview',
           toggle: true,
           title: 'Preview',
-          btnText: 'Preview',
+          btnText: '预览',
           btnClass: 'btn btn-primary btn-sm',
           icon: { glyph: 'glyphicon glyphicon-search', fa: 'fa fa-search' },
           callback: function(e){
