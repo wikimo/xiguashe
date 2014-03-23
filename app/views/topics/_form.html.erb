@@ -12,7 +12,8 @@
               <%= f.text_field :title, class: 'form-control', placeholder: '取个有意思的标题吧……'%>
             </div>
             <div class="form-group">
-              <%= f.text_area :content, id: 'content-box', class: 'form-control', cols: '30', rows: '10',  placeholder: '发挥下你的创作灵感……' %>
+              <%= f.text_area :content,:cols => 30, :rows => 10,:class => 'form-control',:placeholder => '发挥下你的创作灵感……',"data-provide" => 'markdown'%>
+              
             </div>
             <div class="form-group">
               <%= file_field_tag 'photo[]', multiple: "multiple", class: 'file-inputs btn btn-default', title: '上传一张精美的图片吧！' %>
@@ -42,6 +43,7 @@
 <script>
   $(function(){
     $('.file-inputs').bootstrapFileInput();
+
   })
 </script>
 

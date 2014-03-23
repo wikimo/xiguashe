@@ -41,7 +41,7 @@ header{margin-bottom: 10px;}
 
 .topic-list ul,.article-list ul{padding: 0;margin:0;}
 .topic-list ul li,.article-list ul li {list-style: none;color: #999;position: relative;padding: 0 15px 18px 0;margin-bottom: 15px;padding: 10px;border-radius: 4px;overflow: hidden;}
-
+.topic-list ul li{background: #fff;padding: 15px;}
 .article-list ul li article{background: #fff;padding: 15px;border-radius: 5px;}
 .topic-list ul li:hover{}
 
@@ -531,6 +531,9 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 .msg-box ul li p{
     padding-left:5%;
 }
+
+
+
 @media (min-width: 768px) {
     .search-box{
         display: block;
