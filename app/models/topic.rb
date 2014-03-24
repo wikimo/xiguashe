@@ -29,8 +29,8 @@ class Topic < ActiveRecord::Base
 
 	belongs_to :user
 
-	# has_many :photos,   as: :photoable,   dependent: :destroy
-	mount_uploader :img, ImageUploader
+	has_many :photos,   as: :photoable,   dependent: :destroy
+	# mount_uploader :img, ImageUploader
 
 	has_many :comments, as: :commentable, dependent: :destroy
 
