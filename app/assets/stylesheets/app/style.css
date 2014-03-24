@@ -48,7 +48,7 @@ header{margin-bottom: 10px;}
 .topic-list ul li p{line-height: 2em;font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;font-size: 16px;padding-bottom: 30px;color: #666}
 
 .topic-list ul li h2,.article-list ul li h2{font:  18px/1.5em "黑体";margin:5px 0;}
-.topic-list ul li img{width: 100%;max-width: 320px;}
+.topic-list ul li img{width: 100%;max-width: 400px;max-height: 260px;overflow: hidden;}
 
 .topic-list ul li .ua img{
     width:40px;height: 40px;border-radius: 50%;
@@ -531,8 +531,6 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 .msg-box ul li p{
     padding-left:5%;
 }
-
-
 
 @media (min-width: 768px) {
     .search-box{
