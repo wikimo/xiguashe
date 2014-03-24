@@ -28,7 +28,7 @@ class Product < ActiveRecord::Base
   
   has_many :photos, as: :photoable, dependent: :destroy
 
-  scope :short, select: "id, title, url, img, price, user_id, created_at"
+  scope :short, select: "id, title, url, img, price, appraisal, user_id, created_at"
 
 	scope :order_by_created_at_desc, order('created_at DESC')
 

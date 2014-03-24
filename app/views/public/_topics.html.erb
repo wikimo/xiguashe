@@ -1,29 +1,40 @@
-<li>
-  <article>
-    <h2><%= link_to topic.title, topic %></h2>
-      <div class="ua">
-         <%= link_to topic.user.nickname, topic.user, class: "username" %>
-         <%= user_avatar_helper(topic.user) %> 
-			</div>
-      <p>
-         <%= h format_content(topic.content, 200) %>
-      </p>
+<% topics.each_with_index do |topic, i| %>
+  <% if i == 0 %>
+    <div class="item active">
+      <div class="xg-slider cc">
+        <div class="col-xs-12 col-md-6">
+          <div class="xg-slider-left">
+            <h3><%= link_to topic.title, topic %></h3>
+            <cite><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
+            <p><%= markdown truncate(topic.content, length: 300) %></p>
+            <%= link_to user_avatar_helper(topic.user), topic.user, class: 'xg-slider-avatar', title: topic.user.nickname %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-md-6 no-p">
+          <div class="xg-slider-right">
+            <a href="" style="background:url(#{topic_photos_helper(topic)}) no-repeat center center"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="item">
+      <div class="xg-slider cc">
+        <div class="col-xs-12 col-md-6">
+          <div class="xg-slider-left">
+            <h3><%= link_to topic.title, topic %></h3>
+            <cite><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
+            <p><%= markdown truncate(topic.content, length: 300) %></p>
+            <%= link_to user_avatar_helper(topic.user), class: 'xg-slider-avatar', title: topic.user.nickname %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-md-6 no-p">
+          <div class="xg-slider-right">
+            <a href="" style="background:url(#{topic_photos_helper(topic)}) no-repeat center center"></a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% end %>
 
-      <%= topic_photos_helper(topic) %>
 
-      <div class="article-info">
-				<span><i class="glyphicon glyphicon-eye-open"></i>
-          <%= topic.hit_num %>
-        </span>
-				<span><i class="glyphicon glyphicon-comment"></i>
-          <%= topic.reply_num %>
-        </span>
-				<span><i class="glyphicon glyphicon-heart"></i>
-          <%= topic.like_num %>
-        </span>
-        <cite class="pull-right">
-          <%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %>
-        </cite>
-		 </div>
-  </article>
-</li>

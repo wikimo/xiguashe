@@ -1,0 +1,22 @@
+<li>
+  <article>
+    <h2><%= link_to topic.title, topic %></h2>
+    <div class="ua">
+      <%= link_to topic.user.nickname, topic.user, class: 'username' %>
+      <%= link_to user_avatar_helper(topic.user), topic.user, class: 'avatar' %>
+    </div>
+    <p>
+      <%= markdown truncate(topic.content, length: 300) %>
+    </p>
+
+    <div class="article-info">
+      <span><i class="glyphicon glyphicon-eye-open"></i>
+        <%= topic.hit_num %></span>
+      <span><i class="glyphicon glyphicon-comment"></i>
+        <%= topic.reply_num %></span>
+      <span><i class="glyphicon glyphicon-heart"></i>
+        <%= topic.like_num %></span>
+      <cite class="pull-right"><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
+    </div>
+  </article>
+</li>

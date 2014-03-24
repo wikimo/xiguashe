@@ -5,26 +5,21 @@
       
       <div class="topic-list">
         <ul>
-          <%= render partial: "public/topics", collection: @topics, as: :topic %>
+          <%= render partial: "topics", collection: @topics, as: :topic %>
         </ul>
       </div>
-        <%= will_paginate @topics, previous_label: '上一页', next_label: '下一页' %>
+      <%= will_paginate @topics, previous_label: '上一页', next_label: '下一页' %>
     </div>
 
     <div class="col-xs-6 col-md-4">
 
-      
+      <div class="qrcode">
+				<img src="public/images/qrcode.jpg" alt="">
+				
+				<p>分享宝贝成长历程的各种事物……</p>
+				<p>微信号：xiguashe</p>
+			</div> 
 
-      <div class="hot-tags">
-        <h4>热门标签</h4>
-        <a href="">备孕</a>
-				<a href="">早教</a>
-				<a href="">亲子</a>
-				<a href="">产前检查</a>
-				<a href="">奶粉</a>
-				<a href="">疫苗</a>
-				<a href="">预防针</a>
-      </div>
     </div>
   </div>
 </div>
