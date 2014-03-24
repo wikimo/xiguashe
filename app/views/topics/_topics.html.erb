@@ -6,8 +6,9 @@
       <%= link_to user_avatar_helper(topic.user), topic.user, class: 'avatar' %>
     </div>
     <p>
-      <%= markdown truncate(topic.content, length: 300) %>
+      <%= h format_content(markdown(topic.content), 120) %>
     </p>
+
 
     <div class="article-info">
       <span><i class="glyphicon glyphicon-eye-open"></i>

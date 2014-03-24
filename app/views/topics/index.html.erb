@@ -14,8 +14,7 @@
     <div class="col-xs-6 col-md-4">
 
       <div class="qrcode">
-				<img src="public/images/qrcode.jpg" alt="">
-				
+				<%= image_tag 'qrcode.jpg', :alt => '微信二维码' %>
 				<p>分享宝贝成长历程的各种事物……</p>
 				<p>微信号：xiguashe</p>
 			</div> 
@@ -28,5 +27,5 @@ if (matchMedia('only screen and (min-width: 870px)').matches) {
   $(function(){
     $(".qrcode").pin({minWidth: 250})
   })
-
+}
 </script>
