@@ -1,5 +1,3 @@
-markdown:http://toopay.github.io/bootstrap-markdown/
-
 rake sunspot:solr:start 
 rake sunspot:solr:start RAILS_ENV=production
 rake sunspot:reindex
