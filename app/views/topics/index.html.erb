@@ -12,19 +12,18 @@
     </div>
 
     <div class="col-xs-6 col-md-4">
-
-      
-
-      <div class="hot-tags">
-        <h4>热门标签</h4>
-        <a href="">备孕</a>
-				<a href="">早教</a>
-				<a href="">亲子</a>
-				<a href="">产前检查</a>
-				<a href="">奶粉</a>
-				<a href="">疫苗</a>
-				<a href="">预防针</a>
+      <div class="qrcode">
+        <%= image_tag 'qrcode.jpg',:alt => 'xiguashe微信二维码'%>
+        <p>分享宝贝成长历程的各种事物……</p>
+        <p>微信号：xiguashe</p>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+if (matchMedia('only screen and (min-width: 870px)').matches) {
+  $(function(){
+    $(".qrcode").pin({minWidth: 250})
+  })
+}
+</script>
