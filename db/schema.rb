@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123003242) do
+ActiveRecord::Schema.define(:version => 20140324032440) do
 
   create_table "activities", :force => true do |t|
     t.string   "title"
@@ -101,16 +101,14 @@ ActiveRecord::Schema.define(:version => 20140123003242) do
 
   create_table "photos", :force => true do |t|
     t.string   "descrip"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "photoable_id"
     t.string   "photoable_type"
     t.integer  "user_id"
     t.string   "path"
+    t.string   "source"
+    t.integer  "is_main"
   end
 
   create_table "products", :force => true do |t|
@@ -127,6 +125,11 @@ ActiveRecord::Schema.define(:version => 20140123003242) do
     t.decimal  "price",       :precision => 18, :scale => 2, :default => 0.0
     t.string   "nick"
     t.decimal  "promo_price", :precision => 18, :scale => 2, :default => 0.0
+    t.integer  "hit_num",                                    :default => 0
+    t.integer  "reply_num",                                  :default => 0
+    t.integer  "like_num",                                   :default => 0
+    t.text     "appraisal"
+    t.string   "really_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -161,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20140123003242) do
     t.integer  "like_num",                                  :default => 0
     t.integer  "types",                                     :default => 1
     t.decimal  "score",      :precision => 18, :scale => 5, :default => 0.0
+    t.string   "img"
   end
 
   create_table "user_relations", :force => true do |t|

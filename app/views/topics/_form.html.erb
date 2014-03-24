@@ -16,18 +16,12 @@
               
             </div>
             <div class="form-group">
-              <%= file_field_tag 'photo[]', multiple: "multiple", class: 'file-inputs btn btn-default', title: '上传一张精美的图片吧！' %>
-              <div class="loading"></div>
-              <div id="photo-list">
-                <% if params[:action] == 'edit' && @topic.photos.size > 0 %>
-                  <% @topic.photos.each do |photo| %>
-                    <div id="new-photo-#{photo.id}">
-                      <%= photo_tag_helper(photo.path, style: :small) %>
-                      <%= link_to '删除', "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}" %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
+              <%= f.file_field :img, :class => 'file-inputs btn btn-default', :title => '上传一张题图! 420x275'%>
+              
+                 <button data-content='<%= topic_photos_helper(@topic) %>' data-placement="right" data-toggle="popover" data-container="body" class="btn btn-default" type="button" data-original-title="" title="题图" id="topic-img">
+          题图预览</button>
+             
+             
             </div>
             <div class="form-group">
               <div id="error"></div>
@@ -40,9 +34,12 @@
     </div>
   </div>
 </div>
+
 <script>
   $(function(){
     $('.file-inputs').bootstrapFileInput();
+    if($('#topic-img'))
+      $('#topic-img').popover({html:true})
   })
 </script>
 

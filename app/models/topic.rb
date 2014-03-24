@@ -29,11 +29,12 @@ class Topic < ActiveRecord::Base
 
 	belongs_to :user
 
-	has_many :photos,   as: :photoable,   dependent: :destroy
+	# has_many :photos,   as: :photoable,   dependent: :destroy
+	mount_uploader :img, ImageUploader
 
 	has_many :comments, as: :commentable, dependent: :destroy
 
-  scope :short, select: 'id, title, content, user_id, hit_num, reply_num, like_num, created_at'
+  scope :short, select: 'id, title, content, user_id, hit_num, reply_num, like_num, created_at, img'
 	
 	scope :order_by_created_at_desc, order('created_at DESC')
 
