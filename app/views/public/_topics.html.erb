@@ -6,7 +6,7 @@
          <%= user_avatar_helper(topic.user) %> 
 			</div>
       <p>
-         <%= h format_content(topic.content, 200) %>
+         <%= h format_content(markdown(topic.content), 120) %>
       </p>
 
       <%= topic_photos_helper(topic) %>
