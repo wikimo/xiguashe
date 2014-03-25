@@ -95,6 +95,8 @@ class ProductsController < ApplicationController
   private 
     def find_by_id
       @product = Product.find(params[:id])
+
+      p @product.photos
     end
 
     def is_exist(really_id)

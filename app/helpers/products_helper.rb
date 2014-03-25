@@ -1,21 +1,19 @@
 module ProductsHelper
 
-  def carousel_helper(photo, index)
- 
-    html = ""
-
+  def topic_carousel_for(index)
     if index == 0
-      html = content_tag(:div, class: 'item active') do
-                photo_choose_helper(photo)
-             end
+      content_tag :li, '', class: 'active', 'data-target' => "#carousel-example-generic", 'data-slide-to' => index
     else
-      html = content_tag(:div, class: 'item') do
-                photo_choose_helper(photo)
-             end
+      content_tag :li, '', 'data-target' => "#carousel-example-generic", 'data-slide-to' => index
     end
-    
+  end
 
-    raw html
+
+  def product_carousel_for(index, &block)
+
+    css_class = index == 0 ? 'item active' : 'item'
+
+    html = content_tag(:div, class: css_class)
 
   end
 

@@ -5,4 +5,5 @@ module TopicsHelper
       image_tag topic.img.url, :alt => topic.title
     end
   end
+
 end
