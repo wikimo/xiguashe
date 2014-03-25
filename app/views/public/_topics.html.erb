@@ -1,6 +1,5 @@
 <% topics.each_with_index do |topic, i| %>
-  <% if i == 0 %>
-    <div class="item active">
+  <%= item_active_for i do %>
       <div class="xg-slider cc">
         <div class="col-xs-12 col-md-6">
           <div class="xg-slider-left">
@@ -15,25 +14,7 @@
             <a href="" style="background:url(#{topic_photos_helper(topic)}) no-repeat center center"></a>
           </div>
         </div>
-      </div>
     </div>
-  <% else %>
-    <div class="item">
-      <div class="xg-slider cc">
-        <div class="col-xs-12 col-md-6">
-          <div class="xg-slider-left">
-            <h3><%= link_to topic.title, topic %></h3>
-            <cite><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
-            <p><%= h format_content(markdown(topic.content), 120) %></p>
-            <%= link_to user_avatar_helper(topic.user), topic.user, class: 'xg-slider-avatar', title: topic.user.nickname %>
-          </div>
-        </div>
-        <div class="col-xs-8 col-md-6 no-p">
-          <div class="xg-slider-right">
-            <a href="" style="background:url(#{topic_photos_helper(topic)}) no-repeat center center"></a>
-          </div>
-        </div>
-      </div>
   <% end %>
 <% end %>
 

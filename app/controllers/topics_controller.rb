@@ -73,7 +73,7 @@ class TopicsController < ApplicationController
 	    def find_topic
 	    	@topic =  Topic.where(:id => params[:id]).first
 
-      		render_404 if @topic.nil?
+        render_404 if @topic.nil?
 	    end
 
 end
