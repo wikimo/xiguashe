@@ -532,6 +532,13 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     padding-left:5%;
 }
 
+.loading{
+  width: 32px;
+  height: 32px;
+  background:url(/assets/loading.gif);
+  margin: 10px;
+}
+
 @media (min-width: 768px) {
     .search-box{
         display: block;
