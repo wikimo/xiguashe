@@ -20,7 +20,7 @@ class Photo < ActiveRecord::Base
 
     mount_uploader :path, ImageUploader        
 
-    before_post_process :rename_photo
+    #before_post_process :rename_photo
     
     private
         def rename_photo

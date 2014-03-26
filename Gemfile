@@ -32,7 +32,7 @@ gem 'bootstrap-will_paginate'
 gem 'acts-as-taggable-on' ,'2.3.3'
 
 #for photos upload
-gem 'paperclip'
+#gem 'paperclip'
 #gem "upyun-paperclip", :git => 'git://github.com/frankel/upyun-paperclip.git'
 
 # YAML 配置信息

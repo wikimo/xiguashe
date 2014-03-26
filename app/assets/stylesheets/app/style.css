@@ -417,7 +417,8 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 } 
 
 .good-pic .carousel-inner > .item > img, .good-pic .carousel-inner > .item > a > img{
-    max-width: 350px;
+    max-width: 300px;
+    width: 100%;
 }
 
 .good-info h3{
@@ -538,6 +539,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
   background:url(/assets/loading.gif);
   margin: 10px;
 }
+
 
 @media (min-width: 768px) {
     .search-box{
