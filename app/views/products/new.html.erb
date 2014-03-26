@@ -32,9 +32,9 @@
                 <% @images.each_with_index do |image, i| %>
                   <li id="image_#{i}">
                     <%= link_to image_tag(image, alt: @product.title), "" %> <br/>
-                    <%= radio_button_tag :radio_img, image %> 选择封面
+                    <%= radio_button_tag :radio_img, image ,checked: true %> 选择封面
                     <%= hidden_field_tag 'image[]', image %>
-                    <%= link_to '', '#', name: "del_img",class: 'glyphicon glyphicon-remove-circle' %>删除
+                    <%= link_to '', '#', name: "del_img",class: 'glyphicon glyphicon-remove-circle' %>
                   </li>
                 <% end %>
               </ul>
@@ -65,6 +65,6 @@
 </div>
 <script type="text/javascript">
   $(function(){
-    $('.file-inputs').bootstrapFileInput();
+    // $('.file-inputs').bootstrapFileInput();
   })
 </script>
