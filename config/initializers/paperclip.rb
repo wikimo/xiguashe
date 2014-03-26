@@ -1,7 +1,7 @@
 # encoding:utf-8
-Paperclip.interpolates :month_partition  do |attachment, style|
-  attachment.instance_read(:updated_at).strftime("%Y/%m%d/")
-end
+#Paperclip.interpolates :month_partition  do |attachment, style|
+#  attachment.instance_read(:updated_at).strftime("%Y/%m%d/")
+#end
 
 
 # Paperclip::Storage::Upyun::Config = { 
