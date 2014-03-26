@@ -1,23 +1,15 @@
 <div class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <% product.photos.each_with_index do |photo, index| %>
-    <li data-target="#carousel-example-generic" data-slide-to="<%=index%>" class="active"></li>
-    <%end%>
+    <% (0..product.photos.count - 1).each do |i|%>
+      <%= product_carousel_for(i) %>
+    <% end %>
   </ol>
 
   <div class="carousel-inner">
-    
     <% product.photos.each_with_index do |photo, index| %>
-       <%= carousel_helper(photo, index) %>
+       <%= product_photo_carousel_for index do %>
+         <%= photo_choose_helper(photo) %>
+       <% end %>
     <% end %>
   </div>
-
-  <!-- <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a> -->
 </div>
-
-

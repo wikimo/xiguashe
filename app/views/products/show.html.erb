@@ -2,10 +2,11 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="good">
-        <div class="good-pic">
+        <div id="carousel-example-generic" class="carousel slide good-pic" data-ride="carousel">
           <%= render partial: 'carousel', locals: {product: @product } %>
         </div>
         <div class="good-info">
+          <div class="sharer">由 <%= @product.user.nickname %> 发布</div>
           <h3><%= @product.title %></h3>
           <%= link_to '去购买', @product.url, class: "btn btn-primary" %>
         </div>
