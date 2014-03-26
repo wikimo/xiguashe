@@ -21,7 +21,7 @@
           <div class="form-group">
             <%= f.label :price, "东西价格", class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
-              <%= text_field_tag '',number_to_currency(@product.price || 0.0, unit: "¥"),class: 'form-control', disabled: true%>
+              <%= text_field_tag '',number_to_currency(@product.price || 0.0, unit: "￥"),class: 'form-control', disabled: true%>
               <%= f.hidden_field :price, value: @product.price || 0.0 %>
             </div>
           </div>
