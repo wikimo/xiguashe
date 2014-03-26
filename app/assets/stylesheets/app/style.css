@@ -153,6 +153,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     width: 100%;
 }
 
+
 .good-list .good h3,.act-list .item h3{
     text-align: left;
     color: #DE533C;
@@ -432,12 +433,18 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 .good-photos ul li{
     float: left;
-    padding: 10px;
+    padding: 5px;
+    text-align: center;
 }
 .good-photos ul li img{
     width: 100%;
     height: 100%;
     max-width: 150px;
+    margin-bottom: 5px;
+}
+
+.good-photos ul li .glyphicon-remove-circle{
+    margin: 0 5px;
 }
 
 .comm-form{
@@ -538,6 +545,15 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
   height: 32px;
   background:url(/assets/loading.gif);
   margin: 10px;
+}
+
+#exist-product{
+    margin:8px ;
+}
+#exist-product img{
+    max-width: 200px;
+    width: 100%;
+    
 }
 
 

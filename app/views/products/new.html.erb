@@ -20,23 +20,21 @@
           </div>
           <div class="form-group">
             <%= f.label :price, "东西价格", class: "col-sm-2 control-label" %>
-            <div>
-              <p>
-                <%= number_to_currency @product.price || 0.0, unit: "¥" %>
-                <%= f.hidden_field :price, value: @product.price || 0.0 %>
-              </p>
+            <div class="col-sm-10">
+              <%= text_field_tag '',number_to_currency(@product.price || 0.0, unit: "¥"),class: 'form-control', disabled: true%>
+              <%= f.hidden_field :price, value: @product.price || 0.0 %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">东西图片</label>
             <div class="col-sm-10 good-photos">
-              <ul>
+              <ul class="good-img-list">
                 <% @images.each_with_index do |image, i| %>
                   <li id="image_#{i}">
-                    <%= link_to image_tag(image, alt: @product.title), "" %>
-                    <%= radio_button_tag :radio_img, image %>
+                    <%= link_to image_tag(image, alt: @product.title), "" %> <br/>
+                    <%= radio_button_tag :radio_img, image %> 选择封面
                     <%= hidden_field_tag 'image[]', image %>
-                    <%= link_to '删除', '#', name: "del_img" %>
+                    <%= link_to '', '#', name: "del_img",class: 'glyphicon glyphicon-remove-circle' %>删除
                   </li>
                 <% end %>
               </ul>
@@ -47,8 +45,8 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">上传图片</label> 
             <div class="col-sm-10">
-              <%= file_field_tag "photo[]",multiple: "multiple" %>
-              <div class="loading"></div>
+              <%= file_field_tag "photo[]",multiple: "multiple" , class: 'file-inputs btn btn-default', title: '继续上传'%>
+              <div class="loading hide"></div>
             </div>
           </div>
           <%= f.hidden_field :user_id, value: current_user.id %>
@@ -65,3 +63,8 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $('.file-inputs').bootstrapFileInput();
+  })
+</script>

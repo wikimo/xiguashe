@@ -46,8 +46,8 @@ $(function(){
              dataType: 'json',
              success: function(obj) {
 
-               $('#exist-product').prepend('<a href="/products/' + obj['product']['id'] + '">' + obj['product']['title'] + '</a>');
-               $('#exist-product').prepend('<a href="/products/' + obj['product']['id'] + '"><img src="' + obj['product']['img'] + '"/></a>');
+               $('#exist-product').prepend('点击查看：<a href="/products/' + obj['product']['id'] + '">[' + obj['product']['title'] + ']</a>');
+               //$('#exist-product').prepend('<a href="/products/' + obj['product']['id'] + '"><img src="' + obj['product']['img'] + '"/></a>');
 
              }
            });
