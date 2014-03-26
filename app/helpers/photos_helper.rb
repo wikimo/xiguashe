@@ -5,7 +5,7 @@ module PhotosHelper
     if photo.source
       image_tag photo.source
     else
-      photo_tag_helper(photo.path, style: :small)
+      image_tag photo.path.url
     end
   end
 
@@ -16,5 +16,9 @@ module PhotosHelper
             else options[:style].to_s
             end
     image_tag path.url(style)
+  end
+
+  def checked_helper(index)
+    checked = index == 0 ? true : false
   end
 end
