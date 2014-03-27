@@ -418,8 +418,10 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 } 
 
 .good-pic .carousel-inner > .item > img, .good-pic .carousel-inner > .item > a > img{
-    max-width: 300px;
-    width: 100%;
+
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
 }
 
 .good-info h3{
