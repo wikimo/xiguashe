@@ -20,11 +20,11 @@ module ApplicationHelper
       html.concat(content_tag :li, content_tag(:a, '东西', href: products_path))
     end
 
-    if controller == 'activities'
-      html.concat(content_tag :li, content_tag(:a, '活动', href: activities_path), class: 'active')
-    else
-      html.concat(content_tag :li, content_tag(:a, '活动', href: activities_path))
-    end
+    # if controller == 'activities'
+    #   html.concat(content_tag :li, content_tag(:a, '活动', href: activities_path), class: 'active')
+    # else
+    #   html.concat(content_tag :li, content_tag(:a, '活动', href: activities_path))
+    # end
 
     raw html
 

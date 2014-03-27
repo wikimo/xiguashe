@@ -1,6 +1,6 @@
 a{color: #555}
 body{overflow-x:hidden;background: #EBECED}
-header{margin-bottom: 10px;}
+header{/*margin-bottom: 10px;*/}
 
 .xgs-row:before,
 .xgs-row:after {
@@ -29,7 +29,7 @@ header{margin-bottom: 10px;}
     border-radius: 3px;
 }
 .xgs-nav li a{
-     font-size: 16px;   
+     font-size: 20px;   
 }
 
 .xgs-nav li a:hover{
