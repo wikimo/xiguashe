@@ -12,8 +12,11 @@
 */
 $(function() {
 
-$.fn.bootstrapFileInput = function() {
-
+$.fn.bootstrapFileInput = function(options) {
+  var defaults = {
+    change:false
+  }
+  var opts = $.extend(defaults,options)
   this.each(function(i,elem){
 
     var $elem = $(elem);
@@ -86,25 +89,27 @@ $.fn.bootstrapFileInput = function() {
       });
     });
 
-    $('.file-input-wrapper input[type=file]').change(function(){
+    if(opts.change){
+      $('.file-input-wrapper input[type=file]').change(function(){
 
-      var fileName;
-      fileName = $(this).val();
+        var fileName;
+        fileName = $(this).val();
 
-      // Remove any previous file names
-      $(this).parent().next('.file-input-name').remove();
-      if (!!$(this).prop('files') && $(this).prop('files').length > 1) {
-        fileName = $(this)[0].files.length+' files';
-        //$(this).parent().after('<span class="file-input-name">'+$(this)[0].files.length+' files</span>');
-      }
-      else {
-        // var fakepath = 'C:\\fakepath\\';
-        // fileName = $(this).val().replace('C:\\fakepath\\','');
-        fileName = fileName.substring(fileName.lastIndexOf('\\')+1,fileName.length);
-      }
+        // Remove any previous file names
+        $(this).parent().next('.file-input-name').remove();
+        if (!!$(this).prop('files') && $(this).prop('files').length > 1) {
+          fileName = $(this)[0].files.length+' files';
+          //$(this).parent().after('<span class="file-input-name">'+$(this)[0].files.length+' files</span>');
+        }
+        else {
+          // var fakepath = 'C:\\fakepath\\';
+          // fileName = $(this).val().replace('C:\\fakepath\\','');
+          fileName = fileName.substring(fileName.lastIndexOf('\\')+1,fileName.length);
+        }
 
-      $(this).parent().after('<span class="file-input-name">'+fileName+'</span>');
-    });
+        $(this).parent().after('<span class="file-input-name">'+fileName+'</span>');
+      });
+    }
 
   });
 
