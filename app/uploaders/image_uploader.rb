@@ -33,4 +33,5 @@ class ImageUploader < CarrierWave::Uploader::Base
       @name ||="#{SecureRandom.uuid}.#{file.extension.downcase}"
     end
   end
+
 end

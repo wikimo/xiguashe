@@ -28,14 +28,12 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
       if find_product(product[:id], "douban").blank?
 
-
         p = Product.new(title: product[:title], url: product[:url], price: product[:price],
                         source: 'douban', really_id: product[:id], user_id: current_user.id)
       
         if p.save
           product[:img].each do |img|
             Photo.create(photoable: p, user_id: current_user.id, source: img[:original])
-
             p.update_attributes(img: img[:original]) if img[:active] == 'main'
           end
         end

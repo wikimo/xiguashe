@@ -546,6 +546,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
   height: 32px;
   background:url(/assets/loading.gif);
   margin: 10px;
+  display: none;
 }
 
 #exist-product{
