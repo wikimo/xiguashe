@@ -26,6 +26,9 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
 	def destroy
 
+    @product.destroy
+
+    redirect_to cpanel_products_path, notice: t(:delete_success)
 	end
 
   def douban_syn

@@ -1,0 +1,26 @@
+<%= form_for [:cpanel, @user], html: { class: 'form-horizontal', role: 'form' } do |f| %>
+  <div class="form-group">
+    <%= f.label :用户邮箱, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, value: @user.email, class: 'form-control', disabled: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :昵称, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :nickname, value: @user.nickname, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :头像, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= image_tag @user.avatar.url, alt: @user.nickname %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+    </div>
+    <%= f.submit '提交', class: 'btn btn-primary btn-lg' %>
+    <%= link_to '返回', cpanel_users_path, class: 'btn' %>
+  </div>
+<% end %>

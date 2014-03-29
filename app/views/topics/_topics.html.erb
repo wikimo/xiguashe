@@ -15,8 +15,8 @@
         <%= topic.hit_num %></span>
       <span><i class="glyphicon glyphicon-comment"></i>
         <%= topic.reply_num %></span>
-      <span><i class="glyphicon glyphicon-heart"></i>
-        <%= topic.like_num %></span>
+      <!--<span><i class="glyphicon glyphicon-heart"></i>
+        <%= topic.like_num %></span> -->
       <cite class="pull-right"><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
     </div>
   </article>

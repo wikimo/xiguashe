@@ -31,16 +31,6 @@ class Activity < ActiveRecord::Base
 
   belongs_to :user
 
-  has_attached_file :icon,
-                    :styles => {
-                                  thumb:  "150X100",
-                                  medium: "250X150",
-                                  original: "465X225"
-                               },
-                    :url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-                    :path => ':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-                    :whiny => false
-
   scope :order_by_created_at_desc, order('created_at DESC') 
 
   scope :status_can_use, where('status = 1')

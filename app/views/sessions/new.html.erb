@@ -1,5 +1,5 @@
 <div class="home-index">
-	<div class="row">
+  <div class="row">
     <%= render 'public/flash_notice' %>
 		<div class="col-xs-12">	
 			<div class="login-reg xgs-form">
@@ -31,7 +31,7 @@
 				      <div class="form-group">
 				        <div class="col-sm-offset-2 col-sm-10">
 				          <button type="submit" class="btn btn-primary" data-loading-text="正在加载...">登录</button>
-				          <a href="" class="btn btn-default">注册</a>
+                  <%= link_to '注册', reg_path, class: 'btn btn-default' %>
 				        </div>
 				      </div>
             <% end %>

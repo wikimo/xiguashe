@@ -26,9 +26,9 @@ class User < ActiveRecord::Base
 
 	has_many :topics,      dependent: :destroy
 	has_many :comments,    dependent: :destroy
-	has_many :likes,       dependent: :destroy
+	#has_many :likes,       dependent: :destroy
 	has_many :feedbacks,   dependent: :destroy
-  has_many :activities,  dependent: :destroy
+  #has_many :activities,  dependent: :destroy
   has_many :products,    dependent: :destroy
 
 	#follower followed

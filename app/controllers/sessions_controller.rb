@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 
     nickname_or_email = params[:nickname_or_email]
 
-
   	@user =  User.authenticate(nickname_or_email,params[:password])
 
     if @user
@@ -19,16 +18,14 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = @user.auth_token  
       end
-
-      redirect_to root_path, :notice => t(:login_success)
+      redirect_to root_path, notice: t(:login_success)
     else
-      flash[:notice] =  t(:login_fail)
+      flash[:notice] = t(:login_fail)
       render 'new'
     end
   end
 
   def destroy
-    # session[:uid] = nil
     cookies.delete(:auth_token)
     redirect_to login_path, :notice  => t(:quit_success) 
   end
