@@ -15,7 +15,6 @@
 					<th><%= check_box_tag 'checkbox_all' %></th>
 					<th>Email</th>
 					<th>昵称</th>
-					
 					<th>创建时间</th>
 					<th>最后更新时间</th>
 					<th>状态</th>
@@ -29,7 +28,6 @@
 					<td><%= check_box_tag 'checkbox_name', user.id %></td>
 					<td><%= user.email %></td>
 					<td><%= user.nickname %></td>
-					
 					<td><%= format_datetime user.created_at,'%Y-%m-%d %H:%M' %></td>
 					<td><%= format_datetime user.updated_at,'%Y-%m-%d %H:%M' %></td>
 					<td>

@@ -1,9 +1,7 @@
 class Cpanel::UsersController < Cpanel::ApplicationController
 
-
 	def index
-
-		
+		@users = User.search_in_cpanel(params[:search]).paginate(page: params[:page])
 	end
 
 	def show

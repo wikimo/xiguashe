@@ -1,0 +1,22 @@
+<div class="breadcrumb">
+  <li><%= link_to '返回上一层', '' %></li>
+</div>
+<div class="page-header">
+  <h2><%= @product.title %></h2>
+  <blockquote class="pull-right">
+    <small>
+      <%= @product.user.nickname %>
+      <%= timeago_tag @product.created_at, nojs: true, limit: 10.day.ago %>
+    </small>
+  </blockquote>
+  <blockquote>
+    <%= raw @product.appraisal %>
+  </blockquote>
+  <div class="good-photos">
+    <ul>
+      <% @product.photos.each do |photo| %>
+        <li><%=  photo_choose_helper(photo) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -9,6 +9,14 @@ module PhotosHelper
     end
   end
 
+  def photo_choose_url_helper(photo)
+    if photo.source
+      photo.source
+    else
+      photo.path.url
+    end
+  end
+
   def photo_tag_helper(path, options = {})
     options[:style] ||= :small
     style = case options[:style].to_s

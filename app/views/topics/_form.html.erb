@@ -19,7 +19,7 @@
               <%= f.file_field :img,:class => 'file-inputs btn btn-default',:title => '上传题图！400x260'%>
               <% unless  @topic.img.url.include?('blank')%>
                 <button type="button" class="btn btn-default topic-img-preview" data-container="body" data-toggle="popover" data-placement="right" data-content='<%=topic_photos_helper(@topic)%>' data-original-title="题图预览" title="">题图预览
-              </button>
+                </button>
               <%end%>
               
             </div>

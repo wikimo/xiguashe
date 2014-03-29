@@ -26,8 +26,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">文章</a></li>
+        <li><%= link_to '文章', cpanel_topics_path %></li>
         <li><%= link_to '东西', cpanel_products_path %></li>
+        <li><%= link_to '用户', cpanel_users_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -36,9 +37,9 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">返回前台</a></li>
+            <li><%= link_to '返回前台', root_path %></li>
             <li class="divider"></li>
-            <li><a href="#">退出</a></li>
+            <li><%= link_to '退出', quit_path %></a></li>
           </ul>
         </li>
       </ul>

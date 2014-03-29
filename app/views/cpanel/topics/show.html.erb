@@ -1,0 +1,19 @@
+<div class="breadcrumb">
+  <li><%= link_to '返回上一层', '' %></li>
+</div>
+<div class="page-header">
+  <h2><%= @topic.title %></h2>
+  <blockquote class="pull-right">
+    <small> 
+      <%= @topic.user.nickname %></br>
+      <%= timeago_tag @topic.created_at, nojs: true, limit: 10.day.ago %>
+    </small>
+  </blockquote>
+</div>
+<p>
+  <%= image_tag @topic.img.url, alt: @topic.title, class: 'img-ronded' %>
+</p>
+
+<p class="lead">
+  <%= markdown @topic.content %>
+</p>

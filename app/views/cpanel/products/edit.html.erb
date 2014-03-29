@@ -1,0 +1,25 @@
+<%= form_for [:cpanel, @product], role: 'form' do |f| %>
+  <div class="form-group">
+    <%= f.label :商品名称 %>
+    <%= f.text_field :title, value: @product.title, class: 'form-control' %>
+  </div>
+  <div class="good-photos">
+    <ul>
+      <% @product.photos.each do |photo| %>
+        <li>
+          <%=  photo_choose_helper(photo) %>
+          <%= link_to '删除', ''%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="form-group">
+    <%= f.label :使用评测 %>
+    <%= f.text_area :appraisal, cols: 178, value: @product.appraisal, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit '提交', class: 'btn btn-default btn-lg'%>
+    <%= link_to '返回', cpanel_products_path, class: 'btn' %>
+  </div>
+<% end %>

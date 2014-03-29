@@ -1,18 +1,20 @@
 
-<%= form_for [:cpanel, @topic], :html => {:class => 'form-vertical'} do |f| %>
-
-
-  <div class="control-group">
-      <%= f.label :话题标题, :class => 'control-label' %>
-      <div class="controls"><%= f.text_field :title, value: @topic.title %></div>
+<%= form_for [:cpanel, @topic], role: 'form' do |f| %>
+  <div class="form-group">
+    <%= f.label :话题标题 %>
+    <%= f.text_field :title, value: @topic.title, class: 'form-control' %>
   </div>
-  <div class="control-group">
-      <%= f.label :话题内容, :class => 'control-label' %>
-      <div class="controls"><%= f.text_area :content, cols: 200, row: 50, value: @topic.content %></div>
+  <div class="form-group">
+    <%= image_tag @topic.img.url, alt: @topic.title %>
+    <%= link_to '删除', '' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :话题内容 %>
+    <%= f.text_area :content, cols: 178, row: 50, value: @topic.content, class: 'form-control' %>
   </div>
 
-  <div class="control-group">
-    <%= f.submit '提交', class: 'btn btn-primary' %>
+  <div class="form-group">
+    <%= f.submit '提交', class: 'btn btn-default btn-lg' %>
     <%= link_to '返回', cpanel_topics_path, class: 'btn'%>
   </div>
 <% end %>

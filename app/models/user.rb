@@ -20,7 +20,7 @@
 #
 
 class User < ActiveRecord::Base
-	self.per_page = 10
+	self.per_page = 30
 
 	attr_accessor :old_password 
 
@@ -140,15 +140,11 @@ class User < ActiveRecord::Base
 		  end
 
 
-		def order_desc_by_created_at(page = 1, per_page = 20)
-			self.order("created_at DESC").paginate(:page => page, :per_page => per_page)
-		end
-
-		def search_in_cpanel(search, page = 1, per_page = 20)
+		def search_in_cpanel(search)
 		 	if search 
-		 		where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_desc_by_created_at(page, per_page)
+		 		where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_by_created_at_desc
 		 	else
-		 		order_desc_by_created_at(page, per_page)
+        order_by_created_at_desc
 		 	end
 		end
 		

@@ -12,9 +12,9 @@ module HomeHelper
   def carousel_for index
 
     if index == 0
-      content_tag(:li, '', class: 'active', 'data-target' => "#carousel-example", 'data-slide-to' => index)
+      content_tag(:li, '', class: 'active', 'data-target' => "#carousel-example-generic", 'data-slide-to' => index)
     else
-      content_tag(:li, '', 'data-target' => "#carousel-example", 'data-slide-to' => index)
+      content_tag(:li, '', 'data-target' => "#carousel-example-generic", 'data-slide-to' => index)
     end
     
   end
