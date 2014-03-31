@@ -1,7 +1,7 @@
 #coding: utf-8
 class ProductsController < ApplicationController
 
-  before_filter :find_by_id, only: [:show, :destroy]
+  before_filter :find_by_id, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.short.includes(:user).order_by_created_at_desc.paginate(page: params[:page])
@@ -63,6 +63,8 @@ class ProductsController < ApplicationController
 
   end
 
+  def edit
+  end
 
 	def create
 
@@ -87,6 +89,9 @@ class ProductsController < ApplicationController
     end
 
 	end
+
+  def update
+  end
 
 	def destroy
 		@product.destroy

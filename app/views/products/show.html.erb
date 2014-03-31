@@ -6,7 +6,12 @@
           <%= render partial: 'carousel', locals: {product: @product } %>
         </div>
         <div class="good-info">
-          <div class="sharer">由 <%= @product.user.nickname %> 发布</div>
+          <div class="sharer">
+            由 <%= @product.user.nickname %> 发布 
+            <% if current_user == @product.user %>
+              <%= link_to '修改东西', edit_product_path(@product) %>
+            <% end %>
+          </div>
           <h3><%= @product.title %></h3>
           <%= link_to '去购买', @product.url, class: "btn btn-primary" %>
         </div>
