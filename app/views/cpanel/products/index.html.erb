@@ -18,7 +18,6 @@
 					<th><%= check_box_tag 'checkbox_all' %></th>
 					<th>商品标题</th>
           <th>商品价格</th>
-          <th>商品链接</th>
           <th>来源</th>
           <th>创建者</th>
 					<th>创建时间</th>
@@ -30,19 +29,17 @@
     	
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', product.id %></td>
-					<td><%= truncate product.title, length: 10 %></td>
+					<td><%= link_to truncate(product.title,length:15),product_path(product),title: product.title %></td>
 					<td><%= product.price %></td>
-          <td>
-            <%= link_to '查看链接', product.url %>
-          </td>
-          <td><%= product.source %></td>
+   
+          <td><%= link_to format_source(product),product.url %></td>
           <td>
             <%= product.user.nickname %>
           </td>
-					<td><%= format_datetime product.created_at,'%Y-%m-%d %H:%M' %></td>
+					<td><%= format_datetime product.created_at,'%y-%m-%d %H:%M' %></td>
 					<td>
-						<%= link_to '查看', cpanel_product_path(product) %>
-            <%= link_to '修改', edit_cpanel_product_path(product) %>
+						<%= link_to '查看', cpanel_product_path(product) %> |
+            <%= link_to '修改', edit_cpanel_product_path(product) %> |
             <%= link_to '删除', [:cpanel, product], confirm: '确认删除? ', method: :delete %>
 					</td>
 				</tr>

@@ -2624,7 +2624,7 @@ fieldset[disabled] .btn-link:focus {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border: none;
+  border-radius: 3px;
 }
 
 .btn-xs {
@@ -4321,7 +4321,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
 }
 
@@ -4488,7 +4488,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 20px;
 }
 
@@ -6473,7 +6473,7 @@ button.close {
   width: 60%;
   padding-left: 0;
   margin-left: -30%;
-  text-align: center;
+  text-align: left;
   list-style: none;
 }
 
@@ -6486,7 +6486,7 @@ button.close {
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #ffffff;
+  border: 1px solid #999;
   border-radius: 10px;
 }
 
@@ -6494,7 +6494,7 @@ button.close {
   width: 12px;
   height: 12px;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #999;
 }
 
 .carousel-caption {

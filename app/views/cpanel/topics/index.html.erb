@@ -19,9 +19,8 @@
 					<th>查看数</th>
 					<th>回复数</th>
 					<th>喜欢数</th>
-					<th>score</th>
 					<th>创建时间</th>
-					<th>最后更新时间</th>
+					
 					<th>状态</th>
 					<td>操作</td>
 				</tr>
@@ -30,14 +29,14 @@
     		<% @topics.each do |topic| %>
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', topic.id %></td>
-					<td><%= truncate topic.title, length: 10 %></td>
-					<td><%= topic.user.nickname %></td>
+					<td><%= link_to truncate(topic.title,length: 15),topic_path(topic), title: topic.title%></td>
+					<td><%= link_to topic.user.nickname,user_path(topic.user) %></td>
 					<td><%= topic.hit_num %></td>
 					<td><%= topic.reply_num %></td>
 					<td><%= topic.like_num %></td>
-					<td><%= topic.score %></td>
-					<td><%= format_datetime topic.created_at,'%Y-%m-%d %H:%M' %></td>
-					<td><%= format_datetime topic.updated_at,'%Y-%m-%d %H:%M' %></td>
+	
+					<td><%= format_datetime topic.created_at,'%m-%d %H:%M' %></td>
+			
 					<td>
 						<% if topic.state == 0 %>
 							可用
@@ -46,8 +45,8 @@
 						<% end -%>
 					</td>
 					<td>
-						<%= link_to '查看', cpanel_topic_path(topic) %>
-            <%= link_to '修改', edit_cpanel_topic_path(topic) %>
+						<%= link_to '查看', cpanel_topic_path(topic) %> |
+            <%= link_to '修改', edit_cpanel_topic_path(topic) %> |
 						<%= link_to '删除', [:cpanel, topic], confirm: '确认删除吗？', method: :delete %>
 					</td>
 				</tr>

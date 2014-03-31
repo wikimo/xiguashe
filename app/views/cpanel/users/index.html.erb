@@ -19,9 +19,9 @@
 					<th>Email</th>
 					<th>昵称</th>
 					<th>创建时间</th>
-					<th>最后更新时间</th>
-					<th>状态</th>
-					<td>操作</td>
+					<th>更新时间</th>
+			
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,14 +30,11 @@
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', user.id %></td>
 					<td><%= user.email %></td>
-					<td><%= user.nickname %></td>
-					<td><%= format_datetime user.created_at,'%Y-%m-%d %H:%M' %></td>
-					<td><%= format_datetime user.updated_at,'%Y-%m-%d %H:%M' %></td>
-					<td>
-						
-					</td>
+					<td><%= link_to user.nickname,user_path(user) %></td>
+					<td><%= format_datetime user.created_at,'%y-%m-%d %H:%M' %></td>
+					<td><%= format_datetime user.updated_at,'%y-%m-%d %H:%M' %></td>
           <td>
-            <%= link_to '修改', edit_cpanel_user_path(user)  %>
+            <%= link_to '修改', edit_cpanel_user_path(user)  %> |
 						<%= link_to '删除', [:cpanel, user], confirm: '确认删除吗？', method: :delete %>
 					</td>
 				</tr>
