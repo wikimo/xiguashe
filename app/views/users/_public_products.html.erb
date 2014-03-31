@@ -1,0 +1,4 @@
+<li>
+  <%= link_to product.title, product %>
+  <span><%= timeago_tag product.created_at, nojs: true, limit: 10.day.ago %></span>
+</li>

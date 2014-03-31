@@ -21,26 +21,19 @@
           <div class="form-group">
             <%= f.label :price, "东西价格", class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
-              <%= text_field_tag '', number_to_currency(@product.price || 0.0, unit: "￥"), class: 'form-control', disable: true %>
+              <%= number_to_currency(@product.price || 0.0, unit: "￥") %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">东西图片</label>
             <div class="col-sm-10 good-photos">
               <ul class="good-img-list">
-                <li>
-                  <%= image_tag @product.img %>
-                  <%= radio_button_tag :radio_img, @product.img, checked: true %> 选择封面
-                  <%= link_to "", "javascript:del_photo()", id: "del-", class: "glyphicon glyphicon-remove-circle" %>
-                </li>
                 <% @product.photos.each do |photo| %>
-                  <% if photo_choose_url_helper(photo) != @product.img %>
                   <li>
-                    <%= photo_choose_helper(photo) %>
-                    <%= radio_button_tag :radio_img, photo_choose_url_helper(photo) %> 选择封面
+                    <%= photo_choose_helper(photo) %><br/>
+                    <%= radio_button_tag :radio_img, photo_choose_url_helper(photo), check_helper(photo, @product.img) %> 选择封面
                     <%= link_to "", "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}", class: "glyphicon glyphicon-remove-circle" %>
                   </li>
-                  <% end %>
                 <% end %>
               </ul>
               <div class="loading pull-left" style="display: none;"></div>
@@ -50,6 +43,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">上传图片</label>
             <div class="col-sm-10">
+               <a class="file-input-wrapper btn file-inputs btn btn-default">继续上传<%= file_field_tag "photo[]",multiple: "multiple" , class: 'file-inputs btn btn-default', title: '继续上传'%></a>
             </div>
           </div>
           <div class="form-group">

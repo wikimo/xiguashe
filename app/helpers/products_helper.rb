@@ -18,4 +18,15 @@ module ProductsHelper
   end
 
 
+  def check_helper(photo, img)
+
+     checked = photo_choose_url_helper(photo) == img ? true : false
+
+  end
+
+  def checked_helper(index)
+    checked = index == 0 ? true : false
+  end
+
+
 end

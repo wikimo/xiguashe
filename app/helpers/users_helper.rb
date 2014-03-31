@@ -12,10 +12,10 @@ module UsersHelper
 			end
 
 
-      if action == 'likes'
-        html.concat(content_tag :li, content_tag(:a, '我的喜欢', href: "/users/#{user.id}?do=likes"), class: 'active')
+      if action == 'products'
+        html.concat(content_tag :li, content_tag(:a, '我的东西', href: "/users/#{user.id}?do=products"), class: 'active')
       else
-        html.concat(content_tag :li, content_tag(:a, '我的喜欢', href: "/users/#{user.id}?do=likes"))
+        html.concat(content_tag :li, content_tag(:a, '我的东西', href: "/users/#{user.id}?do=products"))
       end
 
 		end

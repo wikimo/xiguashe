@@ -91,6 +91,18 @@ class ProductsController < ApplicationController
 	end
 
   def update
+
+    params[:product][:img] = params[:radio_img] 
+
+    if @product.update_attributes(params[:product])
+
+      unless params[:photo_id].nil?
+        update_photo(@product, params[:photo_id])
+      end
+
+      redirect_to @product, notice: t(:update_success)
+
+    end
   end
 
 	def destroy

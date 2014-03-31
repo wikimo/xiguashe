@@ -26,7 +26,4 @@ module PhotosHelper
     image_tag path.url(style)
   end
 
-  def checked_helper(index)
-    checked = index == 0 ? true : false
-  end
 end
