@@ -18,15 +18,20 @@
     text-align: center;
 }
 .good-photos ul li img{
-    width: 100%;
-    height: 100%;
-    max-width: 150px;
+
     width: 150px;
+    height: 150px;
     margin-bottom: 5px;
 }
 
-.good-photos ul li .glyphicon-remove-circle{
-    margin: 0 5px;
-}
+
+
+/*清除浮动 代码*/
+.cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}
+.cc {display: inline-block;}/* Hides from IE-mac \*/
+* html .cc {height: 1%;}
+.cc {display: block;}/* End hide from IE-mac *//*清除浮动 代码*/
+.c{clear:both;font:0px/0px Arial;overflow:hidden;height:0;width:0;}
+
 
 
