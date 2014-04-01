@@ -1,0 +1,24 @@
+<div class="home-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="user-content">
+        <ul class="nav nav-pills">
+          <%= search_nav_helper(params[:action], params[:query]) %>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="article">
+            <ul>
+              <% @products.each do |product| %>
+                <li>
+                  <%= link_to product.title, product %>
+                  <span><%= timeago_tag product.created_at, nojs: true, limit: 10.day.ago %></span>
+                </li>
+              <% end %>
+            </ul>
+            <%= will_paginate @products %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

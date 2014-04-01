@@ -36,6 +36,9 @@ class Product < ActiveRecord::Base
 
   scope :by_source, lambda { |source| where('source = ?', source) }
 
+	searchable	do
+		text :title
+	end
 
 	class << self
 

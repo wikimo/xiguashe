@@ -11,6 +11,7 @@ Xiguashe::Application.routes.draw do
   match "/search" => "search#index",           :as => :search
   match "/search/users" => "search#users",:as => :search_users
   match "/search/topics" => "search#topics",:as => :search_topics
+  match "/search/products" => "search#products", :as => :search_products
 
 
   match "notifications/read/:id/:type"       => "notifications#read",     :via => :get

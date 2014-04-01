@@ -18,29 +18,17 @@
 
 class Group < ActiveRecord::Base
   
-	self.per_page = 30
+	  self.per_page = 30
 	  
     belongs_to :category
 
     has_many :topics
 
-	has_many :group_users, :dependent => :destroy
+	  has_many :group_users, :dependent => :destroy
 	
     has_many :users, :through => :group_users
-    
-    
-
-	has_attached_file :icon, 
-					:styles => {
-                                    :thumb  => "80X80>",
-									:original => "180x180>",
-							    }, 
-								:url => '/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-								:path =>':rails_root/public/attachment/:class/:month_partition/:id/:style/:basename.:extension',
-                :whiny => false
 
     mount_uploader :ico, ImageUploader             
-
 
     scope :using_groups, where('state = true')
 
