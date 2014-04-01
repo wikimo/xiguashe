@@ -19,7 +19,7 @@
       <% @product.photos.each do |photo| %>
         <li>
           <%=  photo_choose_helper(photo) %> <br>
-          <%= link_to '删除', ''%>
+          <%= link_to '', '',class: 'glyphicon glyphicon-remove-circle'%>
         </li>
       <% end %>
     </ul>
