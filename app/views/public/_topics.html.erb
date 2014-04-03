@@ -5,7 +5,7 @@
           <div class="xg-slider-left">
             <h3><%= link_to topic.title, topic %></h3>
             <cite><%= timeago_tag topic.created_at, nojs: true, limit: 10.day.ago %></cite>
-            <p><%= h format_content(markdown(topic.content), 120) %></p>
+            <p><%= h format_content(markdown(topic.content), 50) %></p>
             <%= link_to user_avatar_helper(topic.user), topic.user, class: 'xg-slider-avatar', title: topic.user.nickname %>
           </div>
         </div>
