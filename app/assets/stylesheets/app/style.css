@@ -273,6 +273,10 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 .topic .show-content p{
     margin-bottom: 25px;
 }
+.topic .show-content img{
+    max-width: 600px;
+    width: 100%;
+}
 
 .actions{
     margin: 10px 0 0 0 ;
