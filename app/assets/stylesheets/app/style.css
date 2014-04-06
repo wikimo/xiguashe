@@ -231,8 +231,20 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     top: 5px;
     z-index: 2;  
 }
-.sign-up li{float: left;}
+
+.sign-up li a{color: #DE533C;}
+
 .sign-up .dropdown-menu li{float: none;}
+.sign-up .msg span{
+    border:1px solid #DE533C;
+    background: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+.sign-up .msg a:hover span{
+    background: #697C82;
+    color: #fff;
+}
 
 .hot-tags{
     background: #fff;
@@ -336,6 +348,9 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+.comment-item .content time{
+    color: #999;
 }
 
 .act{
