@@ -30,7 +30,7 @@ class Cpanel::TopicsController < Cpanel::ApplicationController
 
   private 
 
-    def find_by_id(id)
+    def find_by_id
 
       @topic = Topic.find(params[:id])
 

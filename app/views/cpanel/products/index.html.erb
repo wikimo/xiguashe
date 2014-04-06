@@ -38,7 +38,7 @@
           </td>
 					<td><%= format_datetime product.created_at,'%y-%m-%d %H:%M' %></td>
 					<td>
-						<%= link_to '查看', cpanel_product_path(product) %> |
+						<%= link_to '查看', product_path(product), target: '_blank' %> |
             <%= link_to '修改', edit_cpanel_product_path(product) %> |
             <%= link_to '删除', [:cpanel, product], confirm: '确认删除? ', method: :delete %>
 					</td>
