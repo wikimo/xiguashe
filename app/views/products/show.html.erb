@@ -7,22 +7,26 @@
         </div>
         <div class="good-info">
           <div class="sharer">
-            由 <%= @product.user.nickname %> 发布 
+            <%= user_avatar_helper(@product.user) %> 发布 
             <% if current_user == @product.user %>
-              <%= link_to '修改东西', edit_product_path(@product) %>
+              <%= link_to '编辑', edit_product_path(@product) %>
             <% end %>
           </div>
           <h3><%= @product.title %></h3>
           <%= link_to '去购买', @product.url, class: "btn btn-primary",target: '_blank' %>
-        </div>
-        <div class="c"></div>
-        <hr>
-        <h4 class="act-descrip"></h4>
-        <div class="good-content">
-          <blockquote>
+
+           <blockquote>
+            <h4>我的评价：</h4>
             <%= @product.appraisal %>
           </blockquote>
         </div>
+        <div class="c"></div>
+     
+        <!-- <div class="good-content">
+          <blockquote>
+            <%= @product.appraisal %>
+          </blockquote>
+        </div> -->
       </div>
     </div>
   </div>
