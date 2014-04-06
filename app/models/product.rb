@@ -22,6 +22,10 @@ class Product < ActiveRecord::Base
 
   self.per_page = 30
 
+  validates :title, presence: true
+
+  validates :appraisal, presence: true 
+
   belongs_to :user
 
   has_many :comments, as: :commentable, dependent: :destroy

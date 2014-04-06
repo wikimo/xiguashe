@@ -102,6 +102,8 @@ class ProductsController < ApplicationController
 
       redirect_to @product, notice: t(:update_success)
 
+    else
+      render 'edit'
     end
   end
 

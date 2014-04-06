@@ -128,12 +128,32 @@ $(function(){
 
    });
 
-  function setTime() {
-    setTimeout(function(){
-      $(".alert").hide();
-    }, 3000);
-  }
+  
 
+  $("#submit_btn").click(function(){
+
+    if ($("input[name='radio_img']").length == 0) {
+
+      alert_msg("没有上传图片");
+
+      return false;
+
+    }
+    else if ($("input[name='radio_img']").length > 5) {
+      alert_msg("最多能上传5张图片")
+      return false;
+    }
+    else {
+      var checked = $("input[name='radio_img']:checked");
+
+      if(checked.length == 0) {
+
+        $("input[name='radio_img']:first").attr("checked", 'true');
+
+      }
+      return true;
+    }
+  });
 });
 
 
@@ -149,5 +169,22 @@ function del_photo(id) {
   });
 }
 
+
+function alert_msg(content) {
+   $("#message").append('<div class="alert alert-warning show">' +
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                        '<strong>' + content + '</strong>' +
+                        '</div>')
+
+  setTimeout(function(){
+    $(".alert").hide();
+  }, 3000);
+}
+
         
+function setTime() {
+    setTimeout(function(){
+      $(".alert").hide();
+    }, 3000);
+  }
         

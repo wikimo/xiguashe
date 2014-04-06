@@ -1,4 +1,5 @@
 <div class="home-index">
+  <%= render partial: 'public/errors', locals: { obj: @product } %>
   <div class="row">
     <div class="col-xs-12">
       <div class="comm-form">
@@ -55,7 +56,7 @@
           <%= f.hidden_field :source, value: @product.source %>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit "提 交", class: "btn btn-primary" %>
+              <%= f.submit "提 交", id: 'submit_btn',class: "btn btn-primary" %>
             </div>
           </div>
         <% end %>

@@ -65,5 +65,6 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
   def find_by_id
     @product = Product.find(params[:id])
   end
+
 	
 end

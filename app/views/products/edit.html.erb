@@ -1,4 +1,6 @@
 <div  class="home-index">
+  <%= render partial: 'public/errors', locals: { obj: @product } %>
+  <div id="message"></div>
   <div class="row">
     <div class="col-xs-12">
       <div class="comm-form">
@@ -31,7 +33,7 @@
                 <% @product.photos.each do |photo| %>
                   <li>
                     <%= photo_choose_helper(photo) %><br/>
-                    <%= radio_button_tag :radio_img, photo_choose_url_helper(photo), check_helper(photo, @product.img) %> 选择封面
+                    <%= radio_button_tag :radio_img, photo_choose_url_helper(photo), checked_helper_2(photo, @product.img) %> 选择封面
                     <%= link_to "", "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}", class: "glyphicon glyphicon-remove-circle" %>
                   </li>
                 <% end %>
@@ -48,7 +50,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit "提 交", class: "btn btn-primary" %>
+              <%= f.submit "提 交", id: 'submit_btn', class: "btn btn-primary" %>
             </div>
           </div>
         <% end %>
