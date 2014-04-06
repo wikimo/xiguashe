@@ -124,6 +124,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 }
 .good-list .good blockquote img{
     width: 28px;
+    border-radius: 50%;
 }
 .good-list .good .avatar{
     display: block;
@@ -621,6 +622,14 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     .article-list li img{
         max-width: 310px;
         width: 100%;
+    }
+    .good-list .good-img img{
+        height: 260px;
+        overflow: hidden;
+    }
+    .good-list .good h3{
+        height: 42px;
+        overflow: hidden;
     }
     
     .good-list-fixed{
