@@ -674,6 +674,9 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     .qrcode{
         display: block;
     }
+    .good footer{
+        height: 20px;
+    }
 
     .xg-slider-left{padding: 40px ;}
     .xg-slider-right{height: 274px;}

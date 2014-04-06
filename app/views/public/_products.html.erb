@@ -10,5 +10,12 @@
       <%= link_to user_avatar_helper(product.user), class: 'avatar', title: product.user.nickname %>
       <%= truncate product.appraisal, length: 30 %>
     </blockquote>
+    
+    <footer class="cc">
+      <%if product.reply_num > 0%>
+      <cite>评论 <%= product.reply_num%></cite>
+      <%end%>
+    </footer>
+    
   </div>
 </li>
