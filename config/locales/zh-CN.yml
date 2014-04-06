@@ -205,9 +205,8 @@ zh-CN:
         content: '话题内容'
       comment:
         content: '评论内容'
-      group:
-        name: '小组名称'
-        descrip: '小组描述'
+      product:
+        appraisal: '用户使用评价'
     errors:
       messages:
         record_invalid: ! '验证失败: %{errors}'

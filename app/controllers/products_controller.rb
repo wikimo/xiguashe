@@ -64,6 +64,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+
   end
 
 	def create
@@ -85,6 +86,8 @@ class ProductsController < ApplicationController
       end
 
       redirect_to @product, notice: t(:create_success)
+
+    else
 
     end
 
