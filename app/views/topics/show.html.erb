@@ -4,7 +4,7 @@
     <div class="col-xs-12">
       <div class="topic">
         <h1><%= @topic.title %></h1>
-        <a href="/user/<%= @topic.user.id %>" class="author">
+        <a href="/users/<%= @topic.user.id %>" class="author">
           <span><%= @topic.user.nickname %></span>
           <span class="avatar">
             <%= user_avatar_helper(@topic.user) %>

@@ -573,6 +573,10 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     
 }
 
+.popover-content img{
+    height: 200px;
+
+}
 
 @media (min-width: 768px) {
     .search-box{
