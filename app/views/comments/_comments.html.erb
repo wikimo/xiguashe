@@ -2,7 +2,7 @@
   <div class="avatar">
     <%= link_to user_avatar_helper(comment.user), comment.user %>
   </div>
-  <div class="content">
+  <div class="content cc">
     <header>
       <%= link_to comment.user.nickname, comment.user %>
       <span>
@@ -12,10 +12,11 @@
     <p>
       <%= raw comment.content %>
     <p>
-    <footer>
+    
+  </div>
+  <footer>
       <%= link_to("回复", "#", "data-login" => comment.user.nickname, 
                 title: "回复#{comment.user.nickname}", class: 'pull-right',
                 onclick: "return CommentApp.comment('#{comment.user.id}', '#{comment.user.nickname}')" ) %>
     </footer>
-  </div>
 </div>

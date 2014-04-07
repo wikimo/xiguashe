@@ -14,6 +14,8 @@
           </div>
           <h3><%= @product.title %></h3>
           <%= link_to '去购买', @product.url, class: "btn btn-primary",target: '_blank' %>
+          <span class="price">￥<%= @product.price%></span>
+          
 
            <blockquote>
             <h4>我的评价：</h4>

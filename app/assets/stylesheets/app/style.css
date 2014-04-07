@@ -349,6 +349,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     height: 50px;
     border-radius: 50%;
 }
+.comment-item .content{float: left;}
 .comment-item .content time{
     color: #999;
 }
@@ -598,7 +599,10 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 
 .popover-content img{
     height: 200px;
-
+}
+.price{
+    font-size: 18px;
+    color: #999;
 }
 
 @media (min-width: 768px) {
@@ -690,6 +694,12 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     }
     .good footer{
         height: 20px;
+    }
+    .good-photos ul li img{
+        height: 150px;
+        width: 150px;
+        margin-bottom: 5px;
+        border:1px solid #ddd;
     }
 
     .xg-slider-left{padding: 40px ;}
