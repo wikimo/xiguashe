@@ -45,8 +45,7 @@
 						<% end -%>
 					</td>
 					<td>
-						<%= link_to '查看', cpanel_topic_path(topic) %> |
-            <%= link_to '修改', edit_cpanel_topic_path(topic) %> |
+            <%= link_to '修改', edit_topic_path(topic) %> |
 						<%= link_to '删除', [:cpanel, topic], confirm: '确认删除吗？', method: :delete %>
 					</td>
 				</tr>
