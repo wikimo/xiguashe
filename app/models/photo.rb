@@ -21,6 +21,8 @@ class Photo < ActiveRecord::Base
     mount_uploader :path, ImageUploader        
 
     #before_post_process :rename_photo
+
+    scope :find_by_ids, lambda { |ids| where('id in (?)', ids) }
     
     private
         def rename_photo

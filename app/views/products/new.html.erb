@@ -38,6 +38,16 @@
                     <%= link_to '', 'javascript:void(0)', name: "del_img",class: 'glyphicon glyphicon-remove-circle' %>
                   </li>
                 <% end %>
+                <% if @photos %>
+                  <% @photos.each do |photo| %>
+                    <li>
+                      <%= link_to photo_choose_helper(photo), "" %><br />
+                      <%= radio_button_tag :radio_img, photo_choose_url_helper(photo) %> 选择封面
+                      <%= link_to '', "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}", class: "glyphicon glyphicon-remove-circle" %>
+                      <%= hidden_field_tag 'photo_id[]', "#{photo.id}" %>
+                    </li>
+                  <% end %>
+                <% end %>
               </ul>
               <div class="loading pull-left" style="display: none;"></div>
               <div id="photo-list">

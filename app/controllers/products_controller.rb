@@ -88,6 +88,12 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: t(:create_success)
 
     else
+      unless params[:photo_id].nil?
+        @photos = Photo.find_by_ids(params[:photo_id])
+      end
+
+      @images = params[:image]
+
       render 'new'
     end
 
