@@ -88,7 +88,7 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: t(:create_success)
 
     else
-
+      render 'new'
     end
 
 	end

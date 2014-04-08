@@ -30,7 +30,7 @@
             <label class="col-sm-2 control-label">东西图片</label>
             <div class="col-sm-10 good-photos">
               <ul class="good-img-list">
-                <% @images.each_with_index do |image, i| %>
+                <% !@images.nil? && @images.each_with_index do |image, i| %>
                   <li id="image_#{i}">
                     <%= link_to image_tag(image, alt: @product.title), "" %> <br/>
                     <%= radio_button_tag :radio_img, image, checked_helper(i) %> 选择封面

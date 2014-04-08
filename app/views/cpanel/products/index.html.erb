@@ -29,7 +29,7 @@
     	
 				<tr>
 					<td><%= check_box_tag 'checkbox_name', product.id %></td>
-					<td><%= link_to truncate(product.title,length:15),product_path(product),title: product.title %></td>
+					<td><%= link_to truncate(product.title,length:15),product_path(product),title: product.title ,target:'_blank'%></td>
 					<td><%= product.price %></td>
    
           <td><%= link_to format_source(product),product.url %></td>
@@ -38,7 +38,7 @@
           </td>
 					<td><%= format_datetime product.created_at,'%y-%m-%d %H:%M' %></td>
 					<td>
-						<%= link_to '查看', product_path(product), target: '_blank' %> |
+				
             <%= link_to '修改', edit_cpanel_product_path(product) %> |
             <%= link_to '删除', [:cpanel, product], confirm: '确认删除? ', method: :delete %>
 					</td>
