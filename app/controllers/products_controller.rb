@@ -89,6 +89,14 @@ class ProductsController < ApplicationController
 
     else
 
+      unless params[:photo_id].nil?
+        @photos = Photo.find_by_ids(params[:photo_id])
+      end
+
+      @images = params[:image]
+
+      render 'new'
+
     end
 
 	end
