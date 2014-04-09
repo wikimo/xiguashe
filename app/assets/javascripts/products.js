@@ -177,14 +177,16 @@ function alert_msg(content) {
                         '</div>')
 
   setTimeout(function(){
-    $(".alert").hide();
+    // $(".alert").hide();
+    $('.alert').alert('close');
   }, 3000);
 }
 
         
 function setTime() {
     setTimeout(function(){
-      $(".alert").hide();
+      // $(".alert").hide();
+      $('.alert').alert('close');
     }, 3000);
   }
         
