@@ -206,6 +206,7 @@ zh-CN:
       comment:
         content: '评论内容'
       product:
+        title: '商品名称'
         appraisal: '用户使用评价'
     errors:
       messages:

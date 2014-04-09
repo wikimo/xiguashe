@@ -1,9 +1,9 @@
 <%if obj.errors.any?%>
-   	<div class="alert alert-error show">
+   	<div class="alert alert-warning show">
 	    <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <% obj.errors.full_messages.each do |msg| %>
-	    <strong><%= msg%></strong>
-        <%end %>
+      <% obj.errors.full_messages.each do |msg| %>
+	       <strong><%= msg%></strong> | 
+      <%end %>
     </div>
     <script type="text/javascript">
     $(function(){
