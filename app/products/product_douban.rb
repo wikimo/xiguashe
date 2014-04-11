@@ -1,5 +1,4 @@
 require "nokogiri"
-require "open-uri"
 require "addressable/uri"
 
 class ProductDouban < ProductBase

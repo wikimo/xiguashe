@@ -79,12 +79,7 @@ class ProductsController < ApplicationController
 
       unless params[:image].nil?
         params[:image].each do |img|
-          # Photo.create(source: img, photoable: @product, user_id: params[:product][:user_id])
-          ext = img.split('.')
-          upload = {:filename => "tmp.#{ext.last}",
-          :tempfile => open(img)}
-
-          Photo.create(path: upload ,photoable: @product, user_id: params[:product][:user_id])
+          Photo.create(path: image_deal(img), photoable: @product, user_id: params[:product][:user_id])
         end
       end
 
@@ -146,4 +141,10 @@ class ProductsController < ApplicationController
       mat = /(http|https):\/\//.match(params[:link])
       mat.nil? 
     end
+
+    def image_deal(image_url)
+      base = ProductBase.new
+      base.image_parse(image_url)
+    end
+
 end
