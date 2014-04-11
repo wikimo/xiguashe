@@ -1,4 +1,6 @@
 #coding: utf-8
+require 'open-uri'
+
 class ProductsController < ApplicationController
 
   before_filter :find_by_id, only: [:show, :edit, :update, :destroy]
@@ -77,7 +79,12 @@ class ProductsController < ApplicationController
 
       unless params[:image].nil?
         params[:image].each do |img|
-          Photo.create(source: img, photoable: @product, user_id: params[:product][:user_id])
+          # Photo.create(source: img, photoable: @product, user_id: params[:product][:user_id])
+          ext = img.split('.')
+          upload = {:filename => "tmp.#{ext.last}",
+          :tempfile => open(img)}
+
+          Photo.create(path: upload ,photoable: @product, user_id: params[:product][:user_id])
         end
       end
 
@@ -124,7 +131,7 @@ class ProductsController < ApplicationController
     def find_by_id
       @product = Product.find(params[:id])
 
-      p @product.photos
+      #p @product.photos
     end
 
     def is_exist(really_id)
