@@ -5,4 +5,8 @@ require 'json'
 
 class ProductBase
 
+  def image_parse(img_url)
+    ext = img_url.split('.')
+    upload = { filename: "tmp.#{ext.last}", tempfile: open(img_url) }
+  end
 end	

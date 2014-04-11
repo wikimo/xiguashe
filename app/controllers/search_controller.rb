@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+
   before_filter :form_action
 
   def index
@@ -16,6 +17,7 @@ class SearchController < ApplicationController
   end
 
   def users
+
   	@users = User.search do
       keywords params[:query]
       paginate :page => params[:page] ? params[:page] : 1, :per_page => 10
@@ -25,6 +27,7 @@ class SearchController < ApplicationController
   end
 
   def products
+
     @products = Product.search do
       keywords params[:query]
       paginate page: params[:page] ? params[:page] : 1, per_page: 10
@@ -40,6 +43,5 @@ class SearchController < ApplicationController
         @form_action = search_topics_path  
       end
   end
-
 
 end
