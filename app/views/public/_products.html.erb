@@ -2,7 +2,9 @@
   <div class="good-img">
     <%= link_to image_tag(product.try(:img), alt: ""),  product %>
     <span></span>
-    <em><%= number_to_currency product.price, unit: '￥'%></em>
+    <em>
+      <%= number_to_currency product.price, unit: product.money_logo %>
+     </em>
   </div>
   <div class="good">
     <h3><%= link_to product.title, product %></h3>

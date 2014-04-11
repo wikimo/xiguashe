@@ -45,7 +45,7 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
       if find_product(product[:id], "douban").blank?
 
-        p = Product.new(title: product[:title], price: product[:price],
+        p = Product.new(title: product[:title], url: product[:url], price: product[:price],
                         source: 'douban', really_id: product[:id], user_id: current_user.id, 
                         money_logo: product[:money_logo], appraisal: '无')
       
