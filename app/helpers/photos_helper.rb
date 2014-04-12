@@ -1,20 +1,11 @@
 module PhotosHelper
 
   def photo_choose_helper(photo)
-
-    if photo.source
-      image_tag photo.source
-    else
       image_tag photo.path.url
-    end
   end
 
   def photo_choose_url_helper(photo)
-    if photo.source
-      photo.source
-    else
       photo.path.url
-    end
   end
 
   def photo_tag_helper(path, options = {})

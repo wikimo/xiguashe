@@ -1,4 +1,7 @@
+#encoding: utf-8
 class Cpanel::ProductsController < Cpanel::ApplicationController
+
+  include ProductsHelper
 
   before_filter :require_admin
 
@@ -39,15 +42,17 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
     products.each do |product|
 
+
       if find_product(product[:id], "douban").blank?
 
         p = Product.new(title: product[:title], url: product[:url], price: product[:price],
-                        source: 'douban', really_id: product[:id], user_id: current_user.id)
+                        source: 'douban', really_id: product[:id], user_id: current_user.id, 
+                        money_logo: product[:money_logo], appraisal: product[:appraisal])
       
         if p.save
-          product[:img].each do |img|
-            Photo.create(photoable: p, user_id: current_user.id, source: img[:original])
-            p.update_attributes(img: img[:original]) if img[:active] == 'main'
+          product[:img].each do |image|
+            photo = Photo.create(photoable: p, user_id: current_user.id, path: image_deal(image[:original]))
+            p.update_attributes(img: photo.path.url) if image[:active] == 'main'
           end
         end
       end

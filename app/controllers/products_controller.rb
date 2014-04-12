@@ -1,7 +1,8 @@
 #coding: utf-8
-require 'open-uri'
 
 class ProductsController < ApplicationController
+
+  include ProductsHelper
 
   before_filter :find_by_id, only: [:show, :edit, :update, :destroy]
 
@@ -73,13 +74,16 @@ class ProductsController < ApplicationController
 
     @product = Product.new params[:product]
 
-    @product.img = params[:radio_img]
-
     if @product.save
 
       unless params[:image].nil?
         params[:image].each do |img|
-          Photo.create(path: image_deal(img), photoable: @product, user_id: params[:product][:user_id])
+          if img == params[:radio_img]
+            photo = Photo.create(path: image_deal(img) ,photoable: @product, user_id: params[:product][:user_id], is_main: 1)
+            @product.update_attributes(img: photo.path.url)
+          else
+            Photo.create(path: image_deal(img) ,photoable: @product, user_id: params[:product][:user_id], is_main: 0)
+          end
         end
       end
 
@@ -125,8 +129,6 @@ class ProductsController < ApplicationController
   private 
     def find_by_id
       @product = Product.find(params[:id])
-
-      #p @product.photos
     end
 
     def is_exist(really_id)

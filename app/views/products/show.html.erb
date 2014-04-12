@@ -7,18 +7,18 @@
         </div>
         <div class="good-info">
           <div class="sharer">
-            <%= user_avatar_helper(@product.user) %> 发布 
+            由 <%= user_avatar_helper(@product.user) %> 发布 
             <% if current_user == @product.user %>
               <%= link_to '编辑', edit_product_path(@product) %>
             <% end %>
           </div>
           <h3><%= @product.title %></h3>
           <%= link_to '去购买', @product.url, class: "btn btn-primary",target: '_blank' %>
-          <span class="price">￥<%= @product.price%></span>
+          <span class="price"><%= number_to_currency @product.price, unit: @product.money_logo %></span>
           
 
            <blockquote>
-            <h4>我的评价：</h4>
+            <h4>发布者评价：</h4>
             <%= @product.appraisal %>
           </blockquote>
         </div>

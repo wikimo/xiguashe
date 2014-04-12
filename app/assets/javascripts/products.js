@@ -177,7 +177,6 @@ function alert_msg(content) {
                         '</div>')
 
   setTimeout(function(){
-    // $(".alert").hide();
     $('.alert').alert('close');
   }, 3000);
 }
@@ -185,7 +184,6 @@ function alert_msg(content) {
         
 function setTime() {
     setTimeout(function(){
-      // $(".alert").hide();
       $('.alert').alert('close');
     }, 3000);
   }

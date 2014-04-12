@@ -1,3 +1,4 @@
+
 module ProductsHelper
 
   def product_carousel_for(index)
@@ -26,6 +27,11 @@ module ProductsHelper
 
   def checked_helper(index)
     checked = index == 0 ? true : false
+  end
+
+  def image_deal(img_url)
+    base = ProductBase.new
+    base.image_parse(img_url)
   end
 
 

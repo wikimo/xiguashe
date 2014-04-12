@@ -1,3 +1,4 @@
+#encoding: utf-8
 require "nokogiri"
 require "addressable/uri"
 
@@ -35,14 +36,32 @@ class ProductDouban < ProductBase
     title = doc.css('.commodity-detail').attr('data-title').value()
     id = doc.css('.commodity-detail').attr('data-tid').value()
     price_content = doc.css('.commodity-detail').css('.commodity-price').children().text().chomp.strip
-    price = price_content[1, price_content.length]
-    money_tag = price_content[0,1]
+    url = doc.css('.J_PurchaseBtn').attr('href').value()
+
+
+    if doc.css('.postitem-main')[0].nil? 
+      appraisal = "此商品无评价"
+    else
+      appraisal = doc.css('.postitem-main').css('.quote').text()
+    end
+
+    p appraisal
+
+    if price_content[0,1] == 'U'
+      money_logo = price_content[0,3]
+      price = price_content[4, price_content.length]
+    else
+      money_logo = price_content[0,1]
+      price = price_content[1, price_content.length]
+    end
 
     product = {
       title: title,
       id: id,
+      url: url,
       price: price,
-      money_tag: money_tag
+      money_logo: money_logo,
+      appraisal: appraisal
     }
 
     product[:img] = []
