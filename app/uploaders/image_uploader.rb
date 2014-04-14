@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'carrierwave/processing/mini_magick'
 # 在图片空间里面定义好的“缩略图版本名称”，以防止调用错误
-IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(100x100)
+IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(100x100, 300x300)
 class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     date = "#{model.created_at.year}-#{model.created_at.month}-#{model.created_at.day}"

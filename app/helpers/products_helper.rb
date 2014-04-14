@@ -34,5 +34,11 @@ module ProductsHelper
     base.image_parse(img_url)
   end
 
+  def product_img_helper(img)
+
+    image_tag "#{img}!300x300", alt: ''
+
+  end
+
 
 end
