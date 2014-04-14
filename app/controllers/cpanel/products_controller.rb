@@ -51,7 +51,7 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
       
         if p.save
           product[:img].each do |image|
-            photo = Photo.create(photoable: p, user_id: current_user.id, path: image_deal(image[:original]))
+            photo = Photo.create(photoable: p, user_id: current_user.id, path: image_deal(image[:original]), is_main: image[:active] == 'main'? 1 : 0 )
             p.update_attributes(img: photo.path.url) if image[:active] == 'main'
           end
         end
