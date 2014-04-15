@@ -5,7 +5,8 @@
     <%= form_for [item, Comment.new] do |f| %>
       <div class="form-group">
         <%= f.hidden_field :user_id, id: 'user_id', value: current_user.id %>
-        <%= f.hidden_field :topic_id, :id => 'topic_id', :value => item.id %>
+        <%= f.hidden_field :item_id, id: 'item_id', value: item.id %>
+        <%= f.hidden_field :item_type, id: 'item_type', value: item.class %>
         <%= f.text_area :content, id: 'comment-textarea', rows: 3, class: 'form-control', placeholder: '小伙伴吐槽下吧.....' %>
       </div>
       <%= f.submit '发表', class: 'btn btn-primary' %>

@@ -50,18 +50,6 @@ class TopicsController < ApplicationController
 		@comments = @topic.comments.paginate(page:params[:page])
 	end
 
-	def get_comment_user
-		
-		users = []
-
-		@topic.comments.each do |comment|
-
-			users << [comment.user.id, comment.user.nickname] unless comment.user.id == @topic.user.id
-		end 
-
-		render json: users.uniq
-
-	end
 
 	private
 

@@ -16,6 +16,7 @@ Xiguashe::Application.routes.draw do
 
   match "notifications/read/:id/:type"       => "notifications#read",     :via => :get
   match "topics/destroy_product/:product_id" => "topics#destroy_product", :via => :get
+  match "comments/get_comment_user/:commentable_id/:commentable_type" => "comments#get_comment_user", :via => :get
 
   resources :sessions
 
@@ -42,9 +43,6 @@ Xiguashe::Application.routes.draw do
   match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
 
   resources :topics do
-    member do
-      get :get_comment_user
-    end
     resources :comments
   end
 
@@ -66,9 +64,6 @@ Xiguashe::Application.routes.draw do
     end
     
 		resources :products do
-      collection do
-        get :douban_syn
-      end
     end
 
     resources :comments do 

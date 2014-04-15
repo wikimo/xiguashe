@@ -34,32 +34,6 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
     redirect_to cpanel_products_path, notice: t(:delete_success)
 	end
 
-  def douban_syn
-
-    url = URI.parse('http://dongxi.douban.com/shows/%E6%AF%8D%E5%A9%B4/')
-    dongxi = ProductDouban.new
-    products = dongxi.get_goods_list url
-
-    products.each do |product|
-
-
-      if find_product(product[:id], "douban").blank?
-
-        p = Product.new(title: product[:title], url: product[:url], price: product[:price],
-                        source: 'douban', really_id: product[:id], user_id: current_user.id, 
-                        money_logo: product[:money_logo], appraisal: product[:appraisal])
-      
-        if p.save
-          product[:img].each do |image|
-            photo = Photo.create(photoable: p, user_id: current_user.id, path: image_deal(image[:original]), is_main: image[:active] == 'main'? 1 : 0 )
-            p.update_attributes(img: photo.path.url) if image[:active] == 'main'
-          end
-        end
-      end
-    end
-    redirect_to cpanel_products_path, notice: t(:douban_syn_success)
-  end
-
 
   private 
 

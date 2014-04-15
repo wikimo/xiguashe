@@ -15,17 +15,19 @@ window.CommentApp =
 
 
 $(document).ready ->
-  topic_id = $("#topic_id").val()
+  item_id = $("#item_id").val()
 
   current_nickname = $("#current_name").val()
 
-  if topic_id
+  item_type = $("#item_type").val()
+
+
+  if item_id
     $.ajax
       type: "get"
-      url: "/topics/#{topic_id}/get_comment_user"
+      url: "/comments/get_comment_user/#{item_id}/#{item_type}"
       success:(data) ->
         data = eval(data)
-        console.log(data)
         name_array = new Array()
         
         CommentApp.put_nickname(obj[1], name_array, current_nickname) for obj in data

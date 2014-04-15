@@ -61,6 +61,32 @@ class CommentsController < ApplicationController
 
   end
 
+  def get_comment_user
+
+    if params[:commentable_type] == "Topic"
+
+      commentable = Topic.find(params[:commentable_id])
+
+    elsif params[:commentable_type] == "Product"
+
+      commentable = Product.find(params[:commentable_id])
+
+    else
+
+      return
+
+    end
+
+		
+		users = []
+
+		commentable.comments.each do |comment|
+			users << [comment.user.id, comment.user.nickname] unless comment.user.id == commentable.user.id
+		end 
+
+		render json: users.uniq
+
+	end
 
   private 
     
