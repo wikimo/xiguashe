@@ -60,13 +60,13 @@ class User < ActiveRecord::Base
 
 	mount_uploader :avatar, ImageUploader
 
-    before_create { generate_token(:auth_token) }
+  before_create { generate_token(:auth_token) }
 
-    scope :order_by_created_at_desc, order('created_at DESC')
+  scope :order_by_created_at_desc, order('created_at DESC')
 
-    searchable	do
-		  text :nickname , :as => :nickname_textp
-	  end
+  searchable	do
+     text :nickname , :as => :nickname_textp
+	end
 	
 	def password
 	    @password
@@ -93,6 +93,15 @@ class User < ActiveRecord::Base
 	def is_admin?
 		Settings.admin_emails.include?(self.email)
 	end
+
+  def get_random_admin
+    index = Random.new
+
+    email = Settings.admin_emails[index]
+
+    User.find_by_email(email)
+
+  end
 
   def likes(likeable)
     Like.where(likeable_type: likeable, user_id: self.id)
@@ -127,7 +136,7 @@ class User < ActiveRecord::Base
 		User.where('id != ?', self.id).order_by_created_at_desc.limit(10)
 	end
 
-  	class << self
+  class << self
 	  	def authenticate(nickname_or_email,password)
 
 			  user = User.find_by_nickname(nickname_or_email) || User.find_by_email(nickname_or_email)
@@ -140,15 +149,25 @@ class User < ActiveRecord::Base
 		  end
 
 
-		def search_in_cpanel(search)
-		 	if search 
-		 		where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_by_created_at_desc
-		 	else
-        order_by_created_at_desc
-		 	end
-		end
+		  def search_in_cpanel(search)
+		 	  if search 
+		 		  where('nickname like ? or email = ?', "%#{search}%", "#{search}").order_by_created_at_desc
+		 	  else
+          order_by_created_at_desc
+		 	  end
+		  end
+
+      def get_random_admin
+
+        r = Random.new
+
+        email = Settings.admin_emails[r.rand(0..2)]
+
+        User.find_by_email(email)
+
+      end
 		
-  	end
+  end
   	
 
 	private
@@ -169,8 +188,9 @@ class User < ActiveRecord::Base
 	  	    begin
 	  	      self[column] = SecureRandom.urlsafe_base64
 	  	    end while User.exists?(column => self[column])
-  	  	end
+  	  end
 
+     
 
 	   
 end
