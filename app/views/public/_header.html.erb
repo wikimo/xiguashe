@@ -32,11 +32,11 @@
           <ul class="dropdown-menu">
             <li><%= link_to '我的主页', current_user %></li>
             <li><%= link_to '修改资料', edit_user_path(current_user) %></li>
+            <li class="divider"></li>
             <% if current_user.is_admin? %>
-              <li class="divider"></li>
               <li><%= link_to '写点文章', new_topic_path%></li>
-              <li><%= link_to '发布东西', url_products_path%></li>
             <% end%>
+            <li><%= link_to '发布东西', url_products_path%></li>
             <li class="divider"></li>
             <li>
               <%if current_user.is_admin? %>

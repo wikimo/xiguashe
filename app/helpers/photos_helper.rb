@@ -5,7 +5,7 @@ module PhotosHelper
   end
 
   def photo_choose_url_helper(photo)
-    photo_tag_helper(photo_path, style: :medium)
+    photo_tag_helper(photo.path, style: :medium)
   end
 
 
