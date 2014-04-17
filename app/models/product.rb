@@ -40,6 +40,8 @@ class Product < ActiveRecord::Base
 
   scope :by_source, lambda { |source| where('source = ?', source) }
 
+  scope :by_ids, lambda { |ids| where('id in (?)', ids) }
+
 	searchable	do
 		text :title
 	end

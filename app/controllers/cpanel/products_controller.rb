@@ -34,6 +34,18 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
     redirect_to cpanel_products_path, notice: t(:delete_success)
 	end
 
+  def batch_destroy
+
+    products = Product.by_ids(params[:ids].split(","))
+
+    products.each do |product|
+      product.destroy
+    end
+
+    redirect_to cpanel_products_path, notice: t(:delete_success)
+
+  end
+
 
   private 
 

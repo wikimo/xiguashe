@@ -154,6 +154,22 @@ $(function(){
       return true;
     }
   });
+
+  
+  $("#batch_del_products_btn").click(function(){
+
+    var str = "";
+
+    $('input[name="checkbox_name"]:checked').each(function(){
+      str += $(this).val() + ",";
+    });
+
+
+    window.location.href = '/cpanel/products/batch_destroy?ids='+ str;
+
+  });
+
+
 });
 
 
@@ -186,5 +202,8 @@ function setTime() {
     setTimeout(function(){
       $('.alert').alert('close');
     }, 3000);
-  }
+}
+
+
+
         
