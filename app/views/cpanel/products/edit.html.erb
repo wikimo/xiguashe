@@ -8,6 +8,11 @@
     <%= f.label :评价 %>
     <%= f.text_area :appraisal, rows: 5, value: @product.appraisal, class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :价格 %>
+    <%= f.text_field :price, value: @product.price, class: 'form-control' %>
+  </div>
   
 
   <div class="form-group">

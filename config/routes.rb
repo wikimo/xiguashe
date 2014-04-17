@@ -64,6 +64,9 @@ Xiguashe::Application.routes.draw do
     end
     
 		resources :products do
+      collection do
+        get :batch_destroy
+      end
     end
 
     resources :comments do 
