@@ -13,12 +13,13 @@
     <%= f.label :价格 %>
     <%= f.text_field :price, value: @product.price, class: 'form-control' %>
   </div>
-  
 
   <div class="form-group">
-    <%= f.submit '提交', class: 'btn btn-primary'%>
-    <%= link_to '返回', cpanel_products_path, class: 'btn' %>
+    <%= f.label :url %>
+    <%= f.text_field :url, value: @product.url, class: 'form-control' %>
   </div>
+  
+  
   <div class="good-photos">
     <ul class="cc">
       <% @product.photos.each do |photo| %>
@@ -28,5 +29,10 @@
         </li>
       <% end %>
     </ul>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit '提交', class: 'btn btn-primary'%>
+    <%= link_to '返回', cpanel_products_path, class: 'btn' %>
   </div>
 <% end %>
