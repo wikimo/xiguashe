@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
         params[:image].each do |img|
           if img == params[:radio_img]
             photo = Photo.create(path: image_deal(img) ,photoable: @product, user_id: params[:product][:user_id], is_main: 1)
-            @product.update_attributes(img: photo.path.url)
+            @product.update_attributes(img: photo.path.url('300x300'))
           else
             Photo.create(path: image_deal(img) ,photoable: @product, user_id: params[:product][:user_id], is_main: 0)
           end
@@ -142,11 +142,6 @@ class ProductsController < ApplicationController
     def validate_url(url)
       mat = /(http|https):\/\//.match(params[:link])
       mat.nil? 
-    end
-
-    def image_deal(image_url)
-      base = ProductBase.new
-      base.image_parse(image_url)
     end
 
 end
