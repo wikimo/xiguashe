@@ -21,7 +21,7 @@ module ProductsHelper
 
   def checked_helper_2(photo, img)
 
-     checked = photo_choose_url_helper(photo) == img ? true : false
+     checked = photo.path.url == img ? true : false
 
   end
 
