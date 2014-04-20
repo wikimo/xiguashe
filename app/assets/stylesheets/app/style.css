@@ -320,6 +320,9 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     border-radius: 4px;
     margin: 10px 0;
 }
+.my-comment{
+    background: #748D7D;
+}
 
 .comment-item,.comment-item a{
     /*color: #B3B3B3;*/
