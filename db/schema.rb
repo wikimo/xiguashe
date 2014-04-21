@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324032440) do
+ActiveRecord::Schema.define(:version => 20140417131455) do
 
   create_table "activities", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20140324032440) do
     t.datetime "updated_at",       :null => false
     t.integer  "reply_parent_id"
   end
+
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "feedbacks", :force => true do |t|
     t.string   "content"
@@ -107,9 +109,10 @@ ActiveRecord::Schema.define(:version => 20140324032440) do
     t.string   "photoable_type"
     t.integer  "user_id"
     t.string   "path"
-    t.string   "source"
     t.integer  "is_main"
   end
+
+  add_index "photos", ["photoable_id", "photoable_type"], :name => "index_photos_on_photoable_id_and_photoable_type"
 
   create_table "products", :force => true do |t|
     t.string   "title"
@@ -130,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20140324032440) do
     t.integer  "like_num",                                   :default => 0
     t.text     "appraisal"
     t.string   "really_id"
+    t.string   "money_logo",                                 :default => "¥"
   end
 
   create_table "taggings", :force => true do |t|
