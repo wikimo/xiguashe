@@ -41,6 +41,7 @@ $(function(){
 
           if (obj['msg'] == 'ok') {
             $('.good-img-list').append('<li id="new-photo-' + obj['id'] + '"></li>');
+            $('#new-photo-' + obj['id']).prepend('<input type="hidden" name="photo_path_url[]" value="' + obj['photo'] + '"/>')
             $('#new-photo-' + obj['id']).prepend('<input type="hidden" name="photo_id[]" value="' + obj['id'] + '" />')
             $('#new-photo-' + obj['id']).prepend('<a  class ="glyphicon glyphicon-remove-circle" id="del-' + obj['id'] + '" href="javascript:del_photo(' + obj['id'] + ')"></a>');
             $('#new-photo-' + obj['id']).prepend('<input type="radio" name="radio_img" value=' + obj['photo'] +' /> 选择封面')

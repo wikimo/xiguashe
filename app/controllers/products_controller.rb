@@ -89,6 +89,12 @@ class ProductsController < ApplicationController
 
       unless params[:photo_id].nil?
         update_photo(@product, params[:photo_id])
+
+        params[:photo_path_url].each do |url|
+          if url == params[:radio_img]
+            @product.update_attributes(img: url)
+          end
+        end
       end
 
       redirect_to @product, notice: t(:create_success)

@@ -33,7 +33,7 @@
               <ul class="good-img-list">
                 <% !@images.nil? && @images.each_with_index do |image, i| %>
                   <li id="image_#{i}">
-                    <%= link_to image_tag(image, alt: @product.title), "" %> <br/>
+                    <%= image_tag image, alt: @product.title %> <br/>
                     <%= radio_button_tag :radio_img, image, checked_helper(i) %> 选择封面
                     <%= hidden_field_tag 'image[]', image %>
                     <%= link_to '', 'javascript:void(0)', name: "del_img",class: 'glyphicon glyphicon-remove-circle' %>
@@ -42,10 +42,11 @@
                 <% if @photos %>
                   <% @photos.each do |photo| %>
                     <li>
-                      <%= link_to photo_choose_helper(photo), "" %><br />
-                      <%= radio_button_tag :radio_img, photo_choose_url_helper(photo) %> 选择封面
+                      <%= image_tag photo.path.url %><br />
+                      <%= radio_button_tag :radio_img, photo.path.url %> 选择封面
                       <%= link_to '', "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}", class: "glyphicon glyphicon-remove-circle" %>
                       <%= hidden_field_tag 'photo_id[]', "#{photo.id}" %>
+                      <%= hidden_field_tag 'photo_path_url[]', photo.path.url %>
                     </li>
                   <% end %>
                 <% end %>
