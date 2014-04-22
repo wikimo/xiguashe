@@ -21,8 +21,10 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
 	def update
 
+    params[:product][:img] = params[:radio_img]
+
     if @product.update_attributes(params[:product])
-      redirect_to cpanel_product_path(@product), notice: t(:update_success)
+      redirect_to product_path(@product), notice: t(:update_success)
     end
 		
 	end
