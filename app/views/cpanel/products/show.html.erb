@@ -15,7 +15,7 @@
   <div class="good-photos">
     <ul>
       <% @product.photos.each do |photo| %>
-        <li><%=  photo_choose_helper(photo) %></li>
+        <li><%=  photo.path.url %></li>
       <% end %>
     </ul>
   </div>

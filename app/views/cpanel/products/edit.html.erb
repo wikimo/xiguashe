@@ -24,8 +24,9 @@
     <ul class="cc">
       <% @product.photos.each do |photo| %>
         <li>
-          <%=  photo_choose_helper(photo) %> <br>
-          <%= link_to '', '',class: 'glyphicon glyphicon-remove-circle'%>
+          <%=  image_tag photo.path.url %> <br>
+          <%= radio_button_tag :radio_img, photo.path.url, checked_helper_2(photo, @product.img) %> 选择封面
+          <%= link_to "", "javascript:del_photo(#{photo.id})", id: "del-#{photo.id}", class: 'glyphicon glyphicon-remove-circle' %>
         </li>
       <% end %>
     </ul>
