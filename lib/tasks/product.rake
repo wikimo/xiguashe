@@ -36,8 +36,40 @@ namespace :douban do
       p "sync end! success!" 
   end
 
+  task update_url: :environment do
+    products = Product.all
+    products.each do |product|
+       product = convert_douban_url product
+       product.save
+    end
+    p "update url ok!"  
+  end  
+
   def find_product(really_id, source)
     product = Product.by_really_id(really_id).by_source(source).first
+  end
+
+  def convert_douban_url product
+    url = product.url
+    if url.include? 'douban'
+      url = url.split('link2?url=').last
+
+      if url.include? 'item.jd.com'
+        url = URI.decode(url).split('link2?url=').last.split('to=').last
+        url = URI.decode(url).split('&s=').first
+        product.source = 'jd'
+
+      else
+        url = URI.decode(url)
+        url = url.split('&spm=').first
+        product.source = 'taobao'
+      end
+      p "product_id ==> #{product.id} source ==> #{product.source}"
+      
+      product.url = url
+    end
+
+    product
   end
 
 end
