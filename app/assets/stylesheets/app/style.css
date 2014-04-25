@@ -632,6 +632,11 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     color: #aaa;
 }
 
+.more-goods{
+    text-align: center;
+    padding: 10px;
+}
+
 @media (min-width: 768px) {
     .search-box{
         display: block;

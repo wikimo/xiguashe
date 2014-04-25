@@ -15,7 +15,13 @@
         <ul>
           <%= render partial: "public/products", collection: @products, as: :product %>
         </ul>
+   
+
       </div>
+      <div class="more-goods">
+         <%= link_to '查看更多',products_path,:class => 'btn btn-primary btn-lg'%>
+      </div>
+     
     </div>
   </div>
 </div>
