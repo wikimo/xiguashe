@@ -14,7 +14,7 @@
             <% end %>
           </div>
           <h3><%= @product.title %></h3>
-          <%= link_to '去购买', @product.url, class: "btn btn-primary",target: '_blank' %>
+          <%= link_to '去购买', "#{@product.url}?&ali_trackid=2:mm_24845652_6296724_21770106,0:1398413559_3k5_1974459815&spm=a3300.2167489.5634677.7.n2jknv", class: "btn btn-primary",target: '_blank' %>
           <span class="price"><%= number_to_currency @product.price, unit: @product.money_logo %></span>
           
 
