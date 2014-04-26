@@ -193,6 +193,7 @@ $(function(){
         }
         else if (msg["text"] == 1) {
           generate_html(msg);
+          $(".message").show();
           $(".message").html("没有了");
         }
         else if (msg["text"] == 2) {
@@ -200,7 +201,6 @@ $(function(){
         }
       }
     });
-
   }
 
   function generate_html(msg) {
@@ -220,7 +220,7 @@ $(function(){
                 '<div class="good">' + 
                 '<h3><a href="/products/' + msg["products"][i].id + '">' + msg["products"][i].title + '</a></h3>' +
                 '<blockquote>' +
-                '<a href=""><img src="' + msg["products"][i].img + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
+                '<a href="/users/' + msg["products"][i].user_id + '"><img src="' + msg["products"][i].img + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
                 '</blockquote>';
 
         var footer = '<footer class="cc">';
