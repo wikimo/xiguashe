@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def scroll
-
+    
     offset = params[:offset].to_i
 
     if Product.count <= offset
