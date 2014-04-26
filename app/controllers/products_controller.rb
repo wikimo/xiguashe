@@ -7,7 +7,31 @@ class ProductsController < ApplicationController
   before_filter :find_by_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.short.includes(:user).order_by_created_at_desc.paginate(page: params[:page])
+    @products = Product.short.includes(:user).order_by_created_at_desc.limit(Product.per_page)
+    @offset = Product.per_page
+  end
+
+  def scroll
+
+    offset = params[:offset].to_i
+
+    if Product.count <= offset
+
+      render json: { text: 0 } 
+
+    elsif Product.count > offset && Product.count - offset < Product.per_page
+
+      limit = Product.count - offset 
+      @products = Product.short.includes(:user).order_by_created_at_desc.limit(limit).offset(offset)
+      render json: { text: 1, products: @products, offset: Product.count }
+
+    else
+
+      @products = Product.short.includes(:user).order_by_created_at_desc.limit(Product.per_page).offset(offset)
+      render json: { text: 2, products: @products, offset: offset + Product.per_page }
+
+    end
+    
   end
 
   def show

@@ -22,7 +22,7 @@ Xiguashe::Application.routes.draw do
 
   resources :products do
     collection do
-      get :url, :exist
+      get :url, :exist, :scroll
       post :get
     end
     resources :comments
@@ -43,7 +43,7 @@ Xiguashe::Application.routes.draw do
   match "users/:id/destroy_tag/:tag" => "users#destroy_tag" , :via => :delete  
 
   resources :topics do
-    resources :comments
+   resources :comments
   end
 
   resources :likes
