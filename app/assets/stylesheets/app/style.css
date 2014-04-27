@@ -749,7 +749,21 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 
 }
 
-#back-to-top{background-color:#ccc;border-radius:2px;bottom:10px;display:block;font-family:Arial;line-height:46px;margin-right:0;padding:5px 7px 8px 5px;position:fixed;right:10px;text-align:center;width:50px;z-index:10;text-align:center;cursor:pointer;color:#eee}#back-to-top span{cursor:pointer}#back-to-top em.tr{display:block;font-size:74px;height:27px;margin:0 0 0 2px;overflow:hidden;padding:0;text-align:left;width:40px}#back-to-top .tube{display:block;font-size:30px;height:20px;margin:-10px 0 0 5px;overflow:hidden;padding:0;text-align:left;width:40px}
+#back-to-top{
+    border-radius:2px;
+    bottom:10px;
+    display:block;
+    position:fixed;
+    right:10px;
+    text-align:center;
+
+    z-index:10;
+    cursor:pointer;
+    color:#ccc;
+ 
+    font-size: 36px;
+}
+
 
 /*清除浮动 代码*/
 .cc:after {content: ".";display: block;height:0;clear: both;visibility: hidden;}

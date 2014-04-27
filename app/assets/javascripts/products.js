@@ -187,14 +187,14 @@ $(function(){
       url : "/products/scroll",
       data : "offset=" + $("#offset").val(),
       success : function(msg) {
-        console.log(msg);
         if(msg["text"] == 0) {
-          console.log("....");
+          // console.log("....");
         }
         else if (msg["text"] == 1) {
           generate_html(msg);
           $(".message").show();
-          $(".message").html("没有了");
+          $(".message").html("貌似木有其它东西了……");
+          $(".loading").css('display','none');
         }
         else if (msg["text"] == 2) {
           generate_html(msg);

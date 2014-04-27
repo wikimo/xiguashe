@@ -3,11 +3,11 @@
     <%= render 'public/flash_notice' %>
     <div class="col-xs-12">
       <div class="good-list">
-        <ul id="products">
+        <ul id="products" class="cc">
           <%= render partial: 'public/products', collection: @products, as: :product %>
         </ul>
         <div class="loading" style="display: none;"></div>
-        <div class="message" style="display: none;"></div>
+        <div class="message alert alert-warning" style="display: none;"></div>
         <%= hidden_field_tag :offset, @offset %>
       </div>
     </div>
