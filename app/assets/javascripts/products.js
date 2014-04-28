@@ -171,75 +171,76 @@ $(function(){
   });
 
   $(window).scroll(function(){
-    if($(window).scrollTop() == $(document).height() - $(window).height()){
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
       if ($("#offset").val() != null) {
         load_products();
       }
     }
   });
 
-  function load_products(){
-
-    $(".loading").show();
-
-    $.ajax({
-      type: "get",
-      url : "/products/scroll",
-      data : "offset=" + $("#offset").val(),
-      success : function(msg) {
-        if(msg["text"] == 0) {
-          // console.log("....");
-        }
-        else if (msg["text"] == 1) {
-          generate_html(msg);
-          $(".message").show();
-          $(".message").html("貌似木有其它东西了……");
-          $(".loading").css('display','none');
-        }
-        else if (msg["text"] == 2) {
-          generate_html(msg);
-        }
-      }
-    });
-  }
-
-  function generate_html(msg) {
-
-     $("#offset").val(msg["offset"]);
-     $(".loading").hide();
-
-     var html = "";
-
-     for (var i = 0; i < msg["products"].length; i ++) {
-
-        html += '<li>' + 
-                '<div class="good-img"><a href="/products/' + msg["products"][i].id + '"><img src="' + msg["products"][i].img + '"/></a>' +
-                '<span></span>' + 
-                '<em>' + msg["products"][i].money_logo + ' ' + msg["products"][i].price + '</em>' + 
-                '</div>'  +
-                '<div class="good">' + 
-                '<h3><a href="/products/' + msg["products"][i].id + '">' + msg["products"][i].title + '</a></h3>' +
-                '<blockquote>' +
-                '<a href="/users/' + msg["products"][i].user_id + '"><img src="' + msg["products"][i].img + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
-                '</blockquote>';
-
-        var footer = '<footer class="cc">';
-
-        if (msg["products"][i].reply_num > 0) {
-
-          footer += "<cite>评论" + msg["products"][i].reply_num + "</cite>";
-
-        }
-        footer+= "</footer></div></li>";
-        
-        html += footer;
-     }
-
-     $("#products").append(html);
-  }
-  
 });
 
+function load_products(){
+
+  $(".loading").show();
+
+  console.log($("#offset").val());
+
+  $.ajax({
+    type: "get",
+    url : "/products/scroll",
+    data : "offset=" + $("#offset").val(),
+    success : function(msg) {
+      if(msg["text"] == 0) {
+        $(".loading").css('display','none');
+      }
+      else if (msg["text"] == 1) {
+        generate_html(msg);
+        $(".message").show();
+        $(".message").html("貌似木有其它东西了……");
+        $(".loading").css('display','none');
+      }
+      else if (msg["text"] == 2) {
+        generate_html(msg);
+      }
+    }
+  });
+}
+
+function generate_html(msg) {
+
+   $("#offset").val(msg["offset"]);
+   $(".loading").hide();
+
+   var html = "";
+
+   for (var i = 0; i < msg["products"].length; i ++) {
+
+      html += '<li>' + 
+              '<div class="good-img"><a href="/products/' + msg["products"][i].id + '"><img src="' + msg["products"][i].img + '"/></a>' +
+              '<span></span>' + 
+              '<em>' + msg["products"][i].money_logo + ' ' + msg["products"][i].price + '</em>' + 
+              '</div>'  +
+              '<div class="good">' + 
+              '<h3><a href="/products/' + msg["products"][i].id + '">' + msg["products"][i].title + '</a></h3>' +
+              '<blockquote>' +
+              '<a href="/users/' + msg["products"][i].user_id + '"><img src="' + msg["products"][i].img + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
+              '</blockquote>';
+
+      var footer = '<footer class="cc">';
+
+      if (msg["products"][i].reply_num > 0) {
+
+        footer += "<cite>评论" + msg["products"][i].reply_num + "</cite>";
+
+      }
+      footer+= "</footer></div></li>";
+      
+      html += footer;
+   }
+
+   $("#products").append(html);
+}
 
 function del_photo(id) {
   $.ajax({
