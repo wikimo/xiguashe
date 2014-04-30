@@ -15,7 +15,9 @@
           <p>
             发表于: <%= timeago_tag @topic.created_at, nojs: true, limit: 10.day.ago %>
             已有<%= @topic.hit_num %> 人浏览
-            <%= link_to '编辑', edit_topic_path(@topic) %>
+            <% create_user_only @topic do %>
+              <%= link_to '编辑', edit_topic_path(@topic) %>
+            <% end %>
           </p>
         </div>
         <div class="show-content">

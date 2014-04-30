@@ -6,4 +6,8 @@ module TopicsHelper
     end
   end
 
+  def create_user_only(item, &block)
+    block.call if current_user && current_user.id == item.user.id 
+  end
+
 end

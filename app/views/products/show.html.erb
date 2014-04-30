@@ -8,12 +8,10 @@
         <div class="good-info">
           <div class="sharer">
             由 <%= user_avatar_helper(@product.user) %> 发布 
-            <% if current_user == @product.user %>
+            <% create_user_only @product do %>
               <%= link_to '编辑', edit_product_path(@product) %>
               <%= link_to '删除', @product, confirm: '确认删除? ', method: :delete %>
             <% end %>
-           
-              
           </div>
           <h3><%= @product.title %></h3>
           <%= convert_product_url @product.url%>
