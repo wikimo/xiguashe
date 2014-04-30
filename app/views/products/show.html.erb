@@ -12,14 +12,11 @@
               <%= link_to '编辑', edit_product_path(@product) %>
               <%= link_to '删除', @product, confirm: '确认删除? ', method: :delete %>
             <% end %>
-            <!-- JiaThis Button BEGIN --><div id="ckepop">
-              <span class="jiathis_txt">分享到：</span>
-              <a class="jiathis_button_weixin">微信</a> 
-            </div> <!-- JiaThis Button END -->
+           
               
           </div>
           <h3><%= @product.title %></h3>
-          <%= link_to '去购买', @product.url, class: "btn btn-primary",target: '_blank' %>
+          <%= convert_product_url @product.url%>
           <span class="price"><%= number_to_currency @product.price, unit: @product.money_logo %></span>
           
 
@@ -27,9 +24,15 @@
             <h4>发布者评价：</h4>
             <%= @product.appraisal %>
           </blockquote>
+
+           <!-- JiaThis Button BEGIN --><div id="ckepop">
+              <span class="jiathis_txt">分享到：</span>
+              <a class="jiathis_button_weixin">微信</a> 
+            </div> <!-- JiaThis Button END -->
         </div>
+
         <div class="c"></div>
-     
+        
         <!-- <div class="good-content">
           <blockquote>
             <%= @product.appraisal %>
