@@ -621,16 +621,24 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 .contacter img{border-radius: 50%;}
 
 .footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
     font-size: 13px;
     color: #aaa;
     line-height: 1.5em;
     background: #2F2F2F;
-    padding: 10px 0 10px 0 ;
+    padding: 10px 0 0 0 ;
     margin-top: 20px;
+    width: 100%;
+    z-index:3;
 }
 .footer a{
     padding: 0 5px;
     color: #aaa;
+}
+.footer p{
+    margin-bottom: 5px;
 }
 
 .more-goods{
