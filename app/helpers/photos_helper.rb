@@ -1,4 +1,3 @@
-# encoding:utf-8
 module PhotosHelper
 
   def photo_choose_helper(photo)
