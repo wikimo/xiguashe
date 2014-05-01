@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   before_filter :find_topic, :only => [:edit,:update,:show, :get_comment_user]
 
 	def index
+
 		@topics = Topic.short.includes(:user).order_by_created_at_desc.paginate(:page => params[:page])
 	end
 
