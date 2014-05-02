@@ -306,8 +306,8 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 
 .actions-content{
     margin: 0 10%;
-    padding: 10px 0;
-    margin-bottom: 55px;
+    padding: 10px 0  80px 0;
+
 }
 
 .post-comment{
@@ -765,7 +765,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
 
 #back-to-top{
     border-radius:2px;
-    bottom:10px;
+    bottom:0px;
     display:block;
     position:fixed;
     right:10px;
