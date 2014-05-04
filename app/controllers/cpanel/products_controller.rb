@@ -9,6 +9,7 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
 	def index
     @products = Product.short.includes(:user).search_in_cpanel(params[:search]).paginate(page: params[:page])
+    params[:page] ||= 1
 	end
 
 	def show
@@ -31,9 +32,10 @@ class Cpanel::ProductsController < Cpanel::ApplicationController
 
 	def destroy
 
+    @products = Product.short.includes(:user).search_in_cpanel(params[:search]).paginate(page: params[:page])
     @product.destroy
+    params[:page] ||= 1
 
-    redirect_to cpanel_products_path, notice: t(:delete_success)
 	end
 
   def batch_destroy
