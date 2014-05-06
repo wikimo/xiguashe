@@ -13,7 +13,8 @@
                     <%= mention_id_helper(notification.mention_id) %>
                     <%= link_to notification.notificationable.commentable.try(:title), "/notifications/read/#{notification.id}/0" %>
                     <% is_read_helper notification do %>
-                      <span>New</span>
+                      
+                      <span class="glyphicon glyphicon-envelope"></span>
                     <% end %>
                     <cite><%= timeago_tag notification.created_at, nojs: true, limit: 10.day.ago %></cite>
                     <p>
