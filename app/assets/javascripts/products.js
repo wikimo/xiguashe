@@ -165,8 +165,7 @@ $(function(){
       str += $(this).val() + ",";
     });
 
-
-    window.location.href = '/cpanel/products/batch_destroy?ids='+ str;
+    window.location.href = '/cpanel/products/batch_destroy?ids='+ str + '&page=' + $('#page').val();
 
   });
 
