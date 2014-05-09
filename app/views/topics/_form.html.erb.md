@@ -12,7 +12,7 @@
               <%= f.text_field :title, class: 'form-control', placeholder: '取个有意思的标题吧……'%>
             </div>
             <div class="form-group">
-              <%= f.text_area :content,:cols => 30, :rows => 10,:class => 'form-control',:placeholder => '发挥下你的创作灵感……',:id => 'editor'%>
+              <%= f.text_area :content,:cols => 30, :rows => 10,:class => 'form-control',:placeholder => '发挥下你的创作灵感……',"data-provide" => 'markdown'%>
               
             </div>
             <div class="form-group">
@@ -39,22 +39,5 @@
     $('.file-inputs').bootstrapFileInput();
     if($('.topic-img-preview'))
       $('.topic-img-preview').popover({'html':true})
-
-    var editor = new Simditor({
-      textarea: $('#editor'),
-      toolbar:[
-          'title',
-          'bold',
-          'italic',
-          'underline',
-          'strikethrough',
-          'ol',
-          'ul',
-          'blockquote',
-          'link' ,
-          // 'image',
-          'hr'
-        ]
-    });
   })
 </script>
