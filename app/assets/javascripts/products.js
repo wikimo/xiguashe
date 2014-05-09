@@ -165,8 +165,7 @@ $(function(){
       str += $(this).val() + ",";
     });
 
-
-    window.location.href = '/cpanel/products/batch_destroy?ids='+ str;
+    window.location.href = '/cpanel/products/batch_destroy?ids='+ str + '&page=' + $('#page').val();
 
   });
 
@@ -224,7 +223,7 @@ function generate_html(msg) {
               '<div class="good">' + 
               '<h3><a href="/products/' + msg["products"][i].id + '">' + msg["products"][i].title + '</a></h3>' +
               '<blockquote>' +
-              '<a href="/users/' + msg["products"][i].user_id + '"><img src="' + msg["products"][i].img + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
+              '<a href="/users/' + msg["products"][i].user_id + '"><img src="' + msg["user_imgs"][i] + '"/></a>' + msg["products"][i].appraisal.substr(0, 30) + 
               '</blockquote>';
 
       var footer = '<footer class="cc">';

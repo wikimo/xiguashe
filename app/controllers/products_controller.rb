@@ -23,12 +23,17 @@ class ProductsController < ApplicationController
 
       limit = Product.count - offset 
       @products = Product.short.includes(:user).order_by_created_at_desc.limit(limit).offset(offset)
-      render json: { text: 1, products: @products, offset: Product.count }
+      
+      user_imgs = get_user_img_list(@products)
+
+      render json: { text: 1, products: @products, user_imgs: user_imgs, offset: Product.count }
 
     else
 
       @products = Product.short.includes(:user).order_by_created_at_desc.limit(Product.per_page).offset(offset)
-      render json: { text: 2, products: @products, offset: offset + Product.per_page }
+
+      user_imgs = get_user_img_list(@products)
+      render json: { text: 2, products: @products, user_imgs: user_imgs, offset: offset + Product.per_page }
 
     end
     
@@ -173,6 +178,16 @@ class ProductsController < ApplicationController
     def validate_url(url)
       mat = /(http|https):\/\//.match(params[:link])
       mat.nil? 
+    end
+
+    def get_user_img_list(products)
+      user_imgs = []
+
+      products.each do |product|
+        user_imgs << (product.user.avatar.nil? ? 'avatar.jpg' : product.user.avatar.url('100x100'))
+      end
+
+      user_imgs
     end
 
 end
