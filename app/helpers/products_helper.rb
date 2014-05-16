@@ -40,14 +40,14 @@ module ProductsHelper
 
   end
 
-   def convert_product_url(url)
-    if url.include?('taobao') || url.include?('tmall')
-      id = url.split('id=').last
-      return raw "<a data-type='0' biz-itemid='#{id}' data-rd='2' data-style='2'  href='#{url}' class='btn btn-primary' data-tmplid='623' data-tmpl='60x25' target='_blank'>去购买</a>"
-    end
+  #  def convert_product_url(url)
+  #   if url.include?('taobao') || url.include?('tmall')
+  #     id = url.split('id=').last
+  #     return raw "<a data-type='0' biz-itemid='#{id}' data-rd='2' data-style='2'  href='#{url}' class='btn btn-primary' data-tmplid='623' data-tmpl='60x25' target='_blank'>去购买</a>"
+  #   end
 
-    link_to '去购买', url, class: "btn btn-primary",target: '_blank'
-  end
+  #   link_to '去购买', url, class: "btn btn-primary",target: '_blank'
+  # end
 
 
 end

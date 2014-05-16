@@ -14,7 +14,8 @@
             <% end %>
           </div>
           <h3><%= @product.title %></h3>
-          <%= convert_product_url @product.url%>
+    
+          <%= link_to '去购买',@product.url,class: 'btn btn-primary', target:'_blank'%>
           <span class="price"><%= number_to_currency @product.price, unit: @product.money_logo %></span>
           
 
