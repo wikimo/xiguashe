@@ -84,6 +84,6 @@ Xiguashe::Application.routes.draw do
   
   mount API => '/'
 
-  root :to => 'home#index'
+  root :to => 'products#index'
 
 end

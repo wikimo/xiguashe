@@ -132,7 +132,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     float: left;
     margin-right: 5px;
 }
-.good-list .good .avatar img{
+.avatar img{
     border-radius: 48%;
 }
 
@@ -642,6 +642,12 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
     margin-bottom: 5px;
 }
 
+.upyun{
+    position: absolute;
+    right: 45px;
+    top: 5px;
+}
+
 .more-goods{
     text-align: center;
     padding: 10px;
@@ -697,7 +703,7 @@ a.more{background: #fff;padding: 8px 15px;border-radius: 2px;text-decoration: no
         width: 100%;
     }
     .good-list .good-img img{
-        height: 300px;
+        /*height: 300px;*/
         max-height: 300px;
         overflow: hidden;
     }

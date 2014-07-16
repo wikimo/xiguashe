@@ -2,14 +2,12 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="user-content">
-        <ul class="nav nav-pills">
 
-          <%= user_nav_helper(current_user, params_do_helper(params[:action], params[:do])) %>
+        <%= link_to user_avatar_helper(@user), @user, class: 'avatar', title: @user.nickname %>
+        <span><%= @user.nickname%></span>
 
-          </li>
-        </ul>
         <div class="tab-content">
-          <%= render partial: params_do_helper(params[:action], params[:do]), locals: { topics: @topics } %>
+          <%= render partial: 'products', locals: { products: @products } %>
         </div>
       </div>
     </div>

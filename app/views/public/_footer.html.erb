@@ -3,8 +3,13 @@
 		<p>
 			<a href="/about">关于西瓜社</a>
 			<a href="/contact">联系我们</a>
+
 		</p>
-		<p>Copyright &copy; 2012-2014 XIGUASHE.COM Corporation. All Rights Reserved</p>
+		<p>Copyright &copy; 2012-2014 XIGUASHE.COM Corporation. All Rights Reserved
+		<%= link_to image_tag('upyun.png',:alt => '又拍云'), 'https://www.upyun.com',class: 'upyun',target: '_blank'%>
+		</p>
+
+
 	</div>
 </footer>
 
@@ -12,13 +17,13 @@
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F056148fd9d667cefd578d869f0b6ee91' type='text/javascript'%3E%3C/script%3E"));
 
-$(window).scroll(function(){
-	$('.footer').hide();
+// $(window).scroll(function(){
+// 	$('.footer').hide();
 
-	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-	WeixinJSBridge.call('hideToolbar');
-	});
-})
+// 	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+// 	WeixinJSBridge.call('hideToolbar');
+// 	});
+// })
 </script>
 
 <%= render 'public/back_top'%>

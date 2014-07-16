@@ -5,21 +5,22 @@ class UsersController < ApplicationController
 
 
   def show
-    if params[:do].nil? || params[:do] == 'topics'
+    # if params[:do].nil? || params[:do] == 'topics'
 
-      @topics = @user.topics.paginate(page: params[:page])
+    #   @topics = @user.topics.paginate(page: params[:page])
 
-    elsif params[:do] == 'products'
+    # elsif params[:do] == 'products'
 
-      @products = @user.products.paginate(page: params[:page])
+    #   @products = @user.products.paginate(page: params[:page])
 
     #elsif params[:do] == 'likes'
 
     #  @likes = @user.likes('Topic')
     #  @topics = Topic.by_ids(@likes.map(&:likeable_id)).paginate(page: params[:page])
 
-    end
-
+    # end
+    @products = @user.products.paginate(page: params[:page])
+    
     @do = params[:do]
   end
 

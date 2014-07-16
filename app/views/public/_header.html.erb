@@ -11,9 +11,9 @@
       <%= link_to '西瓜社', root_path, class: 'navbar-brand' %>
     </div>
     <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav xgs-nav">
+      <!-- <ul class="nav navbar-nav xgs-nav">
         <%= nav_helper(params[:controller]) %>
-      </ul>
+      </ul> -->
       <div class="search-box">
         <%= form_tag '/search/topics', method: :get do %>
           <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: '搜索其实很简单......'%>

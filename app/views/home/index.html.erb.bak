@@ -1,7 +1,16 @@
 <div class="home-index">
   <div class="row">
     <div class="col-xs-12">
-
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% (0..@topics.count - 1).each do |i| %>
+            <%= carousel_for(i) %>
+          <% end %>
+        </ol> 
+        <div class="carousel-inner">
+          <%= render partial: 'public/topics', locals: { topics: @topics } %>
+        </div>
+      </div>
       <div class="good-list">
         <ul>
           <%= render partial: "public/products", collection: @products, as: :product %>

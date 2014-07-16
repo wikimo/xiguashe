@@ -5,11 +5,11 @@ module UsersHelper
 		html = ''
 
 		if current_user == user 
-			if action == 'topics'
-				html.concat(content_tag :li, content_tag(:a ,'我的文章',href: "/users/#{user.id}?do=topics"), class: 'active')
-			else
-				html.concat(content_tag :li, content_tag(:a ,'我的文章',href: "/users/#{user.id}?do=topics"))
-			end
+			# if action == 'topics'
+			# 	html.concat(content_tag :li, content_tag(:a ,'我的文章',href: "/users/#{user.id}?do=topics"), class: 'active')
+			# else
+			# 	html.concat(content_tag :li, content_tag(:a ,'我的文章',href: "/users/#{user.id}?do=topics"))
+			# end
 
 
       if action == 'products'
