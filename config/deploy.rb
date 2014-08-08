@@ -1,45 +1,84 @@
-set :domain, 'www.xiguashe.com'  
-set :user, "root"
+# config valid only for Capistrano 3.1
+lock '3.2.1'
 
-set :application, "www.xiguashe.com"
-set :repository,  "git@github.com:wikimo/xiguashe.git"
+set :application, 'xiguashe'
+set :repo_url, 'git@git.oschina.net:wikimo/xiguashe.git'
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+# Default branch is :master
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
-role :web, domain                          # Your HTTP server, Apache/etc
-role :app, domain                          # This may be the same as your `Web` server
-role :db,  domain, :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
+# Default deploy_to directory is /var/www/my_app
+set :deploy_to, '/home/wwwroot/www.xiguashe.com'
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+# Default value for :scm is :git
+set :scm, :git
+set :branch, 'devel'
+# Default value for :format is :pretty
+# set :format, :pretty
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+# Default value for :log_level is :debug
+set :log_level, :debug
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+# Default value for :pty is false
+# set :pty, true
 
-set :scm, 'git'
-set :branch, 'master'
-set :scm_verbose, true
-set :use_sudo, false
-set :rails_env, "production"
+# Default value for :linked_files is []
+set :linked_files, %w{config/database.yml config/thin.yml}
+
+# Default value for linked_dirs is []
+set :linked_dirs, %w{script log tmp/pids tmp/cache tmp/sockets vendor/bundle}
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for keep_releases is 5
+set :keep_releases, 5
+
+set :rvm_ruby_version, '1.9.3'
+set :rvm_ruby_version, '1.9.3@3.2'
 
 namespace :deploy do
-  desc "cause Passenger to initiate a restart"
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
+
+  task :config_nginx do
+    on roles(:app) do
+      paths = capture "grep deployed #{deploy_to}/revisions.log | tail -n 2 | cut -d' ' -f8"
+      pre = paths.split("\n").first
+      current = paths.split("\n").last
+      execute "sed -i  's/#{pre}/#{current}/g' /usr/local/nginx/conf/vhost/www.xiguashe.com.conf" 
+    end
+
+    puts 'config nginx..'
   end
-  desc "reload the database with seed data"
-  task :seed do
-    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+
+  task :restart_thin_server do
+    on roles(:app) do
+       thin_pids = capture "ps -ef | grep xiguashe-thin  | grep -v grep  | awk {'print $2'}"
+       execute "ps -ef | grep xiguashe-thin  | grep -v grep  | awk {'print $2'}  | xargs kill -9" if thin_pids.length > 0
+
+       paths = capture "grep deployed #{deploy_to}/revisions.log | tail -n 2 | cut -d' ' -f8"
+       pre_path = paths.split("\n").first
+       pre_path = "#{deploy_to}/releases/#{pre_path}"
+
+       release_path = paths.split("\n").last
+       release_path = "#{deploy_to}/releases/#{release_path}"
+       # start thin
+       execute "cd #{release_path}; thin start -C config/thin.yml -p 8000"
+       
+      end
+
+    puts 'restart thin server...'
   end
+
+  task :reload_nginx do
+    on roles(:app) do
+      execute " nginx -s reload"
+    end
+    puts "reload nginx..."
+  end
+
 end
+
+
+after :deploy, "deploy:restart_thin_server"
+after 'deploy:restart_thin_server', 'deploy:config_nginx'
+after 'deploy:config_nginx','deploy:reload_nginx'

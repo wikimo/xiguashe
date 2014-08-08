@@ -1,0 +1,11 @@
+log/
+tmp/
+config/database.yml
+public/attachment/
+public/uploads/
+public/assets/
+solr/data/
+solr/pids/
+.sass-cache/
+.rvmrc
+.DS_Store

@@ -1,0 +1,17 @@
+#thin config
+user: www
+group: www
+pid: tmp/pids/thin.pid
+timeout: 30
+wait: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: production
+max_persistent_conns: 512
+servers: 3
+threaded: false
+daemonize: true
+#socket: tmp/sockets/thin.sock
+chdir: /home/wwwroot/www.xiguashe.com 
+tag: xiguashe-thin
