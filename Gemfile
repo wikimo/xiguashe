@@ -21,7 +21,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'jquery-atwho-rails'
+  gem 'jquery-atwho-rails', git: 'https://github.com/ichord/jquery-atwho-rails.git'
 end
 
 gem 'jquery-rails'

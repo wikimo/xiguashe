@@ -14,7 +14,7 @@ GIT
       virtus (>= 1.0.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     TaoBaoApi (0.0.8)
       faraday
