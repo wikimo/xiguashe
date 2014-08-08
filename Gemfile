@@ -21,7 +21,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'jquery-atwho-rails', git: 'https://github.com/ichord/jquery-atwho-rails.git'
+  gem 'jquery-atwho-rails'
 end
 
 gem 'jquery-rails'
@@ -56,7 +56,8 @@ gem 'capistrano-rails'
 gem "TaoBaoApi"
 
 # API
-gem 'grape', git: 'https://github.com/intridea/grape.git'
+#gem 'grape', git: 'https://github.com/intridea/grape.git'
+gem 'grape'
 
 group :development do
   gem 'annotate', '2.5.0'
