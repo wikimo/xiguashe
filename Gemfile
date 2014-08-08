@@ -56,8 +56,8 @@ gem 'capistrano-rails'
 gem "TaoBaoApi"
 
 # API
-#gem 'grape', git: 'https://github.com/intridea/grape.git'
-gem 'grape'
+gem 'grape', git: 'https://github.com/intridea/grape.git'
+# gem 'grape'
 
 group :development do
   gem 'annotate', '2.5.0'
