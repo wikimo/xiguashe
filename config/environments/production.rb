@@ -22,7 +22,7 @@ Xiguashe::Application.configure do
 
   #config.assets.debug = true
 
-  config.assets.precompile += ['admin.css']
+  # config.assets.precompile += ['admin.css']
 
   config.assets.paths << "#{Rails.root}/app/assets/app"
 
