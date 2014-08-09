@@ -8,3 +8,4 @@ solr/data/
 solr/pids/
 .sass-cache/
 .DS_Store
+.rvmrc

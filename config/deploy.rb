@@ -62,7 +62,7 @@ namespace :deploy do
        release_path = paths.split("\n").last
        release_path = "#{deploy_to}/releases/#{release_path}"
        # start thin
-       execute "cd #{release_path}; thin start -C config/thin.yml -p 8000"
+       execute "cd #{release_path}; bundle exec thin start -C config/thin.yml -p 8000"
        
       end
 

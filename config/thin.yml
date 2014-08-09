@@ -13,5 +13,5 @@ servers: 3
 threaded: false
 daemonize: true
 #socket: tmp/sockets/thin.sock
-chdir: /home/wwwroot/www.xiguashe.com 
+chdir: /home/wwwroot/www.xiguashe.com/current 
 tag: xiguashe-thin
