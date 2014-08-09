@@ -7,5 +7,4 @@ public/assets/
 solr/data/
 solr/pids/
 .sass-cache/
-.rvmrc
 .DS_Store
