@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
   before_filter :find_by_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    redirect_to action:'about' , controller: 'home'
-    # @products = Product.short.includes(:user).order_by_created_at_desc.limit(Product.per_page)
-    # @offset = Product.per_page
+    # redirect_to action:'about' , controller: 'home'
+    @products = Product.short.includes(:user).order_by_created_at_desc.limit(Product.per_page)
+    @offset = Product.per_page
   end
 
   def scroll

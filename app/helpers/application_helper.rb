@@ -8,11 +8,11 @@ module ApplicationHelper
   def nav_helper(controller)
 
     html = ''
-    # if controller == 'topics' 
-    #   html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path), class: 'active')
-    # else
-    #   html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path))
-    # end
+    if controller == 'topics' 
+      html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path), class: 'active')
+    else
+      html.concat(content_tag :li, content_tag(:a, '文章', href: topics_path))
+    end
 
     if controller == 'products'
       html.concat(content_tag :li, content_tag(:a, '东西', href: products_path), class: 'active')
