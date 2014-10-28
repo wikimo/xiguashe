@@ -1,0 +1,1464 @@
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:14:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:15:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:14:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:15:in `<top (required)>')
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-18 16:59:02 +0800
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (4.8ms)
+Compiled jquery.js  (2ms)  (pid 14364)
+Compiled jquery_ujs.js  (0ms)  (pid 14364)
+Compiled bootstrap.file-input.js  (0ms)  (pid 14364)
+Compiled bootstrap.js  (0ms)  (pid 14364)
+Compiled comments.js  (241ms)  (pid 14364)
+Compiled jquery.atwho.js  (0ms)  (pid 14364)
+Compiled jquery.backtotop.js  (0ms)  (pid 14364)
+Compiled jquery.pin.js  (0ms)  (pid 14364)
+Compiled markdown.js  (0ms)  (pid 14364)
+Compiled products.js  (0ms)  (pid 14364)
+Compiled simditor-all.js  (2ms)  (pid 14364)
+Compiled timeago.js  (0ms)  (pid 14364)
+Compiled timeago.zh-cn.js  (0ms)  (pid 14364)
+Compiled to-markdown.js  (0ms)  (pid 14364)
+Compiled topics.js  (0ms)  (pid 14364)
+Compiled zxxFile.js  (0ms)  (pid 14364)
+Compiled jquery.timeago.js  (0ms)  (pid 14364)
+Compiled rails-timeago.js  (47ms)  (pid 14364)
+Compiled locales/jquery.timeago.zh-CN.js  (0ms)  (pid 14364)
+Compiled application.js  (555ms)  (pid 14364)
+Compiled app/bootstrap-markdown.min.css  (0ms)  (pid 14364)
+Compiled app/bootstrap.css  (0ms)  (pid 14364)
+Compiled app/font-awesome.css  (0ms)  (pid 14364)
+Compiled app/jquery.atwho.css  (0ms)  (pid 14364)
+Warning. Error encountered while saving cache /wikimo/project/xiguashe.com/tmp/cache/sass/bebc5e805e5acd83ee6efd52999986f837df72cd/simditor.scssc: can't dump anonymous class #<Class:0x007fe365e10ac8>
+Compiled app/simditor.css  (80ms)  (pid 14364)
+Compiled app/style.css  (0ms)  (pid 14364)
+Compiled application.css  (133ms)  (pid 14364)
+  Rendered public/_header.html.erb (3.2ms)
+  Rendered public/_back_top.html.erb (0.3ms)
+  Rendered public/_footer.html.erb (2.0ms)
+Completed 200 OK in 6668ms (Views: 6667.6ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.js - 200 OK (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /bootstrap.file-input.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /bootstrap.js - 200 OK (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /comments.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.atwho.js - 200 OK (1ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/bootstrap-markdown.min.css - 200 OK (2ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/font-awesome.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/jquery.atwho.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/style.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/simditor.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.backtotop.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.pin.js - 200 OK (1ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /markdown.js - 200 OK (1ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /products.js - 200 OK (1ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /simditor-all.js - 200 OK (1ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /timeago.js - 200 OK (1ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /to-markdown.js - 200 OK (1ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /timeago.zh-cn.js - 200 OK (2ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /topics.js - 200 OK (1ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /zxxFile.js - 200 OK (2ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.timeago.js - 200 OK (2ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /rails-timeago.js - 200 OK (2ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:09 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Processing by ProductsController#index as HTML
+Redirected to http://127.0.0.1:3000/about
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.2ms)
+  Rendered public/_header.html.erb (1.1ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:14 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:15 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Processing by ProductsController#index as HTML
+Redirected to http://127.0.0.1:3000/about
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.2ms)
+  Rendered public/_header.html.erb (1.1ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 10.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:23 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/reg" for 127.0.0.1 at 2014-08-18 16:59:29 +0800
+Processing by UsersController#new as HTML
+  Rendered public/_model_errors.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+  Rendered public/_header.html.erb (1.0ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 27ms (Views: 15.4ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:30 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Processing by SessionsController#new as HTML
+  Rendered public/_flash_notice.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+  Rendered public/_header.html.erb (1.1ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-08-18 16:59:31 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:14:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /wikimo/project/xiguashe.com/config/environment.rb:15:in `<top (required)>')
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 15:44:25 +0800
+Processing by HomeController#index as HTML
+  [1m[36mProduct Load (2.9ms)[0m  [1mSELECT id, title, url, img, price, source,appraisal, user_id, created_at, reply_num, money_logo FROM `products` ORDER BY created_at DESC LIMIT 30[0m
+  [1m[35mUser Load (12.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (4, 7, 36, 2, 33, 3, 1)
+  Rendered public/_products.html.erb (74.8ms)
+  Rendered home/index.html.erb within layouts/application (308.6ms)
+  Rendered public/_header.html.erb (34.0ms)
+  Rendered public/_back_top.html.erb (0.3ms)
+  Rendered public/_footer.html.erb (1.7ms)
+Completed 200 OK in 465ms (Views: 341.1ms | ActiveRecord: 76.6ms | Solr: 0.0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /bootstrap.file-input.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /bootstrap.js - 200 OK (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /comments.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery.atwho.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery.backtotop.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery.pin.js - 200 OK (1ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/bootstrap-markdown.min.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/bootstrap.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/jquery.atwho.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/simditor.css - 200 OK (2ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/font-awesome.css - 200 OK (1ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /app/style.css - 200 OK (1ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /markdown.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /products.js - 200 OK (1ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /simditor-all.js - 200 OK (1ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /timeago.js - 200 OK (1ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /to-markdown.js - 200 OK (1ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /timeago.zh-cn.js - 200 OK (1ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /topics.js - 200 OK (1ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /zxxFile.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /jquery.timeago.js - 200 OK (1ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /rails-timeago.js - 200 OK (2ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:26 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 200 OK (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Processing by HomeController#index as HTML
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT id, title, url, img, price, source,appraisal, user_id, created_at, reply_num, money_logo FROM `products` ORDER BY created_at DESC LIMIT 30[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (4, 7, 36, 2, 33, 3, 1)
+  Rendered public/_products.html.erb (60.5ms)
+  Rendered home/index.html.erb within layouts/application (188.9ms)
+  Rendered public/_header.html.erb (1.3ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.9ms)
+Completed 200 OK in 226ms (Views: 183.2ms | ActiveRecord: 21.8ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:51 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Processing by ProductsController#index as HTML
+Redirected to http://127.0.0.1:3000/about
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.5ms)
+  Rendered public/_header.html.erb (1.4ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.6ms)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:53 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Processing by ProductsController#index as HTML
+Redirected to http://127.0.0.1:3000/about
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.2ms)
+  Rendered public/_header.html.erb (1.2ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 10.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:55 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (13.9ms)[0m  [1mSELECT id, title, content, user_id, hit_num, reply_num, like_num, created_at, img FROM `topics` ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 3)
+  Rendered topics/_topics.html.erb (60.6ms)
+  Rendered topics/index.html.erb within layouts/application (93.0ms)
+  Rendered public/_header.html.erb (1.2ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.7ms)
+Completed 200 OK in 105ms (Views: 89.9ms | ActiveRecord: 14.6ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:44:56 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT id, title, content, user_id, hit_num, reply_num, like_num, created_at, img FROM `topics` ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 3)
+  Rendered topics/_topics.html.erb (24.5ms)
+  Rendered topics/index.html.erb within layouts/application (125.4ms)
+  Rendered public/_header.html.erb (1.2ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 139ms (Views: 135.1ms | ActiveRecord: 2.4ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:14 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-10-05 15:45:15 +0800
+Processing by ProductsController#index as HTML
+  Rendered public/_flash_notice.html.erb (0.5ms)
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT id, title, url, img, price, source,appraisal, user_id, created_at, reply_num, money_logo FROM `products` ORDER BY created_at DESC LIMIT 30[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (4, 7, 36, 2, 33, 3, 1)
+  Rendered public/_products.html.erb (66.0ms)
+  Rendered products/index.html.erb within layouts/application (88.1ms)
+  Rendered public/_header.html.erb (1.7ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.6ms)
+Completed 200 OK in 102ms (Views: 100.4ms | ActiveRecord: 0.9ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:16 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/topics" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.8ms)[0m  [1mSELECT id, title, content, user_id, hit_num, reply_num, like_num, created_at, img FROM `topics` ORDER BY created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 3)
+  Rendered topics/_topics.html.erb (21.3ms)
+  Rendered topics/index.html.erb within layouts/application (26.0ms)
+  Rendered public/_header.html.erb (1.3ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 69.3ms | ActiveRecord: 1.1ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:17 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Processing by ProductsController#index as HTML
+  Rendered public/_flash_notice.html.erb (0.1ms)
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT id, title, url, img, price, source,appraisal, user_id, created_at, reply_num, money_logo FROM `products` ORDER BY created_at DESC LIMIT 30[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IN (4, 7, 36, 2, 33, 3, 1)
+  Rendered public/_products.html.erb (29.2ms)
+  Rendered products/index.html.erb within layouts/application (34.6ms)
+  Rendered public/_header.html.erb (1.3ms)
+  Rendered public/_back_top.html.erb (0.0ms)
+  Rendered public/_footer.html.erb (0.5ms)
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.9ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.file-input.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /bootstrap.file-input.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /comments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.atwho.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery.atwho.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap-markdown.min.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/bootstrap-markdown.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/font-awesome.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/font-awesome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/jquery.atwho.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/jquery.atwho.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/simditor.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/simditor.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/style.css?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /app/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.backtotop.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery.backtotop.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.pin.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery.pin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /products.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/simditor-all.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /simditor-all.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/timeago.zh-cn.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /timeago.zh-cn.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/to-markdown.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /to-markdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/topics.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /topics.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zxxFile.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /zxxFile.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /jquery.timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails-timeago.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /rails-timeago.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locales/jquery.timeago.zh-CN.js?body=1" for 127.0.0.1 at 2014-10-05 15:45:20 +0800
+Served asset /locales/jquery.timeago.zh-CN.js - 304 Not Modified (0ms)
+
+
+Started GET "/products/scroll?offset=30" for 127.0.0.1 at 2014-10-05 15:45:23 +0800
+Processing by ProductsController#scroll as */*
+  Parameters: {"offset"=>"30"}
+  [1m[36m (3.7ms)[0m  [1mSELECT COUNT(*) FROM `products` [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `products` 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `products` [0m
+  [1m[35mProduct Load (2.3ms)[0m  SELECT id, title, url, img, price, source,appraisal, user_id, created_at, reply_num, money_logo FROM `products` ORDER BY created_at DESC LIMIT 30 OFFSET 30
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2, 3)[0m
+Completed 200 OK in 25ms (Views: 11.3ms | ActiveRecord: 6.4ms | Solr: 0.0ms)
